@@ -533,6 +533,7 @@ body {
 
 /* Estilos específicos para la sección de características de cuadros en metal */
 /* Estilo anime para sección de características de cuadros en metal */
+/* Estilo anime para sección de características de cuadros en metal */
 .metal-features {
   padding: 80px 0;
   background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 50%, #16213e 100%);
@@ -614,13 +615,7 @@ body {
   overflow: hidden;
   backdrop-filter: blur(5px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  opacity: 0;
-  transform: translateY(50px);
-}
-
-.feature-item.animate {
-  opacity: 1;
-  transform: translateY(0);
+  /* ELIMINADO: opacity: 0; y transform: translateY(50px); */
 }
 
 .feature-item::before {
@@ -707,6 +702,40 @@ body {
   color: #a0a0c0;
   line-height: 1.6;
   font-size: 1rem;
+}
+
+.conclusion {
+  background: rgba(10, 10, 26, 0.7);
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+  border-left: 4px solid #8e2de2;
+  border-right: 1px solid rgba(0, 238, 255, 0.3);
+  border-top: 1px solid rgba(0, 238, 255, 0.3);
+  border-bottom: 1px solid rgba(0, 238, 255, 0.3);
+  backdrop-filter: blur(5px);
+  position: relative;
+  /* ELIMINADO: opacity: 0; y transform: translateY(30px); */
+}
+
+.conclusion::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(74, 0, 224, 0.1), rgba(142, 45, 226, 0.1), rgba(0, 238, 255, 0.1));
+  border-radius: 8px;
+  z-index: -1;
+}
+
+.conclusion p {
+  color: #ffffff;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
 }
 
 /* Efectos de partículas para ambiente anime */
@@ -808,6 +837,14 @@ body {
 @media (max-width: 480px) {
   .section-title {
     font-size: 1.8rem;
+  }
+  
+  .conclusion {
+    padding: 20px;
+  }
+  
+  .conclusion p {
+    font-size: 1rem;
   }
 }
 /* Estilos para la galería minimalista */

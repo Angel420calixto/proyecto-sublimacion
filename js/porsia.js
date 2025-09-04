@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Agregar partículas de fondo
+  // Solo agregar partículas de fondo (las animaciones ya no son necesarias)
   const metalFeatures = document.querySelector('.metal-features');
   const particlesContainer = document.createElement('div');
   particlesContainer.className = 'particles';
@@ -87,35 +87,4 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   metalFeatures.appendChild(particlesContainer);
-  
-  // Animación al hacer scroll y al cargar la página
-  const featureItems = document.querySelectorAll('.feature-item');
-  const conclusion = document.querySelector('.conclusion');
-  
-  function checkVisibility() {
-    featureItems.forEach((item, index) => {
-      const position = item.getBoundingClientRect();
-      
-      // Verificar si el elemento está en el viewport
-      if(position.top < window.innerHeight - 100 && position.bottom >= 0) {
-        setTimeout(() => {
-          item.classList.add('animate');
-        }, index * 200);
-      }
-    });
-    
-    const conclusionPos = conclusion.getBoundingClientRect();
-    if(conclusionPos.top < window.innerHeight - 100 && conclusionPos.bottom >= 0) {
-      conclusion.classList.add('animate');
-    }
-  }
-  
-  // Verificar inmediatamente al cargar la página
-  checkVisibility();
-  
-  // Y también al hacer scroll
-  window.addEventListener('scroll', checkVisibility);
-  
-  // Verificar también después de un pequeño delay para asegurar que todo esté cargado
-  setTimeout(checkVisibility, 300);
 });
