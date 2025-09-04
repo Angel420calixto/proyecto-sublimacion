@@ -73,3 +73,42 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Agregar partículas de fondo
+  const metalFeatures = document.querySelector('.metal-features');
+  const particlesContainer = document.createElement('div');
+  particlesContainer.className = 'particles';
+  
+  for (let i = 0; i < 5; i++) {
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+    particlesContainer.appendChild(particle);
+  }
+  
+  metalFeatures.appendChild(particlesContainer);
+  
+  // Animación al hacer scroll
+  const featureItems = document.querySelectorAll('.feature-item');
+  const conclusion = document.querySelector('.conclusion');
+  
+  function checkVisibility() {
+    featureItems.forEach((item, index) => {
+      const position = item.getBoundingClientRect();
+      
+      if(position.top < window.innerHeight - 100) {
+        setTimeout(() => {
+          item.classList.add('animate');
+        }, index * 200);
+      }
+    });
+    
+    const conclusionPos = conclusion.getBoundingClientRect();
+    if(conclusionPos.top < window.innerHeight - 100) {
+      conclusion.classList.add('animate');
+    }
+  }
+  
+  checkVisibility();
+  window.addEventListener('scroll', checkVisibility);
+});
