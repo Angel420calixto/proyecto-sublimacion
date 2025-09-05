@@ -1,255 +1,213 @@
-  document.addEventListener('DOMContentLoaded', function() {
-            // Datos de las categorías
-            const categories = [
-                { id: 'all', name: 'Todos', icon: 'fas fa-border-all' },
-                { id: 'anime', name: 'Animes', icon: 'fas fa-gamepad' },
-                { id: 'retratos', name: 'Retratos', icon: 'fas fa-user' },
-                { id: 'animales', name: 'Animales', icon: 'fas fa-paw' },
-                { id: 'paisajes', name: 'Paisajes', icon: 'fas fa-mountain' },
-                { id: 'personalizados', name: 'Personalizados', icon: 'fas fa-paint-brush' }
-            ];
-
-            // Datos de los cuadros (con categorías)
-            const cuadros = [
-                {
-                    id: 1,
-                    title: "Naturaleza Viva",
-                    image: "https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    description: "Paisaje natural con colores vibrantes",
-                    category: "paisajes"
-                },
-                {
-                    id: 2,
-                    title: "Retrato Abstracto",
-                    image: "https://images.unsplash.com/photo-1578321272177-6c6cb8cac66f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    description: "Arte abstracto en tonos azules",
-                    category: "retratos"
-                },
-                {
-                    id: 3,
-                    title: "Ciudad Futurista",
-                    image: "https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    description: "Visión futurista de una metrópolis",
-                    category: "paisajes"
-                },
-                {
-                    id: 4,
-                    title: "Universo Digital",
-                    image: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    description: "Representación del espacio digital",
-                    category: "personalizados"
-                },
-                {
-                    id: 5,
-                    title: "Geometría Sagrada",
-                    image: "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    description: "Patrones geométricos armónicos",
-                    category: "personalizados"
-                },
-                {
-                    id: 6,
-                    title: "Gato Elegante",
-                    image: "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    description: "Retrato felino con estilo",
-                    category: "animales"
-                },
-                {
-                    id: 7,
-                    title: "Personaje Anime",
-                    image: "https://images.unsplash.com/photo-1541560052-77ec1bbc09f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    description: "Personaje de anime colorido",
-                    category: "anime"
-                },
-                {
-                    id: 8,
-                    title: "Lobo Solitario",
-                    image: "https://images.unsplash.com/photo-1568162603661-5fc3c9b67c60?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    description: "Lobo en su habitat natural",
-                    category: "animales"
-                }
-            ];
-
-            // Variables globales
-            const categoriesList = document.getElementById('categories-list');
-            const carousel = document.getElementById('carousel');
-            const prevBtn = document.getElementById('prev-btn');
-            const nextBtn = document.getElementById('next-btn');
-            const indicatorsContainer = document.getElementById('indicators');
-            const galleryTitle = document.getElementById('gallery-title');
-            
-            let currentIndex = 0;
-            let currentCategory = 'all';
-            let currentItems = [];
-            
-            // Crear elementos de categorías
-            function createCategories() {
-                categoriesList.innerHTML = '';
+document.addEventListener('DOMContentLoaded', function() {
+        // Elementos del DOM
+        const carousel = document.querySelector('.carrusel-3d');
+        const items = document.querySelectorAll('.item-carrusel');
+        const indicators = document.querySelectorAll('.indicador');
+        const prevBtn = document.querySelector('.btn-control:first-child');
+        const nextBtn = document.querySelector('.btn-control:last-child');
+        const categoryItems = document.querySelectorAll('.categoria-item');
+        const categoryTitle = document.querySelector('.titulo-categoria');
+        
+        // Estado del carrusel
+        let currentIndex = 0;
+        let autoRotateInterval;
+        const totalItems = items.length;
+        
+        // Inicializar el carrusel
+        initCarousel();
+        
+        // Configurar event listeners
+        setupEventListeners();
+        
+        function initCarousel() {
+            // Posicionar inicialmente los items
+            updateCarousel();
+        }
+        
+        function setupEventListeners() {
+            // Botones de navegación
+            if (prevBtn && nextBtn) {
+                prevBtn.addEventListener('click', () => {
+                    navigate('prev');
+                    resetAutoRotation();
+                });
                 
-                categories.forEach(category => {
-                    const categoryItem = document.createElement('li');
-                    categoryItem.className = 'category-item';
-                    
-                    const categoryBtn = document.createElement('button');
-                    categoryBtn.className = 'category-btn';
-                    if (category.id === currentCategory) {
-                        categoryBtn.classList.add('active');
-                    }
-                    categoryBtn.innerHTML = `
-                        <i class="${category.icon}"></i>
-                        <span>${category.name}</span>
-                    `;
-                    categoryBtn.addEventListener('click', () => {
-                        filterByCategory(category.id);
-                    });
-                    
-                    categoryItem.appendChild(categoryBtn);
-                    categoriesList.appendChild(categoryItem);
+                nextBtn.addEventListener('click', () => {
+                    navigate('next');
+                    resetAutoRotation();
                 });
             }
             
-            // Filtrar por categoría
-            function filterByCategory(categoryId) {
-                currentCategory = categoryId;
-                currentIndex = 0;
-                
-                // Actualizar botones de categoría
-                document.querySelectorAll('.category-btn').forEach(btn => {
-                    btn.classList.remove('active');
+            // Indicadores
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateCarousel();
+                    resetAutoRotation();
                 });
-                document.querySelectorAll('.category-btn')[categories.findIndex(c => c.id === categoryId)].classList.add('active');
-                
-                // Filtrar elementos
-                currentItems = categoryId === 'all' 
-                    ? [...cuadros] 
-                    : cuadros.filter(cuadro => cuadro.category === categoryId);
-                
-                // Actualizar carrusel
-                updateCarousel();
-                
-                // Actualizar título
-                const categoryName = categories.find(c => c.id === categoryId).name;
-                galleryTitle.textContent = categoryId === 'all' ? 'Todos los cuadros' : `Cuadros de ${categoryName}`;
-            }
-            
-            // Crear elementos del carrusel
-            function createCarousel() {
-                carousel.innerHTML = '';
-                indicatorsContainer.innerHTML = '';
-                
-                if (currentItems.length === 0) {
-                    const emptyMessage = document.createElement('div');
-                    emptyMessage.className = 'empty-message';
-                    emptyMessage.innerHTML = `
-                        <h3>No hay elementos en esta categoría</h3>
-                        <p>Selecciona otra categoría para ver más cuadros</p>
-                    `;
-                    carousel.appendChild(emptyMessage);
-                    return;
-                }
-                
-                // Crear elementos del carrusel
-                currentItems.forEach((item, index) => {
-                    const carouselItem = document.createElement('div');
-                    carouselItem.className = 'carousel-item';
-                    carouselItem.innerHTML = `
-                        <img src="${item.image}" alt="${item.title}">
-                        <div class="carousel-content">
-                            <h3>${item.title}</h3>
-                            <p>${item.description}</p>
-                        </div>
-                    `;
-                    
-                    carouselItem.addEventListener('click', () => {
-                        // Redireccionar a página de detalles
-                        window.location.href = `detalle.html?id=${item.id}&category=${item.category}`;
-                    });
-                    
-                    carousel.appendChild(carouselItem);
-                    
-                    // Crear indicadores
-                    const indicator = document.createElement('div');
-                    indicator.className = 'indicator';
-                    if (index === 0) indicator.classList.add('active');
-                    indicator.addEventListener('click', () => {
-                        goToItem(index);
-                    });
-                    indicatorsContainer.appendChild(indicator);
-                });
-                
-                updateCarouselPosition();
-            }
-            
-            // Actualizar posición del carrusel
-            function updateCarouselPosition() {
-                const items = document.querySelectorAll('.carousel-item');
-                const indicators = document.querySelectorAll('.indicator');
-                
-                if (items.length === 0) return;
-                
-                items.forEach((item, index) => {
-                    item.classList.remove('active', 'prev', 'next', 'far-left', 'far-right');
-                    
-                    if (index === currentIndex) {
-                        item.classList.add('active');
-                    } else if (index === currentIndex - 1) {
-                        item.classList.add('prev');
-                    } else if (index === currentIndex + 1) {
-                        item.classList.add('next');
-                    } else if (index === currentIndex - 2) {
-                        item.classList.add('far-left');
-                    } else if (index === currentIndex + 2) {
-                        item.classList.add('far-right');
-                    } else if (currentIndex === 0 && index === items.length - 1) {
-                        item.classList.add('far-left');
-                    } else if (currentIndex === items.length - 1 && index === 0) {
-                        item.classList.add('far-right');
-                    }
-                });
-                
-                indicators.forEach((indicator, index) => {
-                    indicator.classList.remove('active');
-                    if (index === currentIndex) {
-                        indicator.classList.add('active');
-                    }
-                });
-            }
-            
-            // Navegación
-            function goToNext() {
-                if (currentItems.length === 0) return;
-                currentIndex = (currentIndex + 1) % currentItems.length;
-                updateCarouselPosition();
-            }
-            
-            function goToPrev() {
-                if (currentItems.length === 0) return;
-                currentIndex = (currentIndex - 1 + currentItems.length) % currentItems.length;
-                updateCarouselPosition();
-            }
-            
-            function goToItem(index) {
-                if (currentItems.length === 0) return;
-                currentIndex = index;
-                updateCarouselPosition();
-            }
-            
-            // Event listeners
-            prevBtn.addEventListener('click', goToPrev);
-            nextBtn.addEventListener('click', goToNext);
-            
-            // Inicializar
-            createCategories();
-            filterByCategory('all');
-            
-            // Auto-rotación
-            let autoRotate = setInterval(goToNext, 5000);
-            
-            // Pausar auto-rotación al interactuar
-            carousel.addEventListener('mouseenter', () => {
-                clearInterval(autoRotate);
             });
             
-            carousel.addEventListener('mouseleave', () => {
-                autoRotate = setInterval(goToNext, 5000);
+            // Categorías
+            categoryItems.forEach((item) => {
+                item.addEventListener('click', () => {
+                    // Quitar clase active de todos los items
+                    categoryItems.forEach(i => i.classList.remove('activa'));
+                    // Añadir clase active al item clickeado
+                    item.classList.add('activa');
+                    
+                    // Actualizar el título de la categoría
+                    if (categoryTitle) {
+                        categoryTitle.textContent = item.textContent;
+                    }
+                    
+                    // Reiniciar el carrusel
+                    currentIndex = 0;
+                    updateCarousel();
+                    resetAutoRotation();
+                });
             });
-        });
+            
+            // Event listeners para navegación con teclado
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    navigate('prev');
+                    resetAutoRotation();
+                } else if (e.key === 'ArrowRight') {
+                    navigate('next');
+                    resetAutoRotation();
+                }
+            });
+            
+            // Pausar la rotación automática al hacer hover
+            const carouselContainer = document.querySelector('.contenedor-carrusel-3d');
+            if (carouselContainer) {
+                carouselContainer.addEventListener('mouseenter', () => {
+                    clearInterval(autoRotateInterval);
+                });
+                
+                carouselContainer.addEventListener('mouseleave', () => {
+                    startAutoRotation();
+                });
+            }
+        }
+        
+        function navigate(direction) {
+            if (direction === 'next') {
+                currentIndex = (currentIndex + 1) % totalItems;
+            } else {
+                currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+            }
+            updateCarousel();
+        }
+        
+        function updateCarousel() {
+            // Actualizar clases de los items - MÉTODO SIMPLIFICADO
+            items.forEach((item, index) => {
+                // Resetear todas las clases primero
+                item.classList.remove('activo', 'prev', 'next', 'lejos-izq', 'lejos-der');
+                
+                // Calcular la posición relativa
+                let position = index - currentIndex;
+                if (position < 0) position += totalItems;
+                if (position >= totalItems) position -= totalItems;
+                
+                // Asignar clases según la posición
+                if (position === 0) {
+                    item.classList.add('activo');
+                } else if (position === 1) {
+                    item.classList.add('next');
+                } else if (position === totalItems - 1) {
+                    item.classList.add('prev');
+                } else if (position === 2 || position === totalItems - 2) {
+                    item.classList.add(position === 2 ? 'lejos-der' : 'lejos-izq');
+                } else if (position > 2 && position < totalItems - 2) {
+                    // Elementos muy lejanos - ocultarlos
+                    item.style.opacity = '0';
+                    item.style.zIndex = '0';
+                } else {
+                    item.style.opacity = '';
+                    item.style.zIndex = '';
+                }
+            });
+            
+            // Actualizar indicadores
+            indicators.forEach((indicator, index) => {
+                if (index === currentIndex) {
+                    indicator.classList.add('activo');
+                } else {
+                    indicator.classList.remove('activo');
+                }
+            });
+        }
+        
+        function startAutoRotation() {
+            autoRotateInterval = setInterval(() => {
+                navigate('next');
+            }, 4000);
+        }
+        
+        function resetAutoRotation() {
+            clearInterval(autoRotateInterval);
+            startAutoRotation();
+        }
+        
+        // Iniciar rotación automática
+        startAutoRotation();
+        
+        // Función para manejar el gesto de deslizamiento en dispositivos táctiles
+        function setupTouchEvents() {
+            let touchStartX = 0;
+            let touchEndX = 0;
+            const carouselContainer = document.querySelector('.contenedor-carrusel-3d');
+            
+            if (carouselContainer) {
+                carouselContainer.addEventListener('touchstart', e => {
+                    touchStartX = e.changedTouches[0].screenX;
+                    clearInterval(autoRotateInterval);
+                }, { passive: true });
+                
+                carouselContainer.addEventListener('touchend', e => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    handleSwipe();
+                    resetAutoRotation();
+                }, { passive: true });
+            }
+            
+            function handleSwipe() {
+                const minSwipeDistance = 50;
+                const distance = touchStartX - touchEndX;
+                
+                if (Math.abs(distance) < minSwipeDistance) return;
+                
+                if (distance > 0) {
+                    navigate('next');
+                } else {
+                    navigate('prev');
+                }
+            }
+        }
+        
+        // Configurar eventos táctiles
+        setupTouchEvents();
+    });
+
+    // JavaScript para el menú móvil
+document.addEventListener('DOMContentLoaded', function () {
+    const botonMenu = document.querySelector('.boton-encabezado');
+    const menu = document.querySelector('.enlaces');
+
+    botonMenu.addEventListener('click', function () {
+        menu.classList.toggle('activo');
+    });
+
+    // Cerrar menú al hacer clic fuera de él
+    document.addEventListener('click', function (event) {
+        const esClickDentroMenu = menu.contains(event.target);
+        const esClickBotonMenu = botonMenu.contains(event.target);
+        const esMenuActivo = menu.classList.contains('activo');
+
+        if (esMenuActivo && !esClickDentroMenu && !esClickBotonMenu) {
+            menu.classList.remove('activo');
+        }
+    });
+});
