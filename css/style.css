@@ -11,22 +11,28 @@
     --transition: all 0.3s ease;
 }
 
-/* Estilos generales */
+/* Estilos generales - CORREGIDOS PARA EVITAR DESBORDAMIENTO */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* Previene el desbordamiento horizontal */
+    position: relative;
+}
+
 body {
-    background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 100%);
+    background: url('/img/sublima11.jpg') no-repeat center center/cover;
     font-family: 'Arial', sans-serif;
     color: var(--color-text);
     line-height: 1.6;
-    overflow-x: hidden;
+    max-width: 100vw; /* Limita el ancho máximo al viewport */
 }
 
-/* Encabezado y navegación - MEJORADO */
+/* Encabezado y navegación - MEJORADO PARA EVITAR DESBORDAMIENTO */
 .encabezado {
     background: rgba(10, 10, 30, 0.95);
     backdrop-filter: blur(10px);
@@ -34,9 +40,10 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
-    padding: 0.8rem 1rem;
+    padding: 0.8rem 0;
     border-bottom: 2px solid #0b0b0c;
     width: 100%;
+    max-width: 100vw; /* Aseguramos que no exceda el viewport */
 }
 
 .navegacion-principal {
@@ -45,15 +52,20 @@ body {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 1.5rem;
     position: relative;
     gap: 1.5rem;
+    width: 100%;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten */
 }
+
 .logo-link {
     display: flex;
     align-items: center;
     text-decoration: none;
     z-index: 1002;
     flex-shrink: 0;
+    max-width: 100%; /* Evita desbordamiento */
 }
 
 .logo {
@@ -61,6 +73,7 @@ body {
     width: auto;
     transition: transform 0.3s, filter 0.3s;
     filter: drop-shadow(0 0 10px rgba(57, 31, 109, 0.7));
+    max-width: 100%; /* Imagen responsive */
 }
 
 .logo:hover {
@@ -100,14 +113,15 @@ body {
     box-shadow: var(--shadow-glow);
 }
 
-/* Enlaces de navegación */
+/* Enlaces de navegación - MEJORADOS */
 .enlaces {
     display: flex;
     list-style: none;
     gap: 1.8rem;
     align-items: center;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     margin: 0 1rem;
+    max-width: 100%; /* Evita desbordamiento */
 }
 
 .enlace-navegacion {
@@ -142,11 +156,12 @@ body {
     width: 100%;
 }
 
-/* Barra de búsqueda */
+/* Barra de búsqueda - MEJORADA */
 .buscador {
     flex: 1;
     max-width: 400px;
     position: relative;
+    min-width: 150px; /* Ancho mínimo para mantener usabilidad */
 }
 
 .buscador input {
@@ -159,6 +174,7 @@ body {
     background: rgba(20, 20, 40, 0.7);
     color: var(--color-text);
     box-shadow: 0 0 15px rgba(106, 64, 191, 0.3);
+    max-width: 100%; /* Input responsive */
 }
 
 .buscador input:focus {
@@ -179,12 +195,13 @@ body {
     z-index: 2;
 }
 
-/* Iconos de usuario */
+/* Iconos de usuario - MEJORADOS */
 .iconos-usuario {
     display: flex;
     gap: 0.8rem;
     align-items: center;
     flex-shrink: 0;
+    flex-wrap: wrap; /* Permite ajuste en pantallas pequeñas */
 }
 
 .icono-usuario {
@@ -219,95 +236,237 @@ body {
     display: none;
 }
 
-/* Media Queries para Responsividad */
+.icono-usuario-mobile {
+    color: var(--color-text);
+    font-size: 1.2rem;
+    transition: var(--transition);
+    text-decoration: none;
+    padding: 0.5rem;
+}
+
+.icono-usuario-mobile:hover {
+    color: var(--color-secondary);
+}
+
+/* MEDIA QUERIES PARA RESPONSIVIDAD MEJORADA */
+
+/* Tablets y pantallas medianas */
 @media (max-width: 1024px) {
+    .navegacion-principal {
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+    
     .enlaces {
         gap: 1.5rem;
     }
-
-    .icono-usuario {
-        padding: 0.5rem;
-        font-size: 0.8rem;
+    
+    .enlace-navegacion {
+        font-size: 0.95rem;
     }
+    
+    .buscador {
+        max-width: 320px;
+    }
+    
+    .logo-text {
+        font-size: 1.4rem;
+    }
+}
 
+/* Tablets pequeñas */
+@media (max-width: 900px) {
+    .buscador {
+        max-width: 280px;
+    }
+    
+    .logo-text {
+        font-size: 1.3rem;
+    }
+    
     .icono-usuario span {
         display: none;
     }
-
+    
+    .icono-usuario {
+        padding: 0.5rem;
+    }
+    
     .icono-usuario i {
         margin-right: 0;
         font-size: 1.2rem;
     }
 }
 
+/* Móviles grandes y tablets pequeñas - MENÚ HAMBURGUESA */
 @media (max-width: 768px) {
+    .encabezado {
+        padding: 0.7rem 1rem;
+    }
+    
+    .navegacion-principal {
+        flex-wrap: nowrap;
+    }
+    
     .boton-encabezado {
+        display: flex;
+        order: 2;
+    }
+    
+    .enlaces {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: rgba(10, 10, 30, 0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 80px;
+        gap: 2rem;
+        z-index: 1000;
+        transition: right 0.4s ease;
+        margin: 0;
+        overflow-y: auto; /* Scroll interno si es necesario */
+    }
+    
+    .enlaces.activo {
+        right: 0;
+    }
+    
+    .buscador {
+        order: 3;
+        max-width: 100%;
+        margin: 1rem 0 0 0;
+        display: none;
+    }
+    
+    .buscador.activo {
         display: block;
     }
-
-    .buscador {
-        display: none;
-    }
-
-    .enlaces {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        right: 0;
-        background: rgba(10, 10, 30, 0.95);
-        width: 280px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        padding: 2rem;
-        border-radius: 0 0 0 15px;
-        gap: 1.5rem;
-        border-left: 3px solid var(--color-secondary);
-        border-bottom: 3px solid var(--color-secondary);
-    }
-
-    .enlaces.activo {
-        display: flex;
-    }
-
+    
     .iconos-usuario {
         display: none;
     }
-
+    
     .iconos-usuario-mobile {
         display: flex;
         gap: 1rem;
+        order: 1;
         margin-left: auto;
         margin-right: 1rem;
     }
-
-    .icono-usuario-mobile {
-        color: var(--color-text);
-        font-size: 1.2rem;
-        transition: var(--transition);
-    }
-
-    .icono-usuario-mobile:hover {
-        color: var(--color-secondary);
-    }
+    
     .logo-text {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 }
 
+/* Móviles medianos */
 @media (max-width: 576px) {
     .navegacion-principal {
-        padding: 0 1rem;
+        padding: 0 0.5rem;
     }
-
+    
     .logo {
-        height: 50px;
+        height: 45px;
     }
-
+    
     .logo-text {
         font-size: 1.2rem;
+        margin-left: 8px;
+    }
+    
+    .enlaces {
+        width: 85%;
+    }
+    
+    .iconos-usuario-mobile {
+        margin-right: 0.5rem;
+        gap: 0.8rem;
+    }
+    
+    .buscador input {
+        padding: 0.7rem 0.9rem 0.7rem 2.5rem;
+        font-size: 0.9rem;
     }
 }
 
+/* Móviles pequeños */
+@media (max-width: 400px) {
+    .logo-text {
+        font-size: 1.1rem;
+    }
+    
+    .logo {
+        height: 40px;
+    }
+    
+    .boton-encabezado {
+        padding: 0.4rem;
+        font-size: 1.3rem;
+    }
+    
+    .icono-usuario-mobile {
+        font-size: 1.1rem;
+        padding: 0.4rem;
+    }
+    
+    .logo-link {
+        flex: 1;
+        min-width: 0;
+    }
+    
+    .logo-text {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 120px;
+    }
+}
+
+/* Utilidades para JavaScript */
+.enlaces.activo {
+    right: 0;
+}
+
+.buscador.activo {
+    display: block;
+}
+
+/* Prevenir desbordamiento horizontal global */
+body.prevent-scroll {
+    overflow: hidden;
+}
+
+/* Animación para el menú desplegable */
+@keyframes slideIn {
+    from {
+        right: -100%;
+    }
+    to {
+        right: 0;
+    }
+}
+
+.enlaces.activo {
+    animation: slideIn 0.4s ease forwards;
+}
+
+/* Estilos para garantizar que nada se desborde */
+img, video, canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Contenedores principales con máximo ancho controlado */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
 /* Estilos específicos para la galería principal */
 main {
     padding: 2rem 1.5rem;
