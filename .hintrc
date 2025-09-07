@@ -23,7 +23,8 @@
         "ignore": [
           "backdrop-filter",
           "min-height: auto",
-          "-webkit-overflow-scrolling"
+          "-webkit-overflow-scrolling",
+          "scrollbar-width"
         ]
       }
     ],

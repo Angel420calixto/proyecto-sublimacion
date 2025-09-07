@@ -211,3 +211,112 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+// Funcionalidad para el carrusel 3D de categorías
+document.addEventListener('DOMContentLoaded', function() {
+    // Elementos del carrusel 3D de categorías
+    const carrusel3D = document.querySelector('.carrusel-3d-categorias');
+    const items3D = document.querySelectorAll('.categoria-3d-item');
+    const btnPrev3D = document.getElementById('btn-prev-3d');
+    const btnNext3D = document.getElementById('btn-next-3d');
+    
+    // Elementos de la galería
+    const contenedorGaleria = document.querySelector('.contenedor-galeria');
+    
+    let current3DIndex = 0;
+    const total3DItems = items3D.length;
+    
+    // Configurar posición inicial de los items 3D
+    function setup3DCarousel() {
+        items3D.forEach((item, index) => {
+            item.classList.remove('activa', 'secundaria', 'terciaria');
+            
+            if (index === current3DIndex) {
+                item.classList.add('activa');
+            } else if (index === (current3DIndex + 1) % total3DItems || 
+                      (current3DIndex === 0 && index === total3DItems - 1)) {
+                item.classList.add('secundaria');
+            } else if (index === (current3DIndex + 2) % total3DItems || 
+                      (current3DIndex === 0 && index === total3DItems - 2) ||
+                      (current3DIndex === 1 && index === total3DItems - 1)) {
+                item.classList.add('terciaria');
+            }
+        });
+    }
+    
+    // Navegación del carrusel 3D
+    btnNext3D.addEventListener('click', () => {
+        current3DIndex = (current3DIndex + 1) % total3DItems;
+        setup3DCarousel();
+        filtrarPorCategoria(items3D[current3DIndex].textContent);
+    });
+    
+    btnPrev3D.addEventListener('click', () => {
+        current3DIndex = (current3DIndex - 1 + total3DItems) % total3DItems;
+        setup3DCarousel();
+        filtrarPorCategoria(items3D[current3DIndex].textContent);
+    });
+    
+    // Filtrar por categorías al hacer clic en un item
+    items3D.forEach(item => {
+        item.addEventListener('click', () => {
+            const index = Array.from(items3D).indexOf(item);
+            current3DIndex = index;
+            setup3DCarousel();
+            filtrarPorCategoria(item.textContent);
+        });
+    });
+    
+    // Simular filtrado por categoría
+    function filtrarPorCategoria(categoria) {
+        console.log(`Filtrando por categoría: ${categoria}`);
+        // Aquí iría la lógica real para filtrar las imágenes
+        document.querySelector('.titulo-seccion').textContent = `Calcomanías de ${categoria}`;
+    }
+    
+    // Scroll interno para la galería
+    contenedorGaleria.addEventListener('mouseenter', () => {
+        document.body.style.overflow = 'hidden';
+    });
+    
+    contenedorGaleria.addEventListener('mouseleave', () => {
+        document.body.style.overflow = '';
+    });
+    
+    // Touch events para dispositivos móviles
+    contenedorGaleria.addEventListener('touchstart', () => {
+        document.body.style.overflow = 'hidden';
+    });
+    
+    contenedorGaleria.addEventListener('touchend', () => {
+        document.body.style.overflow = '';
+    });
+    
+    // Mostrar/ocultar información al hacer clic en una calcomanía
+    const calcomaniaCards = document.querySelectorAll('.calcomania-card');
+    
+    calcomaniaCards.forEach(card => {
+        const botonCerrar = card.querySelector('.boton-cerrar');
+        const info = card.querySelector('.calcomania-info');
+        const botonVerDetalles = card.querySelector('.boton-ver-detalles');
+        
+        card.addEventListener('click', (e) => {
+            if (e.target === botonVerDetalles) {
+                // El botón "Ver Detalles" maneja su propia navegación
+                return;
+            }
+            
+            info.classList.add('activa');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        botonCerrar.addEventListener('click', (e) => {
+            e.stopPropagation();
+            info.classList.remove('activa');
+            document.body.style.overflow = '';
+        });
+    });
+    
+    // Inicializar
+    setup3DCarousel();
+});

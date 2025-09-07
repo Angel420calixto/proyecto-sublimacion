@@ -850,7 +850,7 @@ body {
 /* Estilos para la galería minimalista */
 .galeria {
     padding: 4rem 1.5rem;
-    background: linear-gradient(135deg, #01010c 0%, #010f1a 100%);
+    background: linear-gradient(135deg, #010101 0%, #010f1a 100%);
     position: relative;
     overflow: hidden;
 }
