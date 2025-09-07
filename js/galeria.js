@@ -320,3 +320,96 @@ document.addEventListener('DOMContentLoaded', function() {
     // Inicializar
     setup3DCarousel();
 });
+
+
+
+
+
+
+// Funcionalidad para la sección de categorías populares
+document.addEventListener('DOMContentLoaded', function() {
+    // Elementos de la minigaleria móvil
+    const minigaleriaItems = document.querySelectorAll('.minigaleria-item');
+    const contenedorMinigaleria = document.querySelector('.contenedor-minigaleria');
+    
+    // Elementos de las categorías
+    const categoriaItems = document.querySelectorAll('.categoria-item');
+    
+    // Funcionalidad para la minigaleria móvil
+    if (minigaleriaItems.length > 0) {
+        minigaleriaItems.forEach(item => {
+            item.addEventListener('click', function() {
+                // Remover clase activa de todos los items
+                minigaleriaItems.forEach(i => i.classList.remove('activo'));
+                
+                // Agregar clase activa al item clickeado
+                this.classList.add('activo');
+                
+                // Scroll suave para centrar el item activo
+                const container = contenedorMinigaleria;
+                const itemLeft = this.offsetLeft;
+                const itemWidth = this.offsetWidth;
+                const containerWidth = container.offsetWidth;
+                
+                container.scrollTo({
+                    left: itemLeft - (containerWidth / 2) + (itemWidth / 2),
+                    behavior: 'smooth'
+                });
+            });
+        });
+    }
+    
+    // Funcionalidad para las categorías
+    if (categoriaItems.length > 0) {
+        categoriaItems.forEach(item => {
+            item.addEventListener('click', function() {
+                // Remover clase activa de todos los items
+                categoriaItems.forEach(i => i.classList.remove('activa'));
+                
+                // Agregar clase activa al item clickeado
+                this.classList.add('activa');
+                
+                // Aquí puedes agregar la lógica para filtrar las calcomanías
+                // por la categoría seleccionada
+                const categoria = this.textContent.trim();
+                console.log(`Categoría seleccionada: ${categoria}`);
+                // filtrarCalcomanias(categoria);
+            });
+        });
+    }
+    
+    // Detectar cambios en el tamaño de la pantalla
+    function ajustarVista() {
+        if (window.innerWidth <= 768) {
+            // Vista móvil
+            const gridCalcomanias = document.querySelector('.grid-calcomanias');
+            const minigaleria = document.querySelector('.minigaleria-mobile');
+            
+            if (gridCalcomanias) gridCalcomanias.style.display = 'none';
+            if (minigaleria) minigaleria.style.display = 'block';
+        } else {
+            // Vista desktop
+            const gridCalcomanias = document.querySelector('.grid-calcomanias');
+            const minigaleria = document.querySelector('.minigaleria-mobile');
+            
+            if (gridCalcomanias) gridCalcomanias.style.display = 'grid';
+            if (minigaleria) minigaleria.style.display = 'none';
+        }
+    }
+    
+    // Ajustar vista al cargar y al redimensionar
+    ajustarVista();
+    window.addEventListener('resize', ajustarVista);
+    
+    // Función para filtrar calcomanías (ejemplo)
+    function filtrarCalcomanias(categoria) {
+        // Esta función debería filtrar las calcomanías según la categoría
+        // Por ahora solo mostramos un mensaje en consola
+        console.log(`Filtrando calcomanías por categoría: ${categoria}`);
+        
+        // En una implementación real, aquí harías:
+        // 1. Ocultar todas las calcomanías
+        // 2. Mostrar solo las de la categoría seleccionada
+        // 3. Actualizar la minigaleria móvil si es necesario
+    }
+});

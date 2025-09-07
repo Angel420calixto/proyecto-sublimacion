@@ -147,151 +147,158 @@
 
 <section class="seccion-categorias">
     <div class="contenedor-categorias">
-        <!-- Barra lateral de categorías - CARRUSEL 3D -->
+        <!-- Barra lateral de categorías -->
         <div class="barra-lateral-categorias">
             <h2>Categorías Populares</h2>
-            
-            <!-- Carrusel 3D para categorías -->
-            <div class="contenedor-carrusel-3d">
-                <div class="carrusel-3d-categorias">
-                    <div class="categoria-3d-item activa">Animales</div>
-                    <div class="categoria-3d-item">Anime</div>
-                    <div class="categoria-3d-item">Arte</div>
-                    <div class="categoria-3d-item">Artistas</div>
-                    <div class="categoria-3d-item">Cartoons</div>
-                    <div class="categoria-3d-item">DC</div>
-                    <div class="categoria-3d-item">Deportes</div>
-                    <div class="categoria-3d-item">Games</div>
-                    <div class="categoria-3d-item">Marvel</div>
-                </div>
-            </div>
-            
-            <!-- Controles del carrusel 3D -->
-            <div class="controles-carrusel-3d">
-                <button class="btn-control-3d" id="btn-prev-3d">
-                    <i class="fas fa-chevron-up"></i>
-                </button>
-                <button class="btn-control-3d" id="btn-next-3d">
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-            </div>
+            <ul class="lista-categorias">
+                <li class="categoria-item activa">Animales</li>
+                <li class="categoria-item">Anime</li>
+                <li class="categoria-item">Arte</li>
+                <li class="categoria-item">Artistas</li>
+                <li class="categoria-item">Cartoons</li>
+                <li class="categoria-item">DC</li>
+                <li class="categoria-item">Deportes</li>
+                <li class="categoria-item">Games</li>
+                <li class="categoria-item">Marvel</li>
+            </ul>
         </div>
         
         <!-- Contenido principal -->
         <div class="contenido-categorias">
             <h2 class="titulo-seccion">Calcomanías Populares</h2>
             
-            <!-- Contenedor de galería con scroll interno -->
-            <div class="contenedor-galeria">
-                <div class="grid-calcomanias">
-                    <!-- 12 calcomanías de ejemplo (3 filas de 4) -->
-                    <!-- Fila 1 -->
-                    <div class="calcomania-card">
-                        <div class="calcomania-imagen-contenedor">
-                            <img src="vegetaM.webp" alt="Ballena de Fuego" class="calcomania-imagen">
-                            <a href="detalle-ballena.html" class="boton-ver-detalles">Ver Detalles</a>
-                        </div>
-                        <div class="calcomania-info">
-                            <button class="boton-cerrar">&times;</button>
-                            <h3 class="calcomania-titulo">Ballena de Fuego</h3>
-                            <span class="calcomania-precio">$350.000 – $450.000</span>
-                            <p class="calcomania-descripcion">Una impresionante ballena con efectos de fuego, perfecta para personalizar tus dispositivos.</p>
-                        </div>
+            <!-- Grid de calcomanías para desktop -->
+            <div class="grid-calcomanias">
+                <!-- Calcomanía 1 -->
+                <div class="calcomania-card">
+                    <div class="calcomania-imagen-contenedor">
+                        <img src="img/ballena-fuego.jpg" alt="Ballena de Fuego" class="calcomania-imagen">
+                        <a href="detalle-ballena.html" class="boton-ver-detalles">Ver Detalles</a>
                     </div>
-                    
-                    <div class="calcomania-card">
-                        <div class="calcomania-imagen-contenedor">
-                            <img src="vegitosubli.webp" alt="Perro Boxer" class="calcomania-imagen">
-                            <a href="detalle-perro.html" class="boton-ver-detalles">Ver Detalles</a>
-                        </div>
-                        <div class="calcomania-info">
-                            <button class="boton-cerrar">&times;</button>
-                            <h3 class="calcomania-titulo">Perro Boxer</h3>
-                            <span class="calcomania-precio">$350.000 – $450.000</span>
-                            <p class="calcomania-descripcion">Divertido perro boxer en estilo cartoon, ideal para amantes de los animales.</p>
-                        </div>
+                    <div class="calcomania-info">
+                        <h3 class="calcomania-titulo">Ballena de Fuego</h3>
+                        <span class="calcomania-precio">$350.000 – $450.000</span>
                     </div>
-                    
-                    <div class="calcomania-card">
-                        <div class="calcomania-imagen-contenedor">
-                            <img src="narutosubli.webp" alt="Gato Neon" class="calcomania-imagen">
-                            <a href="detalle-gato.html" class="boton-ver-detalles">Ver Detalles</a>
-                        </div>
-                        <div class="calcomania-info">
-                            <button class="boton-cerrar">&times;</button>
-                            <h3 class="calcomania-titulo">Gato Neon</h3>
-                            <span class="calcomania-precio">$350.000 – $450.000</span>
-                            <p class="calcomania-descripcion">Gato con efectos de neón que brilla en la oscuridad, diseño único y moderno.</p>
-                        </div>
+                </div>
+                
+                <!-- Calcomanía 2 -->
+                <div class="calcomania-card">
+                    <div class="calcomania-imagen-contenedor">
+                        <img src="img/perro-boxer.jpg" alt="Perro Boxer" class="calcomania-imagen">
+                        <a href="detalle-perro.html" class="boton-ver-detalles">Ver Detalles</a>
                     </div>
-                    
-                    <div class="calcomania-card">
-                        <div class="calcomania-imagen-contenedor">
-                            <img src="vegetassubli.jpg" alt="León Majestuoso" class="calcomania-imagen">
-                            <a href="detalle-leon.html" class="boton-ver-detalles">Ver Detalles</a>
-                        </div>
-                        <div class="calcomania-info">
-                            <button class="boton-cerrar">&times;</button>
-                            <h3 class="calcomania-titulo">León Majestuoso</h3>
-                            <span class="calcomania-precio">$380.000 – $480.000</span>
-                            <p class="calcomania-descripcion">Un imponente león con melena dorada, símbolo de fuerza y realeza.</p>
-                        </div>
+                    <div class="calcomania-info">
+                        <h3 class="calcomania-titulo">Perro Boxer</h3>
+                        <span class="calcomania-precio">$350.000 – $450.000</span>
                     </div>
-                    
-                    <!-- Fila 2 -->
-                    <div class="calcomania-card">
-                        <div class="calcomania-imagen-contenedor">
-                            <img src="sololevelimng.webp" alt="Dragón Legendario" class="calcomania-imagen">
-                            <a href="detalle-dragon.html" class="boton-ver-detalles">Ver Detalles</a>
-                        </div>
-                        <div class="calcomania-info">
-                            <button class="boton-cerrar">&times;</button>
-                            <h3 class="calcomania-titulo">Dragón Legendario</h3>
-                            <span class="calcomania-precio">$400.000 – $500.000</span>
-                            <p class="calcomania-descripcion">Dragón mitológico con escamas detalladas y alas imponentes.</p>
-                        </div>
+                </div>
+                
+                <!-- Calcomanía 3 -->
+                <div class="calcomania-card">
+                    <div class="calcomania-imagen-contenedor">
+                        <img src="img/gato-neon.jpg" alt="Gato Neon" class="calcomania-imagen">
+                        <a href="detalle-gato.html" class="boton-ver-detalles">Ver Detalles</a>
                     </div>
-                    
-                    <div class="calcomania-card">
-                        <div class="calcomania-imagen-contenedor">
-                            <img src="narutominatosubli.avif" alt="Águila Real" class="calcomania-imagen">
-                            <a href="detalle-aguila.html" class="boton-ver-detalles">Ver Detalles</a>
-                        </div>
-                        <div class="calcomania-info">
-                            <button class="boton-cerrar">&times;</button>
-                            <h3 class="calcomania-titulo">Águila Real</h3>
-                            <span class="calcomania-precio">$370.000 – $470.000</span>
-                            <p class="calcomania-descripcion">Águila majestuosa en vuelo, representando libertad y poder.</p>
-                        </div>
+                    <div class="calcomania-info">
+                        <h3 class="calcomania-titulo">Gato Neon</h3>
+                        <span class="calcomania-precio">$350.000 – $450.000</span>
                     </div>
-                    
-                    <div class="calcomania-card">
-                        <div class="calcomania-imagen-contenedor">
-                            <img src="gokufasessubli.webp" alt="Tigre de Bengala" class="calcomania-imagen">
-                            <a href="detalle-tigre.html" class="boton-ver-detalles">Ver Detalles</a>
-                        </div>
-                        <div class="calcomania-info">
-                            <button class="boton-cerrar">&times;</button>
-                            <h3 class="calcomania-titulo">Tigre de Bengala</h3>
-                            <span class="calcomania-precio">$390.000 – $490.000</span>
-                            <p class="calcomania-descripcion">Tigre con rayas detalladas y mirada intensa, diseño realista.</p>
-                        </div>
+                </div>
+                
+                <!-- Calcomanía 4 -->
+                <div class="calcomania-card">
+                    <div class="calcomania-imagen-contenedor">
+                        <img src="img/leon-majestuoso.jpg" alt="León Majestuoso" class="calcomania-imagen">
+                        <a href="detalle-leon.html" class="boton-ver-detalles">Ver Detalles</a>
                     </div>
-
-                    <div class="calcomania-card">
-                        <div class="calcomania-imagen-contenedor">
-                            <img src="vegtamajinsubli2.webp" alt="Tigre de Bengala" class="calcomania-imagen">
-                            <a href="detalle-tigre.html" class="boton-ver-detalles">Ver Detalles</a>
+                    <div class="calcomania-info">
+                        <h3 class="calcomania-titulo">León Majestuoso</h3>
+                        <span class="calcomania-precio">$380.000 – $480.000</span>
+                    </div>
+                </div>
+                
+                <!-- Calcomanía 5 -->
+                <div class="calcomania-card">
+                    <div class="calcomania-imagen-contenedor">
+                        <img src="img/dragon-legendario.jpg" alt="Dragón Legendario" class="calcomania-imagen">
+                        <a href="detalle-dragon.html" class="boton-ver-detalles">Ver Detalles</a>
+                    </div>
+                    <div class="calcomania-info">
+                        <h3 class="calcomania-titulo">Dragón Legendario</h3>
+                        <span class="calcomania-precio">$400.000 – $500.000</span>
+                    </div>
+                </div>
+                
+                <!-- Calcomanía 6 -->
+                <div class="calcomania-card">
+                    <div class="calcomania-imagen-contenedor">
+                        <img src="img/aguila-real.jpg" alt="Águila Real" class="calcomania-imagen">
+                        <a href="detalle-aguila.html" class="boton-ver-detalles">Ver Detalles</a>
+                    </div>
+                    <div class="calcomania-info">
+                        <h3 class="calcomania-titulo">Águila Real</h3>
+                        <span class="calcomania-precio">$370.000 – $470.000</span>
+                    </div>
+                </div>
+                
+                <!-- Calcomanía 7 -->
+                <div class="calcomania-card">
+                    <div class="calcomania-imagen-contenedor">
+                        <img src="img/tigre-bengala.jpg" alt="Tigre de Bengala" class="calcomania-imagen">
+                        <a href="detalle-tigre.html" class="boton-ver-detalles">Ver Detalles</a>
+                    </div>
+                    <div class="calcomania-info">
+                        <h3 class="calcomania-titulo">Tigre de Bengala</h3>
+                        <span class="calcomania-precio">$390.000 – $490.000</span>
+                    </div>
+                </div>
+                
+                <!-- Calcomanía 8 -->
+                <div class="calcomania-card">
+                    <div class="calcomania-imagen-contenedor">
+                        <img src="img/lobo-artic.jpg" alt="Lobo Ártico" class="calcomania-imagen">
+                        <a href="detalle-lobo.html" class="boton-ver-detalles">Ver Detalles</a>
+                    </div>
+                    <div class="calcomania-info">
+                        <h3 class="calcomania-titulo">Lobo Ártico</h3>
+                        <span class="calcomania-precio">$360.000 – $460.000</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Minigaleria para móvil -->
+            <div class="minigaleria-mobile">
+                <div class="contenedor-minigaleria">
+                    <div class="fila-minigaleria">
+                        <div class="minigaleria-item activo">
+                            <img src="gokufasessubli.webp" alt="Ballena de Fuego">
                         </div>
-                        <div class="calcomania-info">
-                            <button class="boton-cerrar">&times;</button>
-                            <h3 class="calcomania-titulo">Tigre de Bengala</h3>
-                            <span class="calcomania-precio">$390.000 – $490.000</span>
-                            <p class="calcomania-descripcion">Tigre con rayas detalladas y mirada intensa, diseño realista.</p>
+                        <div class="minigaleria-item">
+                            <img src="vegtamajinsubli2.webp" alt="Perro Boxer">
+                        </div>
+                        <div class="minigaleria-item">
+                            <img src="gokusublima.jfif" alt="Gato Neon">
+                        </div>
+                        <div class="minigaleria-item">
+                            <img src="vegetasublima.jpg" alt="León Majestuoso">
+                        </div>
+                        <div class="minigaleria-item">
+                            <img src="vegetasubli.webp" alt="Dragón Legendario">
+                        </div>
+                        <div class="minigaleria-item">
+                            <img src="gokuultrasubli.jpg" alt="Águila Real">
+                        </div>
+                        <div class="minigaleria-item">
+                            <img src="/narutominatosubli.avif" alt="Tigre de Bengala">
+                        </div>
+                        <div class="minigaleria-item">
+                            <img src="narutosubli2.jfif" alt="Lobo Ártico">
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 </section>
     <footer class="anime-footer">
   <div class="footer-content">
