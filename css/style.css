@@ -1101,7 +1101,7 @@ main {
 /* Grid de calcomanías con 4 columnas y scroll interno */
 .grid-calcomanias {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 3fr);
     gap: 1.5rem;
     width: 100%;
     padding: 0.5rem;
@@ -1289,7 +1289,7 @@ main {
 /* Responsive Design */
 @media (max-width: 1200px) {
     .grid-calcomanias {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, 3fr);
     }
 }
 
@@ -1424,7 +1424,7 @@ main {
     }
     
     .grid-calcomanias {
-        grid-template-columns: 1fr;
+        grid-template-columns: 4fr;
         gap: 1.2rem;
     }
     
