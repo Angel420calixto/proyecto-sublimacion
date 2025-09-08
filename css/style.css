@@ -966,134 +966,121 @@ main {
     }
 }
  /* Sección de Categorías Populares */
-/* Sección de Categorías Populares */
+/* ESTILOS GENERALES PARA LA SECCIÓN */
 .seccion-categorias {
-    padding: 2rem 1.5rem;
-    max-width: 1400px;
-    margin: 0 auto;
-    width: 100%;
-    min-height: calc(100vh - 200px);
+    padding: 2rem;
+    background: linear-gradient(135deg, #0a0a2a 0%, #1a1a4a 100%);
+    border-radius: 15px;
+    border: 2px solid #6e45e2;
+    box-shadow: 0 0 20px rgba(110, 69, 226, 0.5);
+    margin: 2rem auto;
+    max-width: 1200px;
 }
 
 .contenedor-categorias {
     display: flex;
-    gap: 2rem;
-    width: 100%;
-    align-items: flex-start;
+    gap: 30px;
 }
 
-/* Barra lateral de categorías */
+/* BARRA LATERAL DE CATEGORÍAS */
 .barra-lateral-categorias {
-    width: 280px;
-    background: rgba(20, 20, 40, 0.7);
-    padding: 1.5rem;
+    flex: 0 0 250px;
+    background: rgba(0, 0, 0, 0.4);
     border-radius: 12px;
+    padding: 20px;
+    border: 2px solid #6e45e2;
+    box-shadow: 0 0 15px rgba(110, 69, 226, 0.4);
     height: fit-content;
-    position: sticky;
-    top: 120px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(106, 64, 191, 0.3);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .barra-lateral-categorias h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-    font-weight: 700;
+    color: #ff3864;
+    text-shadow: 0 0 8px rgba(255, 56, 100, 0.7);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
     text-align: center;
-    background: linear-gradient(45deg, #ff6b6b, #6a40bf, #4ecdc4);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid #6a40bf;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #6e45e2;
 }
 
 .lista-categorias {
     list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
 }
 
 .categoria-item {
-    padding: 1rem 1.2rem;
-    background: rgba(30, 30, 60, 0.5);
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    background: rgba(110, 69, 226, 0.3);
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
-    color: #ffffff;
+    color: #fff;
     font-weight: 500;
-    border: 2px solid transparent;
-    text-align: center;
 }
 
 .categoria-item:hover {
-    background: rgba(106, 64, 191, 0.3);
+    background: rgba(110, 69, 226, 0.5);
     transform: translateX(5px);
-    border-color: #ff6b6b;
 }
 
 .categoria-item.activa {
-    background: linear-gradient(90deg, #ff6b6b, #6a40bf);
-    color: white;
-    font-weight: 600;
-    box-shadow: 0 0 15px rgba(106, 64, 191, 0.7);
-    transform: translateX(8px);
-    border-color: #4ecdc4;
+    background: rgba(255, 56, 100, 0.5);
+    box-shadow: 0 0 10px rgba(255, 56, 100, 0.5);
 }
 
-/* Contenido principal de categorías */
+/* CONTENIDO PRINCIPAL */
 .contenido-categorias {
     flex: 1;
-    display: flex;
-    flex-direction: column;
 }
 
 .titulo-seccion {
-    font-size: 2.2rem;
-    margin-bottom: 2rem;
-    font-weight: 700;
+    color: #ff3864;
+    text-shadow: 0 0 10px rgba(255, 56, 100, 0.7);
+    margin-bottom: 25px;
+    font-size: 2rem;
     text-align: center;
-    background: linear-gradient(45deg, #ff6b6b, #6a40bf, #4ecdc4);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid rgba(106, 64, 191, 0.5);
+    position: relative;
+    padding-bottom: 10px;
 }
 
-/* Grid de calcomanías */
+.titulo-seccion:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #6e45e2, #ff3864);
+    border-radius: 2px;
+}
+
+/* GRID DE CALCOMANÍAS (DESKTOP) */
 .grid-calcomanias {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-    width: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 25px;
 }
 
-/* Tarjetas de calcomanías */
 .calcomania-card {
-    background: rgba(20, 20, 40, 0.7);
+    background: rgba(0, 0, 0, 0.4);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(106, 64, 191, 0.3);
-    position: relative;
+    transition: all 0.3s ease;
+    border: 2px solid #6e45e2;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .calcomania-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(106, 64, 191, 0.4);
-    border-color: #ff6b6b;
+    box-shadow: 0 10px 25px rgba(110, 69, 226, 0.7);
+    border-color: #ff3864;
 }
 
 .calcomania-imagen-contenedor {
     position: relative;
-    width: 100%;
-    height: 200px;
     overflow: hidden;
+    aspect-ratio: 1/1;
 }
 
 .calcomania-imagen {
@@ -1104,281 +1091,187 @@ main {
 }
 
 .calcomania-card:hover .calcomania-imagen {
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
-/* Botón de ver detalles */
 .boton-ver-detalles {
     position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background: rgba(106, 64, 191, 0.9);
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background: linear-gradient(90deg, #6e45e2, #ff3864);
     color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-    border: none;
-    cursor: pointer;
-    opacity: 0;
     text-decoration: none;
-    display: inline-block;
-    text-align: center;
-    font-size: 0.8rem;
-    z-index: 10;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    opacity: 0;
 }
 
 .calcomania-card:hover .boton-ver-detalles {
+    bottom: 20px;
     opacity: 1;
 }
 
-.boton-ver-detalles:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(106, 64, 191, 0.6);
-    background: rgba(255, 107, 107, 0.9);
-}
-
-/* Información de la calcomanía */
 .calcomania-info {
-    padding: 1.2rem;
+    padding: 15px;
+    text-align: center;
 }
 
 .calcomania-titulo {
-    color: #ffffff;
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
 }
 
 .calcomania-precio {
-    color: #4ecdc4;
+    color: #ff3864;
+    font-weight: bold;
     font-size: 1.1rem;
-    font-weight: 700;
-    display: block;
 }
 
-/* Estilos para la minigaleria en móvil */
+/* MINIGALERÍA PARA MÓVIL (OCULTA EN DESKTOP) */
 .minigaleria-mobile {
     display: none;
 }
 
-.contenedor-minigaleria {
+/* EFECTO DE ESCANEO AL PASAR EL RATÓN */
+.calcomania-imagen-contenedor::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
     width: 100%;
-    overflow-x: auto;
-    padding: 1rem 0;
-    scrollbar-width: thin;
-    margin-top: 1.5rem;
+    height: 30%;
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: top 0.7s ease;
+    z-index: 1;
 }
 
-.contenedor-minigaleria::-webkit-scrollbar {
-    height: 6px;
+.calcomania-card:hover .calcomania-imagen-contenedor::before {
+    top: 100%;
 }
 
-.contenedor-minigaleria::-webkit-scrollbar-thumb {
-    background: linear-gradient(90deg, #ff6b6b, #6a40bf);
-    border-radius: 3px;
-}
-
-.fila-minigaleria {
-    display: flex;
-    gap: 0.8rem;
-    padding: 0.5rem;
-    width: max-content;
-}
-
-.minigaleria-item {
-    width: 80px;
-    height: 80px;
-    border-radius: 8px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
-    flex-shrink: 0;
-    position: relative;
-}
-
-.minigaleria-item:hover {
-    transform: scale(1.1);
-    border-color: #ff6b6b;
-    box-shadow: 0 5px 15px rgba(106, 64, 191, 0.4);
-}
-
-.minigaleria-item.activo {
-    border-color: #4ecdc4;
-    box-shadow: 0 0 15px rgba(78, 205, 196, 0.6);
-}
-
-.minigaleria-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Responsive Design */
-@media (max-width: 1200px) {
-    .grid-calcomanias {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media (max-width: 1024px) {
-    .barra-lateral-categorias {
-        width: 240px;
-    }
-    
-    .grid-calcomanias {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    
-    .calcomania-imagen-contenedor {
-        height: 180px;
-    }
-}
-
+/* RESPONSIVE PARA TABLETS */
 @media (max-width: 900px) {
-    .contenedor-categorias {
-        gap: 1.5rem;
-    }
-    
-    .barra-lateral-categorias {
-        width: 220px;
-        padding: 1rem;
-    }
-    
-    .grid-calcomanias {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .calcomania-imagen-contenedor {
-        height: 160px;
-    }
-}
-
-@media (max-width: 768px) {
-    .seccion-categorias {
-        padding: 1.5rem 1rem;
-    }
-    
     .contenedor-categorias {
         flex-direction: column;
     }
     
     .barra-lateral-categorias {
-        width: 100%;
-        position: static;
-        margin-bottom: 2rem;
-    }
-    
-    .lista-categorias {
-        flex-direction: row;
-        overflow-x: auto;
-        padding-bottom: 0.5rem;
-        scrollbar-width: thin;
-    }
-    
-    .lista-categorias::-webkit-scrollbar {
-        height: 4px;
-    }
-    
-    .lista-categorias::-webkit-scrollbar-thumb {
-        background: #6a40bf;
-        border-radius: 4px;
-    }
-    
-    .categoria-item {
         flex: 0 0 auto;
-        min-width: 140px;
-        text-align: center;
-        margin-bottom: 0;
+        margin-bottom: 20px;
     }
     
-    .categoria-item:hover, 
-    .categoria-item.activa {
-        transform: translateY(-3px);
+    .grid-calcomanias {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 20px;
     }
-    
-    .titulo-seccion {
-        font-size: 1.8rem;
+}
+
+/* RESPONSIVE PARA MÓVILES */
+@media (max-width: 600px) {
+    .seccion-categorias {
+        padding: 1.5rem;
+        margin: 1rem;
     }
     
     .grid-calcomanias {
         display: none;
     }
     
-    .calcomania-imagen-contenedor {
-        height: 150px;
-    }
-    
-    /* Mostrar minigaleria en móvil */
     .minigaleria-mobile {
-        display: block;
+        display: flex;
+        overflow-x: auto;
+        gap: 15px;
+        padding-bottom: 15px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
     }
     
-    /* Ocultar información en móvil */
-    .calcomania-info {
-        display: none;
+    .minigaleria-mobile::-webkit-scrollbar {
+        height: 6px;
     }
     
-    /* Mostrar solo el botón de ver detalles en móvil */
-    .boton-ver-detalles {
-        opacity: 1;
-        bottom: 5px;
-        right: 5px;
-        padding: 0.4rem 0.8rem;
-        font-size: 0.7rem;
-    }
-}
-
-@media (max-width: 576px) {
-    .titulo-seccion {
-        font-size: 1.6rem;
+    .minigaleria-mobile::-webkit-scrollbar-thumb {
+        background: linear-gradient(90deg, #6e45e2, #ff3864);
+        border-radius: 3px;
     }
     
     .minigaleria-item {
-        width: 70px;
-        height: 70px;
+        flex: 0 0 150px;
+        background: rgba(0, 0, 0, 0.4);
+        border-radius: 10px;
+        overflow: hidden;
+        text-decoration: none;
+        border: 2px solid #6e45e2;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
     }
     
-    .fila-minigaleria {
-        gap: 0.6rem;
+    .minigaleria-item:active {
+        transform: scale(0.97);
     }
     
-    .categoria-item {
-        min-width: 120px;
-        padding: 0.8rem;
+    .minigaleria-item img {
+        width: 100%;
+        height: 120px;
+        object-fit: cover;
+    }
+    
+    .minigaleria-info {
+        padding: 10px;
+        text-align: center;
+    }
+    
+    .minigaleria-titulo {
+        color: #fff;
+        font-size: 0.9rem;
+        margin-bottom: 5px;
+    }
+    
+    .minigaleria-precio {
+        color: #ff3864;
+        font-weight: bold;
         font-size: 0.9rem;
     }
-}
-
-@media (max-width: 400px) {
-    .seccion-categorias {
-        padding: 1rem 0.8rem;
+    
+    .barra-lateral-categorias {
+        padding: 15px;
     }
     
-    .titulo-seccion {
-        font-size: 1.4rem;
-    }
-    
-    .minigaleria-item {
-        width: 60px;
-        height: 60px;
-    }
-    
-    .fila-minigaleria {
-        gap: 0.5rem;
-    }
-    
-    .boton-ver-detalles {
-        padding: 0.3rem 0.6rem;
-        font-size: 0.6rem;
+    .lista-categorias {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
     }
     
     .categoria-item {
-        min-width: 110px;
-        padding: 0.7rem;
+        flex: 0 0 calc(50% - 10px);
+        text-align: center;
+        margin-bottom: 0;
+        padding: 10px;
+    }
+    
+    .titulo-seccion {
+        font-size: 1.5rem;
+    }
+}
+
+/* PEQUEÑOS AJUSTES PARA MÓVILES MUY PEQUEÑOS */
+@media (max-width: 400px) {
+    .minigaleria-item {
+        flex: 0 0 130px;
+    }
+    
+    .minigaleria-item img {
+        height: 100px;
+    }
+    
+    .categoria-item {
+        flex: 0 0 100%;
     }
 }
 /* Footer con estilo anime */
