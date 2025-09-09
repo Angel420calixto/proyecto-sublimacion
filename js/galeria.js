@@ -1,92 +1,95 @@
-// JavaScript unificado para toda la funcionalidad del sitio
 document.addEventListener('DOMContentLoaded', function() {
-    // ===== FUNCIONALIDAD DEL MENÚ MÓVIL =====
-    const botonMenu = document.querySelector('.boton-encabezado');
-    const menu = document.querySelector('.enlaces');
-
-    if (botonMenu && menu) {
-        botonMenu.addEventListener('click', function(e) {
-            e.stopPropagation();
-            menu.classList.toggle('activo');
-        });
-
-        // Cerrar menú al hacer clic fuera de él
-        document.addEventListener('click', function(event) {
-            const esClickDentroMenu = menu.contains(event.target);
-            const esClickBotonMenu = botonMenu.contains(event.target);
-            
-            if (menu.classList.contains('activo') && !esClickDentroMenu && !esClickBotonMenu) {
-                menu.classList.remove('activo');
-            }
-        });
-    }
-
-    // ===== FUNCIONALIDAD DEL CARRUSEL 3D PRINCIPAL =====
-    const carousel = document.querySelector('.carrusel-3d');
-    const items = document.querySelectorAll('.item-carrusel');
-    const indicators = document.querySelectorAll('.indicador');
-    const prevBtn = document.querySelector('.btn-control:first-child');
-    const nextBtn = document.querySelector('.btn-control:last-child');
-    const categoryTitle = document.querySelector('.titulo-categoria');
-    
-    if (carousel && items.length > 0) {
+        // Elementos del DOM
+        const carousel = document.querySelector('.carrusel-3d');
+        const items = document.querySelectorAll('.item-carrusel');
+        const indicators = document.querySelectorAll('.indicador');
+        const prevBtn = document.querySelector('.btn-control:first-child');
+        const nextBtn = document.querySelector('.btn-control:last-child');
+        const categoryItems = document.querySelectorAll('.categoria-item');
+        const categoryTitle = document.querySelector('.titulo-categoria');
+        
+        // Estado del carrusel
         let currentIndex = 0;
         let autoRotateInterval;
         const totalItems = items.length;
         
         // Inicializar el carrusel
-        updateCarousel();
+        initCarousel();
         
         // Configurar event listeners
-        if (prevBtn && nextBtn) {
-            prevBtn.addEventListener('click', () => {
-                navigate('prev');
-                resetAutoRotation();
-            });
-            
-            nextBtn.addEventListener('click', () => {
-                navigate('next');
-                resetAutoRotation();
-            });
+        setupEventListeners();
+        
+        function initCarousel() {
+            // Posicionar inicialmente los items
+            updateCarousel();
         }
         
-        // Indicadores
-        indicators.forEach((indicator, index) => {
-            indicator.addEventListener('click', () => {
-                currentIndex = index;
-                updateCarousel();
-                resetAutoRotation();
-            });
-        });
-        
-        // Navegación con teclado
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') {
-                navigate('prev');
-                resetAutoRotation();
-            } else if (e.key === 'ArrowRight') {
-                navigate('next');
-                resetAutoRotation();
+        function setupEventListeners() {
+            // Botones de navegación
+            if (prevBtn && nextBtn) {
+                prevBtn.addEventListener('click', () => {
+                    navigate('prev');
+                    resetAutoRotation();
+                });
+                
+                nextBtn.addEventListener('click', () => {
+                    navigate('next');
+                    resetAutoRotation();
+                });
             }
-        });
-        
-        // Pausar la rotación automática al hacer hover
-        const carouselContainer = document.querySelector('.contenedor-carrusel-3d');
-        if (carouselContainer) {
-            carouselContainer.addEventListener('mouseenter', () => {
-                clearInterval(autoRotateInterval);
+            
+            // Indicadores
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateCarousel();
+                    resetAutoRotation();
+                });
             });
             
-            carouselContainer.addEventListener('mouseleave', () => {
-                startAutoRotation();
+            // Categorías
+            categoryItems.forEach((item) => {
+                item.addEventListener('click', () => {
+                    // Quitar clase active de todos los items
+                    categoryItems.forEach(i => i.classList.remove('activa'));
+                    // Añadir clase active al item clickeado
+                    item.classList.add('activa');
+                    
+                    // Actualizar el título de la categoría
+                    if (categoryTitle) {
+                        categoryTitle.textContent = item.textContent;
+                    }
+                    
+                    // Reiniciar el carrusel
+                    currentIndex = 0;
+                    updateCarousel();
+                    resetAutoRotation();
+                });
             });
+            
+            // Event listeners para navegación con teclado
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    navigate('prev');
+                    resetAutoRotation();
+                } else if (e.key === 'ArrowRight') {
+                    navigate('next');
+                    resetAutoRotation();
+                }
+            });
+            
+            // Pausar la rotación automática al hacer hover
+            const carouselContainer = document.querySelector('.contenedor-carrusel-3d');
+            if (carouselContainer) {
+                carouselContainer.addEventListener('mouseenter', () => {
+                    clearInterval(autoRotateInterval);
+                });
+                
+                carouselContainer.addEventListener('mouseleave', () => {
+                    startAutoRotation();
+                });
+            }
         }
-        
-        // Configurar eventos táctiles
-        setupTouchEvents();
-        
-        // Iniciar rotación automática
-        startAutoRotation();
         
         function navigate(direction) {
             if (direction === 'next') {
@@ -98,29 +101,42 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         function updateCarousel() {
+            // Actualizar clases de los items - MÉTODO SIMPLIFICADO
             items.forEach((item, index) => {
+                // Resetear todas las clases primero
                 item.classList.remove('activo', 'prev', 'next', 'lejos-izq', 'lejos-der');
                 
+                // Calcular la posición relativa
                 let position = index - currentIndex;
                 if (position < 0) position += totalItems;
+                if (position >= totalItems) position -= totalItems;
                 
+                // Asignar clases según la posición
                 if (position === 0) {
                     item.classList.add('activo');
                 } else if (position === 1) {
                     item.classList.add('next');
                 } else if (position === totalItems - 1) {
                     item.classList.add('prev');
-                } else if (position === 2) {
-                    item.classList.add('lejos-der');
-                } else if (position === totalItems - 2) {
-                    item.classList.add('lejos-izq');
+                } else if (position === 2 || position === totalItems - 2) {
+                    item.classList.add(position === 2 ? 'lejos-der' : 'lejos-izq');
+                } else if (position > 2 && position < totalItems - 2) {
+                    // Elementos muy lejanos - ocultarlos
+                    item.style.opacity = '0';
+                    item.style.zIndex = '0';
                 } else {
-                    item.style.opacity = '0.2';
+                    item.style.opacity = '';
+                    item.style.zIndex = '';
                 }
             });
             
+            // Actualizar indicadores
             indicators.forEach((indicator, index) => {
-                indicator.classList.toggle('activo', index === currentIndex);
+                if (index === currentIndex) {
+                    indicator.classList.add('activo');
+                } else {
+                    indicator.classList.remove('activo');
+                }
             });
         }
         
@@ -135,6 +151,10 @@ document.addEventListener('DOMContentLoaded', function() {
             startAutoRotation();
         }
         
+        // Iniciar rotación automática
+        startAutoRotation();
+        
+        // Función para manejar el gesto de deslizamiento en dispositivos táctiles
         function setupTouchEvents() {
             let touchStartX = 0;
             let touchEndX = 0;
@@ -166,109 +186,194 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         }
-    }
+        
+        // Configurar eventos táctiles
+        setupTouchEvents();
+    });
 
-    // ===== FUNCIONALIDAD DE CATEGORÍAS =====
-    const categoriaItems = document.querySelectorAll('.categoria-item');
+    // JavaScript para el menú móvil
+document.addEventListener('DOMContentLoaded', function () {
+    const botonMenu = document.querySelector('.boton-encabezado');
+    const menu = document.querySelector('.enlaces');
+
+    botonMenu.addEventListener('click', function () {
+        menu.classList.toggle('activo');
+    });
+
+    // Cerrar menú al hacer clic fuera de él
+    document.addEventListener('click', function (event) {
+        const esClickDentroMenu = menu.contains(event.target);
+        const esClickBotonMenu = botonMenu.contains(event.target);
+        const esMenuActivo = menu.classList.contains('activo');
+
+        if (esMenuActivo && !esClickDentroMenu && !esClickBotonMenu) {
+            menu.classList.remove('activo');
+        }
+    });
+});
+
+// Funcionalidad para el carrusel 3D de categorías
+document.addEventListener('DOMContentLoaded', function() {
+    // Elementos del carrusel 3D de categorías
+    const carrusel3D = document.querySelector('.carrusel-3d-categorias');
+    const items3D = document.querySelectorAll('.categoria-3d-item');
+    const btnPrev3D = document.getElementById('btn-prev-3d');
+    const btnNext3D = document.getElementById('btn-next-3d');
     
-    categoriaItems.forEach(item => {
-        item.addEventListener('click', () => {
-            // Quitar clase active de todos los items
-            categoriaItems.forEach(i => i.classList.remove('activa'));
+    // Elementos de la galería
+    const contenedorGaleria = document.querySelector('.contenedor-galeria');
+    
+    let current3DIndex = 0;
+    const total3DItems = items3D.length;
+    
+    // Configurar posición inicial de los items 3D
+    function setup3DCarousel() {
+        items3D.forEach((item, index) => {
+            item.classList.remove('activa', 'secundaria', 'terciaria');
             
-            // Añadir clase active al item clickeado
-            item.classList.add('activa');
-            
-            // Actualizar el título si existe
-            if (categoryTitle) {
-                categoryTitle.textContent = item.textContent;
+            if (index === current3DIndex) {
+                item.classList.add('activa');
+            } else if (index === (current3DIndex + 1) % total3DItems || 
+                      (current3DIndex === 0 && index === total3DItems - 1)) {
+                item.classList.add('secundaria');
+            } else if (index === (current3DIndex + 2) % total3DItems || 
+                      (current3DIndex === 0 && index === total3DItems - 2) ||
+                      (current3DIndex === 1 && index === total3DItems - 1)) {
+                item.classList.add('terciaria');
             }
-            
-            // Aquí iría la lógica para filtrar las imágenes por categoría
-            console.log(`Categoría seleccionada: ${item.textContent}`);
+        });
+    }
+    
+    // Navegación del carrusel 3D
+    btnNext3D.addEventListener('click', () => {
+        current3DIndex = (current3DIndex + 1) % total3DItems;
+        setup3DCarousel();
+        filtrarPorCategoria(items3D[current3DIndex].textContent);
+    });
+    
+    btnPrev3D.addEventListener('click', () => {
+        current3DIndex = (current3DIndex - 1 + total3DItems) % total3DItems;
+        setup3DCarousel();
+        filtrarPorCategoria(items3D[current3DIndex].textContent);
+    });
+    
+    // Filtrar por categorías al hacer clic en un item
+    items3D.forEach(item => {
+        item.addEventListener('click', () => {
+            const index = Array.from(items3D).indexOf(item);
+            current3DIndex = index;
+            setup3DCarousel();
+            filtrarPorCategoria(item.textContent);
         });
     });
     
-    // Smooth scroll para la barra de categorías en móviles
-    const listaCategorias = document.querySelector('.lista-categorias');
-    
-    if (listaCategorias) {
-        listaCategorias.addEventListener('wheel', (e) => {
-            if (window.innerWidth <= 768) {
-                e.preventDefault();
-                listaCategorias.scrollLeft += e.deltaY;
-            }
-        });
+    // Simular filtrado por categoría
+    function filtrarPorCategoria(categoria) {
+        console.log(`Filtrando por categoría: ${categoria}`);
+        // Aquí iría la lógica real para filtrar las imágenes
+        document.querySelector('.titulo-seccion').textContent = `Calcomanías de ${categoria}`;
     }
-
-    // ===== FUNCIONALIDAD DE LAS CALCOMANÍAS =====
+    
+    // Scroll interno para la galería
+    contenedorGaleria.addEventListener('mouseenter', () => {
+        document.body.style.overflow = 'hidden';
+    });
+    
+    contenedorGaleria.addEventListener('mouseleave', () => {
+        document.body.style.overflow = '';
+    });
+    
+    // Touch events para dispositivos móviles
+    contenedorGaleria.addEventListener('touchstart', () => {
+        document.body.style.overflow = 'hidden';
+    });
+    
+    contenedorGaleria.addEventListener('touchend', () => {
+        document.body.style.overflow = '';
+    });
+    
+    // Mostrar/ocultar información al hacer clic en una calcomanía
     const calcomaniaCards = document.querySelectorAll('.calcomania-card');
     
     calcomaniaCards.forEach(card => {
-        const botonVerDetalles = card.querySelector('.boton-ver-detalles');
-        const info = card.querySelector('.calcomania-info');
         const botonCerrar = card.querySelector('.boton-cerrar');
+        const info = card.querySelector('.calcomania-info');
+        const botonVerDetalles = card.querySelector('.boton-ver-detalles');
         
-        // Mostrar información al hacer hover (solo desktop)
-        if (window.innerWidth > 768) {
-            card.addEventListener('mouseenter', () => {
-                if (botonVerDetalles) botonVerDetalles.style.opacity = '1';
-            });
+        card.addEventListener('click', (e) => {
+            if (e.target === botonVerDetalles) {
+                // El botón "Ver Detalles" maneja su propia navegación
+                return;
+            }
             
-            card.addEventListener('mouseleave', () => {
-                if (botonVerDetalles) botonVerDetalles.style.opacity = '0';
-                if (info) info.classList.remove('activa');
-            });
-        }
+            info.classList.add('activa');
+            document.body.style.overflow = 'hidden';
+        });
         
-        // Mostrar/ocultar información al hacer clic (mobile y desktop)
-        if (info && botonCerrar) {
-            card.addEventListener('click', (e) => {
-                if (botonVerDetalles && e.target === botonVerDetalles) {
-                    // El botón "Ver Detalles" maneja su propia navegación
-                    return;
-                }
-                
-                info.classList.add('activa');
-                document.body.style.overflow = 'hidden';
-            });
-            
-            botonCerrar.addEventListener('click', (e) => {
-                e.stopPropagation();
-                info.classList.remove('activa');
-                document.body.style.overflow = '';
-            });
-        }
+        botonCerrar.addEventListener('click', (e) => {
+            e.stopPropagation();
+            info.classList.remove('activa');
+            document.body.style.overflow = '';
+        });
     });
-
-    // ===== SCROLL INTERNO PARA GALERÍA =====
-    const contenedorGaleria = document.querySelector('.contenedor-galeria');
     
-    if (contenedorGaleria) {
-        contenedorGaleria.addEventListener('mouseenter', () => {
-            document.body.style.overflow = 'hidden';
+    // Inicializar
+    setup3DCarousel();
+});
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Funcionalidad para filtrar por categoría
+    const categorias = document.querySelectorAll('.categoria-item');
+    const itemsGaleria = document.querySelectorAll('.item-galeria');
+    const botonVerMas = document.querySelector('.boton-vermas');
+    const galeria = document.querySelector('.galeria-principal');
+    
+    categorias.forEach(categoria => {
+        categoria.addEventListener('click', function() {
+            // Quitar clase activa de todas las categorías
+            categorias.forEach(cat => cat.classList.remove('activa'));
+            
+            // Añadir clase activa a la categoría seleccionada
+            this.classList.add('activa');
+            
+            // Obtener la categoría seleccionada
+            const categoriaSeleccionada = this.textContent.trim().toLowerCase();
+            
+            // Filtrar la galería
+            itemsGaleria.forEach(item => {
+                const itemCategoria = item.getAttribute('data-categoria');
+                
+                if (categoriaSeleccionada === 'todos' || itemCategoria === categoriaSeleccionada) {
+                    item.style.display = 'block';
+                    // Pequeño retraso para la animación
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                    }, 50);
+                } else {
+                    item.style.opacity = '0';
+                    // Ocultar después de la animación
+                    setTimeout(() => {
+                        item.style.display = 'none';
+                    }, 300);
+                }
+            });
         });
-        
-        contenedorGaleria.addEventListener('mouseleave', () => {
-            document.body.style.overflow = '';
-        });
-        
-        // Para dispositivos táctiles
-        contenedorGaleria.addEventListener('touchstart', () => {
-            document.body.style.overflow = 'hidden';
-        });
-        
-        contenedorGaleria.addEventListener('touchend', () => {
-            document.body.style.overflow = '';
+    });
+    
+    // Funcionalidad para el botón "Ver Más"
+    if (botonVerMas && galeria) {
+        botonVerMas.addEventListener('click', function() {
+            galeria.classList.toggle('expandida');
+            
+            if (galeria.classList.contains('expandida')) {
+                this.textContent = 'Ver Menos';
+            } else {
+                this.textContent = 'Ver Más';
+            }
         });
     }
-
-    // ===== FUNCIONALIDAD RESPONSIVA ADICIONAL =====
-    function handleResponsiveChanges() {
-        // Aquí puedes añadir cualquier funcionalidad específica para cambios de tamaño
-    }
-    
-    // Ejecutar al cargar y al redimensionar
-    handleResponsiveChanges();
-    window.addEventListener('resize', handleResponsiveChanges);
 });

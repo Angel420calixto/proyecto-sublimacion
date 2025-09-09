@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo de Fantasía Animal</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/visualizador.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prata&family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+</head>
+<body>
+    <!-- Encabezado -->
+    <header class="encabezado">
+        <nav class="navegacion-principal">
+            <a href="#" class="logo-link">
+                <img src="img/logo.jpg" alt="Logo Fantasía Animal" class="logo">
+                <span class="logo-text">Fantasía Animal</span>
+            </a>
+            <div class="buscador">
+                <input type="text" placeholder="Buscar productos...">
+            </div>
+            <button class="boton-encabezado">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="enlaces">
+                <li><a href="index.html" class="enlace-navegacion">Inicio</a></li>
+                <li><a href="galeria.html" class="enlace-navegacion">Galería</a></li>
+                <li><a href="#" class="enlace-navegacion">Categorías</a></li>
+                <li><a href="#" class="enlace-navegacion">Personalizar</a></li>
+                <li><a href="#" class="enlace-navegacion">Contacto</a></li>
+            </ul>
+            <div class="iconos-usuario">
+                <a href="#" class="icono-usuario">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Tienda</span>
+                </a>
+                <a href="#" class="icono-usuario">
+                    <i class="fas fa-user"></i>
+                    <span>Mi cuenta</span>
+                </a>
+            </div>
+            <div class="iconos-usuario-mobile">
+                <a href="#" class="icono-usuario-mobile">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+                <a href="#" class="icono-usuario-mobile">
+                    <i class="fas fa-user"></i>
+                </a>
+            </div>
+        </nav>
+    </header>
+    <main>
+         <div class="container">
+
+        <!-- Contenedor principal del producto -->
+        <div class="contenedor-producto">
+            <!-- Galería de imágenes -->
+            <div class="galeria-producto">
+                <div class="imagen-principal">
+                    <img src="/sololevelimng.webp" alt="Aqua Man">
+                </div>
+                <div class="miniaturas">
+                    <div class="miniatura">
+                        <img src="" alt="Vista 1">
+                    </div>
+                    <div class="miniatura">
+                        <img src="" alt="Vista 2">
+                    </div>
+                    <div class="miniatura">
+                        <img src="" alt="Vista 3">
+                    </div>
+                    <div class="miniatura">
+                        <img src="" alt="Vista 4">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Información del producto -->
+            <div class="info-producto">
+                <h1 class="titulo-producto">Aqua Man</h1>
+                <p class="descripcion-producto">
+                    ¡Transforma tus espacios con el brillo del arte en metal! Descubre la fusión perfecta entre durabilidad y elegancia. Dale a tus paredes un toque de distinción con nuestros cuadros sublimados en metal. ¡Haz brillar tus ambientes con estilo!
+                </p>
+
+                <div class="especificaciones">
+                    <h3>Dimensiones</h3>
+                    <ul>
+                        <li>Encuentra este diseño en dos presentaciones, 80x60 cm y 60x40 cm.</li>
+                        <li>Puedes incluir el acabado con luces LED para resaltar más aun este diseño.</li>
+                        <li>Las luces LED cuentan con caja de pilas y conexión a la corriente.</li>
+                        <li>Puedes manejar las frecuencias de luz a través de Bluetooth desde tu teléfono celular.</li>
+                    </ul>
+                </div>
+
+                <div class="selector-tamano">
+                    <h3>Tamaño (cm³):</h3>
+                    <div class="opciones-tamano">
+                        <div class="opcion-tamano activa">60 x 40</div>
+                        <div class="opcion-tamano">80 x 60</div>
+                    </div>
+                </div>
+
+                <div class="selector-led">
+                    <div class="opcion-led">
+                        <input type="checkbox" id="luces-led">
+                        <label for="luces-led">Añadir luz LED (-$100.000)</label>
+                    </div>
+                </div>
+
+                <div class="precio">$450.000</div>
+
+                <div class="subtotal">
+                    <span>Subtotal</span>
+                    <span>$450.000</span>
+                </div>
+
+                <div class="botones-compra">
+                    <button class="boton-principal">Add To Cart</button>
+                    <button class="boton-secundario">Compare</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </main>
+    <footer class="anime-footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>Cuadros Sublimados</h3>
+      <p>Transformamos tus momentos especiales en arte duradero sobre metal.</p>
+      <div class="social-icons">
+        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    
+    <div class="footer-section">
+      <h4>Enlaces Rápidos</h4>
+      <ul>
+        <li><a href="#"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+        <li><a href="#"><i class="fas fa-chevron-right"></i> Galería</a></li>
+        <li><a href="#"><i class="fas fa-chevron-right"></i> Precios</a></li>
+        <li><a href="#"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-section">
+      <h4>Contacto</h4>
+      <div class="contact-info">
+        <p><i class="fas fa-map-marker-alt"></i> Av. Principal #123, Ciudad</p>
+        <p><i class="fas fa-phone"></i> +1 234 567 890</p>
+        <p><i class="fas fa-envelope"></i> info@cuadrosmetal.com</p>
+      </div>
+    </div>
+    
+    <div class="footer-section">
+      <h4>Newsletter</h4>
+      <p>Suscríbete para recibir promociones exclusivas.</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Tu correo electrónico" required>
+        <button type="submit">Suscribirse <i class="fas fa-paper-plane"></i></button>
+      </form>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>&copy; 2023 Cuadros Sublimados en Metal. Todos los derechos reservados.</p>
+  </div>
+  
+  <div class="footer-particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+</footer>
+    <script src="js/visualizador.js"></script>
+</body>
+</html>

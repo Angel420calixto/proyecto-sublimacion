@@ -25,7 +25,8 @@
           "min-height: auto",
           "-webkit-overflow-scrolling",
           "scrollbar-width",
-          "scrollbar-width: thin"
+          "scrollbar-width: thin",
+          "scrollbar-width: none"
         ]
       }
     ],

@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mundo de Fantasía Animal</title>
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,16 +23,13 @@
                 <img src="img/logo.jpg" alt="Logo Fantasía Animal" class="logo">
                 <span class="logo-text">Fantasía Animal</span>
             </a>
-            <div class="buscador">
-                <input type="text" placeholder="Buscar productos...">
-            </div>
             <button class="boton-encabezado">
                 <i class="fas fa-bars"></i>
             </button>
             <ul class="enlaces">
                 <li><a href="index.html" class="enlace-navegacion">Inicio</a></li>
                 <li><a href="galeria.html" class="enlace-navegacion">Galería</a></li>
-                <li><a href="#" class="enlace-navegacion">Categorías</a></li>
+                <li><a href="visualizacion.html" class="enlace-navegacion">Categorías</a></li>
                 <li><a href="#" class="enlace-navegacion">Personalizar</a></li>
                 <li><a href="#" class="enlace-navegacion">Contacto</a></li>
             </ul>
@@ -56,20 +53,165 @@
             </div>
         </nav>
     </header>
-   <main>
-    <div class="galeria-container">
-        <!-- Barra lateral de categorías -->
-        <div class="categorias-lateral">
-            <h2>Categorías</h2>
+    <section class="hero">
+        <div class="contenido-hero">
+            <div class="imagen-hero-container">
+                <img src="img/sublima12.jpg" alt="Cuadro de animal fantástico" class="imagen-hero">
+            </div>
+            <div class="texto-hero-container">
+                <h1 class="titulo-hero">Embárcate en un Mundo de Fantasía Animal</h1>
+                <p class="texto-hero">¡Dale un toque salvaje y mágico a tu entorno con nuestros cuadros artísticos de animales, llenos de encanto y personalidad! Encontrarás desde retratos realistas de animales hasta fascinantes creaciones antropomórficas.</p>
+                <a href="#" class="boton-hero">Encuentra tu diseño ideal</a>
+            </div>
+        </div>
+    </section>
+  <section class="seccion-categorias">
+    <div class="contenedor-categorias">
+        <!-- Barra de categorías superior (nuevo elemento) -->
+        <div class="barra-categorias-superior">
             <ul class="lista-categorias">
                 <li class="categoria-item activa">Todos</li>
-                <li class="categoria-item">Cuadros realistas</li>
-                <li class="categoria-item">Animales Fantásticos</li>
-                <li class="categoria-item">Paisajes Naturales</li>
-                <li class="categoria-item">Retratos</li>
+                <li class="categoria-item">Animales</li>
                 <li class="categoria-item">Anime</li>
+                <li class="categoria-item">Arte</li>
+                <li class="categoria-item">Artistas</li>
+                <li class="categoria-item">Cartoons</li>
+                <li class="categoria-item">DC</li>
             </ul>
         </div>
+        
+        <!-- Contenido principal -->
+        <div class="contenido-categorias">
+            <h2 class="titulo-seccion">Calcomanías Populares</h2>
+            
+            <!-- Galería principal (reemplaza grid-calcomanias) -->
+            <div class="galeria-principal">
+                <!-- Items de la galería con atributo data-categoria -->
+                <div class="item-galeria" data-categoria="animales">
+                    <img src="vegtamajinsubli2.webp" alt="Ballena de Fuego">
+                    <div class="info-galeria">
+                        <h3 class="titulo-galeria">Ballena de Fuego</h3>
+                        <span class="precio-galeria">$350.000 – $450.000</span>
+                    </div>
+                </div>
+                <div class="item-galeria" data-categoria="animales">
+                    <img src="vegtamajinsubli2.webp" alt="Ballena de Fuego">
+                    <div class="info-galeria">
+                        <h3 class="titulo-galeria">Ballena de Fuego</h3>
+                        <span class="precio-galeria">$350.000 – $450.000</span>
+                    </div>
+                </div>
+                <div class="item-galeria" data-categoria="animales">
+                    <img src="vegtamajinsubli2.webp" alt="Ballena de Fuego">
+                    <div class="info-galeria">
+                        <h3 class="titulo-galeria">Ballena de Fuego</h3>
+                        <span class="precio-galeria">$350.000 – $450.000</span>
+                    </div>
+                </div>
+                <div class="item-galeria" data-categoria="animales">
+                    <img src="vegtamajinsubli2.webp" alt="Ballena de Fuego">
+                    <div class="info-galeria">
+                        <h3 class="titulo-galeria">Ballena de Fuego</h3>
+                        <span class="precio-galeria">$350.000 – $450.000</span>
+                    </div>
+                </div>
+                <div class="item-galeria" data-categoria="animales">
+                    <img src="vegtamajinsubli2.webp" alt="Ballena de Fuego">
+                    <div class="info-galeria">
+                        <h3 class="titulo-galeria">Ballena de Fuego</h3>
+                        <span class="precio-galeria">$350.000 – $450.000</span>
+                    </div>
+                </div>
+                <div class="item-galeria" data-categoria="animales">
+                    <img src="vegtamajinsubli2.webp" alt="Ballena de Fuego">
+                    <div class="info-galeria">
+                        <h3 class="titulo-galeria">Ballena de Fuego</h3>
+                        <span class="precio-galeria">$350.000 – $450.000</span>
+                    </div>
+                </div>
+                <div class="item-galeria" data-categoria="animales">
+                    <img src="vegtamajinsubli2.webp" alt="Ballena de Fuego">
+                    <div class="info-galeria">
+                        <h3 class="titulo-galeria">Ballena de Fuego</h3>
+                        <span class="precio-galeria">$350.000 – $450.000</span>
+                    </div>
+                </div>
+                <div class="item-galeria" data-categoria="animales">
+                    <img src="vegtamajinsubli2.webp" alt="Ballena de Fuego">
+                    <div class="info-galeria">
+                        <h3 class="titulo-galeria">Ballena de Fuego</h3>
+                        <span class="precio-galeria">$350.000 – $450.000</span>
+                    </div>
+                </div>
+                <div class="item-galeria" data-categoria="animales">
+                    <img src="vegtamajinsubli2.webp" alt="Ballena de Fuego">
+                    <div class="info-galeria">
+                        <h3 class="titulo-galeria">Ballena de Fuego</h3>
+                        <span class="precio-galeria">$350.000 – $450.000</span>
+                    </div>
+                </div>
+                <div class="item-galeria" data-categoria="animales">
+                    <img src="vegtamajinsubli2.webp" alt="Ballena de Fuego">
+                    <div class="info-galeria">
+                        <h3 class="titulo-galeria">Ballena de Fuego</h3>
+                        <span class="precio-galeria">$350.000 – $450.000</span>
+                    </div>
+                </div>
+                <div class="item-galeria" data-categoria="animales">
+                    <img src="vegtamajinsubli2.webp" alt="Ballena de Fuego">
+                    <div class="info-galeria">
+                        <h3 class="titulo-galeria">Ballena de Fuego</h3>
+                        <span class="precio-galeria">$350.000 – $450.000</span>
+                    </div>
+                </div>
+                <div class="item-galeria" data-categoria="animales">
+                    <img src="vegtamajinsubli2.webp" alt="Ballena de Fuego">
+                    <div class="info-galeria">
+                        <h3 class="titulo-galeria">Ballena de Fuego</h3>
+                        <span class="precio-galeria">$350.000 – $450.000</span>
+                    </div>
+                </div>
+                <div class="item-galeria" data-categoria="animales">
+                    <img src="vegtamajinsubli2.webp" alt="Ballena de Fuego">
+                    <div class="info-galeria">
+                        <h3 class="titulo-galeria">Ballena de Fuego</h3>
+                        <span class="precio-galeria">$350.000 – $450.000</span>
+                    </div>
+                </div>
+                <div class="item-galeria" data-categoria="animales">
+                    <img src="vegtamajinsubli2.webp" alt="Ballena de Fuego">
+                    <div class="info-galeria">
+                        <h3 class="titulo-galeria">Ballena de Fuego</h3>
+                        <span class="precio-galeria">$350.000 – $450.000</span>
+                    </div>
+                </div>
+                <div class="item-galeria" data-categoria="animales">
+                    <img src="vegtamajinsubli2.webp" alt="Ballena de Fuego">
+                    <div class="info-galeria">
+                        <h3 class="titulo-galeria">Ballena de Fuego</h3>
+                        <span class="precio-galeria">$350.000 – $450.000</span>
+                    </div>
+                </div>
+                
+                <!-- Más items de la galería con sus respectivas categorías -->
+                
+            </div>
+            
+            <!-- Botón Ver Más (nuevo elemento) -->
+            <div class="contenedor-boton-vermas">
+                <button class="boton-vermas">Ver Más</button>
+            </div>
+        </div>
+        
+        <!-- Barra lateral original (se mantiene oculta) -->
+        <div class="barra-lateral-categorias">
+            <!-- ... -->
+        </div>
+    </div>
+</section>
+    <div class="galeria-container">
+        <!-- Barra lateral de categorías -->
+        
         
         <!-- Sección del carrusel -->
         <div class="carrusel-seccion">
@@ -145,204 +287,6 @@
     </div>
 </main>
 
-<section class="seccion-categorias">
-    <div class="contenedor-categorias">
-        <!-- Barra lateral de categorías -->
-        <div class="barra-lateral-categorias">
-            <h2>Categorías Populares</h2>
-            <ul class="lista-categorias">
-                <li class="categoria-item activa">Animales</li>
-                <li class="categoria-item">Anime</li>
-                <li class="categoria-item">Arte</li>
-                <li class="categoria-item">Artistas</li>
-                <li class="categoria-item">Cartoons</li>
-                <li class="categoria-item">DC</li>
-                <li class="categoria-item">Deportes</li>
-                <li class="categoria-item">Games</li>
-                <li class="categoria-item">Marvel</li>
-            </ul>
-        </div>
-        
-        <!-- Contenido principal -->
-        <div class="contenido-categorias">
-            <h2 class="titulo-seccion">Calcomanías Populares</h2>
-            
-            <!-- Grid normal para desktop -->
-            <div class="grid-calcomanias">
-                <!-- Calcomanía 1 -->
-                <div class="calcomania-card">
-                    <div class="calcomania-imagen-contenedor">
-                        <img src="img/ballena-fuego.jpg" alt="Ballena de Fuego" class="calcomania-imagen">
-                        <a href="detalle-ballena.html" class="boton-ver-detalles">Ver Detalles</a>
-                    </div>
-                    <div class="calcomania-info">
-                        <h3 class="calcomania-titulo">Ballena de Fuego</h3>
-                        <span class="calcomania-precio">$350.000 – $450.000</span>
-                    </div>
-                </div>
-                
-                <!-- Calcomanía 2 -->
-                <div class="calcomania-card">
-                    <div class="calcomania-imagen-contenedor">
-                        <img src="img/perro-boxer.jpg" alt="Perro Boxer" class="calcomania-imagen">
-                        <a href="detalle-perro.html" class="boton-ver-detalles">Ver Detalles</a>
-                    </div>
-                    <div class="calcomania-info">
-                        <h3 class="calcomania-titulo">Perro Boxer</h3>
-                        <span class="calcomania-precio">$350.000 – $450.000</span>
-                    </div>
-                </div>
-                
-                <!-- Calcomanía 3 -->
-                <div class="calcomania-card">
-                    <div class="calcomania-imagen-contenedor">
-                        <img src="img/gato-neon.jpg" alt="Gato Neon" class="calcomania-imagen">
-                        <a href="detalle-gato.html" class="boton-ver-detalles">Ver Detalles</a>
-                    </div>
-                    <div class="calcomania-info">
-                        <h3 class="calcomania-titulo">Gato Neon</h3>
-                        <span class="calcomania-precio">$350.000 – $450.000</span>
-                    </div>
-                </div>
-                
-                <!-- Calcomanía 4 -->
-                <div class="calcomania-card">
-                    <div class="calcomania-imagen-contenedor">
-                        <img src="img/leon-majestuoso.jpg" alt="León Majestuoso" class="calcomania-imagen">
-                        <a href="detalle-leon.html" class="boton-ver-detalles">Ver Detalles</a>
-                    </div>
-                    <div class="calcomania-info">
-                        <h3 class="calcomania-titulo">León Majestuoso</h3>
-                        <span class="calcomania-precio">$380.000 – $480.000</span>
-                    </div>
-                </div>
-                
-                <!-- Calcomanía 5 -->
-                <div class="calcomania-card">
-                    <div class="calcomania-imagen-contenedor">
-                        <img src="img/dragon-legendario.jpg" alt="Dragón Legendario" class="calcomania-imagen">
-                        <a href="detalle-dragon.html" class="boton-ver-detalles">Ver Detalles</a>
-                    </div>
-                    <div class="calcomania-info">
-                        <h3 class="calcomania-titulo">Dragón Legendario</h3>
-                        <span class="calcomania-precio">$400.000 – $500.000</span>
-                    </div>
-                </div>
-                
-                <!-- Calcomanía 6 -->
-                <div class="calcomania-card">
-                    <div class="calcomania-imagen-contenedor">
-                        <img src="img/aguila-real.jpg" alt="Águila Real" class="calcomania-imagen">
-                        <a href="detalle-aguila.html" class="boton-ver-detalles">Ver Detalles</a>
-                    </div>
-                    <div class="calcomania-info">
-                        <h3 class="calcomania-titulo">Águila Real</h3>
-                        <span class="calcomania-precio">$370.000 – $470.000</span>
-                    </div>
-                </div>
-                
-                <!-- Calcomanía 7 -->
-                <div class="calcomania-card">
-                    <div class="calcomania-imagen-contenedor">
-                        <img src="img/tigre-bengala.jpg" alt="Tigre de Bengala" class="calcomania-imagen">
-                        <a href="detalle-tigre.html" class="boton-ver-detalles">Ver Detalles</a>
-                    </div>
-                    <div class="calcomania-info">
-                        <h3 class="calcomania-titulo">Tigre de Bengala</h3>
-                        <span class="calcomania-precio">$390.000 – $490.000</span>
-                    </div>
-                </div>
-                
-                <!-- Calcomanía 8 -->
-                <div class="calcomania-card">
-                    <div class="calcomania-imagen-contenedor">
-                        <img src="img/lobo-artic.jpg" alt="Lobo Ártico" class="calcomania-imagen">
-                        <a href="detalle-lobo.html" class="boton-ver-detalles">Ver Detalles</a>
-                    </div>
-                    <div class="calcomania-info">
-                        <h3 class="calcomania-titulo">Lobo Ártico</h3>
-                        <span class="calcomania-precio">$360.000 – $460.000</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Minigaleria para móviles -->
-            <div class="minigaleria-mobile">
-                <!-- Minigaleria Item 1 -->
-                <a href="detalle-ballena.html" class="minigaleria-item">
-                    <img src="sublima15.webp" alt="Ballena de Fuego">
-                    <div class="minigaleria-info">
-                        <h4 class="minigaleria-titulo">Ballena de Fuego</h4>
-                        <span class="minigaleria-precio">$350.000</span>
-                    </div>
-                </a>
-                
-                <!-- Minigaleria Item 2 -->
-                <a href="detalle-perro.html" class="minigaleria-item">
-                    <img src="vegetaM.webp" alt="Perro Boxer">
-                    <div class="minigaleria-info">
-                        <h4 class="minigaleria-titulo">Perro Boxer</h4>
-                        <span class="minigaleria-precio">$350.000</span>
-                    </div>
-                </a>
-                
-                <!-- Minigaleria Item 3 -->
-                <a href="detalle-gato.html" class="minigaleria-item">
-                    <img src="gokuultrasubli.jpg" alt="Gato Neon">
-                    <div class="minigaleria-info">
-                        <h4 class="minigaleria-titulo">Gato Neon</h4>
-                        <span class="minigaleria-precio">$350.000</span>
-                    </div>
-                </a>
-                
-                <!-- Minigaleria Item 4 -->
-                <a href="detalle-leon.html" class="minigaleria-item">
-                    <img src="narutosubli1.webp" alt="León Majestuoso">
-                    <div class="minigaleria-info">
-                        <h4 class="minigaleria-titulo">León Majestuoso</h4>
-                        <span class="minigaleria-precio">$380.000</span>
-                    </div>
-                </a>
-                
-                <!-- Minigaleria Item 5 -->
-                <a href="detalle-dragon.html" class="minigaleria-item">
-                    <img src="narutosubli1.webp" alt="Dragón Legendario">
-                    <div class="minigaleria-info">
-                        <h4 class="minigaleria-titulo">Dragón Legendario</h4>
-                        <span class="minigaleria-precio">$400.000</span>
-                    </div>
-                </a>
-                
-                <!-- Minigaleria Item 6 -->
-                <a href="detalle-aguila.html" class="minigaleria-item">
-                    <img src="narutominatosubli.avif" alt="Águila Real">
-                    <div class="minigaleria-info">
-                        <h4 class="minigaleria-titulo">Águila Real</h4>
-                        <span class="minigaleria-precio">$370.000</span>
-                    </div>
-                </a>
-                
-                <!-- Minigaleria Item 7 -->
-                <a href="detalle-tigre.html" class="minigaleria-item">
-                    <img src="gokusublima.jfif" alt="Tigre de Bengala">
-                    <div class="minigaleria-info">
-                        <h4 class="minigaleria-titulo">Tigre de Bengala</h4>
-                        <span class="minigaleria-precio">$390.000</span>
-                    </div>
-                </a>
-                
-                <!-- Minigaleria Item 8 -->
-                <a href="detalle-lobo.html" class="minigaleria-item">
-                    <img src="gokufasessubli.webp" alt="Lobo Ártico">
-                    <div class="minigaleria-info">
-                        <h4 class="minigaleria-titulo">Lobo Ártico</h4>
-                        <span class="minigaleria-precio">$360.000</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
     <footer class="anime-footer">
   <div class="footer-content">
     <div class="footer-section">

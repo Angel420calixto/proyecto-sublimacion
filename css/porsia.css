@@ -20,7 +20,7 @@
 }
 
 body {
-      background: url('/img/sublima11.jpg') no-repeat center center/cover;
+    background: linear-gradient(135deg, rgba(5, 5, 5, 0.888) 0%, rgba(7, 1, 80, 0.899) 100%);
 
     font-family: 'Arial', sans-serif;
     color: var(--color-text);
@@ -529,10 +529,6 @@ body {
     }
 }
 
-/*seccion de informacion de cuadros*/
-
-/* Estilos específicos para la sección de características de cuadros en metal */
-/* Estilo anime para sección de características de cuadros en metal */
 /* Estilo anime para sección de características de cuadros en metal */
 .metal-features {
   padding: 80px 0;
@@ -847,6 +843,354 @@ body {
     font-size: 1rem;
   }
 }
+
+
+/* Section Cuadros Artísticos en Metal HD */
+.cuadros-metal-section {
+    padding: 4rem 1.5rem;
+    background: linear-gradient(135deg, rgba(10, 10, 30, 0.9) 0%, rgba(20, 15, 60, 0.9) 100%);
+    border-top: 1px solid rgba(106, 64, 191, 0.3);
+    border-bottom: 1px solid rgba(106, 64, 191, 0.3);
+    margin: 2rem 0;
+}
+
+.cuadros-metal-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.encabezado-seccion {
+    text-align: center;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid var(--color-primary);
+}
+
+.titulo-principal {
+    font-size: 3rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 15px rgba(106, 64, 191, 0.5);
+}
+
+.contenido-principal {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.info-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.subtitulo {
+    font-size: 2rem;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+    font-weight: 700;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.subtitulo::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 80%;
+    background: var(--gradient-primary);
+    border-radius: 4px;
+}
+
+.descripcion {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    text-align: justify;
+}
+
+.firma {
+    text-align: right;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 107, 107, 0.3);
+}
+
+.texto-firma {
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--color-secondary);
+    font-weight: 600;
+    text-shadow: 0 0 8px rgba(255, 107, 107, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cuadros-metal-section {
+        padding: 2.5rem 1rem;
+    }
+    
+    .titulo-principal {
+        font-size: 2.2rem;
+        letter-spacing: 2px;
+    }
+    
+    .subtitulo {
+        font-size: 1.6rem;
+    }
+    
+    .descripcion {
+        font-size: 1rem;
+    }
+    
+    .texto-firma {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .titulo-principal {
+        font-size: 1.8rem;
+    }
+    
+    .subtitulo {
+        font-size: 1.4rem;
+        padding-left: 1rem;
+    }
+    
+    .subtitulo::before {
+        width: 6px;
+    }
+}
+/* Section Proceso de Fabricación */
+/* Section Proceso de Fabricación - Estilo Horizontal */
+.proceso-fabricacion {
+    padding: 4rem 1.5rem;
+    background: linear-gradient(135deg, rgba(10, 10, 30, 0.95) 0%, rgba(20, 15, 60, 0.95) 100%);
+    border-top: 1px solid rgba(106, 64, 191, 0.3);
+    border-bottom: 1px solid rgba(106, 64, 191, 0.3);
+    margin: 2rem 0;
+}
+
+.contenedor-proceso {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.encabezado-seccion {
+    text-align: center;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--color-primary);
+}
+
+.titulo-principal {
+    font-size: 3.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 15px rgba(106, 64, 191, 0.5);
+    margin-bottom: 0.5rem;
+}
+
+.subtitulo {
+    font-size: 1.8rem;
+    color: var(--color-text);
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+/* Contenido horizontal */
+.contenido-horizontal {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+/* Columna izquierda */
+.columna-izquierda {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.imagen-contenedor {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+}
+
+.imagen-contenedor:hover {
+    transform: translateY(-5px);
+}
+
+.imagen-destacada {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.texto-descripcion {
+    background: rgba(20, 20, 40, 0.6);
+    padding: 1.8rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--color-secondary);
+}
+
+.texto-descripcion p {
+    color: var(--color-text);
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+}
+
+.texto-descripcion p:last-child {
+    margin-bottom: 0;
+}
+
+/* Columna derecha */
+.columna-derecha {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.texto-destacado {
+    background: rgba(78, 205, 196, 0.15);
+    padding: 1.8rem;
+    border-radius: 12px;
+    border-right: 4px solid var(--color-accent);
+    margin-top: auto;
+}
+
+.texto-destacado p {
+    color: var(--color-text);
+    line-height: 1.7;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-align: right;
+}
+
+.video-contenedor {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+}
+
+.video-contenedor:hover {
+    transform: translateY(-5px);
+}
+
+.video-contenedor video {
+    width: 100%;
+    display: block;
+    border-radius: 12px;
+}
+
+/* Firma */
+.firma-seccion {
+    text-align: right;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 107, 107, 0.3);
+    margin-top: 1rem;
+}
+
+.texto-firma {
+    font-size: 1.8rem;
+    font-style: italic;
+    color: var(--color-secondary);
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(255, 107, 107, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+    .contenido-horizontal {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+    
+    .columna-derecha {
+        order: -1;
+    }
+    
+    .texto-destacado p {
+        text-align: left;
+    }
+}
+
+@media (max-width: 768px) {
+    .proceso-fabricacion {
+        padding: 2.5rem 1rem;
+    }
+    
+    .titulo-principal {
+        font-size: 2.5rem;
+        letter-spacing: 2px;
+    }
+    
+    .subtitulo {
+        font-size: 1.4rem;
+    }
+    
+    .texto-descripcion,
+    .texto-destacado {
+        padding: 1.4rem;
+    }
+    
+    .texto-descripcion p,
+    .texto-destacado p {
+        font-size: 1rem;
+    }
+    
+    .texto-firma {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .titulo-principal {
+        font-size: 2rem;
+    }
+    
+    .subtitulo {
+        font-size: 1.2rem;
+    }
+    
+    .contenido-horizontal {
+        gap: 2rem;
+    }
+    
+    .texto-descripcion,
+    .texto-destacado {
+        padding: 1.2rem;
+    }
+    
+    .texto-firma {
+        font-size: 1.3rem;
+    }
+}
 /* Estilos para la galería minimalista */
 .galeria {
     padding: 4rem 1.5rem;
@@ -1148,6 +1492,7 @@ body {
 .circular-3d-container {
     -webkit-overflow-scrolling: touch;
 }
+
 /* Footer con estilo anime */
 .anime-footer {
   background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 100%);
