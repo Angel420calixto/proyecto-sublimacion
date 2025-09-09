@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo de Fantasía Animal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prata&family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+</head>
+<body>
+    <!-- Encabezado -->
+    <header class="encabezado">
+        <nav class="navegacion-principal">
+            <a href="#" class="logo-link">
+                <img src="img/logo.jpg" alt="Logo Fantasía Animal" class="logo">
+                <span class="logo-text">Fantasía Animal</span>
+            </a>
+            <button class="boton-encabezado">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="enlaces">
+                <li><a href="index.html" class="enlace-navegacion">Inicio</a></li>
+                <li><a href="galeria.html" class="enlace-navegacion">Galería</a></li>
+                <li><a href="visualizacion.html" class="enlace-navegacion">Categorías</a></li>
+                <li><a href="#" class="enlace-navegacion">Personalizar</a></li>
+                <li><a href="#" class="enlace-navegacion">Contacto</a></li>
+            </ul>
+            <div class="iconos-usuario">
+                <a href="#" class="icono-usuario">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Tienda</span>
+                </a>
+                <a href="#" class="icono-usuario">
+                    <i class="fas fa-user"></i>
+                    <span>Mi cuenta</span>
+                </a>
+            </div>
+            <div class="iconos-usuario-mobile">
+                <a href="#" class="icono-usuario-mobile">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+                <a href="#" class="icono-usuario-mobile">
+                    <i class="fas fa-user"></i>
+                </a>
+            </div>
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="contenido-hero">
+            <div class="imagen-hero-container">
+                <img src="img/sublima12.jpg" alt="Cuadro de animal fantástico" class="imagen-hero">
+            </div>
+            <div class="texto-hero-container">
+                <h1 class="titulo-hero">Embárcate en un Mundo de Fantasía Animal</h1>
+                <p class="texto-hero">¡Dale un toque salvaje y mágico a tu entorno con nuestros cuadros artísticos de animales, llenos de encanto y personalidad! Encontrarás desde retratos realistas de animales hasta fascinantes creaciones antropomórficas.</p>
+                <a href="#" class="boton-hero">Encuentra tu diseño ideal</a>
+            </div>
+        </div>
+    </section>
+  <section class="seccion-categorias">
+    <div class="contenedor-categorias">
+        <!-- Barra de categorías superior (nuevo elemento) -->
+        <div class="barra-categorias-superior">
+            <ul class="lista-categorias">
+                <li class="categoria-item activa">Todos</li>
+                <li class="categoria-item">Animales</li>
+                <li class="categoria-item">Anime</li>
+                <li class="categoria-item">Arte</li>
+                <li class="categoria-item">Artistas</li>
+                <li class="categoria-item">Cartoons</li>
+                <li class="categoria-item">DC</li>
+            </ul>
+        </div>
+        
+        <!-- Contenido principal -->
+        <div class="contenido-categorias">
+            <h2 class="titulo-seccion">Calcomanías Populares</h2>
+            
+            <!-- Galería principal (reemplaza grid-calcomanias) -->
+            <div class="galeria-principal">
+                <!-- Items de la galería con atributo data-categoria -->
+                <div class="item-galeria" data-categoria="animales">
+                    <img src="vegtamajinsubli2.webp" alt="Ballena de Fuego">
+                    <div class="info-galeria">
+                        <h3 class="titulo-galeria">Ballena de Fuego</h3>
+                        <span class="precio-galeria">$350.000 – $450.000</span>
+                    </div>
+                </div>
+                <div class="item-galeria" data-categoria="animales">
+                    <img src="vegtamajinsubli2.webp" alt="Ballena de Fuego">
+                    <div class="info-galeria">
+                        <h3 class="titulo-galeria">Ballena de Fuego</h3>
+                        <span class="precio-galeria">$350.000 – $450.000</span>
+                    </div>
+                </div>
+                <div class="item-galeria" data-categoria="animales">
+                    <img src="vegtamajinsubli2.webp" alt="Ballena de Fuego">
+                    <div class="info-galeria">
+                        <h3 class="titulo-galeria">Ballena de Fuego</h3>
+                        <span class="precio-galeria">$350.000 – $450.000</span>
+                    </div>
+                </div>
+                <div class="item-galeria" data-categoria="animales">
+                    <img src="vegtamajinsubli2.webp" alt="Ballena de Fuego">
+                    <div class="info-galeria">
+                        <h3 class="titulo-galeria">Ballena de Fuego</h3>
+                        <span class="precio-galeria">$350.000 – $450.000</span>
+                    </div>
+                </div>
+                <div class="item-galeria" data-categoria="animales">
+                    <img src="vegtamajinsubli2.webp" alt="Ballena de Fuego">
+                    <div class="info-galeria">
+                        <h3 class="titulo-galeria">Ballena de Fuego</h3>
+                        <span class="precio-galeria">$350.000 – $450.000</span>
+                    </div>
+                </div>
+                <div class="item-galeria" data-categoria="animales">
+                    <img src="vegtamajinsubli2.webp" alt="Ballena de Fuego">
+                    <div class="info-galeria">
+                        <h3 class="titulo-galeria">Ballena de Fuego</h3>
+                        <span class="precio-galeria">$350.000 – $450.000</span>
+                    </div>
+                </div>
+                <div class="item-galeria" data-categoria="animales">
+                    <img src="vegtamajinsubli2.webp" alt="Ballena de Fuego">
+                    <div class="info-galeria">
+                        <h3 class="titulo-galeria">Ballena de Fuego</h3>
+                        <span class="precio-galeria">$350.000 – $450.000</span>
+                    </div>
+                </div>
+                <div class="item-galeria" data-categoria="animales">
+                    <img src="vegtamajinsubli2.webp" alt="Ballena de Fuego">
+                    <div class="info-galeria">
+                        <h3 class="titulo-galeria">Ballena de Fuego</h3>
+                        <span class="precio-galeria">$350.000 – $450.000</span>
+                    </div>
+                </div>
+                <div class="item-galeria" data-categoria="animales">
+                    <img src="vegtamajinsubli2.webp" alt="Ballena de Fuego">
+                    <div class="info-galeria">
+                        <h3 class="titulo-galeria">Ballena de Fuego</h3>
+                        <span class="precio-galeria">$350.000 – $450.000</span>
+                    </div>
+                </div>
+                <div class="item-galeria" data-categoria="animales">
+                    <img src="vegtamajinsubli2.webp" alt="Ballena de Fuego">
+                    <div class="info-galeria">
+                        <h3 class="titulo-galeria">Ballena de Fuego</h3>
+                        <span class="precio-galeria">$350.000 – $450.000</span>
+                    </div>
+                </div>
+                <div class="item-galeria" data-categoria="animales">
+                    <img src="vegtamajinsubli2.webp" alt="Ballena de Fuego">
+                    <div class="info-galeria">
+                        <h3 class="titulo-galeria">Ballena de Fuego</h3>
+                        <span class="precio-galeria">$350.000 – $450.000</span>
+                    </div>
+                </div>
+                <div class="item-galeria" data-categoria="animales">
+                    <img src="vegtamajinsubli2.webp" alt="Ballena de Fuego">
+                    <div class="info-galeria">
+                        <h3 class="titulo-galeria">Ballena de Fuego</h3>
+                        <span class="precio-galeria">$350.000 – $450.000</span>
+                    </div>
+                </div>
+                <div class="item-galeria" data-categoria="animales">
+                    <img src="vegtamajinsubli2.webp" alt="Ballena de Fuego">
+                    <div class="info-galeria">
+                        <h3 class="titulo-galeria">Ballena de Fuego</h3>
+                        <span class="precio-galeria">$350.000 – $450.000</span>
+                    </div>
+                </div>
+                <div class="item-galeria" data-categoria="animales">
+                    <img src="vegtamajinsubli2.webp" alt="Ballena de Fuego">
+                    <div class="info-galeria">
+                        <h3 class="titulo-galeria">Ballena de Fuego</h3>
+                        <span class="precio-galeria">$350.000 – $450.000</span>
+                    </div>
+                </div>
+                <div class="item-galeria" data-categoria="animales">
+                    <img src="vegtamajinsubli2.webp" alt="Ballena de Fuego">
+                    <div class="info-galeria">
+                        <h3 class="titulo-galeria">Ballena de Fuego</h3>
+                        <span class="precio-galeria">$350.000 – $450.000</span>
+                    </div>
+                </div>
+                
+                <!-- Más items de la galería con sus respectivas categorías -->
+                
+            </div>
+            
+            <!-- Botón Ver Más (nuevo elemento) -->
+            <div class="contenedor-boton-vermas">
+                <button class="boton-vermas">Ver Más</button>
+            </div>
+        </div>
+        
+        <!-- Barra lateral original (se mantiene oculta) -->
+        <div class="barra-lateral-categorias">
+            <!-- ... -->
+        </div>
+    </div>
+</section>
+    <div class="galeria-container">
+        <!-- Barra lateral de categorías -->
+        
+        
+        <!-- Sección del carrusel -->
+        <div class="carrusel-seccion">
+            <h2 class="titulo-categoria">Animales Realistas</h2>
+            
+            <div class="contenedor-carrusel-3d">
+                <div class="carrusel-3d">
+                    <!-- Item 1 -->
+                    <div class="item-carrusel activo">
+                        <img src="img/sublima11.jpg" alt="Animal realista 1">
+                        <div class="contenido-carrusel">
+                            <h3>León Majestuoso</h3>
+                            <p>Un impresionante retrato de un león en su hábitat natural</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 2 -->
+                    <div class="item-carrusel">
+                        <img src="img/sublima13.jpg" alt="Animal realista 2">
+                        <div class="contenido-carrusel">
+                            <h3>Lobo Gris</h3>
+                            <p>El misterioso y elegante lobo gris en un bosque nevado</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 3 -->
+                    <div class="item-carrusel">
+                        <img src="img/sublima.webp" alt="Animal realista 3">
+                        <div class="contenido-carrusel">
+                            <h3>Águila Imperial</h3>
+                            <p>Un águila en pleno vuelo capturada con detalle impresionante</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 4 -->
+                    <div class="item-carrusel">
+                        <img src="img/sublima14.jpg" alt="Animal realista 4">
+                        <div class="contenido-carrusel">
+                            <h3>Tigre de Bengala</h3>
+                            <p>El majestuoso tigre en su entorno natural</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 5 -->
+                    <div class="item-carrusel">
+                        <img src="img/sublima6.jpg" alt="Animal realista 5">
+                        <div class="contenido-carrusel">
+                            <h3>Caballo Salvaje</h3>
+                            <p>Un caballo en movimiento con una elegancia incomparable</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="controles-carrusel">
+                <button class="btn-control" id="btn-prev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <div class="indicadores">
+                    <span class="indicador activo"></span>
+                    <span class="indicador"></span>
+                    <span class="indicador"></span>
+                    <span class="indicador"></span>
+                    <span class="indicador"></span>
+                </div>
+                
+                <button class="btn-control" id="btn-next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</main>
+
+    <footer class="anime-footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>Cuadros Sublimados</h3>
+      <p>Transformamos tus momentos especiales en arte duradero sobre metal.</p>
+      <div class="social-icons">
+        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    
+    <div class="footer-section">
+      <h4>Enlaces Rápidos</h4>
+      <ul>
+        <li><a href="#"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+        <li><a href="#"><i class="fas fa-chevron-right"></i> Galería</a></li>
+        <li><a href="#"><i class="fas fa-chevron-right"></i> Precios</a></li>
+        <li><a href="#"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-section">
+      <h4>Contacto</h4>
+      <div class="contact-info">
+        <p><i class="fas fa-map-marker-alt"></i> Av. Principal #123, Ciudad</p>
+        <p><i class="fas fa-phone"></i> +1 234 567 890</p>
+        <p><i class="fas fa-envelope"></i> info@cuadrosmetal.com</p>
+      </div>
+    </div>
+    
+    <div class="footer-section">
+      <h4>Newsletter</h4>
+      <p>Suscríbete para recibir promociones exclusivas.</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Tu correo electrónico" required>
+        <button type="submit">Suscribirse <i class="fas fa-paper-plane"></i></button>
+      </form>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>&copy; 2023 Cuadros Sublimados en Metal. Todos los derechos reservados.</p>
+  </div>
+  
+  <div class="footer-particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+</footer>
+    <script src="js/galeria.js"></script>
+</body>
+</html>
