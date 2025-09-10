@@ -377,3 +377,90 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+
+
+// Funcionalidad para filtrar categorías
+document.addEventListener('DOMContentLoaded', function() {
+    // Filtrado por categorías
+    const categorias = document.querySelectorAll('.categoria-item');
+    const itemsGaleria = document.querySelectorAll('.item-galeria');
+    
+    categorias.forEach(categoria => {
+        categoria.addEventListener('click', function() {
+            // Remover clase activa de todas las categorías
+            categorias.forEach(cat => cat.classList.remove('activa'));
+            
+            // Agregar clase activa a la categoría clickeada
+            this.classList.add('activa');
+            
+            // Obtener la categoría seleccionada
+            const categoriaSeleccionada = this.getAttribute('data-categoria');
+            
+            // Filtrar items
+            itemsGaleria.forEach(item => {
+                const itemCategoria = item.getAttribute('data-categoria');
+                
+                if (categoriaSeleccionada === 'todos' || categoriaSeleccionada === itemCategoria) {
+                    item.style.display = 'block';
+                    item.style.animation = 'fadeIn 0.5s ease forwards';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+    
+    // Funcionalidad para el botón "Ver Más"
+    const botonVerMas = document.querySelector('.boton-vermas');
+    const galeriaPrincipal = document.querySelector('.galeria-principal');
+    
+    if (botonVerMas && galeriaPrincipal) {
+        botonVerMas.addEventListener('click', function() {
+            galeriaPrincipal.classList.toggle('expandida');
+            
+            if (galeriaPrincipal.classList.contains('expandida')) {
+                this.textContent = 'Ver Menos';
+            } else {
+                this.textContent = 'Ver Más';
+            }
+        });
+    }
+    
+    // Funcionalidad para ampliar imágenes
+    const imagenes = document.querySelectorAll('.item-galeria img, .imagen-mobile img');
+    const overlay = document.querySelector('.overlay-imagen');
+    const overlayImg = overlay.querySelector('img');
+    const cerrarOverlay = overlay.querySelector('.cerrar-overlay');
+    
+    imagenes.forEach(imagen => {
+        imagen.addEventListener('click', function() {
+            overlay.classList.add('activo');
+            overlayImg.src = this.src;
+            overlayImg.alt = this.alt;
+            document.body.style.overflow = 'hidden'; // Prevenir scroll
+        });
+    });
+    
+    // Cerrar overlay
+    cerrarOverlay.addEventListener('click', function() {
+        overlay.classList.remove('activo');
+        document.body.style.overflow = ''; // Restaurar scroll
+    });
+    
+    // Cerrar overlay al hacer clic fuera de la imagen
+    overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) {
+            overlay.classList.remove('activo');
+            document.body.style.overflow = ''; // Restaurar scroll
+        }
+    });
+    
+    // Cerrar overlay con la tecla Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && overlay.classList.contains('activo')) {
+            overlay.classList.remove('activo');
+            document.body.style.overflow = ''; // Restaurar scroll
+        }
+    });
+});
