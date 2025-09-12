@@ -391,7 +391,6 @@ body.prevent-scroll {
     animation: slideIn 0.4s ease forwards;
 }
 
-
 /* Estilos para garantizar que nada se desborde */
 img, video, canvas {
     max-width: 100%;

@@ -19,7 +19,7 @@
 }
 
 html, body {
-    background-color: #010101;
+  background: linear-gradient(135deg, #0a0a0a 0%, #010101 50%, #3f0c0c 100%);
     width: 100%;
     overflow-x: hidden; /* Previene el desbordamiento horizontal */
     position: relative;
@@ -917,16 +917,6 @@ img, video, canvas {
     display: none;
 }
 
-.barra-categorias-superior h2 {
-    color: #00f3ff;
-    text-shadow: 0 0 12px rgba(0, 243, 255, 0.8);
-    margin-bottom: 18px;
-    font-size: 1.7rem;
-    text-align: center;
-    letter-spacing: 1px;
-    font-weight: 700;
-}
-
 .lista-categorias {
     list-style: none;
     display: flex;
@@ -1163,8 +1153,10 @@ img, video, canvas {
     flex-direction: column;
     border-radius: 12px;
     overflow: hidden;
-    background: transparent;
+    background: rgba(20, 25, 45, 0.7);
     position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 150, 255, 0.2);
 }
 
 .contenedor-imagen-mobile {
@@ -1185,10 +1177,11 @@ img, video, canvas {
 }
 
 .info-mobile {
-    padding: 12px 8px;
+    padding: 12px;
     display: flex;
     flex-direction: column;
-    background: transparent;
+    background: rgba(15, 20, 35, 0.9);
+    flex-grow: 1;
 }
 
 .nombre-mobile {
@@ -1203,6 +1196,9 @@ img, video, canvas {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: auto;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .precio-mobile {
@@ -1219,11 +1215,11 @@ img, video, canvas {
 /* VERSIÓN ESCRITORIO */
 @media (min-width: 901px) {
     .minigaleria-mobile {
-        display: none;
+        display: none !important;
     }
     
     .galeria-principal {
-        display: grid;
+        display: grid !important;
     }
     
     .seccion-categorias {
@@ -1232,10 +1228,6 @@ img, video, canvas {
     
     .barra-categorias-superior {
         padding: 20px 0;
-    }
-    
-    .barra-categorias-superior h2 {
-        font-size: 2rem;
     }
     
     .lista-categorias {
@@ -1262,11 +1254,11 @@ img, video, canvas {
 /* VERSIÓN MÓVIL */
 @media (max-width: 900px) {
     .galeria-principal {
-        display: none;
+        display: none !important;
     }
     
     .minigaleria-mobile {
-        display: grid;
+        display: grid !important;
     }
     
     .seccion-categorias {
@@ -1276,10 +1268,6 @@ img, video, canvas {
     
     .barra-categorias-superior {
         padding: 12px 0;
-    }
-    
-    .barra-categorias-superior h2 {
-        font-size: 1.5rem;
     }
     
     .lista-categorias {
@@ -1302,20 +1290,11 @@ img, video, canvas {
     transform: scale(1.05);
 }
 
-/* Animación para cambio de categoría - FIX para mostrar descripciones */
+/* Animación para cambio de categoría */
 .galeria-principal,
 .minigaleria-mobile {
     opacity: 1;
     transition: opacity 0.3s ease;
-}
-
-.oculto {
-    display: none;
-}
-
-.visible {
-    display: grid;
-    animation: fadeIn 0.5s ease forwards;
 }
 
 @keyframes fadeIn {
@@ -1344,7 +1323,7 @@ img, video, canvas {
     }
     
     .info-mobile {
-        padding: 10px 5px;
+        padding: 10px;
     }
     
     .nombre-mobile {
@@ -1407,16 +1386,6 @@ img, video, canvas {
     background: rgba(0, 0, 0, 0.7);
     border-color: #ff3232;
 }
-
-/* Estilos para la barra lateral original (oculta) */
-.barra-lateral-categorias {
-    display: none;
-}
-
-.grid-calcomanias {
-    display: none;
-}
-
 /* Footer con estilo anime */
 .anime-footer {
   background: linear-gradient(135deg, #0a0a0a 0%, #010101 50%, #3f0c0c 100%);
