@@ -898,11 +898,11 @@ canvas {
     display: flex;
     gap: 40px;
     margin-bottom: 40px;
-    background: linear-gradient(135deg, rgba(15, 15, 35, 0.8) 0%, rgba(10, 10, 25, 0.9) 50%, rgba(35, 15, 35, 0.8) 100%);
+    background: linear-gradient(135deg, #0a0a0a 0%, #010101 50%, #3f0c0c 100%);
     padding: 30px;
     border-radius: 20px;
-    border: 2px solid #6e45e2;
-    box-shadow: 0 10px 30px rgba(110, 69, 226, 0.4);
+    border: 2px solid #4e0505d6;
+    box-shadow: 0 10px 30px rgba(85, 2, 4, 0.558);
     position: relative;
     overflow: hidden;
 }
@@ -952,7 +952,7 @@ canvas {
     overflow: hidden;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
     margin-bottom: 20px;
-    border: 3px solid #6e45e2;
+    border: 3px solid #560000;
     position: relative;
     background: rgba(0, 0, 0, 0.3);
 }
@@ -977,7 +977,7 @@ canvas {
     overflow-x: auto;
     padding: 5px 0;
     scrollbar-width: thin;
-    scrollbar-color: #6e45e2 rgba(0, 0, 0, 0.2);
+    scrollbar-color: #4b0505d3 rgba(0, 0, 0, 0.2);
 }
 
 .miniaturas::-webkit-scrollbar {
@@ -1050,7 +1050,7 @@ canvas {
     left: 0;
     width: 100%;
     height: 3px;
-    background: linear-gradient(90deg, #ff3864, #6e45e2);
+    background: linear-gradient(90deg, #ff3864, #230202);
     border-radius: 3px;
 }
 
@@ -1064,12 +1064,12 @@ canvas {
 
 /* ESPECIFICACIONES - ESTILO GAMER */
 .especificaciones {
-    background: rgba(20, 15, 45, 0.6);
+    background: linear-gradient(135deg, #0a0a0a 0%, #010101 50%, #3f0c0c 100%);
     padding: 25px;
     border-radius: 15px;
     margin-bottom: 25px;
-    border: 2px solid #6e45e2;
-    box-shadow: 0 5px 20px rgba(110, 69, 226, 0.3);
+    border: 2px solid #570606ca;
+    box-shadow: 0 5px 20px rgba(52, 3, 3, 0.6);
     position: relative;
     overflow: hidden;
 }
@@ -1081,11 +1081,11 @@ canvas {
     left: 0;
     width: 5px;
     height: 100%;
-    background: linear-gradient(to bottom, #ff3864, #6e45e2);
+    background: linear-gradient(135deg, #0a0a0a 0%, #010101 50%, #3f0c0c 100%);
 }
 
 .especificaciones h3 {
-    color: #00f3ff;
+    color: #045848;
     margin-bottom: 18px;
     font-size: 1.4rem;
     text-shadow: 0 0 8px rgba(0, 243, 255, 0.6);
@@ -1118,7 +1118,7 @@ canvas {
 }
 
 .selector-tamano h3 {
-    color: #00f3ff;
+    color: #075c61;
     margin-bottom: 15px;
     font-size: 1.3rem;
     text-shadow: 0 0 8px rgba(0, 243, 255, 0.6);

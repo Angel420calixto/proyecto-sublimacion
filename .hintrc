@@ -26,7 +26,8 @@
           "-webkit-overflow-scrolling",
           "scrollbar-width",
           "scrollbar-width: thin",
-          "scrollbar-width: none"
+          "scrollbar-width: none",
+          "scrollbar-color"
         ]
       }
     ],
