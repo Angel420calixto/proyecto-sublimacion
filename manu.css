@@ -1055,7 +1055,7 @@ img, video, canvas {
     transform: scale(1.05);
 }
 
-/* Información del producto - Siempre visible */
+/* Información del producto - Visible solo al hacer hover en desktop, siempre visible en mobile */
 .info-galeria {
     padding: 15px;
     background: rgba(15, 20, 35, 0.9);
@@ -1065,6 +1065,19 @@ img, video, canvas {
     flex-direction: column;
     justify-content: space-between;
     border-top: 1px solid rgba(0, 150, 255, 0.2);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+}
+
+.item-galeria:hover .info-galeria {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .titulo-galeria {
@@ -1249,6 +1262,17 @@ img, video, canvas {
     .titulo-seccion {
         font-size: 2.2rem;
     }
+    
+    /* En desktop, la info se muestra solo al hacer hover */
+    .info-galeria {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    
+    .item-galeria:hover .info-galeria {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* VERSIÓN MÓVIL */
@@ -1278,6 +1302,13 @@ img, video, canvas {
     .categoria-item {
         padding: 10px 16px;
         font-size: 0.9rem;
+    }
+    
+    /* En mobile, la info es siempre visible */
+    .info-galeria {
+        opacity: 1;
+        transform: translateY(0);
+        position: relative;
     }
 }
 
@@ -1347,6 +1378,7 @@ img, video, canvas {
     z-index: 999;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .overlay-imagen.activo {
@@ -1355,10 +1387,31 @@ img, video, canvas {
 
 .overlay-imagen img {
     max-width: 90%;
-    max-height: 90%;
+    max-height: 70%;
     object-fit: contain;
     border: 2px solid #00c3ff;
     box-shadow: 0 0 30px rgba(0, 195, 255, 0.5);
+    margin-bottom: 20px;
+}
+
+.boton-detalles {
+    padding: 12px 25px;
+    background: linear-gradient(90deg, #00c3ff, #ff3232);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    text-decoration: none;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 15px rgba(0, 150, 255, 0.3);
+}
+
+.boton-detalles:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 150, 255, 0.5);
 }
 
 .cerrar-overlay {
@@ -1386,6 +1439,7 @@ img, video, canvas {
     background: rgba(0, 0, 0, 0.7);
     border-color: #ff3232;
 }
+
 /* Footer con estilo anime */
 .anime-footer {
   background: linear-gradient(135deg, #0a0a0a 0%, #010101 50%, #3f0c0c 100%);
