@@ -3,753 +3,890 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel de Administración - Fantasía Animal</title>
+    <title>Mundo OVNI - Explorando lo Desconocido</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Variables de colores */
         :root {
-            --primary: #6a0dad;
-            --secondary: #ff36ab;
-            --accent: #00ffff;
-            --dark: #0a0a0a;
-            --darker: #050505;
-            --light: #f8f8f8;
-            --text: #e0e0e0;
-            --success: #00cc66;
-            --warning: #ffcc00;
-            --danger: #ff3333;
+            --color-negro: #0a0a0a;
+            --color-negro-claro: #1a1a1a;
+            --color-verde: #00ff9d;
+            --color-verde-oscuro: #00cc7d;
+            --color-azul: #00a8ff;
+            --color-azul-oscuro: #0077cc;
+            --color-texto: #e0e0e0;
+            --color-texto-claro: #ffffff;
         }
 
+        /* Reset y estilos base */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
-            color: var(--text);
+            background-color: var(--color-negro);
+            color: var(--color-texto);
             line-height: 1.6;
-            min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        .admin-container {
-            display: flex;
-            min-height: 100vh;
-        }
-
-        /* Sidebar */
-        .admin-sidebar {
-            width: 250px;
-            background: var(--darker);
-            padding: 20px 0;
-            box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .admin-sidebar-header {
-            text-align: center;
-            padding: 0 20px 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .admin-sidebar-header h2 {
-            color: var(--accent);
-            margin-top: 10px;
-            font-size: 1.5rem;
-        }
-
-        .admin-menu {
-            list-style: none;
-            margin-top: 20px;
-        }
-
-        .admin-menu li {
-            margin-bottom: 5px;
-        }
-
-        .admin-menu a {
-            display: block;
-            padding: 12px 20px;
-            color: var(--text);
+        a {
             text-decoration: none;
-            transition: all 0.3s ease;
-            border-left: 4px solid transparent;
+            color: var(--color-azul);
+            transition: color 0.3s;
         }
 
-        .admin-menu a:hover, 
-        .admin-menu a.active {
-            background: rgba(106, 13, 173, 0.2);
-            color: var(--accent);
-            border-left-color: var(--accent);
+        a:hover {
+            color: var(--color-verde);
         }
 
-        .admin-menu i {
-            width: 25px;
-            margin-right: 10px;
+        /* Header y navegación */
+        header {
+            background-color: var(--color-negro-claro);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
-        /* Main Content */
-        .admin-main {
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
-        }
-
-        .admin-header {
-            background: var(--darker);
-            padding: 15px 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
+        .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
-        .admin-header h1 {
-            color: var(--accent);
+        .logo {
             font-size: 1.8rem;
-        }
-
-        .admin-user {
+            font-weight: bold;
+            color: var(--color-verde);
             display: flex;
             align-items: center;
         }
 
-        .admin-user img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
+        .logo i {
             margin-right: 10px;
+            color: var(--color-azul);
         }
 
-        /* Dashboard Cards */
-        .dashboard-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        .admin-card {
-            background: var(--darker);
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
-        }
-
-        .admin-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card-header {
+        .nav-menu {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
+            list-style: none;
         }
 
-        .card-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 10px;
+        .nav-item {
+            margin-left: 2rem;
+        }
+
+        .nav-link {
+            color: var(--color-texto);
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link:hover {
+            color: var(--color-verde);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-verde);
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--color-texto);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.9)), 
+                        url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?ixlib=rb-4.0.3&auto=format&fit=crop&w=1471&q=80') no-repeat center center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            background: rgba(0, 255, 255, 0.2);
-            color: var(--accent);
+            text-align: center;
+            padding: 0 2rem;
+            margin-top: 70px;
         }
 
-        .admin-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 5px;
+        .hero-content {
+            max-width: 800px;
         }
 
-        .admin-card p {
-            color: #aaa;
-            font-size: 0.9rem;
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-texto-claro);
+            text-shadow: 0 0 10px var(--color-azul);
         }
 
-        /* Admin Sections */
-        .admin-section {
-            background: var(--darker);
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--color-texto);
         }
 
-        .section-header {
+        .btn {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--color-azul), var(--color-verde));
+            color: var(--color-negro);
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 255, 157, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 255, 157, 0.5);
+        }
+
+        /* Secciones */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--color-texto-claro);
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, var(--color-azul), var(--color-verde));
+            margin: 10px auto;
+        }
+
+        /* Acordeón */
+        .accordion {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .accordion-item {
+            background-color: var(--color-negro-claro);
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .accordion-header {
+            padding: 1.5rem;
+            cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: rgba(0, 168, 255, 0.1);
+            transition: background-color 0.3s;
         }
 
-        .section-header h2 {
-            color: var(--accent);
+        .accordion-header:hover {
+            background-color: rgba(0, 168, 255, 0.2);
         }
 
-        .admin-btn {
-            padding: 10px 20px;
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 600;
+        .accordion-header h3 {
+            margin: 0;
+            color: var(--color-texto-claro);
         }
 
-        .admin-btn:hover {
-            background: var(--secondary);
-            transform: translateY(-2px);
+        .accordion-icon {
+            transition: transform 0.3s;
         }
 
-        .btn-success {
-            background: var(--success);
+        .accordion-content {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s, padding 0.3s;
         }
 
-        .btn-danger {
-            background: var(--danger);
+        .accordion-item.active .accordion-content {
+            padding: 1.5rem;
+            max-height: 500px;
         }
 
-        /* Forms */
-        .form-grid {
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Galería */
+        .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+            height: 250px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        /* Testimonios */
+        .testimonials {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial {
+            background-color: var(--color-negro-claro);
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 350px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            font-size: 5rem;
+            color: var(--color-azul);
+            position: absolute;
+            top: -20px;
+            left: 10px;
+            opacity: 0.3;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 1rem;
+            border: 2px solid var(--color-verde);
+        }
+
+        /* Contacto */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--color-negro-claro);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 1.5rem;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 5px;
-            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--color-texto-claro);
         }
 
         .form-control {
             width: 100%;
-            padding: 12px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.8rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 5px;
-            color: var(--text);
-            transition: all 0.3s ease;
+            color: var(--color-texto);
+            transition: border-color 0.3s;
         }
 
         .form-control:focus {
             outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 2px rgba(0, 255, 255, 0.2);
+            border-color: var(--color-azul);
         }
 
         textarea.form-control {
-            min-height: 120px;
+            min-height: 150px;
             resize: vertical;
         }
 
-        /* Tables */
-        .table-responsive {
-            overflow-x: auto;
-            margin-top: 20px;
+        /* Footer */
+        footer {
+            background-color: var(--color-negro-claro);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .admin-table {
-            width: 100%;
-            border-collapse: collapse;
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
         }
 
-        .admin-table th, 
-        .admin-table td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        .footer-section h3 {
+            color: var(--color-verde);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
         }
 
-        .admin-table th {
-            background: rgba(0, 0, 0, 0.2);
-            font-weight: 600;
+        .footer-links {
+            list-style: none;
         }
 
-        .admin-table tr:hover {
-            background: rgba(255, 255, 255, 0.02);
+        .footer-links li {
+            margin-bottom: 0.5rem;
         }
 
-        .action-btn {
-            display: inline-block;
-            padding: 6px 12px;
-            margin-right: 5px;
-            border-radius: 3px;
-            color: white;
-            cursor: pointer;
-            transition: opacity 0.3s ease;
-            text-decoration: none;
-            border: none;
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
         }
 
-        .edit-btn {
-            background: var(--primary);
-        }
-
-        .delete-btn {
-            background: var(--danger);
-        }
-
-        .view-btn {
-            background: var(--accent);
-        }
-
-        .action-btn:hover {
-            opacity: 0.8;
-        }
-
-        /* Image Preview */
-        .image-preview {
-            width: 100%;
-            height: 200px;
-            border: 2px dashed rgba(255, 255, 255, 0.2);
-            border-radius: 5px;
+        .social-link {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 15px;
-            overflow: hidden;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: background-color 0.3s, transform 0.3s;
         }
 
-        .image-preview img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
+        .social-link:hover {
+            background-color: var(--color-azul);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Efectos especiales */
+        .ufo-animation {
+            position: absolute;
+            top: 20%;
+            right: 10%;
+            width: 80px;
+            height: 40px;
+            background: radial-gradient(circle, var(--color-azul), transparent);
+            border-radius: 50%;
+            animation: float 10s infinite ease-in-out;
+            box-shadow: 0 0 20px var(--color-azul);
+            opacity: 0.7;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+            }
+            25% {
+                transform: translateY(-20px) translateX(10px);
+            }
+            50% {
+                transform: translateY(0) translateX(20px);
+            }
+            75% {
+                transform: translateY(20px) translateX(10px);
+            }
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle 5s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.2;
+            }
+            50% {
+                opacity: 1;
+            }
         }
 
         /* Responsive */
-        @media (max-width: 992px) {
-            .admin-sidebar {
-                width: 70px;
-            }
-            
-            .admin-sidebar-header h2, 
-            .admin-menu span {
-                display: none;
-            }
-            
-            .admin-menu i {
-                margin-right: 0;
-                font-size: 1.2rem;
-            }
-        }
-
         @media (max-width: 768px) {
-            .dashboard-cards {
-                grid-template-columns: 1fr;
+            .hamburger {
+                display: block;
             }
-            
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .admin-header {
+
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                right: -100%;
                 flex-direction: column;
-                text-align: center;
+                background-color: var(--color-negro-claro);
+                width: 80%;
+                height: calc(100vh - 70px);
+                transition: right 0.3s;
+                padding: 2rem;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
             }
-            
-            .admin-user {
-                margin-top: 15px;
+
+            .nav-menu.active {
+                right: 0;
             }
-        }
 
-        /* Utilidades */
-        .text-center {
-            text-align: center;
-        }
+            .nav-item {
+                margin: 1rem 0;
+            }
 
-        .status-badge {
-            padding: 4px 8px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-        }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
 
-        .status-badge.active {
-            background: #e6f7ee;
-            color: #00cc66;
-        }
+            .section-title h2 {
+                font-size: 2rem;
+            }
 
-        .status-badge.inactive {
-            background: #fef3f2;
-            color: #ff3333;
+            .gallery {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="admin-container">
-        <!-- Sidebar -->
-        <aside class="admin-sidebar">
-            <div class="admin-sidebar-header">
-                <i class="fas fa-cog fa-2x" style="color: var(--accent);"></i>
-                <h2>Panel Admin</h2>
+    <!-- Fondo de estrellas -->
+    <div class="stars" id="stars"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-ufo"></i> Mundo OVNI
+            </a>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
             </div>
-            
-            <ul class="admin-menu">
-                <li><a href="#dashboard" class="active"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
-                <li><a href="#productos"><i class="fas fa-image"></i> <span>Productos</span></a></li>
-                <li><a href="#categorias"><i class="fas fa-tags"></i> <span>Categorías</span></a></li>
-                <li><a href="#secciones"><i class="fas fa-sliders-h"></i> <span>Secciones</span></a></li>
-                <li><a href="#configuracion"><i class="fas fa-cog"></i> <span>Configuración</span></a></li>
-                <li><a href="index.html"><i class="fas fa-sign-out-alt"></i> <span>Volver al sitio</span></a></li>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="#inicio" class="nav-link">Inicio</a></li>
+                <li class="nav-item"><a href="#avistamientos" class="nav-link">Avistamientos</a></li>
+                <li class="nav-item"><a href="#investigacion" class="nav-link">Investigación</a></li>
+                <li class="nav-item"><a href="#galeria" class="nav-link">Galería</a></li>
+                <li class="nav-item"><a href="#testimonios" class="nav-link">Testimonios</a></li>
+                <li class="nav-item"><a href="#contacto" class="nav-link">Contacto</a></li>
             </ul>
-        </aside>
+        </div>
+    </header>
 
-        <!-- Main Content -->
-        <main class="admin-main">
-            <div class="admin-header">
-                <h1>Panel de Administración</h1>
-                <div class="admin-user">
-                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='40' r='30' fill='%236a0dad'/><circle cx='50' cy='100' r='40' fill='%2300ffff'/></svg>" alt="Admin">
-                    <span>Administrador</span>
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="ufo-animation"></div>
+        <div class="hero-content">
+            <h1>Explorando los Misterios del Universo</h1>
+            <p>Descubre la verdad detrás de los fenómenos OVNI y únete a la comunidad de investigadores apasionados por lo desconocido.</p>
+            <a href="#avistamientos" class="btn">Comenzar Exploración</a>
+        </div>
+    </section>
+
+    <!-- Avistamientos Section -->
+    <section id="avistamientos">
+        <div class="section-title">
+            <h2>Avistamientos Recientes</h2>
+        </div>
+        <div class="accordion">
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <h3>Avistamiento en México - 2023</h3>
+                    <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="accordion-content">
+                    <p>El 15 de marzo de 2023, múltiples testigos reportaron la presencia de objetos voladores no identificados sobre la Ciudad de México. Los objetos mostraban movimientos erraticos y cambios de dirección imposibles para aeronaves convencionales.</p>
+                    <p>Varios videos capturados por ciudadanos muestran formaciones de luces que se movían en patrones sincronizados, desafiando las leyes de la física conocida.</p>
                 </div>
             </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <h3>Fenómeno en Chile - 2022</h3>
+                    <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="accordion-content">
+                    <p>En el desierto de Atacama, astrónomos profesionales capturaron imágenes de un objeto que permaneció estático en el cielo durante más de 6 horas, mostrando un comportamiento anómalo.</p>
+                    <p>El objeto fue detectado por múltiples telescopios y mostró características que no coinciden con satélites conocidos o basura espacial.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <h3>Incidente en España - 2021</h3>
+                    <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="accordion-content">
+                    <p>Pilotos comerciales reportaron el avistamiento de un objeto cilíndrico de grandes dimensiones cerca del espacio aéreo español. El objeto fue detectado por radar y confirmado por control de tráfico aéreo.</p>
+                    <p>La investigación oficial clasificó el incidente como "no identificado" y sigue siendo un misterio sin resolver.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <!-- Dashboard Section -->
-            <div id="dashboard" class="admin-section admin-tab-pane active">
-                <div class="section-header">
-                    <h2>Dashboard</h2>
+    <!-- Investigación Section -->
+    <section id="investigacion" style="background-color: var(--color-negro-claro);">
+        <div class="section-title">
+            <h2>Investigación OVNI</h2>
+        </div>
+        <div class="accordion">
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <h3>Métodos de Investigación</h3>
+                    <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="accordion-content">
+                    <p>Nuestro equipo utiliza tecnología de vanguardia para analizar fenómenos OVNI, incluyendo:</p>
+                    <ul>
+                        <li>Análisis espectrográfico de videos y fotografías</li>
+                        <li>Estudios de radar y detección por satélite</li>
+                        <li>Entrevistas estructuradas a testigos</li>
+                        <li>Colaboración con astrónomos y físicos</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <h3>Casos Resueltos</h3>
+                    <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="accordion-content">
+                    <p>A lo largo de los años, hemos logrado explicar científicamente numerosos avistamientos:</p>
+                    <ul>
+                        <li>Fenómenos atmosféricos poco comunes</li>
+                        <li>Reflejos de satélites y basura espacial</li>
+                        <li>Experimentos militares clasificados</li>
+                        <li>Fenómenos ópticos y psicológicos</li>
+                    </ul>
+                    <p>Sin embargo, aproximadamente el 5% de los casos permanecen sin explicación.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <h3>Colaboración Internacional</h3>
+                    <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="accordion-content">
+                    <p>Trabajamos en conjunto con organizaciones de investigación OVNI alrededor del mundo:</p>
+                    <ul>
+                        <li>Intercambio de datos y metodologías</li>
+                        <li>Conferencias internacionales anuales</li>
+                        <li>Proyectos de investigación colaborativos</li>
+                        <li>Base de datos global de avistamientos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería Section -->
+    <section id="galeria">
+        <div class="section-title">
+            <h2>Galería de Evidencia</h2>
+        </div>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?ixlib=rb-4.0.3&auto=format&fit=crop&w=1471&q=80" alt="OVNI en el cielo nocturno">
+                <div class="gallery-overlay">
+                    <h3>Avistamiento Nocturno</h3>
+                    <p>Fotografía capturada en Nuevo México, 2019</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&auto=format&fit=crop&w=1471&q=80" alt="Formación de luces en el cielo">
+                <div class="gallery-overlay">
+                    <h3>Formación Anómala</h3>
+                    <p>Serie de luces sobre Arizona, 2020</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1502134249126-9f3755a50d78?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Objeto metálico en el cielo">
+                <div class="gallery-overlay">
+                    <h3>Objeto Metálico</h3>
+                    <p>Fotografía aérea sobre los Alpes, 2018</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios Section -->
+    <section id="testimonios" style="background-color: var(--color-negro-claro);">
+        <div class="section-title">
+            <h2>Testimonios</h2>
+        </div>
+        <div class="testimonials">
+            <div class="testimonial">
+                <div class="testimonial-text">
+                    "Como piloto comercial con más de 20 años de experiencia, nunca había visto algo así. El objeto realizaba maniobras que desafían toda lógica aeronáutica."
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Testimonio 1">
                     <div>
-                        <button class="admin-btn" id="exportDataBtn">Exportar Datos</button>
-                        <button class="admin-btn btn-danger" id="clearDataBtn">Limpiar Todo</button>
-                        <input type="file" id="importDataInput" accept=".json" style="display: none;">
-                    </div>
-                </div>
-                
-                <!-- Dashboard Cards -->
-                <div class="dashboard-cards">
-                    <div class="admin-card">
-                        <div class="card-header">
-                            <h3 id="categoriesCount">0</h3>
-                            <div class="card-icon">
-                                <i class="fas fa-tags"></i>
-                            </div>
-                        </div>
-                        <p>Categorías activas</p>
-                    </div>
-                    
-                    <div class="admin-card">
-                        <div class="card-header">
-                            <h3 id="productsCount">0</h3>
-                            <div class="card-icon">
-                                <i class="fas fa-image"></i>
-                            </div>
-                        </div>
-                        <p>Productos en galería</p>
-                    </div>
-                    
-                    <div class="admin-card">
-                        <div class="card-header">
-                            <h3 id="sectionsCount">0</h3>
-                            <div class="card-icon">
-                                <i class="fas fa-sliders-h"></i>
-                            </div>
-                        </div>
-                        <p>Secciones activas</p>
-                    </div>
-                    
-                    <div class="admin-card">
-                        <div class="card-header">
-                            <h3 id="activeSectionsCount">0</h3>
-                            <div class="card-icon">
-                                <i class="fas fa-check-circle"></i>
-                            </div>
-                        </div>
-                        <p>Secciones activas</p>
-                    </div>
-                </div>
-
-                <!-- Estadísticas simples -->
-                <div class="admin-section">
-                    <h3>Estadísticas de Almacenamiento</h3>
-                    <div id="statsChart" style="display: flex; gap: 10px; height: 200px; align-items: end; margin-top: 20px;">
-                        <!-- Aquí se generará el gráfico simple -->
+                        <h4>Carlos Méndez</h4>
+                        <p>Piloto Comercial</p>
                     </div>
                 </div>
             </div>
-
-            <!-- Gestión de Productos -->
-            <div id="productos" class="admin-section admin-tab-pane">
-                <div class="section-header">
-                    <h2>Gestión de Productos</h2>
-                    <button class="admin-btn" id="addProductBtn">Añadir Producto</button>
+            <div class="testimonial">
+                <div class="testimonial-text">
+                    "Llevo estudiando el cielo toda mi vida, pero lo que vi aquella noche no tiene explicación con nuestro conocimiento actual de física y astronomía."
                 </div>
-                
-                <form id="productForm">
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="productName">Nombre del Producto *</label>
-                            <input type="text" id="productName" class="form-control" placeholder="Ej: Cuadro Anime LED" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="productCategory">Categoría *</label>
-                            <select id="productCategory" class="form-control" required>
-                                <option value="">Seleccionar categoría</option>
-                                <!-- Las opciones se cargarán dinámicamente -->
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="productPrice">Precio (₡) *</label>
-                            <input type="number" id="productPrice" class="form-control" placeholder="50000" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="productSize">Medidas *</label>
-                            <input type="text" id="productSize" class="form-control" placeholder="Ej: 10x15 cm" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="productDescription">Descripción</label>
-                        <textarea id="productDescription" class="form-control" placeholder="Descripción del producto..." rows="3"></textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="productImage">Imagen del Producto *</label>
-                        <input type="file" id="productImage" class="form-control" accept="image/*" required>
-                        <div class="image-preview" id="imagePreview">
-                            <span>Vista previa de la imagen</span>
-                        </div>
-                    </div>
-                    
-                    <button type="submit" class="admin-btn btn-success">Guardar Producto</button>
-                </form>
-                
-                <!-- Lista de productos -->
-                <div class="table-responsive">
-                    <table class="admin-table" id="productsTable">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Nombre</th>
-                                <th>Categoría</th>
-                                <th>Precio</th>
-                                <th>Medidas</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Los productos se cargarán dinámicamente -->
-                            <tr>
-                                <td colspan="6" class="text-center">Cargando productos...</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Gestión de Categorías -->
-            <div id="categorias" class="admin-section admin-tab-pane">
-                <div class="section-header">
-                    <h2>Gestión de Categorías</h2>
-                    <button class="admin-btn" id="addCategoryBtn">Añadir Categoría</button>
-                </div>
-                
-                <form id="categoryForm">
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="categoryName">Nombre de Categoría *</label>
-                            <input type="text" id="categoryName" class="form-control" placeholder="Ej: Series TV" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="categoryColor">Color representativo *</label>
-                            <input type="color" id="categoryColor" class="form-control" value="#6a0dad" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="categoryDescription">Descripción</label>
-                        <textarea id="categoryDescription" class="form-control" placeholder="Descripción de la categoría..." rows="3"></textarea>
-                    </div>
-                    
-                    <button type="submit" class="admin-btn btn-success">Guardar Categoría</button>
-                </form>
-                
-                <!-- Lista de categorías -->
-                <div class="table-responsive">
-                    <table class="admin-table" id="categoriesTable">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Nombre</th>
-                                <th>Color</th>
-                                <th>Productos</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Las categorías se cargarán dinámicamente -->
-                            <tr>
-                                <td colspan="5" class="text-center">Cargando categorías...</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Gestión de Secciones -->
-            <div id="secciones" class="admin-section admin-tab-pane">
-                <div class="section-header">
-                    <h2>Gestión de Secciones</h2>
-                    <button class="admin-btn" id="addSectionBtn">Añadir Sección</button>
-                </div>
-                
-                <form id="sectionForm">
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="sectionTitle">Título de Sección *</label>
-                            <input type="text" id="sectionTitle" class="form-control" placeholder="Ej: Nuevos Productos" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="sectionPosition">Posición *</label>
-                            <select id="sectionPosition" class="form-control" required>
-                                <option value="header">Header</option>
-                                <option value="gallery">Galería</option>
-                                <option value="content">Contenido</option>
-                                <option value="footer">Footer</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="sectionOrder">Orden</label>
-                            <input type="number" id="sectionOrder" class="form-control" placeholder="Número de orden" min="1">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="sectionStatus">Estado *</label>
-                            <select id="sectionStatus" class="form-control" required>
-                                <option value="active">Activa</option>
-                                <option value="inactive">Inactiva</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="sectionContent">Contenido (HTML permitido)</label>
-                        <textarea id="sectionContent" class="form-control" placeholder="Contenido de la sección..." rows="6"></textarea>
-                    </div>
-                    
-                    <button type="submit" class="admin-btn btn-success">Guardar Sección</button>
-                </form>
-                
-                <!-- Lista de secciones -->
-                <div class="table-responsive">
-                    <table class="admin-table" id="sectionsTable">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Título</th>
-                                <th>Posición</th>
-                                <th>Estado</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Las secciones se cargarán dinámicamente -->
-                            <tr>
-                                <td colspan="5" class="text-center">Cargando secciones...</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Configuración -->
-            <div id="configuracion" class="admin-section admin-tab-pane">
-                <div class="section-header">
-                    <h2>Configuración del Sitio</h2>
-                </div>
-                
-                <form id="settingsForm">
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="siteTitle">Título del Sitio *</label>
-                            <input type="text" id="siteTitle" name="siteTitle" class="form-control" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="adminEmail">Email de Administrador *</label>
-                            <input type="email" id="adminEmail" name="adminEmail" class="form-control" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="maxFileSize">Tamaño máximo de imágenes (MB) *</label>
-                            <input type="number" id="maxFileSize" name="maxFileSize" class="form-control" min="1" max="10" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="itemsPerPage">Productos por página *</label>
-                            <input type="number" id="itemsPerPage" name="itemsPerPage" class="form-control" min="1" max="50" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="allowedFormats">Formatos permitidos (separados por coma)</label>
-                        <input type="text" id="allowedFormats" name="allowedFormats" class="form-control" placeholder="image/jpeg, image/png, image/webp">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="checkbox-label">
-                            <input type="checkbox" id="maintenanceMode" name="maintenanceMode">
-                            <span>Modo mantenimiento</span>
-                        </label>
-                    </div>
-                    
-                    <button type="submit" class="admin-btn btn-success">Guardar Configuración</button>
-                </form>
-                
-                <!-- Herramientas de administración -->
-                <div class="admin-section">
-                    <h3>Herramientas de Administración</h3>
-                    
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label>Exportar datos</label>
-                            <button type="button" class="admin-btn" id="exportDataBtn2">Exportar Backup</button>
-                            <p class="form-help">Descarga una copia de seguridad de todos los datos</p>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label>Importar datos</label>
-                            <button type="button" class="admin-btn" id="importDataBtn">Importar Backup</button>
-                            <input type="file" id="importDataInput2" accept=".json" style="display: none;">
-                            <p class="form-help">Restaura desde una copia de seguridad anterior</p>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Limpiar todos los datos</label>
-                        <button type="button" class="admin-btn btn-danger" id="clearDataBtn2">Limpiar Todo</button>
-                        <p class="form-help">⚠️ Esta acción no se puede deshacer. Elimina todos los productos, categorías y configuraciones.</p>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Testimonio 2">
+                    <div>
+                        <h4>Dra. Elena Torres</h4>
+                        <p>Astrónoma</p>
                     </div>
                 </div>
             </div>
-        </main>
-    </div>
+            <div class="testimonial">
+                <div class="testimonial-text">
+                    "Al principio pensé que era una estrella, pero comenzó a moverse en zigzag a velocidades increíbles. Grabé un video que aún hoy no puedo explicar."
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/men/76.jpg" alt="Testimonio 3">
+                    <div>
+                        <h4>Miguel Ángel Ruiz</h4>
+                        <p>Testigo Civil</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <script src="admin.js"></script>
+    <!-- Contacto Section -->
+    <section id="contacto">
+        <div class="section-title">
+            <h2>Reporta un Avistamiento</h2>
+        </div>
+        <div class="contact-form">
+            <form id="reportForm">
+                <div class="form-group">
+                    <label for="name">Nombre completo</label>
+                    <input type="text" id="name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Fecha del avistamiento</label>
+                    <input type="date" id="date" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="location">Ubicación del avistamiento</label>
+                    <input type="text" id="location" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Descripción detallada</label>
+                    <textarea id="description" class="form-control" required></textarea>
+                </div>
+                <button type="submit" class="btn">Enviar Reporte</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Mundo OVNI</h3>
+                <p>Explorando los misterios del cosmos y los fenómenos aéreos no identificados desde 1995.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul class="footer-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#avistamientos">Avistamientos</a></li>
+                    <li><a href="#investigacion">Investigación</a></li>
+                    <li><a href="#galeria">Galería</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p>Email: info@mundovni.com</p>
+                <p>Teléfono: +1 234 567 890</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Mundo OVNI. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Crear estrellas en el fondo
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const starCount = 200;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+                // Tamaño aleatorio
+                const size = Math.random() * 3;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                
+                // Posición aleatoria
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                
+                // Opacidad aleatoria
+                star.style.opacity = Math.random() * 0.8 + 0.2;
+                
+                // Duración de animación aleatoria
+                star.style.animationDuration = `${Math.random() * 10 + 5}s`;
+                star.style.animationDelay = `${Math.random() * 5}s`;
+                
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Menú hamburguesa
+        document.getElementById('hamburger').addEventListener('click', function() {
+            document.getElementById('nav-menu').classList.toggle('active');
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('nav-menu').classList.remove('active');
+            });
+        });
+
+        // Acordeón
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', function() {
+                const accordionItem = this.parentElement;
+                const isActive = accordionItem.classList.contains('active');
+                
+                // Cerrar todos los acordeones
+                document.querySelectorAll('.accordion-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Abrir el acordeón clickeado si no estaba activo
+                if (!isActive) {
+                    accordionItem.classList.add('active');
+                }
+            });
+        });
+
+        // Formulario de contacto
+        document.getElementById('reportForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por reportar tu avistamiento! Nos pondremos en contacto contigo pronto.');
+            this.reset();
+        });
+
+        // Efecto de desplazamiento suave para enlaces internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Inicializar estrellas al cargar la página
+        window.addEventListener('load', createStars);
+    </script>
 </body>
 </html>
