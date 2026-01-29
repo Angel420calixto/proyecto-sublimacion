@@ -47,6 +47,20 @@
       {
         "label": "off"
       }
+    ],
+    "axe/text-alternatives": [
+      "default",
+      {
+        "frame-title": "off"
+      }
+    ],
+    "compat-api/html": [
+      "default",
+      {
+        "ignore": [
+          "video[controlslist]"
+        ]
+      }
     ]
   }
 }
