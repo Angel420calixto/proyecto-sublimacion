@@ -3,7 +3,7 @@
 // ==============================================
 
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('🚀 Porsia.js - Inicializando funcionalidades...');
+    console.log('🚀 Porsia.js - Inicializando funcionalidades del header...');
     
     // ==============================================
     // 1. FUNCIONALIDAD PARA EL MENÚ MÓVIL
@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
     function inicializarMenuMovil() {
         console.log('📱 Inicializando menú móvil...');
         
-        const menuButton = document.querySelector('#menu-toggle');
-        const navMenu = document.querySelector('#nav-menu');
+        const menuButton = document.querySelector('.boton-encabezado');
+        const navMenu = document.querySelector('.enlaces');
         const body = document.body;
         
         if (!menuButton || !navMenu) {
@@ -99,6 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const indicadores = document.querySelectorAll('.indicador');
         const btnPrev = document.getElementById('btn-prev');
         const btnNext = document.getElementById('btn-next');
+        const tituloSeccion = document.querySelector('.titulo-seccion');
         
         if (!carrusel || items.length === 0) {
             console.warn('⚠️ Elementos del carrusel no encontrados');
@@ -106,6 +107,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         console.log(`✅ Carrusel encontrado con ${items.length} items`);
+        
+        // ALINEAR TÍTULO "CUADROS"
+        if (tituloSeccion) {
+            tituloSeccion.style.textAlign = 'center';
+            tituloSeccion.style.marginBottom = '30px';
+            tituloSeccion.style.width = '100%';
+            console.log('✅ Título "Cuadros" alineado');
+        }
         
         let currentIndex = 0;
         let autoPlayInterval;
@@ -129,23 +138,9 @@ document.addEventListener('DOMContentLoaded', function() {
             // Aplicar transformación 3D a cada item
             items.forEach((item, index) => {
                 const rotateY = (index - currentIndex) * anglePerItem;
-                const translateZ = window.innerWidth <= 768 ? 180 : 250;
+                const translateZ = window.innerWidth <= 768 ? 180 : 250; // Ajuste para móvil
                 item.style.transform = `rotateY(${rotateY}deg) translateZ(${translateZ}px)`;
                 item.style.transition = 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
-                
-                // Aplicar clases para posiciones
-                item.classList.remove('prev', 'next', 'lejos-izq', 'lejos-der');
-                
-                const diff = index - currentIndex;
-                if (diff === -1 || diff === totalItems - 1) {
-                    item.classList.add('prev');
-                } else if (diff === 1 || diff === -totalItems + 1) {
-                    item.classList.add('next');
-                } else if (diff === -2 || diff === totalItems - 2) {
-                    item.classList.add('lejos-izq');
-                } else if (diff === 2 || diff === -totalItems + 2) {
-                    item.classList.add('lejos-der');
-                }
             });
             
             console.log(`🔄 Carrusel en posición ${currentIndex + 1}`);
@@ -225,6 +220,37 @@ document.addEventListener('DOMContentLoaded', function() {
                 isSwiping = false;
                 startAutoPlay();
             }, { passive: true });
+            
+            // Navegación con mouse para desktop
+            let mouseDownX = 0;
+            let mouseUpX = 0;
+            
+            contenedorCarrusel.addEventListener('mousedown', (e) => {
+                mouseDownX = e.clientX;
+                isSwiping = true;
+                stopAutoPlay();
+            });
+            
+            contenedorCarrusel.addEventListener('mousemove', (e) => {
+                if (!isSwiping) return;
+                mouseUpX = e.clientX;
+            });
+            
+            contenedorCarrusel.addEventListener('mouseup', () => {
+                if (!isSwiping) return;
+                
+                const diff = mouseUpX - mouseDownX;
+                if (Math.abs(diff) > swipeThreshold) {
+                    if (diff > 0) {
+                        prevSlide();
+                    } else {
+                        nextSlide();
+                    }
+                }
+                
+                isSwiping = false;
+                startAutoPlay();
+            });
         }
         
         // ==============================================
@@ -272,7 +298,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // ==============================================
-    // 3. SLIDERS CIRCULARES (CATEGORÍAS) - FUNCIONALIDAD RESTAURADA
+    // 3. SLIDERS CIRCULARES (CATEGORÍAS)
     // ==============================================
     function inicializarSlidersCirculares() {
         console.log('🌀 Inicializando sliders circulares...');
@@ -285,118 +311,63 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         console.log(`✅ ${sliders.length} sliders encontrados`);
+        const rotationAngles = Array(sliders.length).fill(0);
         
-        // Inicializar cada slider circular
-        sliders.forEach((slider, sliderIndex) => {
-            let rotation = 0;
-            const categoria = slider.closest('.categoria-slider');
-            const categoriaId = categoria ? categoria.dataset.categoria : sliderIndex;
+        document.querySelectorAll('.categoria-slider').forEach((categoria, index) => {
+            const prevBtn = categoria.querySelector('.prev-btn');
+            const nextBtn = categoria.querySelector('.next-btn');
+            const slider = categoria.querySelector('.circular-3d-wrapper');
+            const container = categoria.querySelector('.circular-3d-container');
             
-            // Buscar botones específicos de esta categoría
-            const prevBtn = document.querySelector(`.prev-btn[data-categoria="${categoriaId}"]`);
-            const nextBtn = document.querySelector(`.next-btn[data-categoria="${categoriaId}"]`);
+            if (!slider || !prevBtn || !nextBtn) {
+                console.warn(`⚠️ Slider ${index + 1} incompleto`);
+                return;
+            }
             
             // Navegación con botones
-            if (prevBtn) {
-                prevBtn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    rotation += 72;
-                    slider.style.transform = `rotateY(${rotation}deg)`;
-                    slider.style.transition = 'transform 0.6s ease';
-                    console.log(`🌀 Slider ${categoriaId}: rotación ${rotation}° (prev)`);
-                });
-            }
+            prevBtn.addEventListener('click', () => {
+                rotationAngles[index] += 72;
+                slider.style.transform = `rotateY(${rotationAngles[index]}deg)`;
+                slider.style.transition = 'transform 0.6s ease';
+                console.log(`🌀 Slider ${index + 1}: rotación ${rotationAngles[index]}°`);
+            });
             
-            if (nextBtn) {
-                nextBtn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    rotation -= 72;
-                    slider.style.transform = `rotateY(${rotation}deg)`;
-                    slider.style.transition = 'transform 0.6s ease';
-                    console.log(`🌀 Slider ${categoriaId}: rotación ${rotation}° (next)`);
-                });
-            }
+            nextBtn.addEventListener('click', () => {
+                rotationAngles[index] -= 72;
+                slider.style.transform = `rotateY(${rotationAngles[index]}deg)`;
+                slider.style.transition = 'transform 0.6s ease';
+                console.log(`🌀 Slider ${index + 1}: rotación ${rotationAngles[index]}°`);
+            });
             
             // Navegación táctil
-            const container = slider.closest('.circular-3d-container');
             if (container) {
                 let touchStartX = 0;
                 let touchEndX = 0;
-                let isDragging = false;
                 
                 container.addEventListener('touchstart', (e) => {
                     touchStartX = e.touches[0].clientX;
-                    isDragging = true;
-                    container.style.cursor = 'grabbing';
                 }, { passive: true });
                 
-                container.addEventListener('touchmove', (e) => {
-                    if (!isDragging) return;
-                    touchEndX = e.touches[0].clientX;
+                container.addEventListener('touchend', (e) => {
+                    touchEndX = e.changedTouches[0].clientX;
+                    handleSwipe(index);
                 }, { passive: true });
                 
-                container.addEventListener('touchend', () => {
-                    if (!isDragging) return;
-                    
-                    const diff = touchEndX - touchStartX;
+                function handleSwipe(sliderIndex) {
                     const swipeThreshold = 50;
+                    const diff = touchEndX - touchStartX;
                     
                     if (Math.abs(diff) > swipeThreshold) {
                         if (diff > 0) {
-                            // Swipe derecho -> anterior
-                            rotation += 72;
+                            rotationAngles[sliderIndex] += 72;
                         } else {
-                            // Swipe izquierdo -> siguiente
-                            rotation -= 72;
+                            rotationAngles[sliderIndex] -= 72;
                         }
-                        slider.style.transform = `rotateY(${rotation}deg)`;
-                        slider.style.transition = 'transform 0.6s ease';
-                        console.log(`🌀 Slider ${categoriaId}: swipe detectado`);
+                        sliders[sliderIndex].style.transform = `rotateY(${rotationAngles[sliderIndex]}deg)`;
+                        sliders[sliderIndex].style.transition = 'transform 0.6s ease';
+                        console.log(`🌀 Slider ${sliderIndex + 1}: swipe detectado`);
                     }
-                    
-                    isDragging = false;
-                    container.style.cursor = 'pointer';
-                }, { passive: true });
-                
-                // Navegación con mouse para desktop
-                container.addEventListener('mousedown', (e) => {
-                    touchStartX = e.clientX;
-                    isDragging = true;
-                    container.style.cursor = 'grabbing';
-                });
-                
-                container.addEventListener('mousemove', (e) => {
-                    if (!isDragging) return;
-                    touchEndX = e.clientX;
-                });
-                
-                container.addEventListener('mouseup', () => {
-                    if (!isDragging) return;
-                    
-                    const diff = touchEndX - touchStartX;
-                    const swipeThreshold = 50;
-                    
-                    if (Math.abs(diff) > swipeThreshold) {
-                        if (diff > 0) {
-                            rotation += 72;
-                        } else {
-                            rotation -= 72;
-                        }
-                        slider.style.transform = `rotateY(${rotation}deg)`;
-                        slider.style.transition = 'transform 0.6s ease';
-                        console.log(`🌀 Slider ${categoriaId}: mouse drag detectado`);
-                    }
-                    
-                    isDragging = false;
-                    container.style.cursor = 'pointer';
-                });
-                
-                container.addEventListener('mouseleave', () => {
-                    isDragging = false;
-                    container.style.cursor = 'pointer';
-                });
+                }
             }
         });
         
@@ -404,280 +375,61 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // ==============================================
-    // 4. FUNCIONALIDAD PARA VIDEOS
+    // 4. EFECTOS DE HOVER Y MEJORAS VISUALES
     // ==============================================
-    function inicializarVideos() {
-        console.log('🎥 Inicializando funcionalidad de videos...');
+    function inicializarEfectosVisuales() {
+        console.log('🎨 Inicializando efectos visuales...');
         
-        // Datos de los videos
-        const videosData = {
-            'qwgbuq9XvEg': {
-                title: "Amazing Anime Metal Artwork",
-                description: "Arte en metal de Dragon Ball - Proceso de sublimación"
-            },
-            '0e3GPea1h6w': {
-                title: "Proceso de Sublimación",
-                description: "Cómo transformamos imágenes en arte en metal de alta calidad"
-            },
-            'dQw4w9WgXcQ': {
-                title: "Colección Anime",
-                description: "Personajes anime transformados en arte metal"
-            },
-            'jfKfPfyJRdk': {
-                title: "Testimonios Clientes",
-                description: "Lo que dicen nuestros clientes satisfechos"
-            },
-            'LDU_Txk06tM': {
-                title: "Diseño Personalizado",
-                description: "Creamos cuadros únicos según tus ideas"
-            },
-            '5yx6BWlEVcY': {
-                title: "Materiales Premium",
-                description: "Usamos solo materiales de la más alta calidad"
-            }
-        };
-        
-        // Elementos del modal
-        const videoModal = document.getElementById('videoModal');
-        const closeModalBtn = document.querySelector('.close-modal');
-        const youtubePlayer = document.getElementById('youtubePlayer');
-        const videoTitle = document.getElementById('videoTitle');
-        const videoDescription = document.getElementById('videoDescription');
-        
-        // Función para abrir el modal de video
-        function openVideoModal(videoId) {
-            const videoData = videosData[videoId];
-            if (!videoData) {
-                console.error('Video data not found for ID:', videoId);
-                return;
-            }
+        // Efectos hover para botones
+        const botones = document.querySelectorAll('.boton-gallery, .gallery-btn, .btn-control');
+        botones.forEach(boton => {
+            boton.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+                this.style.boxShadow = '0 5px 15px rgba(0,0,0,0.2)';
+                this.style.transition = 'all 0.3s ease';
+            });
             
-            videoTitle.textContent = videoData.title;
-            videoDescription.textContent = videoData.description;
-            youtubePlayer.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
+            boton.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = 'none';
+            });
             
-            videoModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            console.log(`🎬 Abriendo video: ${videoId}`);
-        }
-        
-        // Función para cerrar el modal de video
-        function closeVideoModal() {
-            videoModal.classList.remove('active');
-            youtubePlayer.src = ''; // Detener el video
-            document.body.style.overflow = 'auto';
-            console.log('🎬 Cerrando modal de video');
-        }
-        
-        // Configurar event listeners para videos del carrusel desktop
-        document.querySelectorAll('.video-overlay, .play-indicator').forEach(element => {
-            element.addEventListener('click', function() {
-                const videoId = this.getAttribute('data-video-id');
-                if (videoId) {
-                    openVideoModal(videoId);
-                }
+            boton.addEventListener('mousedown', function() {
+                this.style.transform = 'translateY(1px)';
+            });
+            
+            boton.addEventListener('mouseup', function() {
+                this.style.transform = 'translateY(-2px)';
             });
         });
         
-        // Configurar event listeners para videos del carrusel móvil
-        document.querySelectorAll('.video-overlay-mobile, .play-indicator-mobile').forEach(element => {
-            element.addEventListener('click', function() {
-                const videoId = this.getAttribute('data-video-id');
-                if (videoId) {
-                    openVideoModal(videoId);
-                }
+        // Efectos para imágenes del carrusel
+        const itemsCarrusel = document.querySelectorAll('.item-carrusel');
+        itemsCarrusel.forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform += ' scale(1.05)';
+                this.style.zIndex = '10';
+                this.style.transition = 'transform 0.3s ease';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = this.style.transform.replace(' scale(1.05)', '');
+                this.style.zIndex = '';
             });
         });
         
-        // Botón cerrar modal
-        if (closeModalBtn) {
-            closeModalBtn.addEventListener('click', closeVideoModal);
-        }
-        
-        // Cerrar modal al hacer clic fuera
-        if (videoModal) {
-            videoModal.addEventListener('click', function(e) {
-                if (e.target === videoModal) {
-                    closeVideoModal();
-                }
-            });
-        }
-        
-        // Cerrar modal con tecla Escape
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && videoModal.classList.contains('active')) {
-                closeVideoModal();
-            }
-        });
-        
-        console.log('✅ Funcionalidad de videos inicializada');
+        console.log('✅ Efectos visuales aplicados');
     }
     
     // ==============================================
-    // 5. CARRUSEL DE VIDEOS HORIZONTAL
-    // ==============================================
-    function inicializarCarruselVideos() {
-        console.log('📹 Inicializando carrusel de videos...');
-        
-        // Carrusel desktop
-        const carruselTrack = document.querySelector('.carrusel-track');
-        const carruselSlides = document.querySelectorAll('.carrusel-slide');
-        const prevBtn = document.querySelector('.prev-btn');
-        const nextBtn = document.querySelector('.next-btn');
-        
-        if (carruselTrack && carruselSlides.length > 0) {
-            let currentSlide = 0;
-            let slidesToShow = getSlidesToShow();
-            
-            function getSlidesToShow() {
-                const width = window.innerWidth;
-                if (width >= 1200) return 4;
-                if (width >= 992) return 3;
-                if (width >= 768) return 2;
-                return 1;
-            }
-            
-            function updateCarruselDesktop() {
-                const slideWidth = carruselSlides[0].offsetWidth + 25;
-                const translateX = -currentSlide * slideWidth;
-                carruselTrack.style.transform = `translateX(${translateX}px)`;
-                carruselTrack.style.transition = 'transform 0.5s ease';
-            }
-            
-            if (prevBtn) {
-                prevBtn.addEventListener('click', () => {
-                    if (currentSlide > 0) {
-                        currentSlide--;
-                        updateCarruselDesktop();
-                    }
-                });
-            }
-            
-            if (nextBtn) {
-                nextBtn.addEventListener('click', () => {
-                    const maxSlide = carruselSlides.length - slidesToShow;
-                    if (currentSlide < maxSlide) {
-                        currentSlide++;
-                        updateCarruselDesktop();
-                    }
-                });
-            }
-            
-            // Actualizar según el tamaño de pantalla
-            window.addEventListener('resize', () => {
-                slidesToShow = getSlidesToShow();
-                currentSlide = Math.min(currentSlide, carruselSlides.length - slidesToShow);
-                updateCarruselDesktop();
-            });
-            
-            // Inicializar
-            updateCarruselDesktop();
-        }
-        
-        // Carrusel móvil
-        const carruselTrackMobile = document.querySelector('.carrusel-track-mobile');
-        const carruselSlidesMobile = document.querySelectorAll('.carrusel-slide-mobile');
-        const prevBtnMobile = document.querySelector('.prev-btn-mobile');
-        const nextBtnMobile = document.querySelector('.next-btn-mobile');
-        
-        if (carruselTrackMobile && carruselSlidesMobile.length > 0) {
-            let currentSlideMobile = 0;
-            const slidesToShowMobile = 2;
-            
-            function updateCarruselMobile() {
-                const slideWidth = carruselSlidesMobile[0].offsetWidth + 10;
-                const translateX = -currentSlideMobile * slideWidth;
-                carruselTrackMobile.style.transform = `translateX(${translateX}px)`;
-                carruselTrackMobile.style.transition = 'transform 0.5s ease';
-            }
-            
-            if (prevBtnMobile) {
-                prevBtnMobile.addEventListener('click', () => {
-                    if (currentSlideMobile > 0) {
-                        currentSlideMobile--;
-                        updateCarruselMobile();
-                    }
-                });
-            }
-            
-            if (nextBtnMobile) {
-                nextBtnMobile.addEventListener('click', () => {
-                    const maxSlide = carruselSlidesMobile.length - slidesToShowMobile;
-                    if (currentSlideMobile < maxSlide) {
-                        currentSlideMobile++;
-                        updateCarruselMobile();
-                    }
-                });
-            }
-            
-            // Inicializar
-            updateCarruselMobile();
-        }
-        
-        console.log('✅ Carrusel de videos inicializado');
-    }
-    
-    // ==============================================
-    // 6. VIDEO EN SECCIÓN ENCUADRE
-    // ==============================================
-    function inicializarVideoEncuadre() {
-        console.log('📼 Inicializando video de encuadre...');
-        
-        const videoEncuadre = document.querySelector('.video-encuadre');
-        const videoPlayBtn = document.querySelector('.video-play-btn');
-        
-        if (videoEncuadre && videoPlayBtn) {
-            videoPlayBtn.addEventListener('click', function() {
-                if (videoEncuadre.paused) {
-                    videoEncuadre.play();
-                    videoPlayBtn.innerHTML = '<i class="fas fa-pause"></i>';
-                    videoPlayBtn.style.opacity = '0.5';
-                } else {
-                    videoEncuadre.pause();
-                    videoPlayBtn.innerHTML = '<i class="fas fa-play"></i>';
-                    videoPlayBtn.style.opacity = '0.8';
-                }
-            });
-            
-            videoEncuadre.addEventListener('play', function() {
-                videoPlayBtn.innerHTML = '<i class="fas fa-pause"></i>';
-                videoPlayBtn.style.opacity = '0.5';
-            });
-            
-            videoEncuadre.addEventListener('pause', function() {
-                videoPlayBtn.innerHTML = '<i class="fas fa-play"></i>';
-                videoPlayBtn.style.opacity = '0.8';
-            });
-            
-            // Ocultar/mostrar controles al pasar el mouse
-            const videoContenedor = document.querySelector('.video-contenedor');
-            if (videoContenedor) {
-                videoContenedor.addEventListener('mouseenter', function() {
-                    videoPlayBtn.style.opacity = '0.8';
-                });
-                
-                videoContenedor.addEventListener('mouseleave', function() {
-                    if (!videoEncuadre.paused) {
-                        videoPlayBtn.style.opacity = '0.5';
-                    }
-                });
-            }
-        }
-        
-        console.log('✅ Video de encuadre inicializado');
-    }
-    
-    // ==============================================
-    // 7. INICIALIZAR TODO
+    // 5. INICIALIZAR TODO
     // ==============================================
     console.log('🔧 Ejecutando inicializaciones...');
     
     inicializarMenuMovil();
     inicializarCarrusel3D();
     inicializarSlidersCirculares();
-    inicializarVideos();
-    inicializarCarruselVideos();
-    inicializarVideoEncuadre();
+    inicializarEfectosVisuales();
     
     console.log('✅ Porsia.js - Todas las funcionalidades inicializadas');
     console.log('==========================================');
@@ -701,3 +453,437 @@ function debugPorsia() {
 if (typeof window !== 'undefined') {
     window.debugPorsia = debugPorsia;
 }
+
+
+// Agrega esto al final de tu archivo porsia.js o en un nuevo script
+
+document.addEventListener('DOMContentLoaded', function() {
+    // ===========================================
+    // 1. RESTAURAR FUNCIONALIDAD DEL CARRUSEL CIRCULAR 3D
+    // ===========================================
+    
+    const circularContainers = document.querySelectorAll('.circular-3d-container');
+    const galleryPrevBtns = document.querySelectorAll('.gallery-btn.prev-btn');
+    const galleryNextBtns = document.querySelectorAll('.gallery-btn.next-btn');
+    
+    circularContainers.forEach((container, index) => {
+        const wrapper = container.querySelector('.circular-3d-wrapper');
+        let currentRotation = 0;
+        
+        // Inicializar rotación
+        wrapper.style.transform = `rotateY(${currentRotation}deg)`;
+        
+        // Función para rotar el carrusel
+        function rotateCarousel(direction) {
+            if (direction === 'next') {
+                currentRotation -= 72; // 72 grados por slide (360/5)
+            } else if (direction === 'prev') {
+                currentRotation += 72;
+            }
+            
+            wrapper.style.transform = `rotateY(${currentRotation}deg)`;
+        }
+        
+        // Asignar event listeners a los botones específicos de esta categoría
+        if (galleryPrevBtns[index]) {
+            galleryPrevBtns[index].addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                rotateCarousel('prev');
+            });
+        }
+        
+        if (galleryNextBtns[index]) {
+            galleryNextBtns[index].addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                rotateCarousel('next');
+            });
+        }
+        
+        // También permitir arrastre con mouse/touch
+        let isDragging = false;
+        let startX = 0;
+        let startRotation = 0;
+        
+        container.addEventListener('mousedown', function(e) {
+            isDragging = true;
+            startX = e.clientX;
+            startRotation = currentRotation;
+            container.style.cursor = 'grabbing';
+        });
+        
+        container.addEventListener('mousemove', function(e) {
+            if (!isDragging) return;
+            
+            const deltaX = e.clientX - startX;
+            const sensitivity = 0.5;
+            currentRotation = startRotation + (deltaX * sensitivity);
+            wrapper.style.transform = `rotateY(${currentRotation}deg)`;
+        });
+        
+        container.addEventListener('mouseup', function() {
+            isDragging = false;
+            container.style.cursor = 'pointer';
+            
+            // Ajustar a la posición más cercana
+            const snapRotation = Math.round(currentRotation / 72) * 72;
+            currentRotation = snapRotation;
+            
+            wrapper.style.transition = 'transform 0.7s cubic-bezier(0.23, 1, 0.32, 1)';
+            wrapper.style.transform = `rotateY(${currentRotation}deg)`;
+            
+            setTimeout(() => {
+                wrapper.style.transition = '';
+            }, 700);
+        });
+        
+        container.addEventListener('mouseleave', function() {
+            isDragging = false;
+            container.style.cursor = 'pointer';
+        });
+        
+        // Soporte para touch
+        container.addEventListener('touchstart', function(e) {
+            isDragging = true;
+            startX = e.touches[0].clientX;
+            startRotation = currentRotation;
+            e.preventDefault();
+        });
+        
+        container.addEventListener('touchmove', function(e) {
+            if (!isDragging) return;
+            
+            const deltaX = e.touches[0].clientX - startX;
+            const sensitivity = 0.5;
+            currentRotation = startRotation + (deltaX * sensitivity);
+            wrapper.style.transform = `rotateY(${currentRotation}deg)`;
+            e.preventDefault();
+        });
+        
+        container.addEventListener('touchend', function() {
+            isDragging = false;
+            
+            // Ajustar a la posición más cercana
+            const snapRotation = Math.round(currentRotation / 72) * 72;
+            currentRotation = snapRotation;
+            
+            wrapper.style.transition = 'transform 0.7s cubic-bezier(0.23, 1, 0.32, 1)';
+            wrapper.style.transform = `rotateY(${currentRotation}deg)`;
+            
+            setTimeout(() => {
+                wrapper.style.transition = '';
+            }, 700);
+        });
+    });
+    
+    // ===========================================
+    // 2. FUNCIONALIDAD PARA VIDEOS - USANDO IFRAME
+    // ===========================================
+    
+    // Datos de los videos (reemplaza con tus URLs reales)
+    const videosData = {
+        1: {
+            title: "Amazing Anime Metal Artwork",
+            description: "Arte en metal de Dragon Ball - Proceso de sublimación",
+            url: "https://www.youtube.com/embed/qwgbuq9XvEg?autoplay=1"
+        },
+        2: {
+            title: "Proceso de Sublimación",
+            description: "Cómo transformamos imágenes en arte en metal de alta calidad",
+            url: "https://www.youtube.com/embed/0e3GPea1h6w?autoplay=1"
+        },
+        3: {
+            title: "Colección Anime",
+            description: "Personajes anime transformados en arte metal",
+            url: "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+        },
+        4: {
+            title: "Testimonios Clientes",
+            description: "Lo que dicen nuestros clientes satisfechos",
+            url: "https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=1"
+        },
+        5: {
+            title: "Diseño Personalizado",
+            description: "Creamos cuadros únicos según tus ideas",
+            url: "https://www.youtube.com/embed/LDU_Txk06tM?autoplay=1"
+        },
+        6: {
+            title: "Materiales Premium",
+            description: "Usamos solo materiales de la más alta calidad",
+            url: "https://www.youtube.com/embed/5yx6BWlEVcY?autoplay=1"
+        }
+    };
+    
+    // Elementos del modal
+    const videoModal = document.getElementById('videoModal');
+    const closeModalBtn = document.querySelector('.close-modal');
+    const youtubePlayer = document.getElementById('youtubePlayer');
+    const videoTitle = document.getElementById('videoTitle');
+    const videoDescription = document.getElementById('videoDescription');
+    
+    // Función para abrir el modal de video
+    function openVideoModal(videoId) {
+        const videoData = videosData[videoId];
+        if (!videoData) {
+            console.error('Video data not found for ID:', videoId);
+            return;
+        }
+        
+        videoTitle.textContent = videoData.title;
+        videoDescription.textContent = videoData.description;
+        youtubePlayer.src = videoData.url;
+        
+        videoModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    // Función para cerrar el modal de video
+    function closeVideoModal() {
+        videoModal.classList.remove('active');
+        youtubePlayer.src = ''; // Detener el video
+        document.body.style.overflow = 'auto';
+    }
+    
+    // Configurar event listeners para videos del carrusel desktop
+    document.querySelectorAll('.video-overlay').forEach(overlay => {
+        overlay.addEventListener('click', function() {
+            const slide = this.closest('.carrusel-slide');
+            if (slide) {
+                const videoId = slide.getAttribute('data-video-id');
+                openVideoModal(videoId);
+            }
+        });
+    });
+    
+    // Configurar event listeners para videos del carrusel móvil
+    document.querySelectorAll('.video-overlay-mobile').forEach(overlay => {
+        overlay.addEventListener('click', function() {
+            const slide = this.closest('.carrusel-slide-mobile');
+            if (slide) {
+                const videoId = slide.getAttribute('data-video-id');
+                openVideoModal(videoId);
+            }
+        });
+    });
+    
+    // También permitir clic en el indicador de play
+    document.querySelectorAll('.play-indicator, .play-indicator-mobile').forEach(indicator => {
+        indicator.addEventListener('click', function(e) {
+            e.stopPropagation(); // Evitar que se active el overlay también
+            const slide = this.closest('.carrusel-slide, .carrusel-slide-mobile');
+            if (slide) {
+                const videoId = slide.getAttribute('data-video-id');
+                openVideoModal(videoId);
+            }
+        });
+    });
+    
+    // Botón cerrar modal
+    if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', closeVideoModal);
+    }
+    
+    // Cerrar modal al hacer clic fuera
+    if (videoModal) {
+        videoModal.addEventListener('click', function(e) {
+            if (e.target === videoModal) {
+                closeVideoModal();
+            }
+        });
+    }
+    
+    // Cerrar modal con tecla Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && videoModal.classList.contains('active')) {
+            closeVideoModal();
+        }
+    });
+    
+    // ===========================================
+    // 3. CARRUSEL DE VIDEOS HORIZONTAL
+    // ===========================================
+    
+    // Carrusel desktop
+    const carruselTrack = document.querySelector('.carrusel-track');
+    const carruselSlides = document.querySelectorAll('.carrusel-slide');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    
+    if (carruselTrack && carruselSlides.length > 0) {
+        let currentSlide = 0;
+        const slidesToShow = 4; // Cambia según el responsive
+        
+        function updateCarruselDesktop() {
+            const slideWidth = carruselSlides[0].offsetWidth + 25;
+            const translateX = -currentSlide * slideWidth;
+            carruselTrack.style.transform = `translateX(${translateX}px)`;
+            
+            // Actualizar indicadores
+            const indicators = document.querySelectorAll('.carrusel-indicadores .indicador');
+            const currentGroup = Math.floor(currentSlide / slidesToShow);
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentGroup);
+            });
+        }
+        
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    updateCarruselDesktop();
+                }
+            });
+        }
+        
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                const maxSlide = carruselSlides.length - slidesToShow;
+                if (currentSlide < maxSlide) {
+                    currentSlide++;
+                    updateCarruselDesktop();
+                }
+            });
+        }
+        
+        // Actualizar según el tamaño de pantalla
+        function updateSlidesToShow() {
+            const width = window.innerWidth;
+            if (width >= 1200) return 4;
+            if (width >= 992) return 3;
+            if (width >= 768) return 2;
+            return 1;
+        }
+        
+        // Inicializar
+        updateCarruselDesktop();
+    }
+    
+    // Carrusel móvil
+    const carruselTrackMobile = document.querySelector('.carrusel-track-mobile');
+    const carruselSlidesMobile = document.querySelectorAll('.carrusel-slide-mobile');
+    const prevBtnMobile = document.querySelector('.prev-btn-mobile');
+    const nextBtnMobile = document.querySelector('.next-btn-mobile');
+    
+    if (carruselTrackMobile && carruselSlidesMobile.length > 0) {
+        let currentSlideMobile = 0;
+        const slidesToShowMobile = 2;
+        
+        function updateCarruselMobile() {
+            const slideWidth = carruselSlidesMobile[0].offsetWidth + 10;
+            const translateX = -currentSlideMobile * slideWidth;
+            carruselTrackMobile.style.transform = `translateX(${translateX}px)`;
+        }
+        
+        if (prevBtnMobile) {
+            prevBtnMobile.addEventListener('click', () => {
+                if (currentSlideMobile > 0) {
+                    currentSlideMobile--;
+                    updateCarruselMobile();
+                }
+            });
+        }
+        
+        if (nextBtnMobile) {
+            nextBtnMobile.addEventListener('click', () => {
+                const maxSlide = carruselSlidesMobile.length - slidesToShowMobile;
+                if (currentSlideMobile < maxSlide) {
+                    currentSlideMobile++;
+                    updateCarruselMobile();
+                }
+            });
+        }
+        
+        // Inicializar
+        updateCarruselMobile();
+    }
+    
+    // ===========================================
+    // 4. VIDEO EN SECCIÓN ENCUADRE
+    // ===========================================
+    
+    const videoEncuadre = document.querySelector('.video-encuadre');
+    const videoPlayBtn = document.querySelector('.video-play-btn');
+    
+    if (videoEncuadre && videoPlayBtn) {
+        videoPlayBtn.addEventListener('click', function() {
+            if (videoEncuadre.paused) {
+                videoEncuadre.play();
+                videoPlayBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                videoPlayBtn.style.opacity = '0.5';
+            } else {
+                videoEncuadre.pause();
+                videoPlayBtn.innerHTML = '<i class="fas fa-play"></i>';
+                videoPlayBtn.style.opacity = '0.8';
+            }
+        });
+        
+        videoEncuadre.addEventListener('play', function() {
+            videoPlayBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            videoPlayBtn.style.opacity = '0.5';
+        });
+        
+        videoEncuadre.addEventListener('pause', function() {
+            videoPlayBtn.innerHTML = '<i class="fas fa-play"></i>';
+            videoPlayBtn.style.opacity = '0.8';
+        });
+        
+        // Ocultar/mostrar controles al pasar el mouse
+        const videoContenedor = document.querySelector('.video-contenedor');
+        if (videoContenedor) {
+            videoContenedor.addEventListener('mouseenter', function() {
+                videoPlayBtn.style.opacity = '0.8';
+            });
+            
+            videoContenedor.addEventListener('mouseleave', function() {
+                if (!videoEncuadre.paused) {
+                    videoPlayBtn.style.opacity = '0.5';
+                }
+            });
+        }
+    }
+    
+    // ===========================================
+    // 5. BOTÓN VER MÁS VIDEOS
+    // ===========================================
+    
+    const btnVerMas = document.querySelector('.btn-ver-mas');
+    if (btnVerMas) {
+        btnVerMas.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Aquí puedes redirigir a la página de videos
+            window.location.href = 'videos.html';
+        });
+    }
+    
+    // ===========================================
+    // 6. ACTUALIZAR HTML DE VIDEOS (si es necesario)
+    // ===========================================
+    
+    // Esta función actualiza los iframes de video para usar embed correcto
+    function actualizarIframesDeVideo() {
+        // Para el carrusel desktop
+        document.querySelectorAll('.video-iframe-container').forEach(container => {
+            const slide = container.closest('.carrusel-slide');
+            if (slide) {
+                const videoId = slide.getAttribute('data-video-id');
+                const videoData = videosData[videoId];
+                if (videoData) {
+                    // Extraer ID del video de YouTube de la URL
+                    const url = new URL(videoData.url);
+                    const videoIdFromUrl = url.pathname.split('/').pop().split('?')[0];
+                    
+                    // Crear iframe con thumbnail de YouTube
+                    const iframe = container.querySelector('iframe');
+                    if (iframe) {
+                        // URL para thumbnail (no autoplay)
+                        iframe.src = `https://www.youtube.com/embed/${videoIdFromUrl}?controls=0&modestbranding=1&rel=0&showinfo=0`;
+                    }
+                }
+            }
+        });
+    }
+    
+    // Ejecutar cuando el DOM esté listo
+    actualizarIframesDeVideo();
+});

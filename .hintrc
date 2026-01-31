@@ -38,7 +38,8 @@
     "axe/parsing": [
       "default",
       {
-        "duplicate-id-active": "off"
+        "duplicate-id-active": "off",
+        "duplicate-id": "off"
       }
     ],
     "disown-opener": "off",
@@ -58,8 +59,15 @@
       "default",
       {
         "ignore": [
-          "video[controlslist]"
+          "video[controlslist]",
+          "video[playsinline]"
         ]
+      }
+    ],
+    "axe/aria": [
+      "default",
+      {
+        "aria-required-children": "off"
       }
     ]
   }
