@@ -4,12 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mundo de Fantasía Animal</title>
-    
-    <!-- Meta tags SEO agregados -->
-    <meta name="description" content="Galería de cuadros sublimados en metal con efectos 3D. Arte anime, games, retratos y animales fantásticos.">
-    <meta name="keywords" content="cuadros sublimados, arte metal, anime, games, retratos, galería 3D">
-    <meta name="author" content="Fantasía Animal">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="real.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
@@ -21,12 +15,12 @@
 <body>
      <!-- Encabezado -->
     <header class="encabezado">
-        <nav class="navegacion-principal" aria-label="Navegación principal">
-            <a href="#" class="logo-link" aria-label="Inicio - Fantasía Animal">
+        <nav class="navegacion-principal">
+            <a href="#" class="logo-link">
                 <img src="img/logo.jpg" alt="Logo Fantasía Animal" class="logo">
                 <span class="logo-text">Fantasía Animal</span>
             </a>
-            <button class="boton-encabezado" aria-label="Menú de navegación" aria-expanded="false">
+            <button class="boton-encabezado">
                 <i class="fas fa-bars"></i>
             </button>
             <ul class="enlaces">
@@ -37,20 +31,20 @@
                 <li><a href="#" class="enlace-navegacion">Contacto</a></li>
             </ul>
             <div class="iconos-usuario">
-                <a href="#" class="icono-usuario" aria-label="Tienda">
+                <a href="#" class="icono-usuario">
                     <i class="fas fa-shopping-cart"></i>
                     <span>Tienda</span>
                 </a>
-                <a href="#" class="icono-usuario" aria-label="Mi cuenta">
+                <a href="#" class="icono-usuario">
                     <i class="fas fa-user"></i>
                     <span>Mi cuenta</span>
                 </a>
             </div>
             <div class="iconos-usuario-mobile">
-                <a href="#" class="icono-usuario-mobile" aria-label="Tienda">
+                <a href="#" class="icono-usuario-mobile">
                     <i class="fas fa-shopping-cart"></i>
                 </a>
-                <a href="#" class="icono-usuario-mobile" aria-label="Mi cuenta">
+                <a href="#" class="icono-usuario-mobile">
                     <i class="fas fa-user"></i>
                 </a>
             </div>
@@ -61,14 +55,14 @@
         
         <!-- Sección del carrusel -->
         <div class="carrusel-seccion">
-                <h1 class="titulo-seccion">Cuadros</h1>
+                <h2 class="titulo-seccion">Cuadros</h2>
             
             <div class="contenedor-carrusel-3d">
-                <div class="carrusel-3d">
+                <div class="carrusel-3d" data-carousel-id="main">
                     <!-- Item 1 -->
-                    <div class="item-carrusel activo">
+                    <div class="item-carrusel activo" data-item-index="0">
                         <a href="categoria-anime.html" class="carrusel-link">
-                            <img src="gokufasessubli.webp" alt="Goku en diferentes fases de transformación">
+                            <img src="img/broly.webp" alt="Animal realista 1">
                             <div class="contenido-carrusel">
                                 <h3>Goku Fases</h3>
                                 <p></p>
@@ -77,9 +71,9 @@
                     </div>
                     
                     <!-- Item 2 -->
-                    <div class="item-carrusel">
+                    <div class="item-carrusel" data-item-index="1">
                         <a href="categoria-anime.html" class="carrusel-link">
-                            <img src="vegtamajinsubli2.webp" alt="Veggeta transformado en Majin">
+                            <img src="img/vegeta6.webp" alt="Animal realista 2">
                             <div class="contenido-carrusel">
                                 <h3>Veggeta Majin</h3>
                                 <p></p>
@@ -88,9 +82,9 @@
                     </div>
                     
                     <!-- Item 3 -->
-                    <div class="item-carrusel">
+                    <div class="item-carrusel" data-item-index="2">
                         <a href="categoria-anime.html" class="carrusel-link">
-                            <img src="gokusublima2.webp" alt="Goku fusionado como Veggito">
+                            <img src="img/satoru3.avif" alt="Animal realista 3">
                             <div class="contenido-carrusel">
                                 <h3>Goku Veggito</h3>
                                 <p></p>
@@ -99,9 +93,9 @@
                     </div>
                     
                     <!-- Item 4 -->
-                    <div class="item-carrusel">
+                    <div class="item-carrusel" data-item-index="3">
                         <a href="categoria-anime.html" class="carrusel-link">
-                            <img src="vegetamajinsubli.webp" alt="Veggeta enfrentando a Majin">
+                            <img src="img/goku3.webp" alt="Animal realista 4">
                             <div class="contenido-carrusel">
                                 <h3>Veggeta vs Majin</h3>
                                 <p></p>
@@ -110,32 +104,34 @@
                     </div>
                     
                     <!-- Item 5 -->
-                    <div class="item-carrusel">
+                    <div class="item-carrusel" data-item-index="4">
                         <a href="categoria-anime.html" class="carrusel-link">
-                            <img src="gokuultrasubli.jpg" alt="Goku en Ultra Instinto">
+                            <img src="img/gohan1.webp" alt="Animal realista 5">
                             <div class="contenido-carrusel">
                                 <h3>Goku Ultra Instinto</h3>
                                 <p>Cuadro Seccionado</p>
                             </div>
                         </a>
                     </div>
+                    
+                    <!-- Aquí se pueden agregar más items dinámicamente -->
                 </div>
             </div>
             
             <div class="controles-carrusel">
-                <button class="btn-control" id="btn-prev" aria-label="Imagen anterior">
+                <button class="btn-control" id="btn-prev">
                     <i class="fas fa-chevron-left"></i>
                 </button>
                 
                 <div class="indicadores">
-                    <span class="indicador activo" aria-label="Imagen 1"></span>
-                    <span class="indicador" aria-label="Imagen 2"></span>
-                    <span class="indicador" aria-label="Imagen 3"></span>
-                    <span class="indicador" aria-label="Imagen 4"></span>
-                    <span class="indicador" aria-label="Imagen 5"></span>
+                    <span class="indicador activo" data-indicator="0"></span>
+                    <span class="indicador" data-indicator="1"></span>
+                    <span class="indicador" data-indicator="2"></span>
+                    <span class="indicador" data-indicator="3"></span>
+                    <span class="indicador" data-indicator="4"></span>
                 </div>
                 
-                <button class="btn-control" id="btn-next" aria-label="Imagen siguiente">
+                <button class="btn-control" id="btn-next">
                     <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
@@ -155,12 +151,13 @@
         <!-- Carrusel horizontal para desktop -->
         <div class="carrusel-horizontal-desktop">
             <div class="contenedor-carrusel">
-                <div class="carrusel-track">
+                <div class="carrusel-track" data-carousel-id="videos-desktop">
                     <!-- Video 1 -->
                     <div class="carrusel-slide" data-video-id="1">
                         <div class="video-item">
                             <div class="video-thumbnail-carrusel">
                                 <iframe width="951" height="535" src="https://www.youtube.com/embed/qwgbuq9XvEg" title="Amazing Anime Metal artwork #art #metal #dragonball #metaleks #anime #viral #art #goku" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                     alt="Proceso de sublimación" class="thumbnail-carrusel">
                                 <div class="play-indicator">
                                     <i class="fas fa-play"></i>
                                 </div>
@@ -179,7 +176,7 @@
                         <div class="video-item">
                             <div class="video-thumbnail-carrusel">
                                 <img src="https://img.youtube.com/vi/0e3GPea1h6w/hqdefault.jpg" 
-                                     alt="Proceso de sublimación en metal" class="thumbnail-carrusel">
+                                     alt="Instalación LED" class="thumbnail-carrusel">
                                 <div class="play-indicator">
                                     <i class="fas fa-play"></i>
                                 </div>
@@ -198,7 +195,7 @@
                         <div class="video-item">
                             <div class="video-thumbnail-carrusel">
                                 <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" 
-                                     alt="Colección de arte anime" class="thumbnail-carrusel">
+                                     alt="Colección Anime" class="thumbnail-carrusel">
                                 <div class="play-indicator">
                                     <i class="fas fa-play"></i>
                                 </div>
@@ -235,7 +232,7 @@
                         <div class="video-item">
                             <div class="video-thumbnail-carrusel">
                                 <img src="https://img.youtube.com/vi/LDU_Txk06tM/hqdefault.jpg" 
-                                     alt="Diseño personalizado de cuadros" class="thumbnail-carrusel">
+                                     alt="Diseño Personalizado" class="thumbnail-carrusel">
                                 <div class="play-indicator">
                                     <i class="fas fa-play"></i>
                                 </div>
@@ -254,7 +251,7 @@
                         <div class="video-item">
                             <div class="video-thumbnail-carrusel">
                                 <img src="https://img.youtube.com/vi/5yx6BWlEVcY/hqdefault.jpg" 
-                                     alt="Materiales de calidad para cuadros" class="thumbnail-carrusel">
+                                     alt="Materiales de Calidad" class="thumbnail-carrusel">
                                 <div class="play-indicator">
                                     <i class="fas fa-play"></i>
                                 </div>
@@ -267,29 +264,31 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- Aquí se pueden agregar más videos dinámicamente -->
                 </div>
             </div>
             
             <!-- Controles del carrusel -->
-            <button class="carrusel-btn prev-btn" aria-label="Video anterior">
+            <button class="carrusel-btn prev-btn" data-carousel-prev="videos-desktop">
                 <i class="fas fa-chevron-left"></i>
             </button>
-            <button class="carrusel-btn next-btn" aria-label="Video siguiente">
+            <button class="carrusel-btn next-btn" data-carousel-next="videos-desktop">
                 <i class="fas fa-chevron-right"></i>
             </button>
             
             <!-- Indicadores de posición -->
             <div class="carrusel-indicadores">
-                <div class="indicador active" aria-label="Grupo de videos 1"></div>
-                <div class="indicador" aria-label="Grupo de videos 2"></div>
-                <div class="indicador" aria-label="Grupo de videos 3"></div>
+                <div class="indicador active" data-indicator="0"></div>
+                <div class="indicador" data-indicator="1"></div>
+                <div class="indicador" data-indicator="2"></div>
             </div>
         </div>
         
         <!-- Carrusel horizontal para móvil -->
         <div class="carrusel-horizontal-mobile">
             <div class="contenedor-carrusel-mobile">
-                <div class="carrusel-track-mobile">
+                <div class="carrusel-track-mobile" data-carousel-id="videos-mobile">
                     <!-- Miniaturas de videos para móvil -->
                     <div class="carrusel-slide-mobile" data-video-id="1">
                         <div class="video-miniatura-mobile">
@@ -324,7 +323,7 @@
                     <div class="carrusel-slide-mobile" data-video-id="4">
                         <div class="video-miniatura-mobile">
                             <img src="https://img.youtube.com/vi/jfKfPfyJRdk/hqdefault.jpg" 
-                                 alt="Testimonios clientes" class="miniatura-img">
+                                 alt="Testimonios" class="miniatura-img">
                             <div class="play-indicator-mobile">
                                 <i class="fas fa-play"></i>
                             </div>
@@ -350,14 +349,16 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- Aquí se pueden agregar más miniaturas dinámicamente -->
                 </div>
             </div>
             
             <!-- Controles del carrusel móvil -->
-            <button class="carrusel-btn-mobile prev-btn-mobile" aria-label="Video anterior">
+            <button class="carrusel-btn-mobile prev-btn-mobile" data-carousel-prev="videos-mobile">
                 <i class="fas fa-chevron-left"></i>
             </button>
-            <button class="carrusel-btn-mobile next-btn-mobile" aria-label="Video siguiente">
+            <button class="carrusel-btn-mobile next-btn-mobile" data-carousel-next="videos-mobile">
                 <i class="fas fa-chevron-right"></i>
             </button>
         </div>
@@ -365,12 +366,12 @@
         <!-- Modal para reproducir videos -->
         <div class="video-modal" id="videoModal">
             <div class="modal-content">
-                <button class="close-modal" aria-label="Cerrar video">&times;</button>
+                <button class="close-modal">&times;</button>
                 <div class="video-wrapper">
                     <iframe id="youtubePlayer" width="100%" height="100%" 
                             src="" frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen title="Reproductor de video">
+                            allowfullscreen>
                     </iframe>
                 </div>
                 <div class="video-details">
@@ -391,157 +392,162 @@
         
         <div class="categorias-slider">
             <!-- Categoría 1 -->
-            <div class="categoria-slider">
-                <h3 class="titulo-categoria">Anime</h3>
+            <div class="categoria-slider" data-categoria="anime">
+                <h3 class="titulo-categoria">Jujutsu Kaisen</h3>
                 <div class="circular-3d-container">
-                    <div class="circular-3d-wrapper">
+                    <div class="circular-3d-wrapper" data-carousel-id="anime">
                         <a href="categoria-anime.html" class="circular-slide-link">
                             <div class="circular-slide">
-                                <img src="img/sublima12.jpg" alt="Arte anime 1">
+                                <img src="https://img.fantaskycdn.com/2a03e9218636696162f68604ef780f06_420x.jpeg" alt="Animal realista 1">
                             </div>
                         </a>
                         <a href="categoria-anime.html" class="circular-slide-link">
                             <div class="circular-slide">
-                                <img src="img/sublima11.jpg" alt="Arte anime 2">
+                                <img src="https://img.fantaskycdn.com/34f47381c7e5766648a9b8c053dce075_420x.jpeg" alt="Animal realista 2">
                             </div>
                         </a>
                         <a href="categoria-anime.html" class="circular-slide-link">
                             <div class="circular-slide">
-                                <img src="img/sublima10.webp" alt="Arte anime 3">
+                                <img src="https://img.fantaskycdn.com/2d000d50cc5f97b7d8cbfcc7a6ada116_420x.jpeg" alt="Animal realista 3">
                             </div>
                         </a>
                         <a href="categoria-anime.html" class="circular-slide-link">
                             <div class="circular-slide">
-                                <img src="img/sublima1.webp" alt="Arte anime 4">
+                                <img src="https://img.fantaskycdn.com/7f8ba9afeb80d3c76728236a24d3da15_420x.jpeg" alt="Animal realista 4">
                             </div>
                         </a>
                         <a href="categoria-anime.html" class="circular-slide-link">
                             <div class="circular-slide">
-                                <img src="img/sublima.webp" alt="Arte anime 5">
+                                <img src="https://img.fantaskycdn.com/68798f5f6f297f9e42922479456eb245_420x.jpeg" alt="Animal realista 5">
                             </div>
                         </a>
+                        <!-- Aquí se pueden agregar más slides dinámicamente -->
                     </div>
                 </div>
                 <div class="gallery-controls">
-                    <button class="gallery-btn prev-btn" aria-label="Imagen anterior de Anime">←</button>
-                    <button class="gallery-btn next-btn" aria-label="Imagen siguiente de Anime">→</button>
+                    <button class="gallery-btn prev-btn" data-carousel-prev="anime">←</button>
+                    <button class="gallery-btn next-btn" data-carousel-next="anime">→</button>
                 </div>
             </div>
             
             <!-- Categoría 2 -->
-            <div class="categoria-slider">
-                <h3 class="titulo-categoria">Games</h3>
+            <div class="categoria-slider" data-categoria="games">
+                <h3 class="titulo-categoria">Drangon Ball Z</h3>
                 <div class="circular-3d-container">
-                    <div class="circular-3d-wrapper">
+                    <div class="circular-3d-wrapper" data-carousel-id="games">
                         <a href="categoria-games.html" class="circular-slide-link">
                             <div class="circular-slide">
-                                <img src="img/sublima13.jpg" alt="Arte de videojuegos 1">
+                                <img src="img/broly1.webp" alt="Criatura fantástica 1">
                             </div>
                         </a>
                         <a href="categoria-games.html" class="circular-slide-link">
                             <div class="circular-slide">
-                                <img src="img/sublima15.webp" alt="Arte de videojuegos 2">
+                                <img src="img/gohan.webp" alt="Criatura fantástica 2">
                             </div>
                         </a>
                         <a href="categoria-games.html" class="circular-slide-link">
                             <div class="circular-slide">
-                                <img src="img/sublima16.webp" alt="Arte de videojuegos 3">
+                                <img src="img/goku.webp" alt="Criatura fantástica 3">
                             </div>
                         </a>
                         <a href="categoria-games.html" class="circular-slide-link">
                             <div class="circular-slide">
-                                <img src="img/sublima3.webp" alt="Arte de videojuegos 4">
+                                <img src="img/goku2.webp" alt="Criatura fantástica 4">
                             </div>
                         </a>
                         <a href="categoria-games.html" class="circular-slide-link">
                             <div class="circular-slide">
-                                <img src="img/sublima4.webp" alt="Arte de videojuegos 5">
+                                <img src="img/vegeta5.webp" alt="Criatura fantástica 5">
                             </div>
                         </a>
+                        <!-- Aquí se pueden agregar más slides dinámicamente -->
                     </div>
                 </div>
                 <div class="gallery-controls">
-                    <button class="gallery-btn prev-btn" aria-label="Imagen anterior de Games">←</button>
-                    <button class="gallery-btn next-btn" aria-label="Imagen siguiente de Games">→</button>
+                    <button class="gallery-btn prev-btn" data-carousel-prev="games">←</button>
+                    <button class="gallery-btn next-btn" data-carousel-next="games">→</button>
                 </div>
             </div>
             
             <!-- Categoría 3 -->
-            <div class="categoria-slider">
-                <h3 class="titulo-categoria">Retratos</h3>
+            <div class="categoria-slider" data-categoria="retratos">
+                <h3 class="titulo-categoria">Naruto</h3>
                 <div class="circular-3d-container">
-                    <div class="circular-3d-wrapper">
+                    <div class="circular-3d-wrapper" data-carousel-id="retratos">
                         <a href="categoria-retratos.html" class="circular-slide-link">
                             <div class="circular-slide">
-                                <img src="img/sublima8.webp" alt="Retrato 1">
+                                <img src="https://img.fantaskycdn.com/cf1051c4ace2ed06309464452973bf04_420x.jpeg" alt="Animal antropomórfico 1">
                             </div>
                         </a>
                         <a href="categoria-retratos.html" class="circular-slide-link">
                             <div class="circular-slide">
-                                <img src="img/sublima.webp" alt="Retrato 2">
+                                <img src="https://img.fantaskycdn.com/f9402035bed8b97bc4e47b8a93028ed5_420x.jpeg" alt="Animal antropomórfico 2">
                             </div>
                         </a>
                         <a href="categoria-retratos.html" class="circular-slide-link">
                             <div class="circular-slide">
-                                <img src="img/sublima16.webp" alt="Retrato 3">
+                                <img src="https://img.fantaskycdn.com/3786b10c6f829933f5075372ade5fd0c_420x.jpeg" alt="Animal antropomórfico 3">
                             </div>
                         </a>
                         <a href="categoria-retratos.html" class="circular-slide-link">
                             <div class="circular-slide">
-                                <img src="img/sublima11.jpg" alt="Retrato 4">
+                                <img src="https://img.fantaskycdn.com/ca7d9f8a1c0cfc2da3d009d6246653a4_420x.jpeg" alt="Animal antropomórfico 4">
                             </div>
                         </a>
                         <a href="categoria-retratos.html" class="circular-slide-link">
                             <div class="circular-slide">
-                                <img src="img/sublima6.jpg" alt="Retrato 5">
+                                <img src="https://img.fantaskycdn.com/60a48578874df0a83f4820dea46c6ead_420x.jpeg" alt="Animal antropomórfico 5">
                             </div>
                         </a>
+                        <!-- Aquí se pueden agregar más slides dinámicamente -->
                     </div>
                 </div>
                 <div class="gallery-controls">
-                    <button class="gallery-btn prev-btn" aria-label="Imagen anterior de Retratos">←</button>
-                    <button class="gallery-btn next-btn" aria-label="Imagen siguiente de Retratos">→</button>
+                    <button class="gallery-btn prev-btn" data-carousel-prev="retratos">←</button>
+                    <button class="gallery-btn next-btn" data-carousel-next="retratos">→</button>
                 </div>
             </div>
             
             <!-- Categoría 4 -->
-            <div class="categoria-slider">
-                <h3 class="titulo-categoria">Animales</h3>
+            <div class="categoria-slider" data-categoria="animales">
+                <h3 class="titulo-categoria">Solo Leveling</h3>
                 <div class="circular-3d-container">
-                    <div class="circular-3d-wrapper">
+                    <div class="circular-3d-wrapper" data-carousel-id="animales">
                         <a href="categoria-animales.html" class="circular-slide-link">
                             <div class="circular-slide">
-                                <img src="img/sublima8.webp" alt="Animal 1">
+                                <img src="img/sublima8.webp" alt="Animal antropomórfico 1">
                             </div>
                         </a>
                         <a href="categoria-animales.html" class="circular-slide-link">
                             <div class="circular-slide">
-                                <img src="img/sublima.webp" alt="Animal 2">
+                                <img src="img/sublima.webp" alt="Animal antropomórfico 2">
                             </div>
                         </a>
                         <a href="categoria-animales.html" class="circular-slide-link">
                             <div class="circular-slide">
-                                <img src="img/sublima16.webp" alt="Animal 3">
+                                <img src="img/sublima16.webp" alt="Animal antropomórfico 3">
                             </div>
                         </a>
                         <a href="categoria-animales.html" class="circular-slide-link">
                             <div class="circular-slide">
-                                <img src="img/sublima11.jpg" alt="Animal 4">
+                                <img src="img/sublima11.jpg" alt="Animal antropomórfico 4">
                             </div>
                         </a>
                         <a href="categoria-animales.html" class="circular-slide-link">
                             <div class="circular-slide">
-                                <img src="img/sublima6.jpg" alt="Animal 5">
+                                <img src="img/sublima6.jpg" alt="Animal antropomórfico 5">
                             </div>
                         </a>
+                        <!-- Aquí se pueden agregar más slides dinámicamente -->
                     </div>
                 </div>
                 <div class="gallery-controls">
-                    <button class="gallery-btn prev-btn" aria-label="Imagen anterior de Animales">←</button>
-                    <button class="gallery-btn next-btn" aria-label="Imagen siguiente de Animales">→</button>
+                    <button class="gallery-btn prev-btn" data-carousel-prev="animales">←</button>
+                    <button class="gallery-btn next-btn" data-carousel-next="animales">→</button>
                 </div>
             </div>
             
+            <!-- Aquí se pueden agregar más categorías dinámicamente -->
         </div>
     </section>
     
@@ -579,7 +585,7 @@
                             Tu navegador no soporta el elemento de video.
                         </video>
                         <div class="video-controls-overlay">
-                            <button class="video-play-btn" aria-label="Reproducir video">
+                            <button class="video-play-btn">
                                 <i class="fas fa-play"></i>
                             </button>
                         </div>
@@ -595,161 +601,163 @@
     </section>
     
     <!-- Sección Galería repetida -->
-    <section class="galeria">
+    <section class="galeria" data-section-id="galeria-2">
         <h2 class="titulo-galeria">Categorías</h2>
         
         <div class="categorias-slider">
             <!-- Categoría 1 -->
-            <div class="categoria-slider">
+            <div class="categoria-slider" data-categoria="anime-2">
                 <h3 class="titulo-categoria">Anime</h3>
                 <div class="circular-3d-container">
-                    <div class="circular-3d-wrapper">
+                    <div class="circular-3d-wrapper" data-carousel-id="anime-2">
                         <a href="categoria-anime.html" class="circular-slide-link">
                             <div class="circular-slide">
-                                <img src="img/sublima12.jpg" alt="Arte anime 1">
+                                <img src="img/sublima12.jpg" alt="Animal realista 1">
                             </div>
                         </a>
                         <a href="categoria-anime.html" class="circular-slide-link">
                             <div class="circular-slide">
-                                <img src="img/sublima11.jpg" alt="Arte anime 2">
+                                <img src="img/sublima11.jpg" alt="Animal realista 2">
                             </div>
                         </a>
                         <a href="categoria-anime.html" class="circular-slide-link">
                             <div class="circular-slide">
-                                <img src="img/sublima10.webp" alt="Arte anime 3">
+                                <img src="img/sublima10.webp" alt="Animal realista 3">
                             </div>
                         </a>
                         <a href="categoria-anime.html" class="circular-slide-link">
                             <div class="circular-slide">
-                                <img src="img/sublima1.webp" alt="Arte anime 4">
+                                <img src="img/sublima1.webp" alt="Animal realista 4">
                             </div>
                         </a>
                         <a href="categoria-anime.html" class="circular-slide-link">
                             <div class="circular-slide">
-                                <img src="img/sublima.webp" alt="Arte anime 5">
+                                <img src="img/sublima.webp" alt="Animal realista 5">
                             </div>
                         </a>
                     </div>
                 </div>
                 <div class="gallery-controls">
-                    <button class="gallery-btn prev-btn" aria-label="Imagen anterior de Anime">←</button>
-                    <button class="gallery-btn next-btn" aria-label="Imagen siguiente de Anime">→</button>
+                    <button class="gallery-btn prev-btn" data-carousel-prev="anime-2">←</button>
+                    <button class="gallery-btn next-btn" data-carousel-next="anime-2">→</button>
                 </div>
             </div>
             
             <!-- Categoría 2 -->
-            <div class="categoria-slider">
+            <div class="categoria-slider" data-categoria="games-2">
                 <h3 class="titulo-categoria">Games</h3>
                 <div class="circular-3d-container">
-                    <div class="circular-3d-wrapper">
+                    <div class="circular-3d-wrapper" data-carousel-id="games-2">
                         <a href="categoria-games.html" class="circular-slide-link">
                             <div class="circular-slide">
-                                <img src="img/sublima13.jpg" alt="Arte de videojuegos 1">
+                                <img src="img/sublima13.jpg" alt="Criatura fantástica 1">
                             </div>
                         </a>
                         <a href="categoria-games.html" class="circular-slide-link">
                             <div class="circular-slide">
-                                <img src="img/sublima15.webp" alt="Arte de videojuegos 2">
+                                <img src="img/sublima15.webp" alt="Criatura fantástica 2">
                             </div>
                         </a>
                         <a href="categoria-games.html" class="circular-slide-link">
                             <div class="circular-slide">
-                                <img src="img/sublima16.webp" alt="Arte de videojuegos 3">
+                                <img src="img/sublima16.webp" alt="Criatura fantástica 3">
                             </div>
                         </a>
                         <a href="categoria-games.html" class="circular-slide-link">
                             <div class="circular-slide">
-                                <img src="img/sublima3.webp" alt="Arte de videojuegos 4">
+                                <img src="img/sublima3.webp" alt="Criatura fantástica 4">
                             </div>
                         </a>
                         <a href="categoria-games.html" class="circular-slide-link">
                             <div class="circular-slide">
-                                <img src="img/sublima4.webp" alt="Arte de videojuegos 5">
+                                <img src="img/sublima4.webp" alt="Criatura fantástica 5">
                             </div>
                         </a>
                     </div>
                 </div>
                 <div class="gallery-controls">
-                    <button class="gallery-btn prev-btn" aria-label="Imagen anterior de Games">←</button>
-                    <button class="gallery-btn next-btn" aria-label="Imagen siguiente de Games">→</button>
+                    <button class="gallery-btn prev-btn" data-carousel-prev="games-2">←</button>
+                    <button class="gallery-btn next-btn" data-carousel-next="games-2">→</button>
                 </div>
             </div>
             
             <!-- Categoría 3 -->
-            <div class="categoria-slider">
+            <div class="categoria-slider" data-categoria="retratos-2">
                 <h3 class="titulo-categoria">Retratos</h3>
                 <div class="circular-3d-container">
-                    <div class="circular-3d-wrapper">
+                    <div class="circular-3d-wrapper" data-carousel-id="retratos-2">
                         <a href="categoria-retratos.html" class="circular-slide-link">
                             <div class="circular-slide">
-                                <img src="img/sublima8.webp" alt="Retrato 1">
+                                <img src="img/sublima8.webp" alt="Animal antropomórfico 1">
                             </div>
                         </a>
                         <a href="categoria-retratos.html" class="circular-slide-link">
                             <div class="circular-slide">
-                                <img src="img/sublima.webp" alt="Retrato 2">
+                                <img src="img/sublima.webp" alt="Animal antropomórfico 2">
                             </div>
                         </a>
                         <a href="categoria-retratos.html" class="circular-slide-link">
                             <div class="circular-slide">
-                                <img src="img/sublima16.webp" alt="Retrato 3">
+                                <img src="img/sublima16.webp" alt="Animal antropomórfico 3">
                             </div>
                         </a>
                         <a href="categoria-retratos.html" class="circular-slide-link">
                             <div class="circular-slide">
-                                <img src="img/sublima11.jpg" alt="Retrato 4">
+                                <img src="img/sublima11.jpg" alt="Animal antropomórfico 4">
                             </div>
                         </a>
                         <a href="categoria-retratos.html" class="circular-slide-link">
                             <div class="circular-slide">
-                                <img src="img/sublima6.jpg" alt="Retrato 5">
+                                <img src="img/sublima6.jpg" alt="Animal antropomórfico 5">
                             </div>
                         </a>
                     </div>
                 </div>
                 <div class="gallery-controls">
-                    <button class="gallery-btn prev-btn" aria-label="Imagen anterior de Retratos">←</button>
-                    <button class="gallery-btn next-btn" aria-label="Imagen siguiente de Retratos">→</button>
+                    <button class="gallery-btn prev-btn" data-carousel-prev="retratos-2">←</button>
+                    <button class="gallery-btn next-btn" data-carousel-next="retratos-2">→</button>
                 </div>
             </div>
             
             <!-- Categoría 4 -->
-            <div class="categoria-slider">
+            <div class="categoria-slider" data-categoria="animales-fantasticos">
                 <h3 class="titulo-categoria">Animales Fantásticos</h3>
                 <div class="circular-3d-container">
-                    <div class="circular-3d-wrapper">
+                    <div class="circular-3d-wrapper" data-carousel-id="animales-fantasticos">
                         <a href="categoria-animales-fantasticos.html" class="circular-slide-link">
                             <div class="circular-slide">
-                                <img src="img/sublima8.webp" alt="Animal fantástico 1">
+                                <img src="img/sublima8.webp" alt="Animal antropomórfico 1">
                             </div>
                         </a>
                         <a href="categoria-animales-fantasticos.html" class="circular-slide-link">
                             <div class="circular-slide">
-                                <img src="img/sublima.webp" alt="Animal fantástico 2">
+                                <img src="img/sublima.webp" alt="Animal antropomórfico 2">
                             </div>
                         </a>
                         <a href="categoria-animales-fantasticos.html" class="circular-slide-link">
                             <div class="circular-slide">
-                                <img src="img/sublima16.webp" alt="Animal fantástico 3">
+                                <img src="img/sublima16.webp" alt="Animal antropomórfico 3">
                             </div>
                         </a>
                         <a href="categoria-animales-fantasticos.html" class="circular-slide-link">
                             <div class="circular-slide">
-                                <img src="img/sublima11.jpg" alt="Animal fantástico 4">
+                                <img src="img/sublima11.jpg" alt="Animal antropomórfico 4">
                             </div>
                         </a>
                         <a href="categoria-animales-fantasticos.html" class="circular-slide-link">
                             <div class="circular-slide">
-                                <img src="img/sublima6.jpg" alt="Animal fantástico 5">
+                                <img src="img/sublima6.jpg" alt="Animal antropomórfico 5">
                             </div>
                         </a>
                     </div>
                 </div>
                 <div class="gallery-controls">
-                    <button class="gallery-btn prev-btn" aria-label="Imagen anterior de Animales Fantásticos">←</button>
-                    <button class="gallery-btn next-btn" aria-label="Imagen siguiente de Animales Fantásticos">→</button>
+                    <button class="gallery-btn prev-btn" data-carousel-prev="animales-fantasticos">←</button>
+                    <button class="gallery-btn next-btn" data-carousel-next="animales-fantasticos">→</button>
                 </div>
             </div>
+            
+            <!-- Aquí se pueden agregar más categorías dinámicamente -->
         </div>
     </section>
     
@@ -793,10 +801,10 @@
             <h3>Cuadros Sublimados</h3>
             <p>Transformamos tus momentos especiales en arte duradero sobre metal.</p>
             <div class="social-icons">
-                <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-icon" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
-                <a href="#" class="social-icon" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
             </div>
         </div>
         
@@ -823,7 +831,7 @@
             <h4>Newsletter</h4>
             <p>Suscríbete para recibir promociones exclusivas.</p>
             <form class="newsletter-form">
-                <input type="email" placeholder="Tu correo electrónico" required aria-label="Correo electrónico para newsletter">
+                <input type="email" placeholder="Tu correo electrónico" required>
                 <button type="submit">Suscribirse <i class="fas fa-paper-plane"></i></button>
             </form>
         </div>
@@ -843,7 +851,7 @@
 </footer>
 
 <script src="js/porsia.js"></script>
-<script src="js/imagenes-dinamicas.js"></script>
+<script src="js/dynamic-images.js"></script>
 
 </body>
 </html>
