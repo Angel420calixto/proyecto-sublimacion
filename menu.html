@@ -3,436 +3,404 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mundo de Fantasía Animal</title>
+    <title>ANIMETAL - Posters y Cuadros Sublimados</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="manu.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prata&family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="manu.css">
 </head>
 <body>
-    <!-- Encabezado -->
-    <header class="encabezado">
-        <nav class="navegacion-principal">
-            <a href="#" class="logo-link">
-                <img src="img/logo.jpg" alt="Logo Fantasía Animal" class="logo">
-                <span class="logo-text">Fantasía Animal</span>
-            </a>
-            <button class="boton-encabezado">
-                <i class="fas fa-bars"></i>
-            </button>
-            <ul class="enlaces">
-                <li><a href="index.html" class="enlace-navegacion">Inicio</a></li>
-                <li><a href="menu.html" class="enlace-navegacion">Galería</a></li>
-                <li><a href="visualizacion.html" class="enlace-navegacion">Categorías</a></li>
-                <li><a href="#" class="enlace-navegacion">Personalizar</a></li>
-                <li><a href="#" class="enlace-navegacion">Contacto</a></li>
-            </ul>
-            <div class="iconos-usuario">
-                <a href="#" class="icono-usuario">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span>Tienda</span>
-                </a>
-                <a href="#" class="icono-usuario">
-                    <i class="fas fa-user"></i>
-                    <span>Mi cuenta</span>
-                </a>
-            </div>
-            <div class="iconos-usuario-mobile">
-                <a href="#" class="icono-usuario-mobile">
-                    <i class="fas fa-shopping-cart"></i>
-                </a>
-                <a href="#" class="icono-usuario-mobile">
-                    <i class="fas fa-user"></i>
-                </a>
+    <!-- Header principal -->
+    <header class="header-principal">
+        <nav class="navegacion">
+            <div class="contenedor-navegacion">
+                <!-- Logo -->
+                <div class="logo-contenedor">
+                    <img src="img/logo.jpg" alt="ANIMETAL Logo" class="logo">
+                    <h1 class="titulo-logo">ANIMETAL</h1>
+                </div>
+                
+                <!-- Menú principal -->
+                <ul class="menu-principal">
+                    <li><a href="#" class="enlace-menu">Inicio</a></li>
+                    <li class="menu-con-desplegable">
+                        <a href="#" class="enlace-menu">Comprar por categoría <i class="fas fa-chevron-down"></i></a>
+                        <ul class="submenu">
+                            <li><a href="#">Anime</a></li>
+                            <li><a href="#">Juegos</a></li>
+                            <li><a href="#">Películas</a></li>
+                            <li><a href="#">Series</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="enlace-menu">Popular Anime</a></li>
+                    <li><a href="#" class="enlace-menu">Juegos Populares</a></li>
+                    <li><a href="#" class="enlace-menu">Personalizar</a></li>
+                </ul>
+                
+                <!-- Iconos de usuario y carrito -->
+                <div class="iconos-usuario">
+                    <a href="#" class="icono-usuario">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="texto-icono">Tienda</span>
+                    </a>
+                    <a href="#" class="icono-usuario">
+                        <i class="fas fa-user"></i>
+                        <span class="texto-icono">Mi cuenta</span>
+                    </a>
+                </div>
+                
+                <!-- Menú hamburguesa móvil -->
+                <button class="boton-menu-mobile">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </nav>
-        <div class="galeria-container">
-        <!-- Barra lateral de categorías -->
-        
-        
-        <!-- Sección del carrusel -->
-        <div class="carrusel-seccion">
-                <h2 class="titulo-seccion">Cuadros</h2>
-            
-            <div class="contenedor-carrusel-3d">
-                <div class="carrusel-3d">
-                    <!-- Item 1 -->
-                    <div class="item-carrusel activo">
-                        <img src="gokufasessubli.webp" alt="Animal realista 1">
-                        <div class="contenido-carrusel">
-                            <h3>Goku Fases</h3>
-                            <p></p>
-                        </div>
-                    </div>
-                    
-                    <!-- Item 2 -->
-                    <div class="item-carrusel">
-                        <img src="vegtamajinsubli2.webp" alt="Animal realista 2">
-                        <div class="contenido-carrusel">
-                            <h3>Veggeta Majin</h3>
-                            <p></p>
-                        </div>
-                    </div>
-                    
-                    <!-- Item 3 -->
-                    <div class="item-carrusel">
-                        <img src="gokusublima2.webp" alt="Animal realista 3">
-                        <div class="contenido-carrusel">
-                            <h3>Goku Veggito</h3>
-                            <p></p>
-                        </div>
-                    </div>
-                    
-                    <!-- Item 4 -->
-                    <div class="item-carrusel">
-                        <img src="vegetamajinsubli.webp" alt="Animal realista 4">
-                        <div class="contenido-carrusel">
-                            <h3>Veggeta vs Majin</h3>
-                            <p></p>
-                        </div>
-                    </div>
-                    
-                    <!-- Item 5 -->
-                    <div class="item-carrusel">
-                        <img src="gokuultrasubli.jpg" alt="Animal realista 5">
-                        <div class="contenido-carrusel">
-                            <h3>Goku Ultra Instinto</h3>
-                            <p>Cuadro Seccionado</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="controles-carrusel">
-                <button class="btn-control" id="btn-prev">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                
-                <div class="indicadores">
-                    <span class="indicador activo"></span>
-                    <span class="indicador"></span>
-                    <span class="indicador"></span>
-                    <span class="indicador"></span>
-                    <span class="indicador"></span>
-                </div>
-                
-                <button class="btn-control" id="btn-next">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-        </div>
-    </div>
     </header>
-    
-<div class="seccion-categorias">
-    <div class="contenedor-categorias">
-        <h2 class="titulo-seccion">Galeria</h2>
-        <!-- Barra de categorías superior -->
-        <div class="barra-categorias-superior">
-            <ul class="lista-categorias">
-                <li class="categoria-item activa" data-categoria="todos">Todos</li>
-                <li class="categoria-item" data-categoria="animales">Animales</li>
-                <li class="categoria-item" data-categoria="anime">Anime</li>
-                <li class="categoria-item" data-categoria="arte">Arte</li>
-                <li class="categoria-item" data-categoria="artistas">Artistas</li>
-                <li class="categoria-item" data-categoria="cartoons">Cartoons</li>
-                <li class="categoria-item" data-categoria="dc">DC</li>
-            </ul>
+
+    <!-- Banner principal -->
+    <section class="banner-principal">
+        <div class="contenedor-banner">
+            <div class="contenido-banner">
+                <h2 class="titulo-banner">Impresión Metálica HD Personalizada</h2>
+                <p class="texto-banner">Transforma tus personajes favoritos en arte duradero sobre metal</p>
+                <a href="#" class="boton-banner">Ver Catálogo</a>
+            </div>
+            <div class="imagen-banner">
+                <img src="img/vegeta5.webp" alt="Banner de cuadros de anime" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Anime Popular -->
+    <section class="seccion-popular">
+        <div class="contenedor-seccion">
+            <h2 class="titulo-seccion">Anime Popular</h2>
+            <div class="grid-popular">
+                <!-- Item 1 -->
+                <article class="item-popular">
+                    <figure class="contenedor-imagen-popular">
+                        <img src="img/goku5.webp" alt="Naruto" loading="lazy">
+                    </figure>
+                </article>
+                
+                <!-- Item 2 -->
+                <article class="item-popular">
+                    <figure class="contenedor-imagen-popular">
+                        <img src="https://img.fantaskycdn.com/13ee2ef5a0eb9c5814f23e00ffbe85b0_420x.jpeg" alt="Dragon Ball Z" loading="lazy">
+                    </figure>
+                    <div class="info-popular">
+                        <h3 class="titulo-popular">Dragon Ball Z</h3>
+                    </div>
+                </article>
+                
+                <!-- Item 3 -->
+                <article class="item-popular">
+                    <figure class="contenedor-imagen-popular">
+                        <img src="https://img.fantaskycdn.com/0cfdf168ee0211c5738b955f973c9aa5_420x.jpeg" alt="One Piece" loading="lazy">
+                    </figure>
+                    <div class="info-popular">
+                        <h3 class="titulo-popular">One Piece</h3>
+                    </div>
+                </article>
+                
+                <!-- Item 4 -->
+                <article class="item-popular">
+                    <figure class="contenedor-imagen-popular">
+                        <img src="https://img.fantaskycdn.com/dea8954ef407b466629c9142320d13ac_420x.jpeg" alt="Demon Slayer" loading="lazy">
+                    </figure>
+                    <div class="info-popular">
+                        <h3 class="titulo-popular">Demon Slayer</h3>
+                    </div>
+                </article>
+                
+                <!-- Item 5 -->
+                <article class="item-popular">
+                    <figure class="contenedor-imagen-popular">
+                        <img src="https://img.fantaskycdn.com/df3bc5e1f3e18141c4ed0c2a9f8d55c1_420x.jpeg" alt="My Hero Academia" loading="lazy">
+                    </figure>
+                    <div class="info-popular">
+                        <h3 class="titulo-popular">My Hero Academia</h3>
+                    </div>
+                </article>
+                
+                <!-- Item 6 -->
+                <article class="item-popular">
+                    <figure class="contenedor-imagen-popular">
+                        <img src="https://img.fantaskycdn.com/2c27a09e8e3821bedf2fac193866143c_420x.jpeg" alt="Attack on Titan" loading="lazy">
+                    </figure>
+                    <div class="info-popular">
+                        <h3 class="titulo-popular">Attack on Titan</h3>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Jujutsu Kaisen -->
+    <section class="seccion-productos">
+        <div class="contenedor-seccion">
+            <div class="encabezado-seccion">
+                <h2 class="titulo-seccion">Jujutsu Kaisen</h2>
+                <a href="#" class="enlace-ver-mas">Ver más</a>
+            </div>
+            
+            <!-- Galería de productos Jujutsu Kaisen para desktop -->
+            <div class="galeria-productos desktop-galeria">
+                <!-- Producto 1 -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/2240dd4e4be684f930619b96f86d69db_420x.jpeg" alt="Vacio ilimitado Satoru Gojo" loading="lazy">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Vacio ilimitado Satoru Gojo</h3>
+                        <div class="detalles-producto">
+                            <span class="precio-producto">$350.000</span>
+                            <span class="medidas-producto">40x60 cm</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Producto 2 -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/7f8ba9afeb80d3c76728236a24d3da15_420x.jpeg" alt="Yuji Itadori y Satoru Gojo" loading="lazy">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Yuji Itadori y Satoru Gojo</h3>
+                        <div class="detalles-producto">
+                            <span class="precio-producto">$380.000</span>
+                            <span class="medidas-producto">50x70 cm</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Producto 3 -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/804f4acba46caf885b5ee8c4afec3c19_420x.jpeg" alt="Sukuna Neon" loading="lazy">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Sukuna Neon CO10376</h3>
+                        <div class="detalles-producto">
+                            <span class="precio-producto">$320.000</span>
+                            <span class="medidas-producto">30x40 cm</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Producto 4 -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/dffb68d728b96da40e59b05f03036e61_420x.jpeg" alt="Satoru Gojo con los ojos cubiertos" loading="lazy">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Satoru Gojo con los ojos cubiertos</h3>
+                        <div class="detalles-producto">
+                            <span class="precio-producto">$360.000</span>
+                            <span class="medidas-producto">40x60 cm</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Producto 5 -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/b0d12d9896cdc7cb498706ee377afd37_420x.jpeg" alt="Yuji Itadori Satoru Gojo" loading="lazy">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Yuji Itadori Satoru Gojo</h3>
+                        <div class="detalles-producto">
+                            <span class="precio-producto">$390.000</span>
+                            <span class="medidas-producto">50x70 cm</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Producto 6 -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/d0d69c3500eb2bcde9f08611810b2504_420x.jpeg" alt="Satoru Gojo Energético" loading="lazy">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Satoru Gojo Energético</h3>
+                        <div class="detalles-producto">
+                            <span class="precio-producto">$340.000</span>
+                            <span class="medidas-producto">30x40 cm</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            
+            <!-- Contenedor expandible para móvil -->
+            <div class="contenedor-expandible movil-galeria">
+                <div class="contenido-expandible" id="contenido-jujutsu">
+                    <!-- Los productos se cargarán dinámicamente aquí -->
+                </div>
+                <button class="boton-expandir" data-target="jujutsu">Ver más</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Naruto -->
+    <section class="seccion-productos">
+        <div class="contenedor-seccion">
+            <div class="encabezado-seccion">
+                <h2 class="titulo-seccion">Naruto</h2>
+                <a href="#" class="enlace-ver-mas">Ver más</a>
+            </div>
+            
+            <!-- Galería de productos Naruto para desktop -->
+            <div class="galeria-productos desktop-galeria">
+                <!-- Producto 1 -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/6d48db7138463c21afc700ac564026f8_420x.jpeg" alt="Naruto Uzumaki" loading="lazy">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Naruto Uzumaki Modo Sabio</h3>
+                        <div class="detalles-producto">
+                            <span class="precio-producto">$370.000</span>
+                            <span class="medidas-producto">40x60 cm</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Producto 2 -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/ca7d9f8a1c0cfc2da3d009d6246653a4_420x.jpeg" alt="Sasuke Uchiha" loading="lazy">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Sasuke Uchiha Sharingan</h3>
+                        <div class="detalles-producto">
+                            <span class="precio-producto">$365.000</span>
+                            <span class="medidas-producto">40x60 cm</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Producto 3 -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/3786b10c6f829933f5075372ade5fd0c_420x.jpeg" alt="Kakashi Hatake" loading="lazy">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Kakashi Hatake</h3>
+                        <div class="detalles-producto">
+                            <span class="precio-producto">$330.000</span>
+                            <span class="medidas-producto">30x40 cm</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Producto 4 -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/cf1051c4ace2ed06309464452973bf04_420x.jpeg" alt="Madara Uchiha" loading="lazy">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Madara Uchiha</h3>
+                        <div class="detalles-producto">
+                            <span class="precio-producto">$380.000</span>
+                            <span class="medidas-producto">50x70 cm</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Producto 5 -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/0ec5e785ed73437b86b9a4b2d0fa3cc5_420x.jpeg" alt="Itachi Uchiha" loading="lazy">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Itachi Uchiha</h3>
+                        <div class="detalles-producto">
+                            <span class="precio-producto">$350.000</span>
+                            <span class="medidas-producto">40x60 cm</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Producto 6 -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/177b67d2eebafe7016f79bb1bce6b585_420x.jpeg" alt="Team 7" loading="lazy">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Team 7 Completo</h3>
+                        <div class="detalles-producto">
+                            <span class="precio-producto">$420.000</span>
+                            <span class="medidas-producto">60x90 cm</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            
+            <!-- Contenedor expandible para móvil -->
+            <div class="contenedor-expandible movil-galeria">
+                <div class="contenido-expandible" id="contenido-naruto">
+                    <!-- Los productos se cargarán dinámicamente aquí -->
+                </div>
+                <button class="boton-expandir" data-target="naruto">Ver más</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-principal">
+        <div class="contenedor-footer">
+            <div class="columna-footer">
+                <h3 class="titulo-footer">ANIMETAL</h3>
+                <p class="texto-footer">Transformamos tus personajes favoritos en arte duradero sobre metal con impresión HD de alta calidad.</p>
+                <div class="redes-sociales">
+                    <a href="#" class="enlace-red-social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="enlace-red-social"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="enlace-red-social"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="enlace-red-social"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+            </div>
+            
+            <div class="columna-footer">
+                <h4 class="titulo-columna">Categorías</h4>
+                <ul class="lista-enlaces">
+                    <li><a href="#">Anime</a></li>
+                    <li><a href="#">Videojuegos</a></li>
+                    <li><a href="#">Películas</a></li>
+                    <li><a href="#">Series</a></li>
+                    <li><a href="#">Personalizados</a></li>
+                </ul>
+            </div>
+            
+            <div class="columna-footer">
+                <h4 class="titulo-columna">Enlaces útiles</h4>
+                <ul class="lista-enlaces">
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Cómo comprar</a></li>
+                    <li><a href="#">Preguntas frecuentes</a></li>
+                    <li><a href="#">Términos y condiciones</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+            
+            <div class="columna-footer">
+                <h4 class="titulo-columna">Contacto</h4>
+                <div class="info-contacto">
+                    <p><i class="fas fa-map-marker-alt"></i> Av. Principal #123, Ciudad</p>
+                    <p><i class="fas fa-phone"></i> +1 234 567 890</p>
+                    <p><i class="fas fa-envelope"></i> info@animetalshop.com</p>
+                </div>
+            </div>
         </div>
         
-        <!-- Contenido principal -->
-        <div class="contenido-categorias">
-            <h2 class="titulo-seccion">Por Categoría</h2>
-            
-            <!-- Galería principal para desktop -->
-            <div class="galeria-principal">
-                <!-- Items de la galería con atributo data-categoria -->
-                <div class="item-galeria" data-categoria="animales">
-                    <div class="contenedor-imagen">
-                        <img src="narutosubli2.jfif" alt="Ballena de Fuego">
-                    </div>
-                    <div class="info-galeria">
-                        <h3 class="titulo-galeria">Ballena de Fuego</h3>
-                        <div class="detalles-galeria">
-                            <span class="precio-galeria">$350.000 – $450.000</span>
-                            <span class="medidas-galeria">10x15 cm</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="item-galeria" data-categoria="animales">
-                    <div class="contenedor-imagen">
-                        <img src="vegitosubli.webp" alt="Ballena de Fuego">
-                    </div>
-                    <div class="info-galeria">
-                        <h3 class="titulo-galeria">Ballena de Fuego</h3>
-                        <div class="detalles-galeria">
-                            <span class="precio-galeria">$350.000 – $450.000</span>
-                            <span class="medidas-galeria">10x15 cm</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="item-galeria" data-categoria="anime">
-                    <div class="contenedor-imagen">
-                        <img src="vegetasublima.jpg" alt="Goku SSJ">
-                    </div>
-                    <div class="info-galeria">
-                        <h3 class="titulo-galeria">Goku SSJ</h3>
-                        <div class="detalles-galeria">
-                            <span class="precio-galeria">$300.000 – $400.000</span>
-                            <span class="medidas-galeria">12x12 cm</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="item-galeria" data-categoria="anime">
-                    <div class="contenedor-imagen">
-                        <img src="vegetasubli.webp" alt="Sailor Moon">
-                    </div>
-                    <div class="info-galeria">
-                        <h3 class="titulo-galeria">Sailor Moon</h3>
-                        <div class="detalles-galeria">
-                            <span class="precio-galeria">$320.000 – $420.000</span>
-                            <span class="medidas-galeria">8x15 cm</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="item-galeria" data-categoria="dc">
-                    <div class="contenedor-imagen">
-                        <img src="narutosubli1.webp" alt="Batman">
-                    </div>
-                    <div class="info-galeria">
-                        <h3 class="titulo-galeria">Batman</h3>
-                        <div class="detalles-galeria">
-                            <span class="precio-galeria">$380.000 – $480.000</span>
-                            <span class="medidas-galeria">15x20 cm</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="item-galeria" data-categoria="dc">
-                    <div class="contenedor-imagen">
-                        <img src="sololevelimng.webp" alt="Superman">
-                    </div>
-                    <div class="info-galeria">
-                        <h3 class="titulo-galeria">Superman</h3>
-                        <div class="detalles-galeria">
-                            <span class="precio-galeria">$380.000 – $480.000</span>
-                            <span class="medidas-galeria">15x20 cm</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="item-galeria" data-categoria="cartoons">
-                    <div class="contenedor-imagen">
-                        <img src="gokuultrasubli.jpg" alt="Rick and Morty">
-                    </div>
-                    <div class="info-galeria">
-                        <h3 class="titulo-galeria">Rick and Morty</h3>
-                        <div class="detalles-galeria">
-                            <span class="precio-galeria">$330.000 – $430.000</span>
-                            <span class="medidas-galeria">10x18 cm</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="item-galeria" data-categoria="cartoons">
-                    <div class="contenedor-imagen">
-                        <img src="narutosubli.webp" alt="Adventure Time">
-                    </div>
-                    <div class="info-galeria">
-                        <h3 class="titulo-galeria">Adventure Time</h3>
-                        <div class="detalles-galeria">
-                            <span class="precio-galeria">$310.000 – $410.000</span>
-                            <span class="medidas-galeria">12x16 cm</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Galería móvil (se muestra solo en móviles) -->
-            <div class="minigaleria-mobile">
-                <div class="producto-mobile">
-                    <div class="contenedor-imagen-mobile">
-                        <img src="gokusublima.jfif" alt="Ballena de Fuego">
-                    </div>
-                    <div class="info-mobile">
-                        <h3 class="nombre-mobile">Ballena de Fuego</h3>
-                        <div class="detalles-mobile">
-                            <span class="precio-mobile">$350.000 – $450.000</span>
-                            <span class="medidas-mobile">10x15 cm</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="producto-mobile">
-                    <div class="info-mobile">
-                        <h3 class="nombre-mobile">Goku SSJ</h3>
-                        <div class="detalles-mobile">
-                            <span class="precio-mobile">$300.000 – $400.000</span>
-                            <span class="medidas-mobile">12x12 cm</span>
-                        </div>
-                    </div>
-                    <div class="contenedor-imagen-mobile">
-                        <img src="narutosubli3.jfif" alt="Goku SSJ">
-                    </div>
-                </div>
-                
-                <div class="producto-mobile">
-                    <div class="contenedor-imagen-mobile">
-                        <img src="sololevelimng.webp" alt="Sailor Moon">
-                    </div>
-                    <div class="info-mobile">
-                        <h3 class="nombre-mobile">Sailor Moon</h3>
-                        <div class="detalles-mobile">
-                            <span class="precio-mobile">$320.000 – $420.000</span>
-                            <span class="medidas-mobile">8x15 cm</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="producto-mobile">
-                    <div class="info-mobile">
-                        <h3 class="nombre-mobile">Batman</h3>
-                        <div class="detalles-mobile">
-                            <span class="precio-mobile">$380.000 – $480.000</span>
-                            <span class="medidas-mobile">15x20 cm</span>
-                        </div>
-                    </div>
-                    <div class="contenedor-imagen-mobile">
-                        <img src="vegetasubli.webp" alt="Batman">
-                    </div>
-                </div>
-                
-                <div class="producto-mobile">
-                    <div class="contenedor-imagen-mobile">
-                        <img src="gokusublima.jfif" alt="Ballena de Fuego">
-                    </div>
-                    <div class="info-mobile">
-                        <h3 class="nombre-mobile">Ballena de Fuego</h3>
-                        <div class="detalles-mobile">
-                            <span class="precio-mobile">$350.000 – $450.000</span>
-                            <span class="medidas-mobile">10x15 cm</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="producto-mobile">
-                    <div class="info-mobile">
-                        <h3 class="nombre-mobile">Goku SSJ</h3>
-                        <div class="detalles-mobile">
-                            <span class="precio-mobile">$300.000 – $400.000</span>
-                            <span class="medidas-mobile">12x12 cm</span>
-                        </div>
-                    </div>
-                    <div class="contenedor-imagen-mobile">
-                        <img src="gokusublima2.webp" alt="Goku SSJ">
-                    </div>
-                </div>
-                
-                <div class="producto-mobile">
-                    <div class="contenedor-imagen-mobile">
-                        <img src="vegetasublima.jpg" alt="Sailor Moon">
-                    </div>
-                    <div class="info-mobile">
-                        <h3 class="nombre-mobile">Sailor Moon</h3>
-                        <div class="detalles-mobile">
-                            <span class="precio-mobile">$320.000 – $420.000</span>
-                            <span class="medidas-mobile">8x15 cm</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="producto-mobile">
-                    <div class="info-mobile">
-                        <h3 class="nombre-mobile">Batman</h3>
-                        <div class="detalles-mobile">
-                            <span class="precio-mobile">$380.000 – $480.000</span>
-                            <span class="medidas-mobile">15x20 cm</span>
-                        </div>
-                    </div>
-                    <div class="contenedor-imagen-mobile">
-                        <img src="gokuultrasubli.jpg" alt="Batman">
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Botón Ver Más -->
-            <div class="contenedor-boton-vermas">
-                <button class="boton-vermas">Ver Más</button>
-            </div>
+        <div class="pie-footer">
+            <p>&copy; 2023 ANIMETAL - Todos los derechos reservados</p>
         </div>
-    </div>
-    
-    <!-- Overlay para imagen ampliada con botón de detalles -->
-    <div class="overlay-imagen">
-        <span class="cerrar-overlay">&times;</span>
-        <img src="" alt="Imagen ampliada">
-        <a href="#" class="boton-detalles">Ver Detalles</a>
-    </div>
-</div>
+    </footer>
 
-    <footer class="anime-footer">
-  <div class="footer-content">
-    <div class="footer-section">
-      <h3>Cuadros Sublimados</h3>
-      <p>Transformamos tus momentos especiales en arte duradero sobre metal.</p>
-      <div class="social-icons">
-        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
-        <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
-      </div>
-    </div>
+    <!-- Overlay para menú móvil -->
+    <div class="menu-overlay"></div>
     
-    <div class="footer-section">
-      <h4>Enlaces Rápidos</h4>
-      <ul>
-        <li><a href="#"><i class="fas fa-chevron-right"></i> Inicio</a></li>
-        <li><a href="#"><i class="fas fa-chevron-right"></i> Galería</a></li>
-        <li><a href="#"><i class="fas fa-chevron-right"></i> Precios</a></li>
-        <li><a href="#"><i class="fas fa-chevron-right"></i> Contacto</a></li>
-      </ul>
-    </div>
-    
-    <div class="footer-section">
-      <h4>Contacto</h4>
-      <div class="contact-info">
-        <p><i class="fas fa-map-marker-alt"></i> Av. Principal #123, Ciudad</p>
-        <p><i class="fas fa-phone"></i> +1 234 567 890</p>
-        <p><i class="fas fa-envelope"></i> info@cuadrosmetal.com</p>
-      </div>
-    </div>
-    
-    <div class="footer-section">
-      <h4>Newsletter</h4>
-      <p>Suscríbete para recibir promociones exclusivas.</p>
-      <form class="newsletter-form">
-        <input type="email" placeholder="Tu correo electrónico" required>
-        <button type="submit">Suscribirse <i class="fas fa-paper-plane"></i></button>
-      </form>
-    </div>
-  </div>
-  
-  <div class="footer-bottom">
-    <p>&copy; 2023 Cuadros Sublimados en Metal. Todos los derechos reservados.</p>
-  </div>
-  
-  <div class="footer-particles">
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-  </div>
-</footer>
-    <script src="js/galeria.js"></script>
+    <script src="js/manu.js"></script>
 </body>
 </html>
