@@ -896,7 +896,7 @@ body {
 }
 
 /* =========================================== */
-/* GALERÍA DE CATEGORÍAS */
+/* GALERÍA DE CATEGORÍAS - MODIFICACIONES CLAVE */
 /* =========================================== */
 
 .galeria {
@@ -972,7 +972,7 @@ body {
     justify-content: center;
 }
 
-/* Slider Circular 3D - FUNCIONALIDAD RESTAURADA */
+/* MODIFICACIÓN CLAVE: Slider Circular 3D - IMÁGENES COMPLETAS */
 .circular-3d-container {
     perspective: 1000px;
     width: 280px;
@@ -1019,6 +1019,10 @@ body {
     box-sizing: border-box;
     border: 2px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.3);
 }
 
 .circular-slide:hover {
@@ -1027,12 +1031,16 @@ body {
     box-shadow: 0 8px 25px rgba(106, 64, 191, 0.4);
 }
 
+/* MODIFICACIÓN CLAVE: Imágenes que ocupan todo el contenedor sin recortarse */
 .circular-slide img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain; /* Cambiado de 'cover' a 'contain' para ver imagen completa */
     display: block;
     transition: transform 0.3s ease;
+    background: transparent;
+    padding: 5px; /* Pequeño padding para que no toque los bordes */
+    box-sizing: border-box;
 }
 
 /* Posicionamiento circular (5 elementos) */
@@ -1617,7 +1625,7 @@ body {
         flex: 0 0 calc(33.333% - 17px); /* 3 videos visibles */
     }
     
-    /* Galería - TABLET */
+    /* MODIFICACIÓN PARA TABLET: Galería */
     .categorias-slider {
         grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
@@ -1639,6 +1647,12 @@ body {
     .circular-slide {
         width: 160px;
         height: 200px;
+    }
+    
+    /* Asegurar que las imágenes se vean completas */
+    .circular-slide img {
+        object-fit: contain;
+        padding: 5px;
     }
     
     .circular-3d-wrapper .circular-slide-link:nth-child(1) {
@@ -1768,7 +1782,7 @@ body {
         padding: 0;
     }
     
-    /* GALERÍA - CORRECCIÓN CRÍTICA PARA MÓVIL */
+    /* MODIFICACIÓN PARA MÓVIL: GALERÍA */
     .galeria {
         padding: 2.5rem 0.5rem;
         overflow: visible;
@@ -1832,6 +1846,12 @@ body {
         width: 110px;
         height: 130px;
         border-radius: 6px;
+    }
+    
+    /* MODIFICACIÓN CLAVE MÓVIL: Imágenes completas */
+    .circular-slide img {
+        object-fit: contain;
+        padding: 4px;
     }
     
     /* Ajustar posiciones 3D para móvil */
@@ -2013,7 +2033,7 @@ body {
         max-width: 300px;
     }
     
-    /* GALERÍA - MÓVILES PEQUEÑOS */
+    /* MODIFICACIÓN PARA MÓVILES PEQUEÑOS: GALERÍA */
     .galeria {
         padding: 2rem 0.5rem;
     }
@@ -2042,6 +2062,12 @@ body {
     .circular-slide {
         width: 95px;
         height: 115px;
+    }
+    
+    /* MODIFICACIÓN CLAVE: Imágenes completas en móviles pequeños */
+    .circular-slide img {
+        object-fit: contain;
+        padding: 3px;
     }
     
     .circular-3d-wrapper .circular-slide-link:nth-child(1) {
@@ -2143,7 +2169,7 @@ body {
 
 /* MÓVILES MUY PEQUEÑOS (iPhone SE, etc.) */
 @media (max-width: 375px) {
-    /* GALERÍA - MÓVILES MUY PEQUEÑOS */
+    /* MODIFICACIÓN PARA MÓVILES MUY PEQUEÑOS: GALERÍA */
     .categorias-slider {
         gap: 0.6rem;
         padding: 0 0.15rem;
@@ -2163,6 +2189,12 @@ body {
     .circular-slide {
         width: 85px;
         height: 105px;
+    }
+    
+    /* MODIFICACIÓN CLAVE: Imágenes completas */
+    .circular-slide img {
+        object-fit: contain;
+        padding: 2px;
     }
     
     .circular-3d-wrapper .circular-slide-link:nth-child(1) {
