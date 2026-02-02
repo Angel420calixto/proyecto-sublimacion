@@ -351,7 +351,7 @@ body.menu-abierto .menu-overlay {
 }
 
 /* =============================================
-   SECCIÓN ANIME POPULAR
+   SECCIÓN ANIME POPULAR - MODIFICADA PARA 6 IMÁGENES INICIALES
    ============================================= */
 .seccion-popular {
     padding: 4rem 0;
@@ -365,13 +365,20 @@ body.menu-abierto .menu-overlay {
     margin-bottom: 2rem;
 }
 
+.contenedor-boton-ver-mas {
+    display: flex;
+    justify-content: center; /* Centra el botón horizontalmente */
+    width: 100%;
+    margin-top: 2rem; /* Espacio arriba del botón */
+}
+
 .boton-ver-mas {
     background-color: var(--color-destacado);
     color: var(--color-texto);
-    padding: 0.6rem 1.5rem;
+    padding: 0.8rem 2.5rem; /* Botón más grande */
     border-radius: 30px;
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 1rem;
     transition: var(--transicion-rapida);
     box-shadow: var(--sombra-suave);
 }
@@ -386,10 +393,26 @@ body.menu-abierto .menu-overlay {
     display: grid;
     grid-template-columns: repeat(6, 1fr); /* 6 columnas en desktop */
     gap: 1.5rem;
+    transition: all 0.5s ease; /* Transición para expandir/contraer */
 }
 
+/* Clase para el estado inicial - muestra solo 6 elementos */
+.grid-popular:not(.expandido) {
+    /* Ocultar elementos después del sexto */
+    grid-template-rows: auto;
+}
+
+.grid-popular:not(.expandido) .item-popular:nth-child(n+7) {
+    display: none; /* Oculta todos los elementos después del 6to */
+}
+
+/* Clase para estado expandido - muestra todos los elementos */
 .grid-popular.expandido {
     grid-template-rows: auto;
+}
+
+.grid-popular.expandido .item-popular:nth-child(n+7) {
+    display: flex; /* Muestra todos los elementos cuando está expandido */
 }
 
 .item-popular {
@@ -437,20 +460,39 @@ body.menu-abierto .menu-overlay {
 }
 
 /* =============================================
-   SECCIÓN PRODUCTOS (JUJUTSU KAISEN Y NARUTO)
+   SECCIÓN PRODUCTOS - MODIFICADA PARA 6 IMÁGENES INICIALES
    ============================================= */
 .seccion-productos {
     padding: 3rem 0;
     background-color: var(--color-fondo);
 }
 
+/* Contenedor del botón "Ver más" para productos */
+.contenedor-boton-productos {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 2rem;
+}
+
 /* =============================================
-   GALERÍA DE PRODUCTOS PARA DESKTOP
+   GALERÍA DE PRODUCTOS PARA DESKTOP - MODIFICADA
    ============================================= */
 .galeria-productos.desktop-galeria {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 3 columnas en desktop */
+    grid-template-columns: repeat(5, 1fr); /* 6 columnas en desktop */
     gap: 2rem;
+    transition: all 0.5s ease; /* Transición para expandir */
+}
+
+/* Estado inicial - solo muestra 6 elementos */
+.galeria-productos.desktop-galeria:not(.expandido) .producto-item:nth-child(n+7) {
+    display: none; /* Oculta elementos después del 6to */
+}
+
+/* Estado expandido - muestra todos los elementos */
+.galeria-productos.desktop-galeria.expandido .producto-item:nth-child(n+7) {
+    display: flex; /* Muestra todos los elementos */
 }
 
 .producto-item {
@@ -496,7 +538,7 @@ body.menu-abierto .menu-overlay {
 }
 
 /* =============================================
-   GALERÍA DE PRODUCTOS PARA MÓVIL
+   GALERÍA DE PRODUCTOS PARA MÓVIL - MODIFICADA
    ============================================= */
 .galeria-movil.movil-galeria {
     display: none; /* Solo visible en móvil */
@@ -507,10 +549,20 @@ body.menu-abierto .menu-overlay {
     transition: max-height 0.5s ease, margin-bottom 0.5s ease;
 }
 
+/* Estado inicial - muestra solo 4 elementos (2x2) */
+.galeria-movil.movil-galeria:not(.expandido) .producto-movil:nth-child(n+5) {
+    display: none; /* Oculta elementos después del 4to */
+}
+
+/* Estado expandido - muestra todos los elementos */
 .galeria-movil.movil-galeria.expandido {
     display: grid;
     max-height: 5000px;
     margin-bottom: 1.5rem;
+}
+
+.galeria-movil.movil-galeria.expandido .producto-movil:nth-child(n+5) {
+    display: flex; /* Muestra todos los elementos cuando está expandido */
 }
 
 .producto-movil {
@@ -656,7 +708,11 @@ body.menu-abierto .menu-overlay {
 /* Tablets grandes */
 @media (max-width: 1200px) {
     .grid-popular {
-        grid-template-columns: repeat(3, 1fr); /* 3 columnas en tablets grandes */
+        grid-template-columns: repeat(4, 1fr); /* 4 columnas en tablets grandes */
+    }
+    
+    .galeria-productos.desktop-galeria {
+        grid-template-columns: repeat(4, 1fr); /* 4 columnas en tablets grandes */
     }
     
     .contenedor-footer {
@@ -668,6 +724,14 @@ body.menu-abierto .menu-overlay {
 @media (max-width: 1024px) {
     .contenedor-imagen-producto {
         height: 300px; /* Reduce altura en tablets */
+    }
+    
+    .grid-popular {
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas en tablets medianas */
+    }
+    
+    .galeria-productos.desktop-galeria {
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas en tablets medianas */
     }
 }
 
@@ -765,7 +829,8 @@ body.menu-abierto .menu-overlay {
     }
     
     .contenedor-imagen-popular {
-        height: 160px; /* Altura reducida para móvil */
+        height: 180px; /* Altura aumentada para hacer imágenes más anchas en móvil */
+        padding: 8px; /* Padding aumentado para mejor presentación */
     }
     
     /* =============================================
@@ -782,10 +847,12 @@ body.menu-abierto .menu-overlay {
         max-height: 0;
         margin-bottom: 0;
         overflow: hidden;
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en móvil */
     }
     
     .contenedor-imagen-movil {
-        height: 180px; /* Altura para imágenes en móvil */
+        height: 200px; /* Altura aumentada para hacer imágenes más anchas en móvil */
+        padding: 8px; /* Padding aumentado */
     }
     
     /* =============================================
@@ -807,8 +874,8 @@ body.menu-abierto .menu-overlay {
     }
     
     .contenedor-imagen-popular {
-        height: 140px; /* Altura aún más reducida */
-        padding: 3px; /* Padding mínimo */
+        height: 160px; /* Altura ajustada para móviles pequeños */
+        padding: 5px; /* Padding ajustado */
     }
     
     .titulo-banner {
@@ -829,8 +896,8 @@ body.menu-abierto .menu-overlay {
     }
     
     .contenedor-imagen-movil {
-        height: 160px; /* Altura ajustada para móviles pequeños */
-        padding: 3px;
+        height: 180px; /* Altura ajustada para móviles pequeños */
+        padding: 5px;
     }
     
     .menu-principal {
@@ -884,8 +951,8 @@ body.menu-abierto .menu-overlay {
 
 /* Para productos en móvil */
 .contenedor-imagen-movil {
-    height: 200px !important; /* Aumenta altura en móvil */
-    padding: 2px !important;
+    height: 220px !important; /* Aumenta altura en móvil para imágenes más anchas */
+    padding: 3px !important;
 }
 
 .contenedor-imagen-movil img {
@@ -915,8 +982,9 @@ body.menu-abierto .menu-overlay {
     }
     
     .contenedor-imagen-movil {
-        height: 180px !important;
+        height: 200px !important; /* Altura aumentada para imágenes más anchas */
         background-color: transparent !important;
+        padding: 8px !important; /* Padding aumentado */
     }
     
     .contenedor-imagen-movil img {
@@ -1002,242 +1070,344 @@ body.menu-abierto .menu-overlay {
 }
 
  /* =============================================
-       SECCIÓN GRID SIMPLE - 3 IMÁGENES
-       ============================================= */
-    .animetals-grid-section {
-        width: 100%;
-        background-color: var(--color-fondo);
-        padding: 40px 0;
-        margin: 40px 0;
-    }
-    
-    .grid-images-container {
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
-    
+   SECCIÓN GRID SIMPLE - 3 IMÁGENES CON RECORTE DIAGONAL
+   ============================================= */
+.animetals-grid-section {
+    width: 100%;
+    background-color: var(--color-fondo);
+    padding: 40px 0;
+    margin: 40px 0;
+    position: relative;
+    overflow: hidden; /* Oculta las partes recortadas de las imágenes */
+}
+
+.grid-images-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.three-images-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0; /* Sin espacio entre imágenes */
+    height: 500px;
+    position: relative;
+}
+
+.image-block {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Recorte diagonal usando clip-path para bordes más precisos */
+.left-block {
+    clip-path: polygon(0 0, 85% 0, 100% 100%, 0% 100%); /* Diagonal derecha */
+}
+
+.middle-block {
+    clip-path: polygon(15% 0, 85% 0, 100% 100%, 0% 100%); /* Diagonales en ambos lados */
+    position: relative;
+    z-index: 2; /* Asegura que esté sobre las otras imágenes */
+}
+
+.right-block {
+    clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%); /* Diagonal izquierda */
+}
+
+.image-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.grid-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cubre el contenedor manteniendo proporción */
+    display: block;
+    transition: transform 0.5s ease; /* Transición para efecto hover */
+}
+
+/* Efecto hover para imágenes */
+.image-block:hover .grid-image {
+    transform: scale(1.05); /* Zoom suave al pasar el cursor */
+}
+
+/* =============================================
+   RESPONSIVE - MANTENER HORIZONTAL EN MÓVIL CON IMÁGENES MÁS ANCHAS
+   ============================================= */
+
+@media (max-width: 1200px) {
     .three-images-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0; /* Sin espacio entre imágenes */
-        height: 500px;
-        position: relative;
+        height: 450px;
+    }
+    
+    /* Ajustar el clip-path para pantallas más pequeñas */
+    .left-block {
+        clip-path: polygon(0 0, 83% 0, 100% 100%, 0% 100%);
+    }
+    
+    .middle-block {
+        clip-path: polygon(17% 0, 83% 0, 100% 100%, 0% 100%);
+    }
+    
+    .right-block {
+        clip-path: polygon(17% 0, 100% 0, 100% 100%, 0% 100%);
+    }
+}
+
+@media (max-width: 992px) {
+    .three-images-grid {
+        height: 400px;
+    }
+    
+    /* Ajustar más el clip-path */
+    .left-block {
+        clip-path: polygon(0 0, 80% 0, 100% 100%, 0% 100%);
+    }
+    
+    .middle-block {
+        clip-path: polygon(20% 0, 80% 0, 100% 100%, 0% 100%);
+    }
+    
+    .right-block {
+        clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
+    }
+}
+
+@media (max-width: 768px) {
+    .three-images-grid {
+        height: 350px; /* Más pequeño pero mantiene horizontal */
+        grid-template-columns: repeat(3, 1fr); /* Mantiene 3 columnas */
+        gap: 0; /* Sin espacio */
     }
     
     .image-block {
-        position: relative;
-        height: 100%;
-        overflow: hidden;
+        height: 100%; /* Mantiene altura completa */
     }
     
-    /* Bordes diagonales usando pseudo-elementos */
-    .middle-block::before,
-    .middle-block::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        width: 100px;
-        height: 100%;
-        background: var(--color-fondo);
-        z-index: 2;
-        pointer-events: none;
+    /* Ajustar clip-path para móvil */
+    .left-block {
+        clip-path: polygon(0 0, 75% 0, 100% 100%, 0% 100%);
     }
     
-    .middle-block::before {
-        left: -50px;
-        transform: skewX(-15deg);
-        transform-origin: top left;
+    .middle-block {
+        clip-path: polygon(25% 0, 75% 0, 100% 100%, 0% 100%);
     }
     
-    .middle-block::after {
-        right: -50px;
-        transform: skewX(-15deg);
-        transform-origin: top right;
+    .right-block {
+        clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
+    }
+}
+
+@media (max-width: 576px) {
+    .three-images-grid {
+        height: 300px; /* Aún más pequeño en móviles muy pequeños */
     }
     
-    .left-block::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: -50px;
-        width: 100px;
-        height: 100%;
-        background: var(--color-fondo);
-        transform: skewX(-15deg);
-        transform-origin: top right;
-        z-index: 2;
-        pointer-events: none;
+    .animetals-grid-section {
+        padding: 20px 0;
+        margin: 20px 0;
     }
     
-    .right-block::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -50px;
-        width: 100px;
-        height: 100%;
-        background: var(--color-fondo);
-        transform: skewX(-15deg);
-        transform-origin: top left;
-        z-index: 2;
-        pointer-events: none;
+    /* Hacer diagonales menos pronunciadas en móvil pequeño */
+    .left-block {
+        clip-path: polygon(0 0, 70% 0, 100% 100%, 0% 100%);
     }
     
+    .middle-block {
+        clip-path: polygon(30% 0, 70% 0, 100% 100%, 0% 100%);
+    }
+    
+    .right-block {
+        clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+    }
+}
+
+@media (max-width: 480px) {
+    .three-images-grid {
+        height: 250px; /* Tamaño mínimo para móviles muy pequeños */
+    }
+    
+    /* Reducir diagonales aún más para pantallas pequeñas */
+    .left-block {
+        clip-path: polygon(0 0, 65% 0, 100% 100%, 0% 100%);
+    }
+    
+    .middle-block {
+        clip-path: polygon(35% 0, 65% 0, 100% 100%, 0% 100%);
+    }
+    
+    .right-block {
+        clip-path: polygon(35% 0, 100% 0, 100% 100%, 0% 100%);
+    }
+}
+
+/* Para pantallas muy pequeñas, hacer imágenes casi completas */
+@media (max-width: 360px) {
+    .three-images-grid {
+        height: 220px;
+    }
+    
+    .grid-images-container {
+        padding: 0 5px; /* Reducir padding para más espacio */
+    }
+    
+    /* Hacer diagonales muy suaves para pantallas muy pequeñas */
+    .left-block {
+        clip-path: polygon(0 0, 60% 0, 100% 100%, 0% 100%);
+    }
+    
+    .middle-block {
+        clip-path: polygon(40% 0, 60% 0, 100% 100%, 0% 100%);
+    }
+    
+    .right-block {
+        clip-path: polygon(40% 0, 100% 0, 100% 100%, 0% 100%);
+    }
+}
+
+/* =============================================
+   ESTILOS PARA BOTONES "VER MÁS" - POSICIONAMIENTO CORRECTO
+   ============================================= */
+
+/* Contenedor para botón "Ver más" en sección anime popular */
+.seccion-popular .contenedor-boton-ver-mas {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Línea sutil arriba del botón */
+}
+
+/* Contenedor para botón "Ver más" en sección productos */
+.seccion-productos .contenedor-boton-productos {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Línea sutil arriba del botón */
+}
+
+/* Clase para ocultar botón cuando ya se mostraron todos los elementos */
+.boton-ver-mas.oculto {
+    display: none !important;
+}
+
+/* =============================================
+   ANIMACIONES PARA EXPANSIÓN/CONTRACCIÓN
+   ============================================= */
+
+/* Animación suave para mostrar elementos adicionales */
+@keyframes mostrarElementos {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Aplicar animación a elementos que se muestran al expandir */
+.grid-popular.expandido .item-popular:nth-child(n+7),
+.galeria-productos.desktop-galeria.expandido .producto-item:nth-child(n+7),
+.galeria-movil.movil-galeria.expandido .producto-movil:nth-child(n+5) {
+    animation: mostrarElementos 0.5s ease forwards;
+}
+
+/* Añadir un pequeño retardo escalonado para mejor efecto */
+.grid-popular.expandido .item-popular:nth-child(n+7):nth-child(7) { animation-delay: 0.1s; }
+.grid-popular.expandido .item-popular:nth-child(n+7):nth-child(8) { animation-delay: 0.2s; }
+.grid-popular.expandido .item-popular:nth-child(n+7):nth-child(9) { animation-delay: 0.3s; }
+.grid-popular.expandido .item-popular:nth-child(n+7):nth-child(10) { animation-delay: 0.4s; }
+.grid-popular.expandido .item-popular:nth-child(n+7):nth-child(11) { animation-delay: 0.5s; }
+.grid-popular.expandido .item-popular:nth-child(n+7):nth-child(12) { animation-delay: 0.6s; }
+
+/* =============================================
+   MEJORAS PARA VISIBILIDAD EN MÓVIL
+   ============================================= */
+@media (max-width: 768px) {
+    /* Hacer las imágenes de anime popular más anchas en móvil */
+    .contenedor-imagen-popular {
+        height: 200px !important; /* Altura aumentada */
+        padding: 10px !important; /* Más padding para mejor presentación */
+    }
+    
+    /* Hacer las imágenes de productos móviles más anchas */
+    .contenedor-imagen-movil {
+        height: 220px !important; /* Altura aumentada */
+        padding: 10px !important; /* Más padding */
+    }
+    
+    /* Asegurar que el contenedor de la imagen ocupe todo el ancho disponible */
+    .item-popular, .producto-movil {
+        width: 100%;
+    }
+}
+
+/* =============================================
+   ESTILOS PARA EL TEXTO DE LOS ITEMS
+   ============================================= */
+.info-item-popular {
+    padding: 1rem;
+    background-color: rgba(26, 26, 46, 0.7); /* Fondo semitransparente */
+    text-align: center;
+    flex-grow: 1; /* Ocupa espacio restante */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.titulo-item-popular {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-texto);
+}
+
+.precio-item-popular {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-destacado);
+}
+
+/* =============================================
+   MEJORAS PARA LA SECCIÓN DIVISORIA (3 IMÁGENES)
+   ============================================= */
+/* Asegurar que el recorte diagonal se adapte al tamaño de pantalla */
+@media (max-width: 480px) {
+    /* Para pantallas muy pequeñas, reducir aún más la diagonal */
+    .left-block {
+        clip-path: polygon(0 0, 70% 0, 85% 100%, 0% 100%) !important;
+    }
+    
+    .middle-block {
+        clip-path: polygon(15% 0, 85% 0, 100% 100%, 0% 100%) !important;
+    }
+    
+    .right-block {
+        clip-path: polygon(15% 0, 100% 0, 100% 100%, 30% 100%) !important;
+    }
+}
+
+/* Mantener las proporciones de las imágenes en todos los dispositivos */
+.image-inner {
+    position: relative;
+    width: 110%; /* Ancho extra para compensar el recorte diagonal */
+    height: 100%;
+    left: -5%; /* Centrar la imagen después del ancho extra */
+}
+
+/* Para pantallas grandes, ajustar la posición */
+@media (min-width: 1200px) {
     .image-inner {
-        width: 100%;
-        height: 100%;
-        position: relative;
-        z-index: 1;
+        width: 105%;
+        left: -2.5%;
     }
-    
-    .grid-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-    }
-    
-    /* =============================================
-       RESPONSIVE - MANTENER HORIZONTAL EN MÓVIL
-       ============================================= */
-    
-    @media (max-width: 1200px) {
-        .three-images-grid {
-            height: 450px;
-        }
-        
-        .middle-block::before,
-        .middle-block::after,
-        .left-block::after,
-        .right-block::before {
-            width: 80px;
-        }
-        
-        .middle-block::before,
-        .left-block::after {
-            left: -40px;
-        }
-        
-        .middle-block::after,
-        .right-block::before {
-            right: -40px;
-        }
-    }
-    
-    @media (max-width: 992px) {
-        .three-images-grid {
-            height: 400px;
-        }
-        
-        .middle-block::before,
-        .middle-block::after,
-        .left-block::after,
-        .right-block::before {
-            width: 70px;
-        }
-        
-        .middle-block::before,
-        .left-block::after {
-            left: -35px;
-        }
-        
-        .middle-block::after,
-        .right-block::before {
-            right: -35px;
-        }
-    }
-    
-    @media (max-width: 768px) {
-        .three-images-grid {
-            height: 350px; /* Más pequeño pero mantiene horizontal */
-            grid-template-columns: repeat(3, 1fr); /* Mantiene 3 columnas */
-            gap: 0; /* Sin espacio */
-        }
-        
-        .image-block {
-            height: 100%; /* Mantiene altura completa */
-        }
-        
-        /* Ajustar tamaño de las diagonales en móvil */
-        .middle-block::before,
-        .middle-block::after,
-        .left-block::after,
-        .right-block::before {
-            width: 60px;
-        }
-        
-        .middle-block::before,
-        .left-block::after {
-            left: -30px;
-        }
-        
-        .middle-block::after,
-        .right-block::before {
-            right: -30px;
-        }
-    }
-    
-    @media (max-width: 576px) {
-        .three-images-grid {
-            height: 300px; /* Aún más pequeño en móviles muy pequeños */
-        }
-        
-        .animetals-grid-section {
-            padding: 20px 0;
-            margin: 20px 0;
-        }
-        
-        /* Ajustar más las diagonales para móviles pequeños */
-        .middle-block::before,
-        .middle-block::after,
-        .left-block::after,
-        .right-block::before {
-            width: 50px;
-        }
-        
-        .middle-block::before,
-        .left-block::after {
-            left: -25px;
-        }
-        
-        .middle-block::after,
-        .right-block::before {
-            right: -25px;
-        }
-    }
-    
-    @media (max-width: 480px) {
-        .three-images-grid {
-            height: 250px; /* Tamaño mínimo para móviles muy pequeños */
-        }
-        
-        /* Reducir diagonales aún más */
-        .middle-block::before,
-        .middle-block::after,
-        .left-block::after,
-        .right-block::before {
-            width: 40px;
-        }
-        
-        .middle-block::before,
-        .left-block::after {
-            left: -20px;
-        }
-        
-        .middle-block::after,
-        .right-block::before {
-            right: -20px;
-        }
-    }
-    
-    /* Para pantallas muy pequeñas, mantener el diseño */
-    @media (max-width: 360px) {
-        .three-images-grid {
-            height: 220px;
-        }
-        
-        .grid-images-container {
-            padding: 0 10px;
-        }
-    }
+}
