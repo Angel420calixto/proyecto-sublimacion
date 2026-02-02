@@ -297,12 +297,16 @@ body {
     backdrop-filter: blur(5px);
 }
 
+/* ESTILO DE IMAGENES COMO manu.css */
 .item-carrusel img {
-    width: 100%;
-    height: 70%;
-    object-fit: cover;
+    width: 100%; /* Ocupa todo el ancho */
+    height: 70%; /* Altura fija para el contenedor */
+    object-fit: contain; /* Muestra toda la imagen sin recortar */
     transition: transform 0.5s ease;
     border: none;
+    display: block;
+    padding: 10px; /* Padding para que no toque bordes */
+    background: transparent;
 }
 
 .contenido-carrusel {
@@ -339,7 +343,7 @@ body {
 }
 
 .item-carrusel.activo img {
-    transform: scale(1.05);
+    transform: scale(1.05); /* Efecto de zoom */
 }
 
 .item-carrusel.prev {
@@ -521,15 +525,19 @@ body {
     background: #000;
 }
 
+/* ESTILO DE IMAGENES COMO manu.css */
 .video-thumbnail-carrusel img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 100%; /* Ocupa todo el ancho */
+    height: 100%; /* Ocupa toda la altura */
+    object-fit: contain; /* Muestra imagen completa sin recortar */
     transition: transform 0.3s ease;
+    display: block;
+    padding: 5px;
+    background: transparent;
 }
 
 .video-thumbnail-carrusel:hover img {
-    transform: scale(1.05);
+    transform: scale(1.05); /* Efecto de zoom */
 }
 
 /* Overlay para hacer clic en el video */
@@ -697,15 +705,19 @@ body {
     background: #000;
 }
 
+/* ESTILO DE IMAGENES COMO manu.css */
 .video-miniatura-mobile img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 100%; /* Ocupa todo el ancho */
+    height: 100%; /* Ocupa toda la altura */
+    object-fit: contain; /* Muestra imagen completa sin recortar */
     transition: transform 0.3s ease;
+    display: block;
+    padding: 5px;
+    background: transparent;
 }
 
 .video-miniatura-mobile:hover img {
-    transform: scale(1.05);
+    transform: scale(1.05); /* Efecto de zoom */
 }
 
 /* Overlay para móvil */
@@ -1003,6 +1015,7 @@ body {
     display: block;
 }
 
+/* ESTILO DE IMAGENES IGUAL que manu.css */
 .circular-slide {
     position: absolute;
     width: 180px;
@@ -1031,16 +1044,21 @@ body {
     box-shadow: 0 8px 25px rgba(106, 64, 191, 0.4);
 }
 
-/* MODIFICACIÓN CLAVE: Imágenes que ocupan todo el contenedor sin recortarse */
+/* MODIFICACIÓN CLAVE: Imágenes IGUAL que manu.css */
 .circular-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* Cambiado de 'cover' a 'contain' para ver imagen completa */
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    height: 100%; /* Ocupa toda la altura del contenedor */
+    object-fit: contain; /* Muestra toda la imagen sin recortar, manteniendo proporción */
     display: block;
-    transition: transform 0.3s ease;
+    transition: transform 0.5s ease; /* Transición suave para efecto hover */
     background: transparent;
     padding: 5px; /* Pequeño padding para que no toque los bordes */
     box-sizing: border-box;
+}
+
+/* Efecto de zoom al hacer hover - IGUAL que manu.css */
+.circular-slide:hover img {
+    transform: scale(1.05); /* Aumenta tamaño al 105% */
 }
 
 /* Posicionamiento circular (5 elementos) */
@@ -1168,10 +1186,14 @@ body {
     transform: translateY(-5px);
 }
 
+/* ESTILO DE IMAGENES COMO manu.css */
 .imagen-destacada {
     width: 100%;
     height: auto;
     display: block;
+    object-fit: contain; /* Muestra imagen completa */
+    padding: 10px;
+    background: transparent;
 }
 
 .texto-descripcion {
@@ -1219,6 +1241,7 @@ body {
     display: block;
     border-radius: 12px;
     background: #000;
+    object-fit: contain; /* Muestra video completo */
 }
 
 /* Overlay y controles personalizados para video */
@@ -1604,6 +1627,14 @@ body {
         margin-top: -200px;
     }
     
+    /* ESTILO DE IMAGENES IGUAL que manu.css */
+    .item-carrusel img {
+        width: 100%;
+        height: 70%;
+        object-fit: contain;
+        padding: 8px;
+    }
+    
     .item-carrusel.prev {
         transform: translateX(-260px) translateZ(-90px) scale(0.85);
     }
@@ -1644,14 +1675,14 @@ body {
         height: 240px;
     }
     
+    /* ESTILO DE IMAGENES IGUAL que manu.css */
     .circular-slide {
         width: 160px;
         height: 200px;
     }
     
-    /* Asegurar que las imágenes se vean completas */
     .circular-slide img {
-        object-fit: contain;
+        object-fit: contain; /* Muestra toda la imagen */
         padding: 5px;
     }
     
@@ -1744,6 +1775,14 @@ body {
         height: 320px;
         margin-left: -110px;
         margin-top: -160px;
+    }
+    
+    /* ESTILO DE IMAGENES IGUAL que manu.css */
+    .item-carrusel img {
+        width: 100%;
+        height: 70%;
+        object-fit: contain;
+        padding: 6px;
     }
     
     .contenido-carrusel {
@@ -1842,15 +1881,15 @@ body {
         perspective: 800px;
     }
     
+    /* ESTILO DE IMAGENES IGUAL que manu.css */
     .circular-slide {
         width: 110px;
         height: 130px;
         border-radius: 6px;
     }
     
-    /* MODIFICACIÓN CLAVE MÓVIL: Imágenes completas */
     .circular-slide img {
-        object-fit: contain;
+        object-fit: contain; /* Muestra toda la imagen */
         padding: 4px;
     }
     
@@ -2025,6 +2064,14 @@ body {
         margin-top: -130px;
     }
     
+    /* ESTILO DE IMAGENES IGUAL que manu.css */
+    .item-carrusel img {
+        width: 100%;
+        height: 70%;
+        object-fit: contain;
+        padding: 5px;
+    }
+    
     /* Videos carrusel */
     .btn-ver-mas {
         padding: 0.9rem 2rem;
@@ -2059,14 +2106,14 @@ body {
         height: 130px;
     }
     
+    /* ESTILO DE IMAGENES IGUAL que manu.css */
     .circular-slide {
         width: 95px;
         height: 115px;
     }
     
-    /* MODIFICACIÓN CLAVE: Imágenes completas en móviles pequeños */
     .circular-slide img {
-        object-fit: contain;
+        object-fit: contain; /* Muestra toda la imagen */
         padding: 3px;
     }
     
@@ -2186,14 +2233,14 @@ body {
         height: 120px;
     }
     
+    /* ESTILO DE IMAGENES IGUAL que manu.css */
     .circular-slide {
         width: 85px;
         height: 105px;
     }
     
-    /* MODIFICACIÓN CLAVE: Imágenes completas */
     .circular-slide img {
-        object-fit: contain;
+        object-fit: contain; /* Muestra toda la imagen */
         padding: 2px;
     }
     

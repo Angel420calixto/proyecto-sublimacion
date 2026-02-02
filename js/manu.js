@@ -1,13 +1,69 @@
-// script.js
+// manu.js - VERSIÓN COMPLETA Y FUNCIONAL
 document.addEventListener('DOMContentLoaded', function() {
-    // Variables globales
+    console.log('ANIMETAL - Iniciando...');
+    
+    // ====================================
+    // 1. CARGAR IMÁGENES EN MÓVIL INMEDIATAMENTE
+    // ====================================
+    function cargarImagenesMovil() {
+        console.log('Cargando imágenes para móvil...');
+        
+        // GALERÍA JUJUTSU KAISEN
+        const galeriaJujutsuMovil = document.getElementById('galeria-jujutsu-movil');
+        const galeriaJujutsuDesktop = document.getElementById('galeria-jujutsu-desktop');
+        
+        if (galeriaJujutsuMovil && galeriaJujutsuDesktop) {
+            console.log('Cargando Jujutsu Kaisen...');
+            const productosJujutsu = galeriaJujutsuDesktop.querySelectorAll('.producto-item');
+            
+            productosJujutsu.forEach(producto => {
+                const img = producto.querySelector('img');
+                if (img) {
+                    const productoMovil = document.createElement('article');
+                    productoMovil.className = 'producto-movil';
+                    productoMovil.innerHTML = `
+                        <figure class="contenedor-imagen-movil">
+                            <img src="${img.src}" alt="${img.alt}" loading="lazy">
+                        </figure>
+                    `;
+                    galeriaJujutsuMovil.appendChild(productoMovil);
+                }
+            });
+        }
+        
+        // GALERÍA NARUTO
+        const galeriaNarutoMovil = document.getElementById('galeria-naruto-movil');
+        const galeriaNarutoDesktop = document.getElementById('galeria-naruto-desktop');
+        
+        if (galeriaNarutoMovil && galeriaNarutoDesktop) {
+            console.log('Cargando Naruto...');
+            const productosNaruto = galeriaNarutoDesktop.querySelectorAll('.producto-item');
+            
+            productosNaruto.forEach(producto => {
+                const img = producto.querySelector('img');
+                if (img) {
+                    const productoMovil = document.createElement('article');
+                    productoMovil.className = 'producto-movil';
+                    productoMovil.innerHTML = `
+                        <figure class="contenedor-imagen-movil">
+                            <img src="${img.src}" alt="${img.alt}" loading="lazy">
+                        </figure>
+                    `;
+                    galeriaNarutoMovil.appendChild(productoMovil);
+                }
+            });
+        }
+        
+        console.log('Imágenes cargadas en móvil');
+    }
+    
+    // ====================================
+    // 2. MENÚ MÓVIL COMPLETO
+    // ====================================
     const botonMenuMobile = document.querySelector('.boton-menu-mobile');
     const menuPrincipal = document.querySelector('.menu-principal');
-    const botonesExpandir = document.querySelectorAll('.boton-expandir');
-    const cuerpo = document.body;
     const menuOverlay = document.querySelector('.menu-overlay');
     
-    // Función para abrir/cerrar menú móvil
     function toggleMenu() {
         if (menuPrincipal.classList.contains('activo')) {
             cerrarMenu();
@@ -16,221 +72,190 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Función para abrir menú
     function abrirMenu() {
         menuPrincipal.classList.add('activo');
-        cuerpo.classList.add('menu-abierto');
+        document.body.classList.add('menu-abierto');
         menuOverlay.style.display = 'block';
     }
     
-    // Función para cerrar menú
     function cerrarMenu() {
         menuPrincipal.classList.remove('activo');
-        cuerpo.classList.remove('menu-abierto');
+        document.body.classList.remove('menu-abierto');
         menuOverlay.style.display = 'none';
+        
+        // Cerrar también los submenús desplegables
+        const menusDesplegables = document.querySelectorAll('.menu-con-desplegable');
+        menusDesplegables.forEach(menu => {
+            menu.classList.remove('activo');
+        });
     }
     
-    // Menú hamburguesa móvil
     if (botonMenuMobile) {
         botonMenuMobile.addEventListener('click', toggleMenu);
     }
     
-    // Cerrar menú al hacer clic en overlay
     if (menuOverlay) {
         menuOverlay.addEventListener('click', cerrarMenu);
     }
     
-    // Cerrar menú al hacer clic en un enlace del menú
-    const enlacesMenu = document.querySelectorAll('.menu-principal a');
-    enlacesMenu.forEach(enlace => {
-        enlace.addEventListener('click', cerrarMenu);
-    });
+    // ====================================
+    // 3. MENÚ DESPLEGABLE EN MÓVIL
+    // ====================================
+    const enlacesDesplegables = document.querySelectorAll('.menu-con-desplegable > a');
     
-    // Cerrar menú al presionar ESC
-    document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape' && menuPrincipal.classList.contains('activo')) {
-            cerrarMenu();
-        }
-    });
-    
-    // Funcionalidad para menú desplegable en móvil
-    const menusDesplegables = document.querySelectorAll('.menu-con-desplegable .enlace-menu');
-    menusDesplegables.forEach(menu => {
-        menu.addEventListener('click', function(e) {
+    enlacesDesplegables.forEach(enlace => {
+        enlace.addEventListener('click', function(e) {
             if (window.innerWidth <= 768) {
                 e.preventDefault();
-                const parent = this.parentElement;
-                parent.classList.toggle('activo');
-            }
-        });
-    });
-    
-    // Funcionalidad de expandir contenido en móvil
-    botonesExpandir.forEach(boton => {
-        boton.addEventListener('click', function() {
-            const targetId = this.getAttribute('data-target');
-            const contenido = document.getElementById(`contenido-${targetId}`);
-            const seccion = this.closest('.seccion-productos');
-            const productosDesktop = seccion.querySelectorAll('.producto-item');
-            
-            if (contenido.classList.contains('expandido')) {
-                // Contraer contenido
-                contenido.classList.remove('expandido');
-                this.textContent = 'Ver más';
+                e.stopPropagation();
                 
-                // Eliminar productos adicionales (mantener solo los primeros 10)
-                const productosMovil = contenido.querySelectorAll('.producto-movil');
-                productosMovil.forEach((producto, index) => {
-                    if (index >= 10) {
-                        producto.remove();
+                const parent = this.parentElement;
+                const estaActivo = parent.classList.contains('activo');
+                
+                // Cerrar otros menús desplegables
+                const todosLosMenus = document.querySelectorAll('.menu-con-desplegable');
+                todosLosMenus.forEach(menu => {
+                    if (menu !== parent) {
+                        menu.classList.remove('activo');
                     }
                 });
-            } else {
-                // Expandir contenido
-                contenido.classList.add('expandido');
-                this.textContent = 'Ver menos';
                 
-                // Determinar cuántos productos ya hay
-                const productosActuales = contenido.querySelectorAll('.producto-movil').length;
-                const productosTotales = productosDesktop.length;
-                
-                // Si hay menos de 10 productos, cargar todos
-                if (productosActuales < productosTotales) {
-                    cargarProductosMovil(contenido, productosDesktop, productosActuales);
-                }
-                
-                // Ocultar botón si ya se cargaron todos los productos
-                if (productosActuales >= productosTotales) {
-                    this.style.display = 'none';
+                // Alternar el menú actual
+                if (estaActivo) {
+                    parent.classList.remove('activo');
+                } else {
+                    parent.classList.add('activo');
                 }
             }
         });
     });
     
-    // Función para cargar productos móviles
-    function cargarProductosMovil(contenedor, productosDesktop, inicio = 0) {
-        const limite = Math.min(inicio + 10, productosDesktop.length);
-        
-        for (let i = inicio; i < limite; i++) {
-            const producto = productosDesktop[i];
-            const productoMovil = crearProductoMovil(producto);
-            contenedor.appendChild(productoMovil);
-        }
-    }
-    
-    // Función para crear un producto móvil
-    function crearProductoMovil(productoDesktop) {
-        const productoMovil = document.createElement('article');
-        productoMovil.className = 'producto-movil';
-        
-        // Obtener datos del producto desktop
-        const imagen = productoDesktop.querySelector('img');
-        const titulo = productoDesktop.querySelector('.titulo-producto');
-        const precio = productoDesktop.querySelector('.precio-producto');
-        const medidas = productoDesktop.querySelector('.medidas-producto');
-        
-        // Crear estructura para móvil
-        productoMovil.innerHTML = `
-            <figure class="contenedor-imagen-movil">
-                <img src="${imagen.src}" alt="${imagen.alt}" loading="lazy">
-            </figure>
-            <div class="info-producto-movil">
-                <h3 class="titulo-producto-movil">${titulo.textContent}</h3>
-                <div class="detalles-producto-movil">
-                    <span class="precio-producto-movil">${precio.textContent}</span>
-                    <span class="medidas-producto-movil">${medidas.textContent}</span>
-                </div>
-            </div>
-        `;
-        
-        return productoMovil;
-    }
-    
-    // Cargar productos iniciales en móvil
-    function cargarProductosInicialesMovil() {
-        const secciones = document.querySelectorAll('.seccion-productos');
-        
-        secciones.forEach(seccion => {
-            const contenedorExpandible = seccion.querySelector('.contenido-expandible');
-            const botonExpandir = seccion.querySelector('.boton-expandir');
-            const productosDesktop = seccion.querySelectorAll('.producto-item');
+    // Cerrar menú desplegable al hacer clic fuera (solo en móvil)
+    document.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) {
+            const target = e.target;
             
-            if (contenedorExpandible && contenedorExpandible.children.length === 0) {
-                // Cargar primeros 10 productos
-                cargarProductosMovil(contenedorExpandible, productosDesktop, 0);
-                
-                // Ocultar botón si hay 10 o menos productos
-                if (productosDesktop.length <= 10) {
-                    botonExpandir.style.display = 'none';
+            // Si se hace clic fuera del menú desplegable
+            if (!target.closest('.menu-con-desplegable')) {
+                const menusDesplegables = document.querySelectorAll('.menu-con-desplegable');
+                menusDesplegables.forEach(menu => {
+                    menu.classList.remove('activo');
+                });
+            }
+        }
+    });
+    
+    // ====================================
+    // 4. ANIME POPULAR - VER MÁS
+    // ====================================
+    const botonPopular = document.getElementById('boton-expandir-popular');
+    const gridPopular = document.getElementById('grid-popular');
+    
+    if (botonPopular && gridPopular) {
+        botonPopular.addEventListener('click', function() {
+            const itemsAdicionales = gridPopular.querySelectorAll('.item-popular.adicional');
+            const estaExpandido = gridPopular.classList.contains('expandido');
+            
+            if (estaExpandido) {
+                // Contraer
+                gridPopular.classList.remove('expandido');
+                this.textContent = 'Ver más';
+                itemsAdicionales.forEach(item => {
+                    item.style.display = 'none';
+                });
+            } else {
+                // Expandir
+                gridPopular.classList.add('expandido');
+                this.textContent = 'Ver menos';
+                itemsAdicionales.forEach(item => {
+                    item.style.display = 'flex';
+                });
+            }
+        });
+    }
+    
+    // ====================================
+    // 5. JUJUTSU Y NARUTO - VER MÁS
+    // ====================================
+    const botonesVerMas = document.querySelectorAll('.boton-ver-mas[data-target]');
+    
+    botonesVerMas.forEach(boton => {
+        boton.addEventListener('click', function() {
+            const target = this.getAttribute('data-target');
+            const galeriaMovil = document.getElementById(`galeria-${target}-movil`);
+            
+            if (galeriaMovil) {
+                if (galeriaMovil.classList.contains('expandido')) {
+                    // Contraer
+                    galeriaMovil.classList.remove('expandido');
+                    this.textContent = 'Ver más';
+                } else {
+                    // Expandir
+                    galeriaMovil.classList.add('expandido');
+                    this.textContent = 'Ver menos';
                 }
             }
         });
-    }
+    });
     
-    // Ajustar imágenes para que se vean completas
-    function ajustarImagenes() {
-        const contenedores = document.querySelectorAll('.contenedor-imagen-popular, .contenedor-imagen-producto, .contenedor-imagen-movil');
-        
-        contenedores.forEach(contenedor => {
-            const imagen = contenedor.querySelector('img');
-            if (imagen) {
-                // Forzar que la imagen se vea completa
-                imagen.style.objectFit = 'contain';
-                imagen.style.objectPosition = 'center';
+    // ====================================
+    // 6. CERRAR MENÚ AL HACER CLIC EN ENLACES
+    // ====================================
+    const enlacesMenu = document.querySelectorAll('.menu-principal a');
+    enlacesMenu.forEach(enlace => {
+        enlace.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                // Solo cerrar si no es un enlace desplegable
+                if (!this.parentElement.classList.contains('menu-con-desplegable')) {
+                    cerrarMenu();
+                }
             }
         });
-    }
+    });
     
-    // Optimizar espacio de info-popular
-    function optimizarInfoPopular() {
-        const infoElements = document.querySelectorAll('.info-popular, .info-producto, .info-producto-movil');
-        
-        infoElements.forEach(info => {
-            info.style.padding = '0.5rem';
-            info.style.minHeight = 'auto';
-        });
-    }
-    
-    // Inicializar todo al cargar la página
-    function inicializar() {
-        cargarProductosInicialesMovil();
-        ajustarImagenes();
-        optimizarInfoPopular();
-        
-        // Ajustar para diferentes tamaños de pantalla
-        if (window.innerWidth <= 768) {
-            document.querySelectorAll('.galeria-productos.desktop-galeria').forEach(g => {
-                g.style.display = 'none';
-            });
-            document.querySelectorAll('.contenedor-expandible.movil-galeria').forEach(g => {
-                g.style.display = 'block';
-            });
-        }
-    }
-    
-    // Ejecutar inicialización
-    inicializar();
-    
-    // Reajustar al redimensionar la ventana
-    window.addEventListener('resize', function() {
-        ajustarImagenes();
-        optimizarInfoPopular();
-        
-        // Ajustar visibilidad de galerías
-        if (window.innerWidth <= 768) {
-            document.querySelectorAll('.galeria-productos.desktop-galeria').forEach(g => {
-                g.style.display = 'none';
-            });
-            document.querySelectorAll('.contenedor-expandible.movil-galeria').forEach(g => {
-                g.style.display = 'block';
-            });
-        } else {
-            document.querySelectorAll('.galeria-productos.desktop-galeria').forEach(g => {
-                g.style.display = 'grid';
-            });
-            document.querySelectorAll('.contenedor-expandible.movil-galeria').forEach(g => {
-                g.style.display = 'none';
-            });
+    // ====================================
+    // 7. CERRAR CON TECLA ESC
+    // ====================================
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            if (menuPrincipal.classList.contains('activo')) {
+                cerrarMenu();
+            }
         }
     });
+    
+    // ====================================
+    // 8. AJUSTES RESPONSIVOS
+    // ====================================
+    function ajustarParaResponsivo() {
+        // En móvil, cargar imágenes si no están cargadas
+        if (window.innerWidth <= 768) {
+            cargarImagenesMovil();
+            
+            // Asegurar que las galerías móviles sean visibles
+            document.querySelectorAll('.galeria-movil.movil-galeria').forEach(galeria => {
+                galeria.style.display = 'grid';
+            });
+        }
+        
+        // En desktop, cerrar menú móvil si está abierto
+        if (window.innerWidth > 768 && menuPrincipal.classList.contains('activo')) {
+            cerrarMenu();
+        }
+    }
+    
+    // Ejecutar al cargar
+    ajustarParaResponsivo();
+    
+    // Ejecutar al redimensionar
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(ajustarParaResponsivo, 250);
+    });
+    
+    // ====================================
+    // 9. INICIALIZAR
+    // ====================================
+    console.log('ANIMETAL - Configuración completada');
 });

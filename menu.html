@@ -23,9 +23,9 @@
                 
                 <!-- Menú principal -->
                 <ul class="menu-principal">
-                    <li><a href="#" class="enlace-menu">Inicio</a></li>
+                    <li><a href="index.html" class="enlace-menu">Inicio</a></li>
                     <li class="menu-con-desplegable">
-                        <a href="#" class="enlace-menu">Comprar por categoría <i class="fas fa-chevron-down"></i></a>
+                        <a href="#" class="enlace-menu-desplegable">Comprar por categoría <i class="fas fa-chevron-down flecha-desplegable"></i></a>
                         <ul class="submenu">
                             <li><a href="#">Anime</a></li>
                             <li><a href="#">Juegos</a></li>
@@ -33,7 +33,7 @@
                             <li><a href="#">Series</a></li>
                         </ul>
                     </li>
-                    <li><a href="#" class="enlace-menu">Popular Anime</a></li>
+                    <li><a href="" class="enlace-menu">Popular Anime</a></li>
                     <li><a href="#" class="enlace-menu">Juegos Populares</a></li>
                     <li><a href="#" class="enlace-menu">Personalizar</a></li>
                 </ul>
@@ -64,7 +64,7 @@
             <div class="contenido-banner">
                 <h2 class="titulo-banner">Impresión Metálica HD Personalizada</h2>
                 <p class="texto-banner">Transforma tus personajes favoritos en arte duradero sobre metal</p>
-                <a href="#" class="boton-banner">Ver Catálogo</a>
+                <a href="menu.html" class="boton-banner">Ver Catálogo</a>
             </div>
             <div class="imagen-banner">
                 <img src="img/vegeta5.webp" alt="Banner de cuadros de anime" loading="lazy">
@@ -75,8 +75,11 @@
     <!-- Sección de Anime Popular -->
     <section class="seccion-popular">
         <div class="contenedor-seccion">
-            <h2 class="titulo-seccion">Anime Popular</h2>
-            <div class="grid-popular">
+            <div class="encabezado-seccion">
+                <h2 class="titulo-seccion">Anime Popular</h2>
+                <button class="boton-ver-mas" id="boton-expandir-popular">Ver más</button>
+            </div>
+            <div class="grid-popular" id="grid-popular">
                 <!-- Item 1 -->
                 <article class="item-popular">
                     <figure class="contenedor-imagen-popular">
@@ -89,9 +92,6 @@
                     <figure class="contenedor-imagen-popular">
                         <img src="https://img.fantaskycdn.com/13ee2ef5a0eb9c5814f23e00ffbe85b0_420x.jpeg" alt="Dragon Ball Z" loading="lazy">
                     </figure>
-                    <div class="info-popular">
-                        <h3 class="titulo-popular">Dragon Ball Z</h3>
-                    </div>
                 </article>
                 
                 <!-- Item 3 -->
@@ -99,9 +99,6 @@
                     <figure class="contenedor-imagen-popular">
                         <img src="https://img.fantaskycdn.com/0cfdf168ee0211c5738b955f973c9aa5_420x.jpeg" alt="One Piece" loading="lazy">
                     </figure>
-                    <div class="info-popular">
-                        <h3 class="titulo-popular">One Piece</h3>
-                    </div>
                 </article>
                 
                 <!-- Item 4 -->
@@ -109,9 +106,6 @@
                     <figure class="contenedor-imagen-popular">
                         <img src="https://img.fantaskycdn.com/dea8954ef407b466629c9142320d13ac_420x.jpeg" alt="Demon Slayer" loading="lazy">
                     </figure>
-                    <div class="info-popular">
-                        <h3 class="titulo-popular">Demon Slayer</h3>
-                    </div>
                 </article>
                 
                 <!-- Item 5 -->
@@ -119,9 +113,6 @@
                     <figure class="contenedor-imagen-popular">
                         <img src="https://img.fantaskycdn.com/df3bc5e1f3e18141c4ed0c2a9f8d55c1_420x.jpeg" alt="My Hero Academia" loading="lazy">
                     </figure>
-                    <div class="info-popular">
-                        <h3 class="titulo-popular">My Hero Academia</h3>
-                    </div>
                 </article>
                 
                 <!-- Item 6 -->
@@ -129,36 +120,51 @@
                     <figure class="contenedor-imagen-popular">
                         <img src="https://img.fantaskycdn.com/2c27a09e8e3821bedf2fac193866143c_420x.jpeg" alt="Attack on Titan" loading="lazy">
                     </figure>
-                    <div class="info-popular">
-                        <h3 class="titulo-popular">Attack on Titan</h3>
-                    </div>
+                </article>
+                
+                <!-- Items adicionales que se mostrarán al expandir -->
+                <article class="item-popular adicional" style="display: none;">
+                    <figure class="contenedor-imagen-popular">
+                        <img src="https://img.fantaskycdn.com/2c27a09e8e3821bedf2fac193866143c_420x.jpeg" alt="Attack on Titan 2" loading="lazy">
+                    </figure>
+                </article>
+                
+                <article class="item-popular adicional" style="display: none;">
+                    <figure class="contenedor-imagen-popular">
+                        <img src="https://img.fantaskycdn.com/13ee2ef5a0eb9c5814f23e00ffbe85b0_420x.jpeg" alt="Dragon Ball Z 2" loading="lazy">
+                    </figure>
+                </article>
+                
+                <article class="item-popular adicional" style="display: none;">
+                    <figure class="contenedor-imagen-popular">
+                        <img src="https://img.fantaskycdn.com/0cfdf168ee0211c5738b955f973c9aa5_420x.jpeg" alt="One Piece 2" loading="lazy">
+                    </figure>
+                </article>
+                
+                <article class="item-popular adicional" style="display: none;">
+                    <figure class="contenedor-imagen-popular">
+                        <img src="https://img.fantaskycdn.com/dea8954ef407b466629c9142320d13ac_420x.jpeg" alt="Demon Slayer 2" loading="lazy">
+                    </figure>
                 </article>
             </div>
         </div>
     </section>
 
     <!-- Sección Jujutsu Kaisen -->
-    <section class="seccion-productos">
+    <section class="seccion-productos" id="seccion-jujutsu">
         <div class="contenedor-seccion">
             <div class="encabezado-seccion">
                 <h2 class="titulo-seccion">Jujutsu Kaisen</h2>
-                <a href="#" class="enlace-ver-mas">Ver más</a>
+                <button class="boton-ver-mas" data-target="jujutsu">Ver más</button>
             </div>
             
             <!-- Galería de productos Jujutsu Kaisen para desktop -->
-            <div class="galeria-productos desktop-galeria">
+            <div class="galeria-productos desktop-galeria" id="galeria-jujutsu-desktop">
                 <!-- Producto 1 -->
                 <article class="producto-item">
                     <figure class="contenedor-imagen-producto">
                         <img src="https://img.fantaskycdn.com/2240dd4e4be684f930619b96f86d69db_420x.jpeg" alt="Vacio ilimitado Satoru Gojo" loading="lazy">
                     </figure>
-                    <div class="info-producto">
-                        <h3 class="titulo-producto">Vacio ilimitado Satoru Gojo</h3>
-                        <div class="detalles-producto">
-                            <span class="precio-producto">$350.000</span>
-                            <span class="medidas-producto">40x60 cm</span>
-                        </div>
-                    </div>
                 </article>
                 
                 <!-- Producto 2 -->
@@ -166,13 +172,6 @@
                     <figure class="contenedor-imagen-producto">
                         <img src="https://img.fantaskycdn.com/7f8ba9afeb80d3c76728236a24d3da15_420x.jpeg" alt="Yuji Itadori y Satoru Gojo" loading="lazy">
                     </figure>
-                    <div class="info-producto">
-                        <h3 class="titulo-producto">Yuji Itadori y Satoru Gojo</h3>
-                        <div class="detalles-producto">
-                            <span class="precio-producto">$380.000</span>
-                            <span class="medidas-producto">50x70 cm</span>
-                        </div>
-                    </div>
                 </article>
                 
                 <!-- Producto 3 -->
@@ -180,13 +179,6 @@
                     <figure class="contenedor-imagen-producto">
                         <img src="https://img.fantaskycdn.com/804f4acba46caf885b5ee8c4afec3c19_420x.jpeg" alt="Sukuna Neon" loading="lazy">
                     </figure>
-                    <div class="info-producto">
-                        <h3 class="titulo-producto">Sukuna Neon CO10376</h3>
-                        <div class="detalles-producto">
-                            <span class="precio-producto">$320.000</span>
-                            <span class="medidas-producto">30x40 cm</span>
-                        </div>
-                    </div>
                 </article>
                 
                 <!-- Producto 4 -->
@@ -194,13 +186,6 @@
                     <figure class="contenedor-imagen-producto">
                         <img src="https://img.fantaskycdn.com/dffb68d728b96da40e59b05f03036e61_420x.jpeg" alt="Satoru Gojo con los ojos cubiertos" loading="lazy">
                     </figure>
-                    <div class="info-producto">
-                        <h3 class="titulo-producto">Satoru Gojo con los ojos cubiertos</h3>
-                        <div class="detalles-producto">
-                            <span class="precio-producto">$360.000</span>
-                            <span class="medidas-producto">40x60 cm</span>
-                        </div>
-                    </div>
                 </article>
                 
                 <!-- Producto 5 -->
@@ -208,13 +193,6 @@
                     <figure class="contenedor-imagen-producto">
                         <img src="https://img.fantaskycdn.com/b0d12d9896cdc7cb498706ee377afd37_420x.jpeg" alt="Yuji Itadori Satoru Gojo" loading="lazy">
                     </figure>
-                    <div class="info-producto">
-                        <h3 class="titulo-producto">Yuji Itadori Satoru Gojo</h3>
-                        <div class="detalles-producto">
-                            <span class="precio-producto">$390.000</span>
-                            <span class="medidas-producto">50x70 cm</span>
-                        </div>
-                    </div>
                 </article>
                 
                 <!-- Producto 6 -->
@@ -222,48 +200,55 @@
                     <figure class="contenedor-imagen-producto">
                         <img src="https://img.fantaskycdn.com/d0d69c3500eb2bcde9f08611810b2504_420x.jpeg" alt="Satoru Gojo Energético" loading="lazy">
                     </figure>
-                    <div class="info-producto">
-                        <h3 class="titulo-producto">Satoru Gojo Energético</h3>
-                        <div class="detalles-producto">
-                            <span class="precio-producto">$340.000</span>
-                            <span class="medidas-producto">30x40 cm</span>
-                        </div>
-                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/d0d69c3500eb2bcde9f08611810b2504_420x.jpeg" alt="Satoru Gojo Energético" loading="lazy">
+                    </figure>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/d0d69c3500eb2bcde9f08611810b2504_420x.jpeg" alt="Satoru Gojo Energético" loading="lazy">
+                    </figure>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/d0d69c3500eb2bcde9f08611810b2504_420x.jpeg" alt="Satoru Gojo Energético" loading="lazy">
+                    </figure>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/d0d69c3500eb2bcde9f08611810b2504_420x.jpeg" alt="Satoru Gojo Energético" loading="lazy">
+                    </figure>
                 </article>
             </div>
             
-            <!-- Contenedor expandible para móvil -->
-            <div class="contenedor-expandible movil-galeria">
-                <div class="contenido-expandible" id="contenido-jujutsu">
-                    <!-- Los productos se cargarán dinámicamente aquí -->
-                </div>
-                <button class="boton-expandir" data-target="jujutsu">Ver más</button>
+            <!-- Galería de productos Jujutsu Kaisen para móvil -->
+            <div class="galeria-movil movil-galeria" id="galeria-jujutsu-movil">
+                <!-- Los productos se cargarán dinámicamente aquí -->
             </div>
         </div>
     </section>
 
     <!-- Sección Naruto -->
-    <section class="seccion-productos">
+    <section class="seccion-productos" id="seccion-naruto">
         <div class="contenedor-seccion">
             <div class="encabezado-seccion">
                 <h2 class="titulo-seccion">Naruto</h2>
-                <a href="#" class="enlace-ver-mas">Ver más</a>
+                <button class="boton-ver-mas" data-target="naruto">Ver más</button>
             </div>
             
             <!-- Galería de productos Naruto para desktop -->
-            <div class="galeria-productos desktop-galeria">
+            <div class="galeria-productos desktop-galeria" id="galeria-naruto-desktop">
                 <!-- Producto 1 -->
                 <article class="producto-item">
                     <figure class="contenedor-imagen-producto">
                         <img src="https://img.fantaskycdn.com/6d48db7138463c21afc700ac564026f8_420x.jpeg" alt="Naruto Uzumaki" loading="lazy">
                     </figure>
-                    <div class="info-producto">
-                        <h3 class="titulo-producto">Naruto Uzumaki Modo Sabio</h3>
-                        <div class="detalles-producto">
-                            <span class="precio-producto">$370.000</span>
-                            <span class="medidas-producto">40x60 cm</span>
-                        </div>
-                    </div>
                 </article>
                 
                 <!-- Producto 2 -->
@@ -271,13 +256,6 @@
                     <figure class="contenedor-imagen-producto">
                         <img src="https://img.fantaskycdn.com/ca7d9f8a1c0cfc2da3d009d6246653a4_420x.jpeg" alt="Sasuke Uchiha" loading="lazy">
                     </figure>
-                    <div class="info-producto">
-                        <h3 class="titulo-producto">Sasuke Uchiha Sharingan</h3>
-                        <div class="detalles-producto">
-                            <span class="precio-producto">$365.000</span>
-                            <span class="medidas-producto">40x60 cm</span>
-                        </div>
-                    </div>
                 </article>
                 
                 <!-- Producto 3 -->
@@ -285,13 +263,6 @@
                     <figure class="contenedor-imagen-producto">
                         <img src="https://img.fantaskycdn.com/3786b10c6f829933f5075372ade5fd0c_420x.jpeg" alt="Kakashi Hatake" loading="lazy">
                     </figure>
-                    <div class="info-producto">
-                        <h3 class="titulo-producto">Kakashi Hatake</h3>
-                        <div class="detalles-producto">
-                            <span class="precio-producto">$330.000</span>
-                            <span class="medidas-producto">30x40 cm</span>
-                        </div>
-                    </div>
                 </article>
                 
                 <!-- Producto 4 -->
@@ -299,13 +270,6 @@
                     <figure class="contenedor-imagen-producto">
                         <img src="https://img.fantaskycdn.com/cf1051c4ace2ed06309464452973bf04_420x.jpeg" alt="Madara Uchiha" loading="lazy">
                     </figure>
-                    <div class="info-producto">
-                        <h3 class="titulo-producto">Madara Uchiha</h3>
-                        <div class="detalles-producto">
-                            <span class="precio-producto">$380.000</span>
-                            <span class="medidas-producto">50x70 cm</span>
-                        </div>
-                    </div>
                 </article>
                 
                 <!-- Producto 5 -->
@@ -313,13 +277,6 @@
                     <figure class="contenedor-imagen-producto">
                         <img src="https://img.fantaskycdn.com/0ec5e785ed73437b86b9a4b2d0fa3cc5_420x.jpeg" alt="Itachi Uchiha" loading="lazy">
                     </figure>
-                    <div class="info-producto">
-                        <h3 class="titulo-producto">Itachi Uchiha</h3>
-                        <div class="detalles-producto">
-                            <span class="precio-producto">$350.000</span>
-                            <span class="medidas-producto">40x60 cm</span>
-                        </div>
-                    </div>
                 </article>
                 
                 <!-- Producto 6 -->
@@ -327,26 +284,66 @@
                     <figure class="contenedor-imagen-producto">
                         <img src="https://img.fantaskycdn.com/177b67d2eebafe7016f79bb1bce6b585_420x.jpeg" alt="Team 7" loading="lazy">
                     </figure>
-                    <div class="info-producto">
-                        <h3 class="titulo-producto">Team 7 Completo</h3>
-                        <div class="detalles-producto">
-                            <span class="precio-producto">$420.000</span>
-                            <span class="medidas-producto">60x90 cm</span>
-                        </div>
-                    </div>
                 </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/177b67d2eebafe7016f79bb1bce6b585_420x.jpeg" alt="Team 7" loading="lazy">
+                    </figure>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/177b67d2eebafe7016f79bb1bce6b585_420x.jpeg" alt="Team 7" loading="lazy">
+                    </figure>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/177b67d2eebafe7016f79bb1bce6b585_420x.jpeg" alt="Team 7" loading="lazy">
+                    </figure>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/177b67d2eebafe7016f79bb1bce6b585_420x.jpeg" alt="Team 7" loading="lazy">
+                    </figure>
+                </article>
+                
             </div>
             
-            <!-- Contenedor expandible para móvil -->
-            <div class="contenedor-expandible movil-galeria">
-                <div class="contenido-expandible" id="contenido-naruto">
-                    <!-- Los productos se cargarán dinámicamente aquí -->
-                </div>
-                <button class="boton-expandir" data-target="naruto">Ver más</button>
+            <!-- Galería de productos Naruto para móvil -->
+            <div class="galeria-movil movil-galeria" id="galeria-naruto-movil">
+                <!-- Los productos se cargarán dinámicamente aquí -->
             </div>
         </div>
     </section>
-
+    
+    <!-- Sección ANIMETAL - Versión mejorada -->
+<section class="animetals-grid-section">
+    <div class="grid-images-container">
+        <!-- Contenedor de las 3 imágenes -->
+        <div class="three-images-grid">
+            <div class="image-block left-block">
+                <div class="image-inner">
+                    <img src="https://img.fantaskycdn.com/ba0f216093fcc49f618b670e1fec34e9_420x.jpeg" alt="Anime 1" class="grid-image">
+                </div>
+            </div>
+            
+            <div class="image-block middle-block">
+                <div class="image-inner">
+                    <img src="https://img.fantaskycdn.com/9a1c62f5351ff4a96c88a3832c0bb4af_420x.jpeg" alt="Anime 2" class="grid-image">
+                </div>
+            </div>
+            
+            <div class="image-block right-block">
+                <div class="image-inner">
+                    <img src="https://img.fantaskycdn.com/34220cb040be73de24d57bd21f6d74e0_540x.jpeg" alt="Anime 3" class="grid-image">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
     <!-- Footer -->
     <footer class="footer-principal">
         <div class="contenedor-footer">

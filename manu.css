@@ -329,7 +329,7 @@ body.menu-abierto .menu-overlay {
     border-radius: 30px; /* Bordes redondeados */
     font-weight: 600;
     transition: var(--transicion-rapida);
-    box-shadow: var(--sombra-suave);
+    box-shadow: var(sombra-suave);
 }
 
 .boton-banner:hover {
@@ -347,7 +347,6 @@ body.menu-abierto .menu-overlay {
 
 .imagen-banner img {
     max-width: 100%;
-    border-radius: 12px;
     box-shadow: var(--sombra-suave);
 }
 
@@ -359,10 +358,38 @@ body.menu-abierto .menu-overlay {
     background-color: var(--color-fondo);
 }
 
+.encabezado-seccion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.boton-ver-mas {
+    background-color: var(--color-destacado);
+    color: var(--color-texto);
+    padding: 0.6rem 1.5rem;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transicion-rapida);
+    box-shadow: var(--sombra-suave);
+}
+
+.boton-ver-mas:hover {
+    background-color: #ff5773;
+    transform: translateY(-3px);
+    box-shadow: var(--sombra-destacada);
+}
+
 .grid-popular {
     display: grid;
     grid-template-columns: repeat(6, 1fr); /* 6 columnas en desktop */
     gap: 1.5rem;
+}
+
+.grid-popular.expandido {
+    grid-template-rows: auto;
 }
 
 .item-popular {
@@ -373,7 +400,6 @@ body.menu-abierto .menu-overlay {
     display: flex;
     flex-direction: column;
     height: 100%; /* Ocupa toda la altura del grid */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde sutil */
 }
 
 .item-popular:hover {
@@ -402,31 +428,12 @@ body.menu-abierto .menu-overlay {
     width: 100%; /* Ocupa todo el ancho del contenedor */
     height: 100%; /* Ocupa toda la altura del contenedor */
     object-fit: contain; /* Muestra toda la imagen sin recortar, manteniendo proporción */
-    /* object-fit: cover; */ /* Alternativa: cubre todo el contenedor recortando si es necesario */
     transition: transform 0.5s ease; /* Transición suave para efecto hover */
 }
 
 /* Efecto de zoom al hacer hover */
 .item-popular:hover .contenedor-imagen-popular img {
     transform: scale(1.05); /* Aumenta tamaño al 105% */
-}
-
-/* =============================================
-   INFORMACIÓN DEBJO DE LA IMAGEN (AHORA SIN TEXTO)
-   ============================================= */
-.info-popular {
-    padding: 0.5rem; /* Padding mínimo */
-    text-align: center;
-    background-color: transparent; /* Sin fondo */
-    margin-top: auto; /* Empuja hacia abajo si hay espacio */
-    height: 10px; /* Altura mínima para mantener estructura */
-    visibility: hidden; /* Oculta el contenido */
-}
-
-.titulo-popular {
-    font-size: 0; /* Oculta el texto */
-    font-weight: 600;
-    color: var(--color-texto);
 }
 
 /* =============================================
@@ -437,42 +444,22 @@ body.menu-abierto .menu-overlay {
     background-color: var(--color-fondo);
 }
 
-.encabezado-seccion {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
-}
-
-.enlace-ver-mas {
-    color: var(--color-destacado);
-    font-weight: 600;
-    font-size: 0.95rem;
-    transition: var(--transicion-rapida);
-}
-
-.enlace-ver-mas:hover {
-    text-decoration: underline;
-}
-
 /* =============================================
    GALERÍA DE PRODUCTOS PARA DESKTOP
    ============================================= */
 .galeria-productos.desktop-galeria {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columnas en desktop */
+    grid-template-columns: repeat(5, 1fr); /* 3 columnas en desktop */
     gap: 2rem;
 }
 
 .producto-item {
     background-color: transparent; /* Sin fondo */
-    border-radius: 12px;
     overflow: hidden;
     transition: var(--transicion-media);
     display: flex;
     flex-direction: column;
     height: 100%; /* Ocupa toda la altura */
-    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .producto-item:hover {
@@ -501,7 +488,6 @@ body.menu-abierto .menu-overlay {
     width: 100%; /* Ocupa todo el ancho */
     height: 100%; /* Ocupa toda la altura */
     object-fit: contain; /* Muestra imagen completa sin recortar */
-    /* object-fit: cover; */ /* Alternativa si quieres que cubra todo */
     transition: transform 0.5s ease;
 }
 
@@ -510,62 +496,20 @@ body.menu-abierto .menu-overlay {
 }
 
 /* =============================================
-   INFORMACIÓN DEL PRODUCTO (AHORA SIN TEXTO)
+   GALERÍA DE PRODUCTOS PARA MÓVIL
    ============================================= */
-.info-producto {
-    padding: 0.5rem; /* Padding mínimo */
-    background-color: transparent;
-    margin-top: auto; /* Empuja hacia abajo */
-    height: 10px; /* Altura mínima */
-    visibility: hidden; /* Oculta el contenido */
-}
-
-.titulo-producto {
-    font-size: 0; /* Oculta el texto */
-    font-weight: 600;
-    margin-bottom: 0.8rem;
-    line-height: 1.4;
-    color: var(--color-texto);
-}
-
-.detalles-producto {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 0.8rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    visibility: hidden; /* Oculta los detalles */
-}
-
-.precio-producto {
-    color: var(--color-destacado);
-    font-weight: 700;
-    font-size: 1.2rem;
-}
-
-.medidas-producto {
-    color: var(--color-texto-secundario);
-    font-size: 0.9rem;
-}
-
-/* =============================================
-   CONTENEDOR EXPANDIBLE PARA MÓVIL
-   ============================================= */
-.contenedor-expandible.movil-galeria {
+.galeria-movil.movil-galeria {
     display: none; /* Solo visible en móvil */
-}
-
-.contenido-expandible {
-    display: grid;
     grid-template-columns: repeat(2, 1fr); /* 2 columnas en móvil */
     gap: 1rem;
-    max-height: 0; /* Inicialmente colapsado */
-    overflow: hidden; /* Oculta contenido cuando está colapsado */
-    transition: max-height 0.5s ease; /* Transición suave para expandir/colapsar */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, margin-bottom 0.5s ease;
 }
 
-.contenido-expandible.expandido {
-    max-height: 5000px; /* Altura máxima cuando está expandido */
+.galeria-movil.movil-galeria.expandido {
+    display: grid;
+    max-height: 5000px;
     margin-bottom: 1.5rem;
 }
 
@@ -576,7 +520,6 @@ body.menu-abierto .menu-overlay {
     display: flex;
     flex-direction: column;
     height: 100%;
-    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* =============================================
@@ -598,73 +541,12 @@ body.menu-abierto .menu-overlay {
 .contenedor-imagen-movil img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Muestra imagen completa sin recortar */
+    object-fit: contain;
     transition: transform 0.3s ease;
 }
 
 .producto-movil:hover .contenedor-imagen-movil img {
     transform: scale(1.05);
-}
-
-/* =============================================
-   INFORMACIÓN PARA MÓVIL (AHORA SIN TEXTO)
-   ============================================= */
-.info-producto-movil {
-    padding: 0.5rem; /* Padding mínimo */
-    background-color: transparent;
-    margin-top: auto;
-    height: 10px; /* Altura mínima */
-    visibility: hidden; /* Oculta el contenido */
-}
-
-.titulo-producto-movil {
-    font-size: 0; /* Oculta el texto */
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    line-height: 1.3;
-    color: var(--color-texto);
-}
-
-.detalles-producto-movil {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 0.5rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    visibility: hidden; /* Oculta los detalles */
-}
-
-.precio-producto-movil {
-    color: var(--color-destacado);
-    font-weight: 700;
-    font-size: 1rem;
-}
-
-.medidas-producto-movil {
-    color: var(--color-texto-secundario);
-    font-size: 0.8rem;
-}
-
-/* =============================================
-   BOTÓN "VER MÁS" PARA EXPANDIR CONTENIDO EN MÓVIL
-   ============================================= */
-.boton-expandir {
-    display: block;
-    width: 100%;
-    padding: 1rem;
-    background-color: var(--color-terciario);
-    color: var(--color-texto);
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 1rem;
-    transition: var(--transicion-rapida);
-    margin-top: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.boton-expandir:hover {
-    background-color: var(--color-destacado);
-    transform: translateY(-3px);
 }
 
 /* =============================================
@@ -776,14 +658,14 @@ body.menu-abierto .menu-overlay {
     .grid-popular {
         grid-template-columns: repeat(3, 1fr); /* 3 columnas en tablets grandes */
     }
+    
+    .contenedor-footer {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
+    }
 }
 
 /* Tablets */
 @media (max-width: 1024px) {
-    .contenedor-footer {
-        grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
-    }
-    
     .contenedor-imagen-producto {
         height: 300px; /* Reduce altura en tablets */
     }
@@ -894,14 +776,12 @@ body.menu-abierto .menu-overlay {
         display: none !important;
     }
     
-    /* Muestra galería móvil */
-    .contenedor-expandible.movil-galeria {
-        display: block;
-    }
-    
-    .contenido-expandible {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
+    /* Muestra galería móvil (inicialmente colapsada) */
+    .galeria-movil.movil-galeria {
+        display: grid !important;
+        max-height: 0;
+        margin-bottom: 0;
+        overflow: hidden;
     }
     
     .contenedor-imagen-movil {
@@ -943,7 +823,7 @@ body.menu-abierto .menu-overlay {
         font-size: 1.5rem;
     }
     
-    .contenido-expandible {
+    .galeria-movil.movil-galeria {
         grid-template-columns: repeat(2, 1fr);
         gap: 0.8rem;
     }
@@ -951,22 +831,6 @@ body.menu-abierto .menu-overlay {
     .contenedor-imagen-movil {
         height: 160px; /* Altura ajustada para móviles pequeños */
         padding: 3px;
-    }
-    
-    .info-producto-movil {
-        padding: 0.3rem; /* Padding mínimo */
-    }
-    
-    .titulo-producto-movil {
-        font-size: 0;
-    }
-    
-    .precio-producto-movil {
-        font-size: 0.9rem;
-    }
-    
-    .medidas-producto-movil {
-        font-size: 0.75rem;
     }
     
     .menu-principal {
@@ -980,7 +844,7 @@ body.menu-abierto .menu-overlay {
    ============================================= */
 @media (min-width: 769px) {
     /* Oculta elementos móviles en desktop */
-    .contenedor-expandible.movil-galeria {
+    .galeria-movil.movil-galeria {
         display: none !important;
     }
     
@@ -991,7 +855,7 @@ body.menu-abierto .menu-overlay {
 }
 
 /* =============================================
-   AJUSTES ESPECÍFICOS PARA IMÁGENES SIN TEXTO
+   AJUSTES ESPECÍFICOS PARA IMÁGENES
    ============================================= */
 
 /* Para Anime Popular */
@@ -1030,12 +894,350 @@ body.menu-abierto .menu-overlay {
     max-height: 95%;
 }
 
-/* Elimina completamente el espacio para info-popular */
-.info-popular,
-.info-producto,
-.info-producto-movil {
-    display: none !important; /* Oculta completamente */
-    height: 0 !important;
-    padding: 0 !important;
-    margin: 0 !important;
+/* =============================================
+   SOLUCIÓN DE EMERGENCIA PARA MÓVIL
+   ============================================= */
+
+/* Forzar que las galerías móviles sean visibles */
+@media (max-width: 768px) {
+    .galeria-movil.movil-galeria {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem !important;
+        max-height: none !important;
+        margin-bottom: 1.5rem !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    .galeria-movil.movil-galeria.expandido {
+        max-height: 5000px !important;
+    }
+    
+    .contenedor-imagen-movil {
+        height: 180px !important;
+        background-color: transparent !important;
+    }
+    
+    .contenedor-imagen-movil img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: contain !important;
+        display: block !important;
+    }
+    
+    /* Verificar que las imágenes existan */
+    .galeria-movil.movil-galeria:empty::before {
+        content: "Cargando imágenes...";
+        color: var(--color-destacado);
+        text-align: center;
+        padding: 2rem;
+        font-style: italic;
+    }
 }
+
+/* =============================================
+   ESTILOS PARA MENÚ DESPLEGABLE EN MÓVIL
+   ============================================= */
+
+@media (max-width: 768px) {
+    .menu-con-desplegable {
+        position: relative;
+    }
+    
+    .menu-con-desplegable > a {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-right: 1rem;
+    }
+    
+    .menu-con-desplegable .flecha-desplegable {
+        transition: transform 0.3s ease;
+    }
+    
+    .menu-con-desplegable.activo .flecha-desplegable {
+        transform: rotate(180deg);
+    }
+    
+    .menu-con-desplegable .submenu {
+        display: none;
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        background: rgba(255, 255, 255, 0.05);
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+    }
+    
+    .menu-con-desplegable.activo .submenu {
+        display: block;
+        max-height: 500px;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+    
+    .menu-con-desplegable .submenu li {
+        padding: 0.5rem 0;
+        border-bottom: none;
+    }
+    
+    .menu-con-desplegable .submenu a {
+        padding: 0.5rem 1rem;
+        padding-left: 1.5rem;
+        font-size: 0.95rem;
+        color: var(--color-texto-secundario);
+        transition: color 0.3s ease;
+    }
+    
+    .menu-con-desplegable .submenu a:hover {
+        color: var(--color-destacado);
+        background: rgba(233, 69, 96, 0.1);
+    }
+}
+
+ /* =============================================
+       SECCIÓN GRID SIMPLE - 3 IMÁGENES
+       ============================================= */
+    .animetals-grid-section {
+        width: 100%;
+        background-color: var(--color-fondo);
+        padding: 40px 0;
+        margin: 40px 0;
+    }
+    
+    .grid-images-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    .three-images-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0; /* Sin espacio entre imágenes */
+        height: 500px;
+        position: relative;
+    }
+    
+    .image-block {
+        position: relative;
+        height: 100%;
+        overflow: hidden;
+    }
+    
+    /* Bordes diagonales usando pseudo-elementos */
+    .middle-block::before,
+    .middle-block::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        width: 100px;
+        height: 100%;
+        background: var(--color-fondo);
+        z-index: 2;
+        pointer-events: none;
+    }
+    
+    .middle-block::before {
+        left: -50px;
+        transform: skewX(-15deg);
+        transform-origin: top left;
+    }
+    
+    .middle-block::after {
+        right: -50px;
+        transform: skewX(-15deg);
+        transform-origin: top right;
+    }
+    
+    .left-block::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: -50px;
+        width: 100px;
+        height: 100%;
+        background: var(--color-fondo);
+        transform: skewX(-15deg);
+        transform-origin: top right;
+        z-index: 2;
+        pointer-events: none;
+    }
+    
+    .right-block::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -50px;
+        width: 100px;
+        height: 100%;
+        background: var(--color-fondo);
+        transform: skewX(-15deg);
+        transform-origin: top left;
+        z-index: 2;
+        pointer-events: none;
+    }
+    
+    .image-inner {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .grid-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+    
+    /* =============================================
+       RESPONSIVE - MANTENER HORIZONTAL EN MÓVIL
+       ============================================= */
+    
+    @media (max-width: 1200px) {
+        .three-images-grid {
+            height: 450px;
+        }
+        
+        .middle-block::before,
+        .middle-block::after,
+        .left-block::after,
+        .right-block::before {
+            width: 80px;
+        }
+        
+        .middle-block::before,
+        .left-block::after {
+            left: -40px;
+        }
+        
+        .middle-block::after,
+        .right-block::before {
+            right: -40px;
+        }
+    }
+    
+    @media (max-width: 992px) {
+        .three-images-grid {
+            height: 400px;
+        }
+        
+        .middle-block::before,
+        .middle-block::after,
+        .left-block::after,
+        .right-block::before {
+            width: 70px;
+        }
+        
+        .middle-block::before,
+        .left-block::after {
+            left: -35px;
+        }
+        
+        .middle-block::after,
+        .right-block::before {
+            right: -35px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .three-images-grid {
+            height: 350px; /* Más pequeño pero mantiene horizontal */
+            grid-template-columns: repeat(3, 1fr); /* Mantiene 3 columnas */
+            gap: 0; /* Sin espacio */
+        }
+        
+        .image-block {
+            height: 100%; /* Mantiene altura completa */
+        }
+        
+        /* Ajustar tamaño de las diagonales en móvil */
+        .middle-block::before,
+        .middle-block::after,
+        .left-block::after,
+        .right-block::before {
+            width: 60px;
+        }
+        
+        .middle-block::before,
+        .left-block::after {
+            left: -30px;
+        }
+        
+        .middle-block::after,
+        .right-block::before {
+            right: -30px;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .three-images-grid {
+            height: 300px; /* Aún más pequeño en móviles muy pequeños */
+        }
+        
+        .animetals-grid-section {
+            padding: 20px 0;
+            margin: 20px 0;
+        }
+        
+        /* Ajustar más las diagonales para móviles pequeños */
+        .middle-block::before,
+        .middle-block::after,
+        .left-block::after,
+        .right-block::before {
+            width: 50px;
+        }
+        
+        .middle-block::before,
+        .left-block::after {
+            left: -25px;
+        }
+        
+        .middle-block::after,
+        .right-block::before {
+            right: -25px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .three-images-grid {
+            height: 250px; /* Tamaño mínimo para móviles muy pequeños */
+        }
+        
+        /* Reducir diagonales aún más */
+        .middle-block::before,
+        .middle-block::after,
+        .left-block::after,
+        .right-block::before {
+            width: 40px;
+        }
+        
+        .middle-block::before,
+        .left-block::after {
+            left: -20px;
+        }
+        
+        .middle-block::after,
+        .right-block::before {
+            right: -20px;
+        }
+    }
+    
+    /* Para pantallas muy pequeñas, mantener el diseño */
+    @media (max-width: 360px) {
+        .three-images-grid {
+            height: 220px;
+        }
+        
+        .grid-images-container {
+            padding: 0 10px;
+        }
+    }
