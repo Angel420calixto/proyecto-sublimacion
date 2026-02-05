@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Videos</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0f172a;
+            color: white;
+        }
+
+        section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .video-card {
+            background: #1e293b;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            padding-bottom: 15px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 220px;
+            border: none;
+        }
+
+        video {
+            width: 90%;
+            margin: 10px auto 0;
+            display: block;
+            border-radius: 8px;
+            background: black;
+        }
+
+        .video-info {
+            text-align: center;
+            margin-top: 12px;
+        }
+
+        .btn-descargar {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 16px;
+            background: #22c55e;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-descargar:hover {
+            background: #16a34a;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+
+<section>
+    <h2>🎥 Galería de Videos</h2>
+
+    <div class="galeria">
+
+        <!-- VIDEO 1 -->
+        <div class="video-card">
+            <!-- Vista desde red social -->
+<iframe width="356" height="634" src="https://www.youtube.com/embed/0q1zUZTf1Jk" title="Estás cometiendo éstos errores al sublimar laminas de aluminio.#sublimacion #cuadrospersonalizados" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <!-- Copia descargable real -->
+            <video controls>
+                <source src="AQUI_VIDEO_REAL_1.mp4" type="video/mp4">
+            </video>
+
+            <div class="video-info">
+                <p>Descargar versión HD</p>
+                <a href="AQUI_VIDEO_REAL_1.mp4" download class="btn-descargar">
+                    Descargar MP4 HD
+                </a>
+            </div>
+        </div>
+
+        <!-- VIDEO 2 -->
+        <div class="video-card">
+            <iframe src="AQUI_LINK_IFRAME_VIDEO_2" allowfullscreen></iframe>
+
+            <video controls>
+                <source src="AQUI_VIDEO_REAL_2.mp4" type="video/mp4">
+            </video>
+
+            <div class="video-info">
+                <p>Descargar versión HD</p>
+                <a href="AQUI_VIDEO_REAL_2.mp4" download class="btn-descargar">
+                    Descargar MP4 HD
+                </a>
+            </div>
+        </div>
+
+        <!-- VIDEO 3 -->
+        <div class="video-card">
+            <iframe src="AQUI_LINK_IFRAME_VIDEO_3" allowfullscreen></iframe>
+
+            <video controls>
+                <source src="AQUI_VIDEO_REAL_3.mp4" type="video/mp4">
+            </video>
+
+            <div class="video-info">
+                <p>Descargar versión HD</p>
+                <a href="AQUI_VIDEO_REAL_3.mp4" download class="btn-descargar">
+                    Descargar MP4 HD
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+</body>
+</html>
