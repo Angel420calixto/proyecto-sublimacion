@@ -27,7 +27,9 @@
           "scrollbar-width",
           "scrollbar-width: thin",
           "scrollbar-width: none",
-          "scrollbar-color"
+          "scrollbar-color",
+          "user-select",
+          "-webkit-user-drag"
         ]
       }
     ],

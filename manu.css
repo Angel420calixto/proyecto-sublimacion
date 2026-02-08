@@ -1,10 +1,10 @@
-/* manu.css - VERSIÓN COMPLETA CORREGIDA */
+/* manu.css - VERSIÓN OPTIMIZADA Y FUNCIONAL */
 
 /* =============================================
    VARIABLES CSS GLOBALES
    ============================================= */
 :root {
-    /* Colores principales del tema */
+    /* Colores principales */
     --color-primario: #1a1a2e;
     --color-secundario: #16213e;
     --color-terciario: #0f3460;
@@ -139,6 +139,25 @@ button {
     border-top: 1px solid var(--color-borde);
 }
 
+.boton-ver-mas {
+    background-color: var(--color-destacado);
+    color: var(--color-texto);
+    padding: 0.8rem 2.5rem;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: var(--transicion-rapida);
+    box-shadow: var(--sombra-suave);
+    border: none;
+    cursor: pointer;
+}
+
+.boton-ver-mas:hover {
+    background-color: #ff5773;
+    transform: translateY(-3px);
+    box-shadow: var(--sombra-destacada);
+}
+
 /* =============================================
    HEADER Y NAVEGACIÓN
    ============================================= */
@@ -220,7 +239,7 @@ button {
     width: 100%;
 }
 
-/* MENÚ DESPLEGABLE - CORREGIDO */
+/* MENÚ DESPLEGABLE - DESKTOP */
 .menu-con-desplegable {
     position: relative;
 }
@@ -325,10 +344,6 @@ button {
     display: none;
 }
 
-.menu-overlay.activo {
-    display: block;
-}
-
 /* =============================================
    BANNER PRINCIPAL
    ============================================= */
@@ -399,7 +414,7 @@ button {
 }
 
 /* =============================================
-   SECCIÓN ANIME POPULAR - CON INFORMACIÓN
+   SECCIÓN ANIME POPULAR
    ============================================= */
 .seccion-popular {
     padding: 4rem 0;
@@ -413,42 +428,34 @@ button {
     margin-bottom: 2rem;
 }
 
-.boton-ver-mas {
-    background-color: var(--color-destacado);
-    color: var(--color-texto);
-    padding: 0.8rem 2.5rem;
-    border-radius: 30px;
-    font-weight: 600;
-    font-size: 1rem;
-    transition: var(--transicion-rapida);
-    box-shadow: var(--sombra-suave);
-    border: none;
-    cursor: pointer;
-}
-
-.boton-ver-mas:hover {
-    background-color: #ff5773;
-    transform: translateY(-3px);
-    box-shadow: var(--sombra-destacada);
-}
-
-/* GRID POPULAR - 8 ELEMENTOS INICIALES (4x2) */
+/* GRID POPULAR - 2 FILAS DE 4 COLUMNAS (8 ELEMENTOS) */
 .grid-popular {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
-    transition: all 0.5s ease;
 }
 
-/* Estado inicial - mostrar solo 8 elementos (dos filas de 4) */
-.grid-popular .adicional {
-    display: none !important;
+/* Estado inicial - mostrar solo 2 filas (8 elementos) */
+.grid-popular {
+    max-height: 500px;
+    overflow: hidden;
+    transition: max-height 0.8s ease;
 }
 
 /* Estado expandido - mostrar todos los elementos */
+.grid-popular.expandido {
+    max-height: 2000px;
+}
+
+/* Ocultar elementos adicionales inicialmente */
+.grid-popular .adicional {
+    display: none;
+}
+
+/* Mostrar elementos adicionales cuando está expandido */
 .grid-popular.expandido .adicional {
-    display: flex !important;
-    animation: mostrarElementos 0.5s ease forwards;
+    display: block;
+    animation: fadeIn 0.5s ease forwards;
 }
 
 .item-popular {
@@ -489,7 +496,7 @@ button {
     transform: scale(1.05);
 }
 
-/* INFORMACIÓN DEL PRODUCTO - NUEVA SECCIÓN */
+/* INFORMACIÓN DEL PRODUCTO */
 .info-producto {
     padding: 1rem 0.5rem;
     border-radius: 0 0 8px 8px;
@@ -516,30 +523,37 @@ button {
 }
 
 /* =============================================
-   SECCIÓN PRODUCTOS - CON INFORMACIÓN
+   SECCIÓN PRODUCTOS
    ============================================= */
 .seccion-productos {
     padding: 3rem 0;
     background-color: var(--color-fondo);
 }
 
-/* GALERÍA DE PRODUCTOS - 4 ELEMENTOS INICIALES */
+/* GALERÍA DE PRODUCTOS - 2 FILAS DE 4 COLUMNAS (8 ELEMENTOS) */
 .galeria-productos {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
-    transition: all 0.5s ease;
-}
-
-/* Estado inicial - mostrar solo elementos no adicionales */
-.galeria-productos .adicional {
-    display: none !important;
+    max-height: 500px;
+    overflow: hidden;
+    transition: max-height 0.8s ease;
 }
 
 /* Estado expandido - mostrar todos los elementos */
+.galeria-productos.expandido {
+    max-height: 2000px;
+}
+
+/* Ocultar elementos adicionales inicialmente */
+.galeria-productos .adicional {
+    display: none;
+}
+
+/* Mostrar elementos adicionales cuando está expandido */
 .galeria-productos.expandido .adicional {
-    display: flex !important;
-    animation: mostrarElementos 0.5s ease forwards;
+    display: block;
+    animation: fadeIn 0.5s ease forwards;
 }
 
 .producto-item {
@@ -579,34 +593,8 @@ button {
     transform: scale(1.05);
 }
 
-/* INFORMACIÓN DEL PRODUCTO - IGUAL QUE POPULAR */
-.producto-item .info-producto {
-    padding: 1rem 0.5rem;
-    border-radius: 0 0 8px 8px;
-    text-align: center;
-}
-
-.producto-item .titulo-producto {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--color-texto);
-    margin-bottom: 0.5rem;
-    line-height: 1.2;
-    height: 2.4rem;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-}
-
-.producto-item .dimension-producto {
-    font-size: 0.85rem;
-    color: var(--color-texto-secundario);
-    margin-bottom: 0;
-}
-
 /* =============================================
-   SECCIÓN GRID SIMPLE - 3 IMÁGENES CON RECORTE DIAGONAL
+   SECCIÓN GRID SIMPLE - 3 IMÁGENES
    ============================================= */
 .animetals-grid-section {
     width: 100%;
@@ -682,12 +670,12 @@ button {
     display: none;
     justify-content: center;
     align-items: center;
-    z-index: 10000;
+    z-index: 9999;
     padding: 20px;
 }
 
 .modal-imagen.mostrar {
-    display: flex !important;
+    display: flex;
     animation: fadeInModal 0.3s ease;
 }
 
@@ -716,6 +704,17 @@ button {
     to {
         opacity: 1;
         transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -916,20 +915,6 @@ button {
 }
 
 /* =============================================
-   ANIMACIONES
-   ============================================= */
-@keyframes mostrarElementos {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* =============================================
    RESPONSIVE DESIGN
    ============================================= */
 
@@ -937,7 +922,7 @@ button {
 @media (max-width: 1200px) {
     .grid-popular,
     .galeria-productos {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
     
     .contenedor-footer {
@@ -971,18 +956,33 @@ button {
     .three-images-grid {
         height: 400px;
     }
+    
+    .grid-popular,
+    .galeria-productos {
+        max-height: 800px;
+    }
+    
+    .grid-popular.expandido,
+    .galeria-productos.expandido {
+        max-height: 2500px;
+    }
 }
 
 /* Tablets pequeñas (900px) */
 @media (max-width: 900px) {
     .grid-popular,
     .galeria-productos {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
     
     .contenedor-imagen-popular,
     .contenedor-imagen-producto {
         height: 180px;
+    }
+    
+    .grid-popular,
+    .galeria-productos {
+        max-height: 750px;
     }
 }
 
@@ -999,14 +999,13 @@ button {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 85%;
-        max-width: 400px;
+        width: 300px;
         height: 100vh;
         background-color: var(--color-primario);
         flex-direction: column;
         justify-content: flex-start;
         padding: 100px 2rem 2rem;
-        gap: 1.5rem;
+        gap: 0;
         z-index: 9999;
         margin: 0;
         overflow-y: auto;
@@ -1021,16 +1020,20 @@ button {
     .menu-principal li {
         width: 100%;
         padding: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .menu-principal li:last-child {
+        border-bottom: none;
     }
     
     .enlace-menu {
         display: block;
-        padding: 0.8rem 0;
-        font-size: 1.1rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 1rem 0;
+        font-size: 1rem;
     }
     
-    /* MENÚ DESPLEGABLE MÓVIL - CORREGIDO */
+    /* MENÚ DESPLEGABLE MÓVIL */
     .menu-con-desplegable {
         position: relative;
     }
@@ -1063,7 +1066,6 @@ button {
         visibility: visible;
         transform: none;
         transition: max-height 0.4s ease;
-        display: block;
     }
     
     .menu-con-desplegable.activo .submenu {
@@ -1073,6 +1075,7 @@ button {
     
     .menu-con-desplegable .submenu li {
         padding: 0.5rem 0;
+        border-bottom: none;
     }
     
     .menu-con-desplegable .submenu a {
@@ -1106,6 +1109,12 @@ button {
     .galeria-productos {
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
+        max-height: 700px;
+    }
+    
+    .grid-popular.expandido,
+    .galeria-productos.expandido {
+        max-height: 3000px;
     }
     
     .contenedor-imagen-popular,
@@ -1177,6 +1186,7 @@ button {
     .galeria-productos {
         grid-template-columns: repeat(2, 1fr);
         gap: 0.8rem;
+        max-height: 650px;
     }
     
     .contenedor-imagen-popular,
@@ -1258,64 +1268,99 @@ button {
     .dimension-producto {
         font-size: 0.75rem;
     }
+    
+    .grid-popular,
+    .galeria-productos {
+        grid-template-columns: 1fr;
+        max-height: 1200px;
+    }
+    
+    .grid-popular.expandido,
+    .galeria-productos.expandido {
+        max-height: 5000px;
+    }
 }
 
 /* =============================================
-   CORRECCIONES ESPECÍFICAS PARA EL JAVASCRIPT
+   CORRECCIÓN ESPECÍFICA PARA EL MODAL
    ============================================= */
 
-/* Asegurar que los elementos adicionales estén ocultos inicialmente */
-.grid-popular .adicional,
-.galeria-productos .adicional {
-    display: none !important;
-}
-
-/* Mostrar elementos cuando su contenedor tiene clase expandido */
-.grid-popular.expandido .adicional,
-.galeria-productos.expandido .adicional {
-    display: flex !important;
-}
-
-/* Asegurar que el modal tenga el z-index más alto */
 .modal-imagen {
-    z-index: 99999 !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-/* Asegurar que el menú móvil tenga z-index alto */
-.menu-principal.activo {
-    z-index: 9999 !important;
+.modal-imagen.mostrar {
+    opacity: 1;
+    visibility: visible;
 }
 
-/* Asegurar que las imágenes sean clickeables */
+.modal-contenido {
+    background-color: var(--color-primario);
+    border-radius: 12px;
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.modal-imagen.mostrar .modal-contenido {
+    transform: scale(1);
+}
+
+/* Asegurar que el modal esté siempre centrado */
+.modal-imagen-contenedor {
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+#imagen-ampliada {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Prevenir que imágenes sean arrastradas */
 .imagen-producto {
-    cursor: pointer;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
+/* Mejorar rendimiento en transiciones */
 .item-popular,
-.producto-item {
-    cursor: pointer;
+.producto-item,
+.modal-contenido {
+    will-change: transform;
+    backface-visibility: hidden;
 }
 
-/* Asegurar que el overlay del menú sea clickeable */
-.menu-overlay {
-    cursor: pointer;
-}
+/* =============================================
+   CORRECCIÓN ESPECÍFICA PARA SUBMENÚ MÓVIL
+   ============================================= */
 
-/* ===========================================
-   REGLAS ESPECÍFICAS PARA EL JAVASCRIPT
-   =========================================== */
-
-/* 1. MENÚ MÓVIL - ASEGURAR FUNCIONALIDAD */
+/* SUBMENÚ EN MÓVIL - VISIBLE Y FUNCIONAL */
 @media (max-width: 768px) {
-    .menu-principal {
-        display: none;
-    }
-    
-    .menu-principal.activo {
-        display: flex !important;
-        right: 0 !important;
-    }
-    
+    /* Overlay del menú */
     .menu-overlay {
         display: none;
         position: fixed;
@@ -1323,71 +1368,418 @@ button {
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.8);
+        background-color: rgba(0, 0, 0, 0.7);
         z-index: 9998;
+        cursor: pointer;
+        opacity: 0;
+        transition: opacity 0.3s ease;
     }
     
     .menu-overlay.activo {
-        display: block !important;
-    }
-}
-
-/* 2. ELEMENTOS "VER MÁS" - ASEGURAR VISIBILIDAD */
-.grid-popular .adicional,
-.galeria-productos .adicional {
-    display: none !important;
-    opacity: 0;
-    transform: translateY(20px);
-}
-
-.grid-popular.expandido .adicional,
-.galeria-productos.expandido .adicional {
-    display: flex !important;
-    opacity: 1;
-    transform: translateY(0);
-    animation: fadeInUp 0.5s ease forwards;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
+        display: block;
         opacity: 1;
-        transform: translateY(0);
+    }
+    
+    /* Menú principal móvil */
+    .menu-principal {
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 280px;
+        height: 100vh;
+        background-color: var(--color-primario);
+        flex-direction: column;
+        padding: 100px 25px 30px;
+        transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        overflow-y: auto;
+        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+    }
+    
+    .menu-principal.activo {
+        right: 0;
+    }
+    
+    /* Items del menú */
+    .menu-principal li {
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .menu-principal li:last-child {
+        border-bottom: none;
+    }
+    
+    .enlace-menu {
+        display: block;
+        padding: 1rem 0;
+        font-size: 1rem;
+        color: var(--color-texto);
+        transition: color 0.3s ease;
+    }
+    
+    .enlace-menu:hover {
+        color: var(--color-destacado);
+    }
+    
+    /* SUBMENÚ DESPLEGABLE - CORRECCIÓN (NO NEGRO) */
+    .menu-con-desplegable {
+        position: relative;
+        background-color: var(--color-primario) !important;
+    }
+    
+    .menu-con-desplegable .enlace-menu-desplegable {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        cursor: pointer;
+        background-color: transparent !important;
+    }
+    
+    .menu-con-desplegable .flecha-desplegable {
+        transition: transform 0.3s ease;
+        font-size: 0.9rem;
+    }
+    
+    .menu-con-desplegable.activo .flecha-desplegable {
+        transform: rotate(180deg);
+    }
+    
+    /* Submenú - VISIBLE Y CON COLOR CORRECTO */
+    .menu-con-desplegable .submenu {
+        position: static !important;
+        background-color: rgba(26, 26, 46, 0.9) !important;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        padding: 0 !important;
+        margin: 10px 0 0 15px !important;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    
+    .menu-con-desplegable.activo .submenu {
+        max-height: 500px;
+        padding: 10px 0 !important;
+    }
+    
+    .menu-con-desplegable .submenu li {
+        border-bottom: none;
+        padding: 0 !important;
+        background-color: transparent !important;
+    }
+    
+    .menu-con-desplegable .submenu a {
+        display: block;
+        padding: 8px 20px !important;
+        color: var(--color-texto-secundario) !important;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+        background-color: transparent !important;
+    }
+    
+    .menu-con-desplegable .submenu a:hover {
+        color: var(--color-destacado) !important;
+        background-color: rgba(233, 69, 96, 0.1) !important;
+        padding-left: 25px !important;
+    }
+    
+    /* Asegurar que no haya colores negros */
+    .menu-con-desplegable * {
+        background-color: transparent !important;
+    }
+    
+    /* Grid en móvil - 2 columnas */
+    .grid-popular,
+    .galeria-productos {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem;
+    }
+    
+    .contenedor-imagen-popular,
+    .contenedor-imagen-producto {
+        height: 160px;
     }
 }
 
-/* 3. MODAL - ASEGURAR VISIBILIDAD */
+/* Para móviles más pequeños */
+@media (max-width: 576px) {
+    .menu-principal {
+        width: 250px;
+        right: -250px;
+    }
+    
+    .grid-popular,
+    .galeria-productos {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.8rem;
+    }
+    
+    .contenedor-imagen-popular,
+    .contenedor-imagen-producto {
+        height: 150px;
+    }
+}
+
+/* Para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    .menu-principal {
+        width: 85%;
+        max-width: 280px;
+        right: -100%;
+    }
+    
+    .menu-principal.activo {
+        right: 0;
+    }
+    
+    .grid-popular,
+    .galeria-productos {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.6rem;
+    }
+}
+
+/* Modal - corrección final */
 .modal-imagen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    padding: 20px;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .modal-imagen.mostrar {
-    opacity: 1 !important;
-    visibility: visible !important;
-    display: flex !important;
+    opacity: 1;
+    visibility: visible;
 }
 
-/* 4. CURSORES CLICKEABLES */
-.imagen-producto,
-.item-popular,
-.producto-item {
-    cursor: pointer !important;
+/* Prevenir problemas de selección */
+* {
+    -webkit-tap-highlight-color: transparent;
 }
 
-/* 5. ANIMACIONES PARA SUBMENÚ */
+.imagen-producto {
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+
+/* =============================================
+   SOLUCIÓN DEFINITIVA PARA SUBMENÚ MÓVIL
+   ============================================= */
+
 @media (max-width: 768px) {
+    /* OVERLAY */
+    .menu-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 9998;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .menu-overlay.activo {
+        display: block;
+        opacity: 1;
+    }
+    
+    /* MENÚ PRINCIPAL */
+    .menu-principal {
+        position: fixed;
+        top: 0;
+        right: -280px;
+        width: 280px;
+        height: 100vh;
+        background: #1a1a2e; /* Color explícito */
+        flex-direction: column;
+        padding: 100px 20px 30px;
+        transition: right 0.4s ease;
+        overflow-y: auto;
+        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+    }
+    
+    .menu-principal.activo {
+        right: 0;
+    }
+    
+    /* ITEMS DEL MENÚ */
+    .menu-principal > li {
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative; /* Importante para submenú */
+    }
+    
+    .menu-principal > li:last-child {
+        border-bottom: none;
+    }
+    
+    .enlace-menu {
+        display: block;
+        padding: 15px 0;
+        font-size: 1rem;
+        color: #ffffff; /* Color explícito */
+        transition: color 0.3s ease;
+        background: transparent !important;
+    }
+    
+    /* CONTENEDOR DEL SUBMENÚ */
+    .menu-con-desplegable {
+        position: relative;
+        background: transparent !important;
+    }
+    
+    /* ENLACE DEL SUBMENÚ */
+    .enlace-menu-desplegable {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        cursor: pointer;
+        background: transparent !important;
+        color: #ffffff !important; /* Color explícito */
+    }
+    
+    .flecha-desplegable {
+        transition: transform 0.3s ease;
+        font-size: 0.9rem;
+        color: #ffffff !important;
+    }
+    
+    .menu-con-desplegable.activo .flecha-desplegable {
+        transform: rotate(180deg);
+    }
+    
+    /* SUBMENÚ - ESTILOS NUEVOS Y LIMPIOS */
     .menu-con-desplegable .submenu {
+        /* Reset de estilos problemáticos */
+        display: block !important;
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        width: 100% !important;
+        min-width: auto !important;
+        max-width: none !important;
+        
+        /* Estilos propios */
+        background: #16213e !important; /* Color diferente al menú principal */
+        border-radius: 6px;
+        margin: 10px 0 0 0 !important;
+        padding: 0 !important;
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.4s ease;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        z-index: 10000 !important;
+        border: 1px solid rgba(255, 255, 255, 0.1);
     }
     
     .menu-con-desplegable.activo .submenu {
-        max-height: 500px;
+        max-height: 400px;
+        padding: 8px 0 !important;
     }
+    
+    /* ITEMS DEL SUBMENÚ */
+    .menu-con-desplegable .submenu li {
+        display: block;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        border: none !important;
+        background: transparent !important;
+        list-style: none !important;
+    }
+    
+    /* ENLACES DEL SUBMENÚ */
+    .menu-con-desplegable .submenu a {
+        display: block;
+        width: 100%;
+        padding: 10px 20px !important;
+        color: #b8b8d1 !important; /* Color texto secundario */
+        font-size: 0.9rem;
+        font-weight: 500;
+        text-decoration: none !important;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background: transparent !important;
+        border: none !important;
+        outline: none !important;
+        text-align: left;
+    }
+    
+    .menu-con-desplegable .submenu a:hover,
+    .menu-con-desplegable .submenu a:focus {
+        color: #e94560 !important; /* Color destacado */
+        background: rgba(233, 69, 96, 0.1) !important;
+        padding-left: 25px !important;
+    }
+    
+    /* Asegurar que no haya sombras negras */
+    .menu-con-desplegable * {
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+    
+    /* Grid en móvil */
+    .grid-popular,
+    .galeria-productos {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem;
+    }
+}
+
+/* Para móviles más pequeños */
+@media (max-width: 480px) {
+    .menu-principal {
+        width: 85%;
+        max-width: 280px;
+        right: -100%;
+    }
+    
+    .menu-principal.activo {
+        right: 0;
+    }
+    
+    .grid-popular,
+    .galeria-productos {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* Estilos generales para prevenir problemas */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Solo permitir selección en textos */
+.titulo-producto,
+.dimension-producto,
+.modal-info * {
+    -webkit-user-select: text;
+    user-select: text;
 }
