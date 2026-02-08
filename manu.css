@@ -1,22 +1,24 @@
-/* estilos.css */
+/* manu.css - VERSIÓN COMPLETA CORREGIDA */
 
 /* =============================================
    VARIABLES CSS GLOBALES
    ============================================= */
 :root {
     /* Colores principales del tema */
-    --color-primario: #1a1a2e;       /* Fondo principal oscuro */
-    --color-secundario: #16213e;     /* Fondo secundario */
-    --color-terciario: #0f3460;      /* Fondo terciario */
-    --color-destacado: #e94560;      /* Color de acento (rosa/rojo) */
-    --color-texto: #ffffff;          /* Texto principal blanco */
-    --color-texto-secundario: #b8b8d1; /* Texto secundario gris claro */
-    --color-fondo: #0d0d1a;          /* Fondo general de la página */
-    --color-borde: #2a2a4a;          /* Color para bordes */
+    --color-primario: #1a1a2e;
+    --color-secundario: #16213e;
+    --color-terciario: #0f3460;
+    --color-destacado: #e94560;
+    --color-whatsapp: #25D366;
+    --color-texto: #ffffff;
+    --color-texto-secundario: #b8b8d1;
+    --color-fondo: #0d0d1a;
+    --color-borde: #2a2a4a;
     
     /* Sombras */
     --sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.3);
     --sombra-destacada: 0 8px 24px rgba(233, 69, 96, 0.3);
+    --sombra-whatsapp: 0 4px 20px rgba(37, 211, 102, 0.4);
     
     /* Transiciones */
     --transicion-rapida: all 0.3s ease;
@@ -29,11 +31,11 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Incluye padding y border en el tamaño total */
+    box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth; /* Desplazamiento suave al hacer scroll */
+    scroll-behavior: smooth;
 }
 
 body {
@@ -41,49 +43,73 @@ body {
     background-color: var(--color-fondo);
     color: var(--color-texto);
     line-height: 1.6;
-    overflow-x: hidden; /* Evita scroll horizontal */
+    overflow-x: hidden;
 }
 
-/* Clase que se añade cuando el menú móvil está abierto */
 body.menu-abierto {
-    overflow: hidden; /* Previene scroll del body cuando el menú está abierto */
+    overflow: hidden;
 }
 
 /* =============================================
-   ESTILOS PARA IMÁGENES
+   BOTÓN DE WHATSAPP FIJO
    ============================================= */
-img {
-    max-width: 100%; /* Las imágenes no exceden el ancho del contenedor */
-    height: auto; /* Mantiene proporción de la imagen */
-    display: block; /* Elimina espacio extra debajo de las imágenes */
+.whatsapp-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: var(--color-whatsapp);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 28px;
+    z-index: 1000;
+    box-shadow: var(--sombra-whatsapp);
+    transition: var(--transicion-rapida);
+    animation: pulse 2s infinite;
+}
+
+.whatsapp-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
 }
 
 /* =============================================
    ELEMENTOS DE INTERFAZ
    ============================================= */
 a {
-    text-decoration: none; /* Sin subrayado en enlaces */
-    color: inherit; /* Hereda color del elemento padre */
+    text-decoration: none;
+    color: inherit;
 }
 
 ul {
-    list-style: none; /* Sin viñetas en listas */
+    list-style: none;
 }
 
 button {
-    font-family: inherit; /* Hereda fuente del body */
-    cursor: pointer; /* Cambia cursor a pointer */
-    border: none; /* Sin bordes por defecto */
-    outline: none; /* Sin outline por defecto */
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
 }
 
 /* =============================================
    CLASES DE UTILIDAD
    ============================================= */
 .contenedor-seccion {
-    max-width: 1200px; /* Ancho máximo para contenido */
-    margin: 0 auto; /* Centra horizontalmente */
-    padding: 0 20px; /* Padding lateral */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .titulo-seccion {
@@ -91,14 +117,13 @@ button {
     font-weight: 700;
     margin-bottom: 1.5rem;
     color: var(--color-texto);
-    position: relative; /* Para el pseudo-elemento ::after */
+    position: relative;
 }
 
-/* Línea decorativa debajo del título */
 .titulo-seccion::after {
-    content: ''; /* Necesario para pseudo-elementos */
+    content: '';
     position: absolute;
-    bottom: -8px; /* Posiciona debajo del texto */
+    bottom: -8px;
     left: 0;
     width: 60px;
     height: 3px;
@@ -106,14 +131,22 @@ button {
     border-radius: 3px;
 }
 
+.contenedor-boton-ver-mas {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-borde);
+}
+
 /* =============================================
    HEADER Y NAVEGACIÓN
    ============================================= */
 .header-principal {
     background-color: var(--color-primario);
-    position: sticky; /* Se mantiene fijo al hacer scroll */
-    top: 0; /* Se pega al top */
-    z-index: 1000; /* Por encima de otros elementos */
+    position: sticky;
+    top: 0;
+    z-index: 999;
     box-shadow: var(--sombra-suave);
 }
 
@@ -126,37 +159,37 @@ button {
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
-    align-items: center; /* Centra verticalmente */
-    justify-content: space-between; /* Espacia elementos */
-    position: relative; /* Para posicionar elementos hijos */
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
 }
 
 .logo-contenedor {
     display: flex;
     align-items: center;
-    gap: 10px; /* Espacio entre logo y texto */
+    gap: 10px;
 }
 
 .logo {
     width: 50px;
     height: 50px;
-    border-radius: 50%; /* Forma circular */
-    object-fit: cover; /* Cubre el área sin distorsionar */
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .titulo-logo {
     font-size: 1.5rem;
     font-weight: 800;
     background: linear-gradient(90deg, var(--color-destacado), #ff7b9c);
-    -webkit-background-clip: text; /* Para Safari/Chrome */
-    background-clip: text; /* Texto con gradiente */
-    color: transparent; /* Hace visible el gradiente */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 /* MENÚ PRINCIPAL - DESKTOP */
 .menu-principal {
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
     align-items: center;
 }
 
@@ -172,25 +205,39 @@ button {
     color: var(--color-destacado);
 }
 
-/* Efecto de subrayado al hacer hover */
 .enlace-menu::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 0; /* Inicialmente invisible */
+    width: 0;
     height: 2px;
     background-color: var(--color-destacado);
     transition: var(--transicion-rapida);
 }
 
 .enlace-menu:hover::after {
-    width: 100%; /* Se expande al hacer hover */
+    width: 100%;
 }
 
-/* MENÚ DESPLEGABLE */
+/* MENÚ DESPLEGABLE - CORREGIDO */
 .menu-con-desplegable {
-    position: relative; /* Para posicionar el submenu */
+    position: relative;
+}
+
+.enlace-menu-desplegable {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.flecha-desplegable {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.menu-con-desplegable:hover .flecha-desplegable {
+    transform: rotate(180deg);
 }
 
 .menu-con-desplegable:hover .submenu {
@@ -201,18 +248,18 @@ button {
 
 .submenu {
     position: absolute;
-    top: 100%; /* Justo debajo del enlace padre */
+    top: 100%;
     left: 0;
     background-color: var(--color-secundario);
     min-width: 200px;
     padding: 1rem 0;
     border-radius: 8px;
     box-shadow: var(--sombra-suave);
-    opacity: 0; /* Inicialmente invisible */
-    visibility: hidden; /* No ocupa espacio cuando está invisible */
-    transform: translateY(10px); /* Efecto de aparición */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
     transition: var(--transicion-rapida);
-    z-index: 100; /* Por encima de otros elementos */
+    z-index: 100;
 }
 
 .submenu li {
@@ -220,13 +267,13 @@ button {
 }
 
 .submenu a {
-    display: block; /* Ocupa todo el ancho del li */
+    display: block;
     transition: var(--transicion-rapida);
 }
 
 .submenu a:hover {
     color: var(--color-destacado);
-    padding-left: 5px; /* Efecto de desplazamiento */
+    padding-left: 5px;
 }
 
 /* ICONOS DE USUARIO */
@@ -249,19 +296,19 @@ button {
     color: var(--color-destacado);
 }
 
-/* BOTÓN MENÚ MÓVIL (HAMBURGUESA) */
+/* BOTÓN MENÚ MÓVIL */
 .boton-menu-mobile {
-    display: none; /* Solo visible en móvil */
+    display: none;
     background: none;
     color: var(--color-texto);
     font-size: 1.5rem;
-    z-index: 1002; /* Por encima del menú */
+    z-index: 1002;
     width: 44px;
     height: 44px;
     border-radius: 8px;
     align-items: center;
     justify-content: center;
-    background: rgba(233, 69, 96, 0.1); /* Fondo semitransparente */
+    background: rgba(233, 69, 96, 0.1);
 }
 
 /* =============================================
@@ -273,13 +320,13 @@ button {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semitransparente */
-    z-index: 998; /* Debajo del menú pero encima del contenido */
-    display: none; /* Solo visible cuando el menú está abierto */
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 998;
+    display: none;
 }
 
-body.menu-abierto .menu-overlay {
-    display: block; /* Muestra el overlay cuando el menú está abierto */
+.menu-overlay.activo {
+    display: block;
 }
 
 /* =============================================
@@ -299,12 +346,12 @@ body.menu-abierto .menu-overlay {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 3rem; /* Espacio entre contenido e imagen */
+    gap: 3rem;
 }
 
 .contenido-banner {
-    flex: 1; /* Ocupa espacio disponible */
-    max-width: 600px; /* Ancho máximo del contenido */
+    flex: 1;
+    max-width: 600px;
 }
 
 .titulo-banner {
@@ -326,20 +373,20 @@ body.menu-abierto .menu-overlay {
     background-color: var(--color-destacado);
     color: var(--color-texto);
     padding: 0.8rem 2rem;
-    border-radius: 30px; /* Bordes redondeados */
+    border-radius: 30px;
     font-weight: 600;
     transition: var(--transicion-rapida);
-    box-shadow: var(sombra-suave);
+    box-shadow: var(--sombra-suave);
 }
 
 .boton-banner:hover {
-    background-color: #ff5773; /* Color más claro al hacer hover */
-    transform: translateY(-3px); /* Efecto de elevación */
+    background-color: #ff5773;
+    transform: translateY(-3px);
     box-shadow: var(--sombra-destacada);
 }
 
 .imagen-banner {
-    flex: 1; /* Ocupa espacio disponible */
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -347,11 +394,12 @@ body.menu-abierto .menu-overlay {
 
 .imagen-banner img {
     max-width: 100%;
+    border-radius: 12px;
     box-shadow: var(--sombra-suave);
 }
 
 /* =============================================
-   SECCIÓN ANIME POPULAR - MODIFICADA PARA 6 IMÁGENES INICIALES
+   SECCIÓN ANIME POPULAR - CON INFORMACIÓN
    ============================================= */
 .seccion-popular {
     padding: 4rem 0;
@@ -365,22 +413,17 @@ body.menu-abierto .menu-overlay {
     margin-bottom: 2rem;
 }
 
-.contenedor-boton-ver-mas {
-    display: flex;
-    justify-content: center; /* Centra el botón horizontalmente */
-    width: 100%;
-    margin-top: 2rem; /* Espacio arriba del botón */
-}
-
 .boton-ver-mas {
     background-color: var(--color-destacado);
     color: var(--color-texto);
-    padding: 0.8rem 2.5rem; /* Botón más grande */
+    padding: 0.8rem 2.5rem;
     border-radius: 30px;
     font-weight: 600;
     font-size: 1rem;
     transition: var(--transicion-rapida);
     box-shadow: var(--sombra-suave);
+    border: none;
+    cursor: pointer;
 }
 
 .boton-ver-mas:hover {
@@ -389,216 +432,387 @@ body.menu-abierto .menu-overlay {
     box-shadow: var(--sombra-destacada);
 }
 
+/* GRID POPULAR - 8 ELEMENTOS INICIALES (4x2) */
 .grid-popular {
     display: grid;
-    grid-template-columns: repeat(6, 1fr); /* 6 columnas en desktop */
+    grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
-    transition: all 0.5s ease; /* Transición para expandir/contraer */
+    transition: all 0.5s ease;
 }
 
-/* Clase para el estado inicial - muestra solo 6 elementos */
-.grid-popular:not(.expandido) {
-    /* Ocultar elementos después del sexto */
-    grid-template-rows: auto;
+/* Estado inicial - mostrar solo 8 elementos (dos filas de 4) */
+.grid-popular .adicional {
+    display: none !important;
 }
 
-.grid-popular:not(.expandido) .item-popular:nth-child(n+7) {
-    display: none; /* Oculta todos los elementos después del 6to */
-}
-
-/* Clase para estado expandido - muestra todos los elementos */
-.grid-popular.expandido {
-    grid-template-rows: auto;
-}
-
-.grid-popular.expandido .item-popular:nth-child(n+7) {
-    display: flex; /* Muestra todos los elementos cuando está expandido */
+/* Estado expandido - mostrar todos los elementos */
+.grid-popular.expandido .adicional {
+    display: flex !important;
+    animation: mostrarElementos 0.5s ease forwards;
 }
 
 .item-popular {
-    background-color: transparent; /* Sin fondo */
+    background-color: transparent;
     border-radius: 12px;
     overflow: hidden;
     transition: var(--transicion-media);
     display: flex;
     flex-direction: column;
-    height: 100%; /* Ocupa toda la altura del grid */
+    height: 100%;
+    cursor: pointer;
 }
 
 .item-popular:hover {
-    transform: translateY(-10px); /* Efecto de elevación */
+    transform: translateY(-10px);
     box-shadow: var(--sombra-destacada);
-    border-color: var(--color-destacado); /* Cambia color del borde */
 }
 
-/* =============================================
-   CONTENEDOR DE IMAGEN - ¡IMPORTANTE PARA EL TAMAÑO!
-   ============================================= */
+/* CONTENEDOR DE IMAGEN */
 .contenedor-imagen-popular {
-    height: 200px; /* Altura fija para el contenedor */
-    overflow: hidden; /* Oculta partes que se salgan */
+    height: 200px;
+    overflow: hidden;
     display: flex;
-    align-items: center; /* Centra verticalmente */
-    justify-content: center; /* Centra horizontalmente */
-    background-color: transparent; /* Sin fondo */
-    padding: 5px; /* Padding reducido para que la imagen ocupe más espacio */
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    padding: 5px;
 }
 
-/* =============================================
-   ESTILOS DE IMAGEN - ¡AQUÍ SE AJUSTA EL TAMAÑO!
-   ============================================= */
 .contenedor-imagen-popular img {
-    width: 100%; /* Ocupa todo el ancho del contenedor */
-    height: 100%; /* Ocupa toda la altura del contenedor */
-    object-fit: contain; /* Muestra toda la imagen sin recortar, manteniendo proporción */
-    transition: transform 0.5s ease; /* Transición suave para efecto hover */
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.5s ease;
 }
 
-/* Efecto de zoom al hacer hover */
 .item-popular:hover .contenedor-imagen-popular img {
-    transform: scale(1.05); /* Aumenta tamaño al 105% */
+    transform: scale(1.05);
+}
+
+/* INFORMACIÓN DEL PRODUCTO - NUEVA SECCIÓN */
+.info-producto {
+    padding: 1rem 0.5rem;
+    border-radius: 0 0 8px 8px;
+    text-align: center;
+}
+
+.titulo-producto {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-texto);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    height: 2.4rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.dimension-producto {
+    font-size: 0.85rem;
+    color: var(--color-texto-secundario);
+    margin-bottom: 0;
 }
 
 /* =============================================
-   SECCIÓN PRODUCTOS - MODIFICADA PARA 6 IMÁGENES INICIALES
+   SECCIÓN PRODUCTOS - CON INFORMACIÓN
    ============================================= */
 .seccion-productos {
     padding: 3rem 0;
     background-color: var(--color-fondo);
 }
 
-/* Contenedor del botón "Ver más" para productos */
-.contenedor-boton-productos {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-top: 2rem;
-}
-
-/* =============================================
-   GALERÍA DE PRODUCTOS PARA DESKTOP - MODIFICADA
-   ============================================= */
-.galeria-productos.desktop-galeria {
+/* GALERÍA DE PRODUCTOS - 4 ELEMENTOS INICIALES */
+.galeria-productos {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 6 columnas en desktop */
-    gap: 2rem;
-    transition: all 0.5s ease; /* Transición para expandir */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    transition: all 0.5s ease;
 }
 
-/* Estado inicial - solo muestra 6 elementos */
-.galeria-productos.desktop-galeria:not(.expandido) .producto-item:nth-child(n+7) {
-    display: none; /* Oculta elementos después del 6to */
+/* Estado inicial - mostrar solo elementos no adicionales */
+.galeria-productos .adicional {
+    display: none !important;
 }
 
-/* Estado expandido - muestra todos los elementos */
-.galeria-productos.desktop-galeria.expandido .producto-item:nth-child(n+7) {
-    display: flex; /* Muestra todos los elementos */
+/* Estado expandido - mostrar todos los elementos */
+.galeria-productos.expandido .adicional {
+    display: flex !important;
+    animation: mostrarElementos 0.5s ease forwards;
 }
 
 .producto-item {
-    background-color: transparent; /* Sin fondo */
+    background-color: transparent;
     overflow: hidden;
     transition: var(--transicion-media);
     display: flex;
     flex-direction: column;
-    height: 100%; /* Ocupa toda la altura */
+    height: 100%;
+    cursor: pointer;
 }
 
 .producto-item:hover {
-    transform: translateY(-5px); /* Efecto de elevación más suave */
+    transform: translateY(-5px);
     box-shadow: var(--sombra-destacada);
-    border-color: var(--color-destacado);
 }
 
-/* =============================================
-   CONTENEDOR DE IMAGEN PARA PRODUCTOS - ¡IMPORTANTE!
-   ============================================= */
+/* CONTENEDOR DE IMAGEN PARA PRODUCTOS */
 .contenedor-imagen-producto {
-    height: 350px; /* Altura mayor para productos */
+    height: 200px;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: transparent;
-    padding: 5px; /* Padding mínimo */
+    padding: 5px;
 }
 
-/* =============================================
-   IMAGEN DE PRODUCTO - ¡AQUÍ SE AJUSTA EL TAMAÑO!
-   ============================================= */
 .contenedor-imagen-producto img {
-    width: 100%; /* Ocupa todo el ancho */
-    height: 100%; /* Ocupa toda la altura */
-    object-fit: contain; /* Muestra imagen completa sin recortar */
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
     transition: transform 0.5s ease;
 }
 
 .producto-item:hover .contenedor-imagen-producto img {
-    transform: scale(1.05); /* Efecto de zoom */
+    transform: scale(1.05);
+}
+
+/* INFORMACIÓN DEL PRODUCTO - IGUAL QUE POPULAR */
+.producto-item .info-producto {
+    padding: 1rem 0.5rem;
+    border-radius: 0 0 8px 8px;
+    text-align: center;
+}
+
+.producto-item .titulo-producto {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-texto);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    height: 2.4rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.producto-item .dimension-producto {
+    font-size: 0.85rem;
+    color: var(--color-texto-secundario);
+    margin-bottom: 0;
 }
 
 /* =============================================
-   GALERÍA DE PRODUCTOS PARA MÓVIL - MODIFICADA
+   SECCIÓN GRID SIMPLE - 3 IMÁGENES CON RECORTE DIAGONAL
    ============================================= */
-.galeria-movil.movil-galeria {
-    display: none; /* Solo visible en móvil */
-    grid-template-columns: repeat(2, 1fr); /* 2 columnas en móvil */
-    gap: 1rem;
-    max-height: 0;
+.animetals-grid-section {
+    width: 100%;
+    background-color: var(--color-fondo);
+    padding: 40px 0;
+    margin: 40px 0;
+    position: relative;
     overflow: hidden;
-    transition: max-height 0.5s ease, margin-bottom 0.5s ease;
 }
 
-/* Estado inicial - muestra solo 4 elementos (2x2) */
-.galeria-movil.movil-galeria:not(.expandido) .producto-movil:nth-child(n+5) {
-    display: none; /* Oculta elementos después del 4to */
+.grid-images-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* Estado expandido - muestra todos los elementos */
-.galeria-movil.movil-galeria.expandido {
+.three-images-grid {
     display: grid;
-    max-height: 5000px;
-    margin-bottom: 1.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    height: 500px;
+    position: relative;
 }
 
-.galeria-movil.movil-galeria.expandido .producto-movil:nth-child(n+5) {
-    display: flex; /* Muestra todos los elementos cuando está expandido */
-}
-
-.producto-movil {
-    background-color: transparent;
-    border-radius: 12px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
+.image-block {
+    position: relative;
     height: 100%;
+    overflow: hidden;
+}
+
+.left-block {
+    clip-path: polygon(0 0, 85% 0, 100% 100%, 0% 100%);
+}
+
+.middle-block {
+    clip-path: polygon(15% 0, 85% 0, 100% 100%, 0% 100%);
+    position: relative;
+    z-index: 2;
+}
+
+.right-block {
+    clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.image-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.grid-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.image-block:hover .grid-image {
+    transform: scale(1.05);
 }
 
 /* =============================================
-   CONTENEDOR DE IMAGEN PARA MÓVIL - ¡IMPORTANTE!
+   MODAL PARA IMAGEN AMPLIADA
    ============================================= */
-.contenedor-imagen-movil {
-    height: 200px; /* Altura para imágenes en móvil */
+.modal-imagen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    padding: 20px;
+}
+
+.modal-imagen.mostrar {
+    display: flex !important;
+    animation: fadeInModal 0.3s ease;
+}
+
+@keyframes fadeInModal {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-contenido {
+    background-color: var(--color-primario);
+    border-radius: 12px;
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
     overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    animation: scaleIn 0.3s ease;
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.cerrar-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    color: var(--color-texto);
+    font-size: 30px;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: transparent;
-    padding: 5px; /* Padding mínimo */
+    cursor: pointer;
+    z-index: 1002;
+    transition: var(--transicion-rapida);
 }
 
-/* =============================================
-   IMAGEN PARA MÓVIL - ¡AQUÍ SE AJUSTA EL TAMAÑO!
-   ============================================= */
-.contenedor-imagen-movil img {
-    width: 100%;
-    height: 100%;
+.cerrar-modal:hover {
+    color: var(--color-destacado);
+    transform: scale(1.1);
+}
+
+.modal-imagen-contenedor {
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+#imagen-ampliada {
+    max-width: 100%;
+    max-height: 100%;
     object-fit: contain;
-    transition: transform 0.3s ease;
 }
 
-.producto-movil:hover .contenedor-imagen-movil img {
-    transform: scale(1.05);
+.modal-info {
+    padding: 20px;
+    text-align: center;
+    background-color: var(--color-secundario);
+}
+
+.modal-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--color-texto);
+}
+
+.modal-info p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: var(--color-texto-secundario);
+}
+
+.modal-info p:last-of-type {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-destacado);
+}
+
+.boton-seleccionar {
+    display: inline-block;
+    background-color: var(--color-terciario);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    font-weight: 600;
+    margin: 10px 5px;
+    transition: var(--transicion-rapida);
+    border: 2px solid transparent;
+}
+
+.boton-seleccionar:hover {
+    background-color: var(--color-destacado);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+}
+
+.boton-whatsapp {
+    display: inline-block;
+    background-color: var(--color-whatsapp);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    font-weight: 600;
+    margin: 10px 5px;
+    transition: var(--transicion-rapida);
+}
+
+.boton-whatsapp:hover {
+    background-color: #1da851;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
 }
 
 /* =============================================
@@ -615,7 +829,7 @@ body.menu-abierto .menu-overlay {
     margin: 0 auto;
     padding: 0 20px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columnas en desktop */
+    grid-template-columns: repeat(4, 1fr);
     gap: 3rem;
 }
 
@@ -643,7 +857,7 @@ body.menu-abierto .menu-overlay {
 .redes-sociales {
     display: flex;
     gap: 1rem;
-    margin-top: auto; /* Empuja hacia abajo si hay espacio */
+    margin-top: auto;
 }
 
 .enlace-red-social {
@@ -653,7 +867,7 @@ body.menu-abierto .menu-overlay {
     width: 40px;
     height: 40px;
     background-color: var(--color-secundario);
-    border-radius: 50%; /* Forma circular */
+    border-radius: 50%;
     transition: var(--transicion-rapida);
 }
 
@@ -680,7 +894,7 @@ body.menu-abierto .menu-overlay {
 
 .lista-enlaces a:hover {
     color: var(--color-destacado);
-    padding-left: 5px; /* Efecto de desplazamiento */
+    padding-left: 5px;
 }
 
 .info-contacto p {
@@ -702,36 +916,73 @@ body.menu-abierto .menu-overlay {
 }
 
 /* =============================================
-   RESPONSIVE DESIGN
+   ANIMACIONES
    ============================================= */
-
-/* Tablets grandes */
-@media (max-width: 1200px) {
-    .grid-popular {
-        grid-template-columns: repeat(4, 1fr); /* 4 columnas en tablets grandes */
+@keyframes mostrarElementos {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
     }
-    
-    .galeria-productos.desktop-galeria {
-        grid-template-columns: repeat(4, 1fr); /* 4 columnas en tablets grandes */
-    }
-    
-    .contenedor-footer {
-        grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-/* Tablets */
+/* =============================================
+   RESPONSIVE DESIGN
+   ============================================= */
+
+/* Tablets grandes (1200px) */
+@media (max-width: 1200px) {
+    .grid-popular,
+    .galeria-productos {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .contenedor-footer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .three-images-grid {
+        height: 450px;
+    }
+    
+    .left-block {
+        clip-path: polygon(0 0, 83% 0, 100% 100%, 0% 100%);
+    }
+    
+    .middle-block {
+        clip-path: polygon(17% 0, 83% 0, 100% 100%, 0% 100%);
+    }
+    
+    .right-block {
+        clip-path: polygon(17% 0, 100% 0, 100% 100%, 0% 100%);
+    }
+}
+
+/* Tablets (1024px) */
 @media (max-width: 1024px) {
+    .grid-popular,
+    .galeria-productos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .three-images-grid {
+        height: 400px;
+    }
+}
+
+/* Tablets pequeñas (900px) */
+@media (max-width: 900px) {
+    .grid-popular,
+    .galeria-productos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .contenedor-imagen-popular,
     .contenedor-imagen-producto {
-        height: 300px; /* Reduce altura en tablets */
-    }
-    
-    .grid-popular {
-        grid-template-columns: repeat(3, 1fr); /* 3 columnas en tablets medianas */
-    }
-    
-    .galeria-productos.desktop-galeria {
-        grid-template-columns: repeat(3, 1fr); /* 3 columnas en tablets medianas */
+        height: 180px;
     }
 }
 
@@ -739,31 +990,32 @@ body.menu-abierto .menu-overlay {
    DISEÑO PARA MÓVILES (768px o menos)
    ============================================= */
 @media (max-width: 768px) {
-    /* =============================================
-       MENÚ MÓVIL - Se despliega de derecha a izquierda
-       ============================================= */
+    /* MENÚ MÓVIL */
+    .boton-menu-mobile {
+        display: flex;
+    }
+    
     .menu-principal {
         position: fixed;
         top: 0;
-        right: -100%; /* Inicialmente fuera de pantalla a la derecha */
+        right: -100%;
         width: 85%;
         max-width: 400px;
-        height: 100vh; /* Altura completa de la ventana */
+        height: 100vh;
         background-color: var(--color-primario);
-        flex-direction: column; /* Elementos en columna */
+        flex-direction: column;
         justify-content: flex-start;
-        padding: 100px 2rem 2rem; /* Espacio para el logo */
+        padding: 100px 2rem 2rem;
         gap: 1.5rem;
-        z-index: 999; /* Por encima de todo */
+        z-index: 9999;
         margin: 0;
-        overflow-y: auto; /* Scroll si el contenido es muy largo */
+        overflow-y: auto;
         box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
-        transition: right 0.4s ease; /* Transición suave */
+        transition: right 0.4s ease;
     }
     
-    /* Cuando el menú está activo (abierto) */
     .menu-principal.activo {
-        right: 0; /* Se despliega desde la derecha */
+        right: 0;
     }
     
     .menu-principal li {
@@ -778,104 +1030,159 @@ body.menu-abierto .menu-overlay {
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
     
-    /* Submenú en móvil */
+    /* MENÚ DESPLEGABLE MÓVIL - CORREGIDO */
+    .menu-con-desplegable {
+        position: relative;
+    }
+    
+    .menu-con-desplegable .enlace-menu-desplegable {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        cursor: pointer;
+    }
+    
+    .menu-con-desplegable .flecha-desplegable {
+        transition: transform 0.3s ease;
+    }
+    
+    .menu-con-desplegable.activo .flecha-desplegable {
+        transform: rotate(180deg);
+    }
+    
     .menu-con-desplegable .submenu {
-        position: static; /* No se posiciona absolutamente */
+        position: static;
+        background: rgba(255, 255, 255, 0.05);
+        box-shadow: none;
+        padding: 0;
+        margin: 0.5rem 0 0 1rem;
+        max-height: 0;
+        overflow: hidden;
         opacity: 1;
         visibility: visible;
         transform: none;
-        background: transparent;
-        box-shadow: none;
-        padding-left: 1rem; /* Sangría para subnivel */
-        margin-top: 0.5rem;
-        display: none; /* Oculto por defecto */
+        transition: max-height 0.4s ease;
+        display: block;
     }
     
     .menu-con-desplegable.activo .submenu {
-        display: block; /* Muestra al hacer clic */
+        max-height: 500px;
+        padding: 0.5rem 0;
     }
     
-    .boton-menu-mobile {
-        display: flex; /* Muestra botón hamburguesa */
+    .menu-con-desplegable .submenu li {
+        padding: 0.5rem 0;
+    }
+    
+    .menu-con-desplegable .submenu a {
+        padding: 0.5rem 1rem;
+        font-size: 0.95rem;
+        color: var(--color-texto-secundario);
+    }
+    
+    .menu-con-desplegable .submenu a:hover {
+        color: var(--color-destacado);
+        background: rgba(233, 69, 96, 0.1);
     }
     
     .iconos-usuario {
-        display: none; /* Oculta iconos de usuario en móvil */
+        display: none;
     }
     
-    /* =============================================
-       BANNER EN MÓVIL
-       ============================================= */
+    /* BANNER EN MÓVIL */
     .contenedor-banner {
-        flex-direction: column; /* Contenido en columna */
+        flex-direction: column;
         text-align: center;
         gap: 2rem;
     }
     
     .titulo-banner {
-        font-size: 2rem; /* Tamaño de fuente reducido */
+        font-size: 2rem;
     }
     
-    .imagen-banner img {
-        max-width: 90%; /* Imagen más pequeña */
-    }
-    
-    /* =============================================
-       ANIME POPULAR EN MÓVIL
-       ============================================= */
-    .grid-popular {
-        grid-template-columns: repeat(2, 1fr); /* 2 columnas en móvil */
+    /* GRIDS EN MÓVIL - 2 COLUMNAS */
+    .grid-popular,
+    .galeria-productos {
+        grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
     }
     
-    .contenedor-imagen-popular {
-        height: 180px; /* Altura aumentada para hacer imágenes más anchas en móvil */
-        padding: 8px; /* Padding aumentado para mejor presentación */
+    .contenedor-imagen-popular,
+    .contenedor-imagen-producto {
+        height: 180px;
+        padding: 8px;
     }
     
-    /* =============================================
-       GALERÍAS EN MÓVIL
-       ============================================= */
-    /* Oculta galería desktop en móvil */
-    .galeria-productos.desktop-galeria {
-        display: none !important;
+    /* INFO DEL PRODUCTO EN MÓVIL */
+    .info-producto {
+        padding: 0.8rem 0.5rem;
     }
     
-    /* Muestra galería móvil (inicialmente colapsada) */
-    .galeria-movil.movil-galeria {
-        display: grid !important;
-        max-height: 0;
-        margin-bottom: 0;
-        overflow: hidden;
-        grid-template-columns: repeat(2, 1fr); /* 2 columnas en móvil */
+    .titulo-producto {
+        font-size: 0.95rem;
+        height: 2.3rem;
     }
     
-    .contenedor-imagen-movil {
-        height: 200px; /* Altura aumentada para hacer imágenes más anchas en móvil */
-        padding: 8px; /* Padding aumentado */
+    .dimension-producto {
+        font-size: 0.8rem;
     }
     
-    /* =============================================
-       FOOTER EN MÓVIL
-       ============================================= */
+    /* SECCIÓN 3 IMÁGENES EN MÓVIL */
+    .three-images-grid {
+        height: 350px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+    }
+    
+    .left-block {
+        clip-path: polygon(0 0, 75% 0, 100% 100%, 0% 100%);
+    }
+    
+    .middle-block {
+        clip-path: polygon(25% 0, 75% 0, 100% 100%, 0% 100%);
+    }
+    
+    .right-block {
+        clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
+    }
+    
+    /* FOOTER EN MÓVIL */
     .contenedor-footer {
-        grid-template-columns: 1fr; /* 1 columna en móvil */
+        grid-template-columns: 1fr;
         gap: 2rem;
+    }
+    
+    /* MODAL EN MÓVIL */
+    .modal-imagen-contenedor {
+        height: 50vh;
+    }
+    
+    .modal-info h3 {
+        font-size: 1.3rem;
+    }
+    
+    .whatsapp-button {
+        width: 55px;
+        height: 55px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 24px;
     }
 }
 
-/* =============================================
-   DISEÑO PARA MÓVILES PEQUEÑOS (576px o menos)
-   ============================================= */
+/* MÓVILES PEQUEÑOS (576px) */
 @media (max-width: 576px) {
-    .grid-popular {
+    .grid-popular,
+    .galeria-productos {
         grid-template-columns: repeat(2, 1fr);
         gap: 0.8rem;
     }
     
-    .contenedor-imagen-popular {
-        height: 160px; /* Altura ajustada para móviles pequeños */
-        padding: 5px; /* Padding ajustado */
+    .contenedor-imagen-popular,
+    .contenedor-imagen-producto {
+        height: 160px;
+        padding: 5px;
     }
     
     .titulo-banner {
@@ -890,321 +1197,8 @@ body.menu-abierto .menu-overlay {
         font-size: 1.5rem;
     }
     
-    .galeria-movil.movil-galeria {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.8rem;
-    }
-    
-    .contenedor-imagen-movil {
-        height: 180px; /* Altura ajustada para móviles pequeños */
-        padding: 5px;
-    }
-    
-    .menu-principal {
-        width: 100%;
-        max-width: none; /* Ocupa todo el ancho en móviles pequeños */
-    }
-}
-
-/* =============================================
-   VERSIÓN DESKTOP (769px o más)
-   ============================================= */
-@media (min-width: 769px) {
-    /* Oculta elementos móviles en desktop */
-    .galeria-movil.movil-galeria {
-        display: none !important;
-    }
-    
-    /* Muestra elementos desktop */
-    .galeria-productos.desktop-galeria {
-        display: grid !important;
-    }
-}
-
-/* =============================================
-   AJUSTES ESPECÍFICOS PARA IMÁGENES
-   ============================================= */
-
-/* Para Anime Popular */
-.contenedor-imagen-popular {
-    height: 220px !important; /* Aumenta altura para que la imagen ocupe más espacio */
-    padding: 2px !important; /* Padding mínimo */
-}
-
-.contenedor-imagen-popular img {
-    object-fit: contain; /* Muestra toda la imagen */
-    max-width: 95%; /* Ajusta el ancho máximo */
-    max-height: 95%; /* Ajusta la altura máxima */
-}
-
-/* Para productos en desktop */
-.contenedor-imagen-producto {
-    height: 380px !important; /* Aumenta altura para productos */
-    padding: 2px !important;
-}
-
-.contenedor-imagen-producto img {
-    object-fit: contain;
-    max-width: 95%;
-    max-height: 95%;
-}
-
-/* Para productos en móvil */
-.contenedor-imagen-movil {
-    height: 220px !important; /* Aumenta altura en móvil para imágenes más anchas */
-    padding: 3px !important;
-}
-
-.contenedor-imagen-movil img {
-    object-fit: contain;
-    max-width: 95%;
-    max-height: 95%;
-}
-
-/* =============================================
-   SOLUCIÓN DE EMERGENCIA PARA MÓVIL
-   ============================================= */
-
-/* Forzar que las galerías móviles sean visibles */
-@media (max-width: 768px) {
-    .galeria-movil.movil-galeria {
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 1rem !important;
-        max-height: none !important;
-        margin-bottom: 1.5rem !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-    }
-    
-    .galeria-movil.movil-galeria.expandido {
-        max-height: 5000px !important;
-    }
-    
-    .contenedor-imagen-movil {
-        height: 200px !important; /* Altura aumentada para imágenes más anchas */
-        background-color: transparent !important;
-        padding: 8px !important; /* Padding aumentado */
-    }
-    
-    .contenedor-imagen-movil img {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: contain !important;
-        display: block !important;
-    }
-    
-    /* Verificar que las imágenes existan */
-    .galeria-movil.movil-galeria:empty::before {
-        content: "Cargando imágenes...";
-        color: var(--color-destacado);
-        text-align: center;
-        padding: 2rem;
-        font-style: italic;
-    }
-}
-
-/* =============================================
-   ESTILOS PARA MENÚ DESPLEGABLE EN MÓVIL
-   ============================================= */
-
-@media (max-width: 768px) {
-    .menu-con-desplegable {
-        position: relative;
-    }
-    
-    .menu-con-desplegable > a {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-right: 1rem;
-    }
-    
-    .menu-con-desplegable .flecha-desplegable {
-        transition: transform 0.3s ease;
-    }
-    
-    .menu-con-desplegable.activo .flecha-desplegable {
-        transform: rotate(180deg);
-    }
-    
-    .menu-con-desplegable .submenu {
-        display: none;
-        position: static;
-        opacity: 1;
-        visibility: visible;
-        transform: none;
-        background: rgba(255, 255, 255, 0.05);
-        box-shadow: none;
-        padding: 0;
-        margin: 0;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s ease;
-    }
-    
-    .menu-con-desplegable.activo .submenu {
-        display: block;
-        max-height: 500px;
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem;
-    }
-    
-    .menu-con-desplegable .submenu li {
-        padding: 0.5rem 0;
-        border-bottom: none;
-    }
-    
-    .menu-con-desplegable .submenu a {
-        padding: 0.5rem 1rem;
-        padding-left: 1.5rem;
-        font-size: 0.95rem;
-        color: var(--color-texto-secundario);
-        transition: color 0.3s ease;
-    }
-    
-    .menu-con-desplegable .submenu a:hover {
-        color: var(--color-destacado);
-        background: rgba(233, 69, 96, 0.1);
-    }
-}
-
- /* =============================================
-   SECCIÓN GRID SIMPLE - 3 IMÁGENES CON RECORTE DIAGONAL
-   ============================================= */
-.animetals-grid-section {
-    width: 100%;
-    background-color: var(--color-fondo);
-    padding: 40px 0;
-    margin: 40px 0;
-    position: relative;
-    overflow: hidden; /* Oculta las partes recortadas de las imágenes */
-}
-
-.grid-images-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.three-images-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0; /* Sin espacio entre imágenes */
-    height: 500px;
-    position: relative;
-}
-
-.image-block {
-    position: relative;
-    height: 100%;
-    overflow: hidden;
-}
-
-/* Recorte diagonal usando clip-path para bordes más precisos */
-.left-block {
-    clip-path: polygon(0 0, 85% 0, 100% 100%, 0% 100%); /* Diagonal derecha */
-}
-
-.middle-block {
-    clip-path: polygon(15% 0, 85% 0, 100% 100%, 0% 100%); /* Diagonales en ambos lados */
-    position: relative;
-    z-index: 2; /* Asegura que esté sobre las otras imágenes */
-}
-
-.right-block {
-    clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%); /* Diagonal izquierda */
-}
-
-.image-inner {
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-
-.grid-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Cubre el contenedor manteniendo proporción */
-    display: block;
-    transition: transform 0.5s ease; /* Transición para efecto hover */
-}
-
-/* Efecto hover para imágenes */
-.image-block:hover .grid-image {
-    transform: scale(1.05); /* Zoom suave al pasar el cursor */
-}
-
-/* =============================================
-   RESPONSIVE - MANTENER HORIZONTAL EN MÓVIL CON IMÁGENES MÁS ANCHAS
-   ============================================= */
-
-@media (max-width: 1200px) {
     .three-images-grid {
-        height: 450px;
-    }
-    
-    /* Ajustar el clip-path para pantallas más pequeñas */
-    .left-block {
-        clip-path: polygon(0 0, 83% 0, 100% 100%, 0% 100%);
-    }
-    
-    .middle-block {
-        clip-path: polygon(17% 0, 83% 0, 100% 100%, 0% 100%);
-    }
-    
-    .right-block {
-        clip-path: polygon(17% 0, 100% 0, 100% 100%, 0% 100%);
-    }
-}
-
-@media (max-width: 992px) {
-    .three-images-grid {
-        height: 400px;
-    }
-    
-    /* Ajustar más el clip-path */
-    .left-block {
-        clip-path: polygon(0 0, 80% 0, 100% 100%, 0% 100%);
-    }
-    
-    .middle-block {
-        clip-path: polygon(20% 0, 80% 0, 100% 100%, 0% 100%);
-    }
-    
-    .right-block {
-        clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
-    }
-}
-
-@media (max-width: 768px) {
-    .three-images-grid {
-        height: 350px; /* Más pequeño pero mantiene horizontal */
-        grid-template-columns: repeat(3, 1fr); /* Mantiene 3 columnas */
-        gap: 0; /* Sin espacio */
-    }
-    
-    .image-block {
-        height: 100%; /* Mantiene altura completa */
-    }
-    
-    /* Ajustar clip-path para móvil */
-    .left-block {
-        clip-path: polygon(0 0, 75% 0, 100% 100%, 0% 100%);
-    }
-    
-    .middle-block {
-        clip-path: polygon(25% 0, 75% 0, 100% 100%, 0% 100%);
-    }
-    
-    .right-block {
-        clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
-    }
-}
-
-@media (max-width: 576px) {
-    .three-images-grid {
-        height: 300px; /* Aún más pequeño en móviles muy pequeños */
+        height: 300px;
     }
     
     .animetals-grid-section {
@@ -1212,7 +1206,6 @@ body.menu-abierto .menu-overlay {
         margin: 20px 0;
     }
     
-    /* Hacer diagonales menos pronunciadas en móvil pequeño */
     .left-block {
         clip-path: polygon(0 0, 70% 0, 100% 100%, 0% 100%);
     }
@@ -1224,14 +1217,23 @@ body.menu-abierto .menu-overlay {
     .right-block {
         clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
     }
+    
+    .menu-principal {
+        width: 100%;
+        max-width: none;
+    }
 }
 
+/* PANTALLAS MUY PEQUEÑAS (480px) */
 @media (max-width: 480px) {
     .three-images-grid {
-        height: 250px; /* Tamaño mínimo para móviles muy pequeños */
+        height: 250px;
     }
     
-    /* Reducir diagonales aún más para pantallas pequeñas */
+    .grid-images-container {
+        padding: 0 5px;
+    }
+    
     .left-block {
         clip-path: polygon(0 0, 65% 0, 100% 100%, 0% 100%);
     }
@@ -1243,70 +1245,113 @@ body.menu-abierto .menu-overlay {
     .right-block {
         clip-path: polygon(35% 0, 100% 0, 100% 100%, 0% 100%);
     }
-}
-
-/* Para pantallas muy pequeñas, hacer imágenes casi completas */
-@media (max-width: 360px) {
-    .three-images-grid {
-        height: 220px;
+    
+    .info-producto {
+        padding: 0.7rem 0.3rem;
     }
     
-    .grid-images-container {
-        padding: 0 5px; /* Reducir padding para más espacio */
+    .titulo-producto {
+        font-size: 0.9rem;
+        height: 2.2rem;
     }
     
-    /* Hacer diagonales muy suaves para pantallas muy pequeñas */
-    .left-block {
-        clip-path: polygon(0 0, 60% 0, 100% 100%, 0% 100%);
-    }
-    
-    .middle-block {
-        clip-path: polygon(40% 0, 60% 0, 100% 100%, 0% 100%);
-    }
-    
-    .right-block {
-        clip-path: polygon(40% 0, 100% 0, 100% 100%, 0% 100%);
+    .dimension-producto {
+        font-size: 0.75rem;
     }
 }
 
 /* =============================================
-   ESTILOS PARA BOTONES "VER MÁS" - POSICIONAMIENTO CORRECTO
+   CORRECCIONES ESPECÍFICAS PARA EL JAVASCRIPT
    ============================================= */
 
-/* Contenedor para botón "Ver más" en sección anime popular */
-.seccion-popular .contenedor-boton-ver-mas {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-top: 2rem;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Línea sutil arriba del botón */
-}
-
-/* Contenedor para botón "Ver más" en sección productos */
-.seccion-productos .contenedor-boton-productos {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-top: 2rem;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Línea sutil arriba del botón */
-}
-
-/* Clase para ocultar botón cuando ya se mostraron todos los elementos */
-.boton-ver-mas.oculto {
+/* Asegurar que los elementos adicionales estén ocultos inicialmente */
+.grid-popular .adicional,
+.galeria-productos .adicional {
     display: none !important;
 }
 
-/* =============================================
-   ANIMACIONES PARA EXPANSIÓN/CONTRACCIÓN
-   ============================================= */
+/* Mostrar elementos cuando su contenedor tiene clase expandido */
+.grid-popular.expandido .adicional,
+.galeria-productos.expandido .adicional {
+    display: flex !important;
+}
 
-/* Animación suave para mostrar elementos adicionales */
-@keyframes mostrarElementos {
+/* Asegurar que el modal tenga el z-index más alto */
+.modal-imagen {
+    z-index: 99999 !important;
+}
+
+/* Asegurar que el menú móvil tenga z-index alto */
+.menu-principal.activo {
+    z-index: 9999 !important;
+}
+
+/* Asegurar que las imágenes sean clickeables */
+.imagen-producto {
+    cursor: pointer;
+}
+
+.item-popular,
+.producto-item {
+    cursor: pointer;
+}
+
+/* Asegurar que el overlay del menú sea clickeable */
+.menu-overlay {
+    cursor: pointer;
+}
+
+/* ===========================================
+   REGLAS ESPECÍFICAS PARA EL JAVASCRIPT
+   =========================================== */
+
+/* 1. MENÚ MÓVIL - ASEGURAR FUNCIONALIDAD */
+@media (max-width: 768px) {
+    .menu-principal {
+        display: none;
+    }
+    
+    .menu-principal.activo {
+        display: flex !important;
+        right: 0 !important;
+    }
+    
+    .menu-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 9998;
+    }
+    
+    .menu-overlay.activo {
+        display: block !important;
+    }
+}
+
+/* 2. ELEMENTOS "VER MÁS" - ASEGURAR VISIBILIDAD */
+.grid-popular .adicional,
+.galeria-productos .adicional {
+    display: none !important;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.grid-popular.expandido .adicional,
+.galeria-productos.expandido .adicional {
+    display: flex !important;
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
@@ -1314,100 +1359,35 @@ body.menu-abierto .menu-overlay {
     }
 }
 
-/* Aplicar animación a elementos que se muestran al expandir */
-.grid-popular.expandido .item-popular:nth-child(n+7),
-.galeria-productos.desktop-galeria.expandido .producto-item:nth-child(n+7),
-.galeria-movil.movil-galeria.expandido .producto-movil:nth-child(n+5) {
-    animation: mostrarElementos 0.5s ease forwards;
+/* 3. MODAL - ASEGURAR VISIBILIDAD */
+.modal-imagen {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-/* Añadir un pequeño retardo escalonado para mejor efecto */
-.grid-popular.expandido .item-popular:nth-child(n+7):nth-child(7) { animation-delay: 0.1s; }
-.grid-popular.expandido .item-popular:nth-child(n+7):nth-child(8) { animation-delay: 0.2s; }
-.grid-popular.expandido .item-popular:nth-child(n+7):nth-child(9) { animation-delay: 0.3s; }
-.grid-popular.expandido .item-popular:nth-child(n+7):nth-child(10) { animation-delay: 0.4s; }
-.grid-popular.expandido .item-popular:nth-child(n+7):nth-child(11) { animation-delay: 0.5s; }
-.grid-popular.expandido .item-popular:nth-child(n+7):nth-child(12) { animation-delay: 0.6s; }
+.modal-imagen.mostrar {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: flex !important;
+}
 
-/* =============================================
-   MEJORAS PARA VISIBILIDAD EN MÓVIL
-   ============================================= */
+/* 4. CURSORES CLICKEABLES */
+.imagen-producto,
+.item-popular,
+.producto-item {
+    cursor: pointer !important;
+}
+
+/* 5. ANIMACIONES PARA SUBMENÚ */
 @media (max-width: 768px) {
-    /* Hacer las imágenes de anime popular más anchas en móvil */
-    .contenedor-imagen-popular {
-        height: 200px !important; /* Altura aumentada */
-        padding: 10px !important; /* Más padding para mejor presentación */
+    .menu-con-desplegable .submenu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
     }
     
-    /* Hacer las imágenes de productos móviles más anchas */
-    .contenedor-imagen-movil {
-        height: 220px !important; /* Altura aumentada */
-        padding: 10px !important; /* Más padding */
-    }
-    
-    /* Asegurar que el contenedor de la imagen ocupe todo el ancho disponible */
-    .item-popular, .producto-movil {
-        width: 100%;
-    }
-}
-
-/* =============================================
-   ESTILOS PARA EL TEXTO DE LOS ITEMS
-   ============================================= */
-.info-item-popular {
-    padding: 1rem;
-    background-color: rgba(26, 26, 46, 0.7); /* Fondo semitransparente */
-    text-align: center;
-    flex-grow: 1; /* Ocupa espacio restante */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.titulo-item-popular {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: var(--color-texto);
-}
-
-.precio-item-popular {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--color-destacado);
-}
-
-/* =============================================
-   MEJORAS PARA LA SECCIÓN DIVISORIA (3 IMÁGENES)
-   ============================================= */
-/* Asegurar que el recorte diagonal se adapte al tamaño de pantalla */
-@media (max-width: 480px) {
-    /* Para pantallas muy pequeñas, reducir aún más la diagonal */
-    .left-block {
-        clip-path: polygon(0 0, 70% 0, 85% 100%, 0% 100%) !important;
-    }
-    
-    .middle-block {
-        clip-path: polygon(15% 0, 85% 0, 100% 100%, 0% 100%) !important;
-    }
-    
-    .right-block {
-        clip-path: polygon(15% 0, 100% 0, 100% 100%, 30% 100%) !important;
-    }
-}
-
-/* Mantener las proporciones de las imágenes en todos los dispositivos */
-.image-inner {
-    position: relative;
-    width: 110%; /* Ancho extra para compensar el recorte diagonal */
-    height: 100%;
-    left: -5%; /* Centrar la imagen después del ancho extra */
-}
-
-/* Para pantallas grandes, ajustar la posición */
-@media (min-width: 1200px) {
-    .image-inner {
-        width: 105%;
-        left: -2.5%;
+    .menu-con-desplegable.activo .submenu {
+        max-height: 500px;
     }
 }

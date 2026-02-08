@@ -11,6 +11,11 @@
     <link rel="stylesheet" href="manu.css">
 </head>
 <body>
+    <!-- Botón de WhatsApp fijo -->
+    <a href="https://wa.me/1234567890" class="whatsapp-button" target="_blank" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <!-- Header principal -->
     <header class="header-principal">
         <nav class="navegacion">
@@ -25,7 +30,7 @@
                 <ul class="menu-principal">
                     <li><a href="index.html" class="enlace-menu">Inicio</a></li>
                     <li class="menu-con-desplegable">
-                        <a href="#" class="enlace-menu-desplegable">Comprar por categoría <i class="fas fa-chevron-down flecha-desplegable"></i></a>
+                        <a href="#" class="enlace-menu-desplegable">Categorías <i class="fas fa-chevron-down flecha-desplegable"></i></a>
                         <ul class="submenu">
                             <li><a href="#">Anime</a></li>
                             <li><a href="#">Juegos</a></li>
@@ -33,8 +38,11 @@
                             <li><a href="#">Series</a></li>
                         </ul>
                     </li>
-                    <li><a href="" class="enlace-menu">Popular Anime</a></li>
-                    <li><a href="#" class="enlace-menu">Juegos Populares</a></li>
+                    <li><a href="#anime-popular" class="enlace-menu">Anime Popular</a></li>
+                    <li><a href="#seccion-jujutsu" class="enlace-menu">Jujutsu Kaisen</a></li>
+                    <li><a href="#seccion-naruto" class="enlace-menu">Naruto</a></li>
+                    <li><a href="#seccion-dragonball" class="enlace-menu">Dragon Ball</a></li>
+                    <li><a href="#seccion-demonslayer" class="enlace-menu">Demon Slayer</a></li>
                     <li><a href="#" class="enlace-menu">Personalizar</a></li>
                 </ul>
                 
@@ -51,7 +59,7 @@
                 </div>
                 
                 <!-- Menú hamburguesa móvil -->
-                <button class="boton-menu-mobile">
+                <button class="boton-menu-mobile" aria-label="Abrir menú">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
@@ -64,88 +72,152 @@
             <div class="contenido-banner">
                 <h2 class="titulo-banner">Impresión Metálica HD Personalizada</h2>
                 <p class="texto-banner">Transforma tus personajes favoritos en arte duradero sobre metal</p>
-                <a href="menu.html" class="boton-banner">Ver Catálogo</a>
+                <a href="#anime-popular" class="boton-banner">Ver Catálogo</a>
             </div>
             <div class="imagen-banner">
-                <img src="img/vegeta5.webp" alt="Banner de cuadros de anime" loading="lazy">
+                <img src="img/gokufrezer.webp" alt="Goku vs Freezer - Cuadro de anime en metal" loading="lazy">
             </div>
         </div>
     </section>
 
     <!-- Sección de Anime Popular -->
-    <section class="seccion-popular">
+    <section class="seccion-popular" id="anime-popular">
         <div class="contenedor-seccion">
             <div class="encabezado-seccion">
                 <h2 class="titulo-seccion">Anime Popular</h2>
-                <button class="boton-ver-mas" id="boton-expandir-popular">Ver más</button>
             </div>
             <div class="grid-popular" id="grid-popular">
                 <!-- Item 1 -->
                 <article class="item-popular">
                     <figure class="contenedor-imagen-popular">
-                        <img src="img/goku5.webp" alt="Naruto" loading="lazy">
+                        <img src="img/goku5.webp" alt="Goku Super Saiyan - Dragon Ball Z" loading="lazy" class="imagen-producto" data-titulo="Goku Super Saiyan" data-medida="40x60 cm" data-precio="$34.99">
                     </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Goku Super Saiyan</h3>
+                        <p class="dimension-producto">Medida: 40x60 cm</p>
+                    </div>
                 </article>
                 
                 <!-- Item 2 -->
                 <article class="item-popular">
                     <figure class="contenedor-imagen-popular">
-                        <img src="https://img.fantaskycdn.com/13ee2ef5a0eb9c5814f23e00ffbe85b0_420x.jpeg" alt="Dragon Ball Z" loading="lazy">
+                        <img src="https://img.fantaskycdn.com/13ee2ef5a0eb9c5814f23e00ffbe85b0_420x.jpeg" alt="Dragon Ball Z - Personajes principales" loading="lazy" class="imagen-producto" data-titulo="Dragon Ball Z Crew" data-medida="50x70 cm" data-precio="$39.99">
                     </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Dragon Ball Z Crew</h3>
+                        <p class="dimension-producto">Medida: 50x70 cm</p>
+                    </div>
                 </article>
                 
                 <!-- Item 3 -->
                 <article class="item-popular">
                     <figure class="contenedor-imagen-popular">
-                        <img src="https://img.fantaskycdn.com/0cfdf168ee0211c5738b955f973c9aa5_420x.jpeg" alt="One Piece" loading="lazy">
+                        <img src="https://img.fantaskycdn.com/0cfdf168ee0211c5738b955f973c9aa5_420x.jpeg" alt="One Piece - Luffy y tripulación" loading="lazy" class="imagen-producto" data-titulo="One Piece Crew" data-medida="45x65 cm" data-precio="$36.99">
                     </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">One Piece Crew</h3>
+                        <p class="dimension-producto">Medida: 45x65 cm</p>
+                    </div>
                 </article>
                 
                 <!-- Item 4 -->
                 <article class="item-popular">
                     <figure class="contenedor-imagen-popular">
-                        <img src="https://img.fantaskycdn.com/dea8954ef407b466629c9142320d13ac_420x.jpeg" alt="Demon Slayer" loading="lazy">
+                        <img src="https://img.fantaskycdn.com/dea8954ef407b466629c9142320d13ac_420x.jpeg" alt="Demon Slayer - Tanjiro Kamado" loading="lazy" class="imagen-producto" data-titulo="Tanjiro Kamado" data-medida="40x60 cm" data-precio="$34.99">
                     </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Tanjiro Kamado</h3>
+                        <p class="dimension-producto">Medida: 40x60 cm</p>
+                    </div>
                 </article>
                 
                 <!-- Item 5 -->
                 <article class="item-popular">
                     <figure class="contenedor-imagen-popular">
-                        <img src="https://img.fantaskycdn.com/df3bc5e1f3e18141c4ed0c2a9f8d55c1_420x.jpeg" alt="My Hero Academia" loading="lazy">
+                        <img src="https://img.fantaskycdn.com/df3bc5e1f3e18141c4ed0c2a9f8d55c1_420x.jpeg" alt="My Hero Academia - Izuku Midoriya" loading="lazy" class="imagen-producto" data-titulo="Izuku Midoriya" data-medida="35x50 cm" data-precio="$32.99">
                     </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Izuku Midoriya</h3>
+                        <p class="dimension-producto">Medida: 35x50 cm</p>
+                    </div>
                 </article>
                 
                 <!-- Item 6 -->
                 <article class="item-popular">
                     <figure class="contenedor-imagen-popular">
-                        <img src="https://img.fantaskycdn.com/2c27a09e8e3821bedf2fac193866143c_420x.jpeg" alt="Attack on Titan" loading="lazy">
+                        <img src="https://img.fantaskycdn.com/2c27a09e8e3821bedf2fac193866143c_420x.jpeg" alt="Attack on Titan - Eren Yeager" loading="lazy" class="imagen-producto" data-titulo="Eren Yeager" data-medida="50x70 cm" data-precio="$39.99">
                     </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Eren Yeager</h3>
+                        <p class="dimension-producto">Medida: 50x70 cm</p>
+                    </div>
+                </article>
+                
+                <!-- Item 7 -->
+                <article class="item-popular">
+                    <figure class="contenedor-imagen-popular">
+                        <img src="https://img.fantaskycdn.com/2c27a09e8e3821bedf2fac193866143c_420x.jpeg" alt="Attack on Titan - Squad" loading="lazy" class="imagen-producto" data-titulo="AOT Squad" data-medida="45x65 cm" data-precio="$36.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">AOT Squad</h3>
+                        <p class="dimension-producto">Medida: 45x65 cm</p>
+                    </div>
+                </article>
+                
+                <!-- Item 8 -->
+                <article class="item-popular">
+                    <figure class="contenedor-imagen-popular">
+                        <img src="https://img.fantaskycdn.com/13ee2ef5a0eb9c5814f23e00ffbe85b0_420x.jpeg" alt="Dragon Ball Super" loading="lazy" class="imagen-producto" data-titulo="Dragon Ball Super" data-medida="40x60 cm" data-precio="$34.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Dragon Ball Super</h3>
+                        <p class="dimension-producto">Medida: 40x60 cm</p>
+                    </div>
                 </article>
                 
                 <!-- Items adicionales que se mostrarán al expandir -->
-                <article class="item-popular adicional" style="display: none;">
+                <article class="item-popular adicional">
                     <figure class="contenedor-imagen-popular">
-                        <img src="https://img.fantaskycdn.com/2c27a09e8e3821bedf2fac193866143c_420x.jpeg" alt="Attack on Titan 2" loading="lazy">
+                        <img src="https://img.fantaskycdn.com/0cfdf168ee0211c5738b955f973c9aa5_420x.jpeg" alt="One Piece - Gear 5" loading="lazy" class="imagen-producto" data-titulo="Luffy Gear 5" data-medida="50x70 cm" data-precio="$39.99">
                     </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Luffy Gear 5</h3>
+                        <p class="dimension-producto">Medida: 50x70 cm</p>
+                    </div>
                 </article>
                 
-                <article class="item-popular adicional" style="display: none;">
+                <article class="item-popular adicional">
                     <figure class="contenedor-imagen-popular">
-                        <img src="https://img.fantaskycdn.com/13ee2ef5a0eb9c5814f23e00ffbe85b0_420x.jpeg" alt="Dragon Ball Z 2" loading="lazy">
+                        <img src="https://img.fantaskycdn.com/dea8954ef407b466629c9142320d13ac_420x.jpeg" alt="Demon Slayer - Hashiras" loading="lazy" class="imagen-producto" data-titulo="Demon Slayer Hashiras" data-medida="60x80 cm" data-precio="$44.99">
                     </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Demon Slayer Hashiras</h3>
+                        <p class="dimension-producto">Medida: 60x80 cm</p>
+                    </div>
                 </article>
                 
-                <article class="item-popular adicional" style="display: none;">
+                <article class="item-popular adicional">
                     <figure class="contenedor-imagen-popular">
-                        <img src="https://img.fantaskycdn.com/0cfdf168ee0211c5738b955f973c9aa5_420x.jpeg" alt="One Piece 2" loading="lazy">
+                        <img src="https://img.fantaskycdn.com/df3bc5e1f3e18141c4ed0c2a9f8d55c1_420x.jpeg" alt="My Hero Academia - Class 1A" loading="lazy" class="imagen-producto" data-titulo="Class 1A" data-medida="55x75 cm" data-precio="$42.99">
                     </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Class 1A</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
                 </article>
                 
-                <article class="item-popular adicional" style="display: none;">
+                <article class="item-popular adicional">
                     <figure class="contenedor-imagen-popular">
-                        <img src="https://img.fantaskycdn.com/dea8954ef407b466629c9142320d13ac_420x.jpeg" alt="Demon Slayer 2" loading="lazy">
+                        <img src="https://img.fantaskycdn.com/2c27a09e8e3821bedf2fac193866143c_420x.jpeg" alt="Attack on Titan - Final" loading="lazy" class="imagen-producto" data-titulo="AOT Final Battle" data-medida="60x80 cm" data-precio="$44.99">
                     </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">AOT Final Battle</h3>
+                        <p class="dimension-producto">Medida: 60x80 cm</p>
+                    </div>
                 </article>
+            </div>
+            <div class="contenedor-boton-ver-mas">
+                <button class="boton-ver-mas" id="boton-expandir-popular">Ver más</button>
             </div>
         </div>
     </section>
@@ -155,81 +227,121 @@
         <div class="contenedor-seccion">
             <div class="encabezado-seccion">
                 <h2 class="titulo-seccion">Jujutsu Kaisen</h2>
-                <button class="boton-ver-mas" data-target="jujutsu">Ver más</button>
             </div>
             
-            <!-- Galería de productos Jujutsu Kaisen para desktop -->
-            <div class="galeria-productos desktop-galeria" id="galeria-jujutsu-desktop">
+            <!-- Galería de productos Jujutsu Kaisen -->
+            <div class="galeria-productos" id="galeria-jujutsu">
                 <!-- Producto 1 -->
                 <article class="producto-item">
                     <figure class="contenedor-imagen-producto">
-                        <img src="https://img.fantaskycdn.com/2240dd4e4be684f930619b96f86d69db_420x.jpeg" alt="Vacio ilimitado Satoru Gojo" loading="lazy">
+                        <img src="https://img.fantaskycdn.com/2240dd4e4be684f930619b96f86d69db_420x.jpeg" alt="Vacio ilimitado Satoru Gojo" loading="lazy" class="imagen-producto" data-titulo="Vacio ilimitado Satoru Gojo" data-medida="40x60 cm" data-precio="$34.99">
                     </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Vacio ilimitado Satoru Gojo</h3>
+                        <p class="dimension-producto">Medida: 40x60 cm</p>
+                    </div>
                 </article>
                 
                 <!-- Producto 2 -->
                 <article class="producto-item">
                     <figure class="contenedor-imagen-producto">
-                        <img src="https://img.fantaskycdn.com/7f8ba9afeb80d3c76728236a24d3da15_420x.jpeg" alt="Yuji Itadori y Satoru Gojo" loading="lazy">
+                        <img src="https://img.fantaskycdn.com/7f8ba9afeb80d3c76728236a24d3da15_420x.jpeg" alt="Yuji Itadori y Satoru Gojo" loading="lazy" class="imagen-producto" data-titulo="Yuji Itadori y Satoru Gojo" data-medida="50x70 cm" data-precio="$39.99">
                     </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Yuji Itadori y Satoru Gojo</h3>
+                        <p class="dimension-producto">Medida: 50x70 cm</p>
+                    </div>
                 </article>
                 
                 <!-- Producto 3 -->
                 <article class="producto-item">
                     <figure class="contenedor-imagen-producto">
-                        <img src="https://img.fantaskycdn.com/804f4acba46caf885b5ee8c4afec3c19_420x.jpeg" alt="Sukuna Neon" loading="lazy">
+                        <img src="https://img.fantaskycdn.com/804f4acba46caf885b5ee8c4afec3c19_420x.jpeg" alt="Sukuna Neon" loading="lazy" class="imagen-producto" data-titulo="Sukuna Neon" data-medida="45x65 cm" data-precio="$36.99">
                     </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Sukuna Neon</h3>
+                        <p class="dimension-producto">Medida: 45x65 cm</p>
+                    </div>
                 </article>
                 
                 <!-- Producto 4 -->
                 <article class="producto-item">
                     <figure class="contenedor-imagen-producto">
-                        <img src="https://img.fantaskycdn.com/dffb68d728b96da40e59b05f03036e61_420x.jpeg" alt="Satoru Gojo con los ojos cubiertos" loading="lazy">
+                        <img src="https://img.fantaskycdn.com/dffb68d728b96da40e59b05f03036e61_420x.jpeg" alt="Satoru Gojo con los ojos cubiertos" loading="lazy" class="imagen-producto" data-titulo="Satoru Gojo Blindfold" data-medida="40x60 cm" data-precio="$34.99">
                     </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Satoru Gojo Blindfold</h3>
+                        <p class="dimension-producto">Medida: 40x60 cm</p>
+                    </div>
                 </article>
                 
                 <!-- Producto 5 -->
                 <article class="producto-item">
                     <figure class="contenedor-imagen-producto">
-                        <img src="https://img.fantaskycdn.com/b0d12d9896cdc7cb498706ee377afd37_420x.jpeg" alt="Yuji Itadori Satoru Gojo" loading="lazy">
+                        <img src="https://img.fantaskycdn.com/b0d12d9896cdc7cb498706ee377afd37_420x.jpeg" alt="Yuji Itadori Satoru Gojo" loading="lazy" class="imagen-producto" data-titulo="Itadori & Gojo Duo" data-medida="50x70 cm" data-precio="$39.99">
                     </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Itadori & Gojo Duo</h3>
+                        <p class="dimension-producto">Medida: 50x70 cm</p>
+                    </div>
                 </article>
                 
                 <!-- Producto 6 -->
                 <article class="producto-item">
                     <figure class="contenedor-imagen-producto">
-                        <img src="https://img.fantaskycdn.com/d0d69c3500eb2bcde9f08611810b2504_420x.jpeg" alt="Satoru Gojo Energético" loading="lazy">
+                        <img src="https://img.fantaskycdn.com/d0d69c3500eb2bcde9f08611810b2504_420x.jpeg" alt="Satoru Gojo Energético" loading="lazy" class="imagen-producto" data-titulo="Satoru Gojo Energético" data-medida="45x65 cm" data-precio="$36.99">
                     </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Satoru Gojo Energético</h3>
+                        <p class="dimension-producto">Medida: 45x65 cm</p>
+                    </div>
                 </article>
-
+                
+                <!-- Producto 7 -->
                 <article class="producto-item">
                     <figure class="contenedor-imagen-producto">
-                        <img src="https://img.fantaskycdn.com/1509276bcf39a732bb0f4b4418fdd0f3_420x.jpeg" alt="Satoru Gojo Energético" loading="lazy">
+                        <img src="https://img.fantaskycdn.com/1509276bcf39a732bb0f4b4418fdd0f3_420x.jpeg" alt="Satoru Gojo Técnica" loading="lazy" class="imagen-producto" data-titulo="Satoru Gojo Técnica" data-medida="40x60 cm" data-precio="$34.99">
                     </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Satoru Gojo Técnica</h3>
+                        <p class="dimension-producto">Medida: 40x60 cm</p>
+                    </div>
                 </article>
-
+                
+                <!-- Producto 8 -->
                 <article class="producto-item">
                     <figure class="contenedor-imagen-producto">
-                        <img src="https://img.fantaskycdn.com/4e4c3d00de07c5b0738d26722e9277d3_420x.jpeg" alt="Satoru Gojo Energético" loading="lazy">
+                        <img src="https://img.fantaskycdn.com/4e4c3d00de07c5b0738d26722e9277d3_420x.jpeg" alt="Megumi Fushiguro" loading="lazy" class="imagen-producto" data-titulo="Megumi Fushiguro" data-medida="35x50 cm" data-precio="$32.99">
                     </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Megumi Fushiguro</h3>
+                        <p class="dimension-producto">Medida: 35x50 cm</p>
+                    </div>
                 </article>
-
-                <article class="producto-item">
+                
+                <!-- Productos adicionales para Jujutsu Kaisen -->
+                <article class="producto-item adicional">
                     <figure class="contenedor-imagen-producto">
-                        <img src="https://img.fantaskycdn.com/34f47381c7e5766648a9b8c053dce075_420x.jpeg" alt="Satoru Gojo Energético" loading="lazy">
+                        <img src="https://via.placeholder.com/420x280/1a1a2e/e94560" alt="Jujutsu Kaisen Adicional 1" loading="lazy" class="imagen-producto" data-titulo="Yuji Itadori Especial" data-medida="60x80 cm" data-precio="$44.99">
                     </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Yuji Itadori Especial</h3>
+                        <p class="dimension-producto">Medida: 60x80 cm</p>
+                    </div>
                 </article>
-
-                <article class="producto-item">
+                
+                <article class="producto-item adicional">
                     <figure class="contenedor-imagen-producto">
-                        <img src="https://img.fantaskycdn.com/a78f165d253b8c2121f6da5254883cff_420x.jpeg" alt="Satoru Gojo Energético" loading="lazy">
+                        <img src="https://via.placeholder.com/420x280/16213e/0f3460" alt="Jujutsu Kaisen Adicional 2" loading="lazy" class="imagen-producto" data-titulo="Sukuna Dominio" data-medida="55x75 cm" data-precio="$42.99">
                     </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Sukuna Dominio</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
                 </article>
             </div>
-            
-            <!-- Galería de productos Jujutsu Kaisen para móvil -->
-            <div class="galeria-movil movil-galeria" id="galeria-jujutsu-movil">
-                <!-- Los productos se cargarán dinámicamente aquí -->
+            <div class="contenedor-boton-ver-mas">
+                <button class="boton-ver-mas" data-target="jujutsu">Ver más</button>
             </div>
         </div>
     </section>
@@ -239,111 +351,288 @@
         <div class="contenedor-seccion">
             <div class="encabezado-seccion">
                 <h2 class="titulo-seccion">Naruto</h2>
-                <button class="boton-ver-mas" data-target="naruto">Ver más</button>
             </div>
             
-            <!-- Galería de productos Naruto para desktop -->
-            <div class="galeria-productos desktop-galeria" id="galeria-naruto-desktop">
+            <!-- Galería de productos Naruto -->
+            <div class="galeria-productos" id="galeria-naruto">
                 <!-- Producto 1 -->
                 <article class="producto-item">
                     <figure class="contenedor-imagen-producto">
-                        <img src="https://img.fantaskycdn.com/6d48db7138463c21afc700ac564026f8_420x.jpeg" alt="Naruto Uzumaki" loading="lazy">
+                        <img src="https://img.fantaskycdn.com/6d48db7138463c21afc700ac564026f8_420x.jpeg" alt="Naruto Uzumaki" loading="lazy" class="imagen-producto" data-titulo="Naruto Uzumaki" data-medida="40x60 cm" data-precio="$34.99">
                     </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Naruto Uzumaki</h3>
+                        <p class="dimension-producto">Medida: 40x60 cm</p>
+                    </div>
                 </article>
                 
                 <!-- Producto 2 -->
                 <article class="producto-item">
                     <figure class="contenedor-imagen-producto">
-                        <img src="https://img.fantaskycdn.com/ca7d9f8a1c0cfc2da3d009d6246653a4_420x.jpeg" alt="Sasuke Uchiha" loading="lazy">
+                        <img src="https://img.fantaskycdn.com/ca7d9f8a1c0cfc2da3d009d6246653a4_420x.jpeg" alt="Sasuke Uchiha" loading="lazy" class="imagen-producto" data-titulo="Sasuke Uchiha" data-medida="40x60 cm" data-precio="$34.99">
                     </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Sasuke Uchiha</h3>
+                        <p class="dimension-producto">Medida: 40x60 cm</p>
+                    </div>
                 </article>
                 
                 <!-- Producto 3 -->
                 <article class="producto-item">
                     <figure class="contenedor-imagen-producto">
-                        <img src="https://img.fantaskycdn.com/3786b10c6f829933f5075372ade5fd0c_420x.jpeg" alt="Kakashi Hatake" loading="lazy">
+                        <img src="https://img.fantaskycdn.com/3786b10c6f829933f5075372ade5fd0c_420x.jpeg" alt="Kakashi Hatake" loading="lazy" class="imagen-producto" data-titulo="Kakashi Hatake" data-medida="35x50 cm" data-precio="$32.99">
                     </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Kakashi Hatake</h3>
+                        <p class="dimension-producto">Medida: 35x50 cm</p>
+                    </div>
                 </article>
                 
                 <!-- Producto 4 -->
                 <article class="producto-item">
                     <figure class="contenedor-imagen-producto">
-                        <img src="https://img.fantaskycdn.com/cf1051c4ace2ed06309464452973bf04_420x.jpeg" alt="Madara Uchiha" loading="lazy">
+                        <img src="https://img.fantaskycdn.com/cf1051c4ace2ed06309464452973bf04_420x.jpeg" alt="Madara Uchiha" loading="lazy" class="imagen-producto" data-titulo="Madara Uchiha" data-medida="50x70 cm" data-precio="$39.99">
                     </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Madara Uchiha</h3>
+                        <p class="dimension-producto">Medida: 50x70 cm</p>
+                    </div>
                 </article>
                 
-                <!-- Producto 5 -->
-                <article class="producto-item">
+                <!-- Productos adicionales para Naruto -->
+                <article class="producto-item adicional">
                     <figure class="contenedor-imagen-producto">
-                        <img src="https://img.fantaskycdn.com/0ec5e785ed73437b86b9a4b2d0fa3cc5_420x.jpeg" alt="Itachi Uchiha" loading="lazy">
+                        <img src="https://via.placeholder.com/420x280/0f3460/16213e" alt="Naruto Adicional 1" loading="lazy" class="imagen-producto" data-titulo="Naruto y Sasuke" data-medida="60x80 cm" data-precio="$44.99">
                     </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Naruto y Sasuke</h3>
+                        <p class="dimension-producto">Medida: 60x80 cm</p>
+                    </div>
                 </article>
                 
-                <!-- Producto 6 -->
-                <article class="producto-item">
+                <article class="producto-item adicional">
                     <figure class="contenedor-imagen-producto">
-                        <img src="https://img.fantaskycdn.com/177b67d2eebafe7016f79bb1bce6b585_420x.jpeg" alt="Team 7" loading="lazy">
+                        <img src="https://via.placeholder.com/420x280/e94560/1a1a2e" alt="Naruto Adicional 2" loading="lazy" class="imagen-producto" data-titulo="Itachi Uchiha" data-medida="45x65 cm" data-precio="$36.99">
                     </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Itachi Uchiha</h3>
+                        <p class="dimension-producto">Medida: 45x65 cm</p>
+                    </div>
                 </article>
-
-                <article class="producto-item">
-                    <figure class="contenedor-imagen-producto">
-                        <img src="https://img.fantaskycdn.com/78b0dd0480cc092f1812fb40c7a6b0e6_420x.jpeg" alt="Team 7" loading="lazy">
-                    </figure>
-                </article>
-
-                <article class="producto-item">
-                    <figure class="contenedor-imagen-producto">
-                        <img src="https://img.fantaskycdn.com/b64068069adb857546dbfd208aa8c31c_420x.jpeg" alt="Team 7" loading="lazy">
-                    </figure>
-                </article>
-
-                <article class="producto-item">
-                    <figure class="contenedor-imagen-producto">
-                        <img src="https://img.fantaskycdn.com/7bd43eb82d8e84fdf9237adeb80eaef6_420x.jpeg" alt="Team 7" loading="lazy">
-                    </figure>
-                </article>
-
-                <article class="producto-item">
-                    <figure class="contenedor-imagen-producto">
-                        <img src="https://img.fantaskycdn.com/c4191ef5ccf9fab70e97bc55638dcca1_420x.jpeg" alt="Team 7" loading="lazy">
-                    </figure>
-                </article>
-                
             </div>
-            
-            <!-- Galería de productos Naruto para móvil -->
-            <div class="galeria-movil movil-galeria" id="galeria-naruto-movil">
-                <!-- Los productos se cargarán dinámicamente aquí -->
+            <div class="contenedor-boton-ver-mas">
+                <button class="boton-ver-mas" data-target="naruto">Ver más</button>
             </div>
         </div>
     </section>
     
     <!-- Sección ANIMETAL - Versión mejorada -->
-<section class="animetals-grid-section">
-    <div class="grid-images-container">
-        <!-- Contenedor de las 3 imágenes -->
-        <div class="three-images-grid">
-            <div class="image-block left-block">
-                <div class="image-inner">
-                    <img src="https://img.fantaskycdn.com/ba0f216093fcc49f618b670e1fec34e9_420x.jpeg" alt="Anime 1" class="grid-image">
+    <section class="animetals-grid-section">
+        <div class="grid-images-container">
+            <!-- Contenedor de las 3 imágenes -->
+            <div class="three-images-grid">
+                <div class="image-block left-block">
+                    <div class="image-inner">
+                        <img src="https://img.fantaskycdn.com/ba0f216093fcc49f618b670e1fec34e9_420x.jpeg" alt="Anime 1" class="grid-image">
+                    </div>
                 </div>
-            </div>
-            
-            <div class="image-block middle-block">
-                <div class="image-inner">
-                    <img src="https://img.fantaskycdn.com/9a1c62f5351ff4a96c88a3832c0bb4af_420x.jpeg" alt="Anime 2" class="grid-image">
+                
+                <div class="image-block middle-block">
+                    <div class="image-inner">
+                        <img src="https://img.fantaskycdn.com/9a1c62f5351ff4a96c88a3832c0bb4af_420x.jpeg" alt="Anime 2" class="grid-image">
+                    </div>
                 </div>
-            </div>
-            
-            <div class="image-block right-block">
-                <div class="image-inner">
-                    <img src="https://img.fantaskycdn.com/34220cb040be73de24d57bd21f6d74e0_540x.jpeg" alt="Anime 3" class="grid-image">
+                
+                <div class="image-block right-block">
+                    <div class="image-inner">
+                        <img src="https://img.fantaskycdn.com/34220cb040be73de24d57bd21f6d74e0_540x.jpeg" alt="Anime 3" class="grid-image">
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
+
+    <!-- Sección Dragon Ball -->
+    <section class="seccion-productos" id="seccion-dragonball">
+        <div class="contenedor-seccion">
+            <div class="encabezado-seccion">
+                <h2 class="titulo-seccion">Dragon Ball</h2>
+            </div>
+            
+            <!-- Galería de productos Dragon Ball -->
+            <div class="galeria-productos" id="galeria-dragonball">
+                <!-- Producto 1 -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/13ee2ef5a0eb9c5814f23e00ffbe85b0_420x.jpeg" alt="Dragon Ball Z - Personajes" loading="lazy" class="imagen-producto" data-titulo="Dragon Ball Z" data-medida="40x60 cm" data-precio="$34.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Dragon Ball Z</h3>
+                        <p class="dimension-producto">Medida: 40x60 cm</p>
+                    </div>
+                </article>
+                
+                <!-- Producto 2 -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://via.placeholder.com/420x280/1a1a2e/e94560" alt="Goku Ultra Instinct" loading="lazy" class="imagen-producto" data-titulo="Goku Ultra Instinct" data-medida="50x70 cm" data-precio="$39.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Goku Ultra Instinct</h3>
+                        <p class="dimension-producto">Medida: 50x70 cm</p>
+                    </div>
+                </article>
+                
+                <!-- Producto 3 -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://via.placeholder.com/420x280/16213e/0f3460" alt="Vegeta Super Saiyan" loading="lazy" class="imagen-producto" data-titulo="Vegeta Super Saiyan" data-medida="35x50 cm" data-precio="$32.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Vegeta Super Saiyan</h3>
+                        <p class="dimension-producto">Medida: 35x50 cm</p>
+                    </div>
+                </article>
+                
+                <!-- Producto 4 -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://via.placeholder.com/420x280/0f3460/16213e" alt="Broly Legendario" loading="lazy" class="imagen-producto" data-titulo="Broly Legendario" data-medida="45x65 cm" data-precio="$36.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Broly Legendario</h3>
+                        <p class="dimension-producto">Medida: 45x65 cm</p>
+                    </div>
+                </article>
+                
+                <!-- Productos adicionales para Dragon Ball -->
+                <article class="producto-item adicional">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://via.placeholder.com/420x280/e94560/1a1a2e" alt="Dragon Ball Adicional 1" loading="lazy" class="imagen-producto" data-titulo="Gohan Beast" data-medida="60x80 cm" data-precio="$44.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Gohan Beast</h3>
+                        <p class="dimension-producto">Medida: 60x80 cm</p>
+                    </div>
+                </article>
+                
+                <article class="producto-item adicional">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://via.placeholder.com/420x280/16213e/0f3460" alt="Dragon Ball Adicional 2" loading="lazy" class="imagen-producto" data-titulo="Freezer Dorado" data-medida="55x75 cm" data-precio="$42.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Freezer Dorado</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
+                </article>
+            </div>
+            <div class="contenedor-boton-ver-mas">
+                <button class="boton-ver-mas" data-target="dragonball">Ver más</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Demon Slayer -->
+    <section class="seccion-productos" id="seccion-demonslayer">
+        <div class="contenedor-seccion">
+            <div class="encabezado-seccion">
+                <h2 class="titulo-seccion">Demon Slayer</h2>
+            </div>
+            
+            <!-- Galería de productos Demon Slayer -->
+            <div class="galeria-productos" id="galeria-demonslayer">
+                <!-- Producto 1 -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/dea8954ef407b466629c9142320d13ac_420x.jpeg" alt="Tanjiro Kamado" loading="lazy" class="imagen-producto" data-titulo="Tanjiro Kamado" data-medida="40x60 cm" data-precio="$34.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Tanjiro Kamado</h3>
+                        <p class="dimension-producto">Medida: 40x60 cm</p>
+                    </div>
+                </article>
+                
+                <!-- Producto 2 -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://via.placeholder.com/420x280/16213e/0f3460" alt="Nezuko Kamado" loading="lazy" class="imagen-producto" data-titulo="Nezuko Kamado" data-medida="35x50 cm" data-precio="$32.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Nezuko Kamado</h3>
+                        <p class="dimension-producto">Medida: 35x50 cm</p>
+                    </div>
+                </article>
+                
+                <!-- Producto 3 -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://via.placeholder.com/420x280/0f3460/16213e" alt="Zenitsu Agatsuma" loading="lazy" class="imagen-producto" data-titulo="Zenitsu Agatsuma" data-medida="40x60 cm" data-precio="$34.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Zenitsu Agatsuma</h3>
+                        <p class="dimension-producto">Medida: 40x60 cm</p>
+                    </div>
+                </article>
+                
+                <!-- Producto 4 -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://via.placeholder.com/420x280/e94560/1a1a2e" alt="Inosuke Hashibira" loading="lazy" class="imagen-producto" data-titulo="Inosuke Hashibira" data-medida="40x60 cm" data-precio="$34.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Inosuke Hashibira</h3>
+                        <p class="dimension-producto">Medida: 40x60 cm</p>
+                    </div>
+                </article>
+                
+                <!-- Productos adicionales para Demon Slayer -->
+                <article class="producto-item adicional">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://via.placeholder.com/420x280/1a1a2e/e94560" alt="Demon Slayer Adicional 1" loading="lazy" class="imagen-producto" data-titulo="Muzan Kibutsuji" data-medida="60x80 cm" data-precio="$44.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Muzan Kibutsuji</h3>
+                        <p class="dimension-producto">Medida: 60x80 cm</p>
+                    </div>
+                </article>
+                
+                <article class="producto-item adicional">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://via.placeholder.com/420x280/0f3460/16213e" alt="Demon Slayer Adicional 2" loading="lazy" class="imagen-producto" data-titulo="Hashiras Completo" data-medida="55x75 cm" data-precio="$42.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Hashiras Completo</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
+                </article>
+            </div>
+            <div class="contenedor-boton-ver-mas">
+                <button class="boton-ver-mas" data-target="demonslayer">Ver más</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal para imagen ampliada -->
+    <div class="modal-imagen" id="modal-imagen">
+        <div class="modal-contenido">
+            <button class="cerrar-modal" aria-label="Cerrar modal">&times;</button>
+            <div class="modal-imagen-contenedor">
+                <img id="imagen-ampliada" src="" alt="">
+            </div>
+            <div class="modal-info">
+                <h3 id="modal-titulo">Título del Producto</h3>
+                <p id="modal-medida">Medida: 30x40 cm</p>
+                <p id="modal-precio">$29.99</p>
+                <button class="boton-seleccionar" id="boton-seleccionar">
+                    <i class="fas fa-check-circle"></i> Seleccionar
+                </button>
+                <a href="https://wa.me/1234567890?text=¡Hola!%20Estoy%20interesado%20en%20este%20producto" class="boton-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Encargar por WhatsApp
+                </a>
+            </div>
+        </div>
     </div>
-</section>
+
     <!-- Footer -->
     <footer class="footer-principal">
         <div class="contenedor-footer">
@@ -351,10 +640,10 @@
                 <h3 class="titulo-footer">ANIMETAL</h3>
                 <p class="texto-footer">Transformamos tus personajes favoritos en arte duradero sobre metal con impresión HD de alta calidad.</p>
                 <div class="redes-sociales">
-                    <a href="#" class="enlace-red-social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="enlace-red-social"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="enlace-red-social"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="enlace-red-social"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#" class="enlace-red-social" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="enlace-red-social" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="enlace-red-social" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="enlace-red-social" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
                 </div>
             </div>
             
@@ -372,7 +661,7 @@
             <div class="columna-footer">
                 <h4 class="titulo-columna">Enlaces útiles</h4>
                 <ul class="lista-enlaces">
-                    <li><a href="#">Inicio</a></li>
+                    <li><a href="index.html">Inicio</a></li>
                     <li><a href="#">Cómo comprar</a></li>
                     <li><a href="#">Preguntas frecuentes</a></li>
                     <li><a href="#">Términos y condiciones</a></li>
