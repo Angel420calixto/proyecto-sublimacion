@@ -683,7 +683,6 @@ button {
    ============================================= */
 .seccion-proceso {
     padding: 5rem 0;
-    background-color: var(--color-primario);
     position: relative;
 }
 
@@ -694,7 +693,6 @@ button {
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--color-destacado), transparent);
 }
 
 .proceso-grid {
@@ -705,7 +703,6 @@ button {
 }
 
 .proceso-card {
-    background: var(--color-secundario);
     padding: 2rem;
     border-radius: 12px;
     text-align: center;
@@ -722,7 +719,6 @@ button {
 .proceso-icono {
     width: 70px;
     height: 70px;
-    background: var(--color-terciario);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -751,7 +747,6 @@ button {
 }
 
 .calidad-item {
-    background: rgba(255, 255, 255, 0.05);
     padding: 1.5rem;
     border-radius: 10px;
     border-left: 4px solid var(--color-destacado);
@@ -798,7 +793,6 @@ button {
 .paso-numero {
     width: 50px;
     height: 50px;
-    background: var(--color-destacado);
     color: white;
     border-radius: 50%;
     display: flex;
@@ -828,7 +822,6 @@ button {
 }
 
 .info-compra-card {
-    background: var(--color-secundario);
     padding: 2rem;
     border-radius: 12px;
     text-align: center;
@@ -843,7 +836,6 @@ button {
 .info-compra-icono {
     width: 60px;
     height: 60px;
-    background: var(--color-terciario);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -867,8 +859,7 @@ button {
 .cta-comprar {
     text-align: center;
     padding: 3rem;
-    background: linear-gradient(135deg, var(--color-primario), var(--color-terciario));
-    border-radius: 15px;
+   border-radius: 15px;
     margin-top: 3rem;
 }
 
