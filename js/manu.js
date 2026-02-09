@@ -1,4 +1,4 @@
-// manu.js - VERSIÓN DEFINITIVA - SUBMENÚ FUNCIONAL
+// manu.js - VERSIÓN COMPLETA CON TODAS LAS FUNCIONALIDADES
 
 class Animetal {
     constructor() {
@@ -15,6 +15,7 @@ class Animetal {
         this.setupModalImagenes();
         this.setupScrollSuave();
         this.setupRedimensionamiento();
+        this.setupWhatsAppLinks();
         console.log('✅ ANIMETAL - Configuración completa');
     }
 
@@ -91,7 +92,7 @@ class Animetal {
         if (this.overlay) {
             this.overlay.classList.remove('activo');
         }
-        this.body.classList.remove('menu-aberto');
+        this.body.classList.remove('menu-abierto');
         
         // Cerrar submenú si está abierto
         const submenuActivo = document.querySelector('.menu-con-desplegable.activo');
@@ -183,13 +184,14 @@ class Animetal {
     }
 
     // ===========================================
-    // 4. MODAL DE IMÁGENES
+    // 4. MODAL DE IMÁGENES - MEJORADO
     // ===========================================
     setupModalImagenes() {
         this.modal = document.getElementById('modal-imagen');
         this.imagenAmpliada = document.getElementById('imagen-ampliada');
         this.modalTitulo = document.getElementById('modal-titulo');
         this.modalMedida = document.getElementById('modal-medida');
+        this.whatsappLink = document.getElementById('whatsapp-link');
         this.cerrarModal = document.querySelector('.cerrar-modal');
 
         if (!this.modal) {
@@ -248,16 +250,26 @@ class Animetal {
         const src = imagenElemento.src;
         const titulo = imagenElemento.getAttribute('data-titulo') || 'Producto';
         const medida = imagenElemento.getAttribute('data-medida') || 'No especificada';
+        const precio = imagenElemento.getAttribute('data-precio') || 'Consultar';
 
         // Actualizar contenido del modal
         this.imagenAmpliada.src = src;
         this.imagenAmpliada.alt = titulo;
         this.modalTitulo.textContent = titulo;
-        this.modalMedida.textContent = `Medida: ${medida}`;
+        this.modalMedida.textContent = `Medida: ${medida} | Precio: ${precio}`;
+
+        // Actualizar enlace de WhatsApp con información del producto
+        if (this.whatsappLink) {
+            const mensaje = `¡Hola! Quiero encargar este producto:%0A%0A• Producto: ${encodeURIComponent(titulo)}%0A• Medida: ${encodeURIComponent(medida)}%0A• Precio: ${encodeURIComponent(precio)}%0A%0ADiseño seleccionado del catálogo%0A%0A¿Podrías ayudarme con el pedido?`;
+            this.whatsappLink.href = `https://wa.me/1234567890?text=${mensaje}`;
+        }
 
         // Mostrar modal
         this.modal.classList.add('mostrar');
         this.body.style.overflow = 'hidden';
+        
+        // Forzar reflow para asegurar que la animación funcione
+        this.modal.offsetHeight;
     }
 
     cerrarModalFunc() {
@@ -274,7 +286,24 @@ class Animetal {
     }
 
     // ===========================================
-    // 5. SCROLL SUAVE
+    // 5. ENLACES DE WHATSAPP PERSONALIZADOS
+    // ===========================================
+    setupWhatsAppLinks() {
+        // Seleccionar todos los enlaces de WhatsApp que necesiten personalización
+        const whatsappLinks = document.querySelectorAll('a[href*="wa.me"]');
+        
+        whatsappLinks.forEach(link => {
+            // Evitar modificar el botón fijo
+            if (link.classList.contains('whatsapp-button')) return;
+            
+            // Agregar evento para abrir en nueva pestaña
+            link.setAttribute('target', '_blank');
+            link.setAttribute('rel', 'noopener noreferrer');
+        });
+    }
+
+    // ===========================================
+    // 6. SCROLL SUAVE
     // ===========================================
     setupScrollSuave() {
         document.addEventListener('click', (e) => {
@@ -306,21 +335,27 @@ class Animetal {
     }
 
     // ===========================================
-    // 6. REDIMENSIONAMIENTO
+    // 7. REDIMENSIONAMIENTO
     // ===========================================
     setupRedimensionamiento() {
+        let resizeTimeout;
+        
         window.addEventListener('resize', () => {
-            // Cerrar menú móvil al cambiar a desktop
-            if (window.innerWidth > 768) {
-                if (this.menu && this.menu.classList.contains('activo')) {
-                    this.cerrarMenu();
+            clearTimeout(resizeTimeout);
+            
+            resizeTimeout = setTimeout(() => {
+                // Cerrar menú móvil al cambiar a desktop
+                if (window.innerWidth > 768) {
+                    if (this.menu && this.menu.classList.contains('activo')) {
+                        this.cerrarMenu();
+                    }
+                    
+                    // Cerrar submenús
+                    document.querySelectorAll('.menu-con-desplegable.activo').forEach(item => {
+                        item.classList.remove('activo');
+                    });
                 }
-                
-                // Cerrar submenús
-                document.querySelectorAll('.menu-con-desplegable.activo').forEach(item => {
-                    item.classList.remove('activo');
-                });
-            }
+            }, 250);
         });
     }
 }
@@ -330,6 +365,11 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
         const animetal = new Animetal();
         console.log('🎉 ANIMETAL - Inicializado correctamente');
+        
+        // Añadir clase de carga para transiciones suaves
+        setTimeout(() => {
+            document.body.classList.add('cargado');
+        }, 100);
     } catch (error) {
         console.error('❌ Error al inicializar ANIMETAL:', error);
     }
@@ -340,5 +380,29 @@ window.addEventListener('error', (e) => {
     if (e.target.tagName === 'IMG') {
         console.warn(`⚠️ Error al cargar imagen: ${e.target.src}`);
         e.target.style.opacity = '0.5';
+        
+        // Mostrar placeholder en caso de error
+        if (e.target.classList.contains('imagen-producto')) {
+            e.target.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200"><rect width="300" height="200" fill="%231a1a2e"/><text x="150" y="100" font-family="Arial" font-size="16" fill="%23b8b8d1" text-anchor="middle">Imagen no disponible</text></svg>';
+        }
     }
 }, true);
+
+// Mejorar rendimiento en scroll
+let scrollTimeout;
+window.addEventListener('scroll', () => {
+    if (!scrollTimeout) {
+        scrollTimeout = setTimeout(() => {
+            // Agregar clase durante el scroll para mejorar rendimiento
+            document.body.classList.add('scrolling');
+            
+            clearTimeout(scrollTimeout);
+            scrollTimeout = null;
+            
+            // Remover clase después del scroll
+            setTimeout(() => {
+                document.body.classList.remove('scrolling');
+            }, 100);
+        }, 10);
+    }
+});

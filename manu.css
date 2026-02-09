@@ -1,4 +1,4 @@
-/* manu.css - VERSIÓN OPTIMIZADA Y FUNCIONAL */
+/* manu.css - VERSIÓN CORREGIDA - MODAL MEJORADO */
 
 /* =============================================
    VARIABLES CSS GLOBALES
@@ -113,22 +113,31 @@ button {
 }
 
 .titulo-seccion {
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 700;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     color: var(--color-texto);
     position: relative;
+    text-align: center;
 }
 
 .titulo-seccion::after {
     content: '';
     position: absolute;
     bottom: -8px;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
     width: 60px;
     height: 3px;
     background-color: var(--color-destacado);
     border-radius: 3px;
+}
+
+.subtitulo-seccion {
+    text-align: center;
+    color: var(--color-texto-secundario);
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
 }
 
 .contenedor-boton-ver-mas {
@@ -670,7 +679,233 @@ button {
 }
 
 /* =============================================
-   MODAL PARA IMAGEN AMPLIADA
+   SECCIÓN NUESTRO PROCESO
+   ============================================= */
+.seccion-proceso {
+    padding: 5rem 0;
+    background-color: var(--color-primario);
+    position: relative;
+}
+
+.seccion-proceso::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-destacado), transparent);
+}
+
+.proceso-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.proceso-card {
+    background: var(--color-secundario);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: var(--transicion-rapida);
+    border: 1px solid transparent;
+}
+
+.proceso-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-destacado);
+    box-shadow: var(--sombra-destacada);
+}
+
+.proceso-icono {
+    width: 70px;
+    height: 70px;
+    background: var(--color-terciario);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 1.8rem;
+    color: var(--color-destacado);
+}
+
+.proceso-titulo {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--color-texto);
+}
+
+.proceso-descripcion {
+    color: var(--color-texto-secundario);
+    line-height: 1.6;
+}
+
+.calidad-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.calidad-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid var(--color-destacado);
+}
+
+.calidad-item h4 {
+    color: var(--color-texto);
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.calidad-item h4 i {
+    color: var(--color-destacado);
+}
+
+.calidad-item p {
+    color: var(--color-texto-secundario);
+    line-height: 1.6;
+}
+
+/* =============================================
+   SECCIÓN CÓMO COMPRAR
+   ============================================= */
+.seccion-como-comprar {
+    padding: 5rem 0;
+    background-color: var(--color-fondo);
+}
+
+.pasos-comprar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.paso-item {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.paso-numero {
+    width: 50px;
+    height: 50px;
+    background: var(--color-destacado);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.paso-contenido h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    color: var(--color-texto);
+}
+
+.paso-contenido p {
+    color: var(--color-texto-secundario);
+    line-height: 1.6;
+}
+
+.info-compra-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.info-compra-card {
+    background: var(--color-secundario);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: var(--transicion-rapida);
+}
+
+.info-compra-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sombra-suave);
+}
+
+.info-compra-icono {
+    width: 60px;
+    height: 60px;
+    background: var(--color-terciario);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 1.5rem;
+    color: var(--color-destacado);
+}
+
+.info-compra-card h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--color-texto);
+}
+
+.info-compra-card p {
+    color: var(--color-texto-secundario);
+    line-height: 1.6;
+}
+
+.cta-comprar {
+    text-align: center;
+    padding: 3rem;
+    background: linear-gradient(135deg, var(--color-primario), var(--color-terciario));
+    border-radius: 15px;
+    margin-top: 3rem;
+}
+
+.cta-comprar h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--color-texto);
+}
+
+.cta-comprar p {
+    color: var(--color-texto-secundario);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.boton-whatsapp-grande {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--color-whatsapp);
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: var(--transicion-rapida);
+    box-shadow: var(--sombra-whatsapp);
+}
+
+.boton-whatsapp-grande:hover {
+    background-color: #1da851;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+}
+
+/* =============================================
+   MODAL PARA IMAGEN AMPLIADA - VERSIÓN CORREGIDA Y OPTIMIZADA
    ============================================= */
 .modal-imagen {
     position: fixed;
@@ -678,12 +913,12 @@ button {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.95);
+    background-color: rgba(0, 0, 0, 0.97);
     display: none;
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    padding: 20px;
+    padding: 15px;
 }
 
 .modal-imagen.mostrar {
@@ -699,19 +934,22 @@ button {
 .modal-contenido {
     background-color: var(--color-primario);
     border-radius: 12px;
-    max-width: 800px;
-    width: 100%;
-    max-height: 90vh;
+    max-width: 95%;
+    width: 95%;
+    max-height: 95vh;
+    height: 95vh;
     overflow: hidden;
     position: relative;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.8);
     animation: scaleIn 0.3s ease;
+    display: flex;
+    flex-direction: column;
 }
 
 @keyframes scaleIn {
     from {
         opacity: 0;
-        transform: scale(0.9);
+        transform: scale(0.95);
     }
     to {
         opacity: 1;
@@ -719,24 +957,13 @@ button {
     }
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 .cerrar-modal {
     position: absolute;
     top: 15px;
     right: 15px;
-    background: none;
+    background: rgba(0, 0, 0, 0.7);
     color: var(--color-texto);
-    font-size: 30px;
+    font-size: 28px;
     width: 40px;
     height: 40px;
     display: flex;
@@ -745,61 +972,107 @@ button {
     cursor: pointer;
     z-index: 1002;
     transition: var(--transicion-rapida);
+    border-radius: 50%;
+    border: none;
 }
 
 .cerrar-modal:hover {
     color: var(--color-destacado);
+    background: rgba(0, 0, 0, 0.9);
     transform: scale(1.1);
 }
 
+/* CONTENEDOR DE IMAGEN PRINCIPAL - AHORA OCUPA MÁS ESPACIO */
 .modal-imagen-contenedor {
-    height: 70vh;
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    position: relative;
 }
 
 #imagen-ampliada {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
+/* INFO DEL MODAL - AHORA MÁS COMPACTA */
 .modal-info {
-    padding: 20px;
-    text-align: center;
+    padding: 15px 20px;
     background-color: var(--color-secundario);
+    text-align: center;
+    border-top: 1px solid var(--color-borde);
 }
 
 .modal-info h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+    font-size: 1.4rem;
+    margin-bottom: 8px;
     color: var(--color-texto);
+    font-weight: 600;
 }
 
 .modal-info p {
     font-size: 1rem;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     color: var(--color-texto-secundario);
 }
 
-.boton-whatsapp {
-    display: inline-block;
-    background-color: var(--color-whatsapp);
-    color: white;
-    padding: 0.8rem 1.5rem;
-    border-radius: 30px;
-    font-weight: 600;
-    margin: 10px 5px;
-    transition: var(--transicion-rapida);
+/* BOTONES MÁS COMPACTOS */
+.modal-botones {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-.boton-whatsapp:hover {
+.boton-ver {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: var(--color-terciario);
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: var(--transicion-rapida);
+    border: 2px solid transparent;
+    min-width: 120px;
+    justify-content: center;
+}
+
+.boton-ver:hover {
+    background-color: var(--color-destacado);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(233, 69, 96, 0.4);
+}
+
+.boton-whatsapp-modal {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: var(--color-whatsapp);
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: var(--transicion-rapida);
+    min-width: 120px;
+    justify-content: center;
+}
+
+.boton-whatsapp-modal:hover {
     background-color: #1da851;
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
 }
 
 /* =============================================
@@ -932,6 +1205,11 @@ button {
     .right-block {
         clip-path: polygon(17% 0, 100% 0, 100% 100%, 0% 100%);
     }
+    
+    .modal-contenido {
+        max-width: 90%;
+        width: 90%;
+    }
 }
 
 /* Tablets (1024px) */
@@ -943,6 +1221,18 @@ button {
     
     .three-images-grid {
         height: 400px;
+    }
+    
+    .proceso-grid,
+    .calidad-grid,
+    .pasos-comprar,
+    .info-compra-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .modal-contenido {
+        max-width: 95%;
+        width: 95%;
     }
 }
 
@@ -956,6 +1246,21 @@ button {
     .contenedor-imagen-popular,
     .contenedor-imagen-producto {
         height: 180px;
+    }
+    
+    .banner-principal .contenedor-banner {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .titulo-banner {
+        font-size: 2.2rem;
+    }
+    
+    .modal-contenido {
+        max-width: 98%;
+        width: 98%;
+        height: 90vh;
     }
 }
 
@@ -1135,24 +1440,93 @@ button {
         clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
     }
     
+    /* SECCIONES INFORMATIVAS EN MÓVIL */
+    .proceso-grid,
+    .calidad-grid,
+    .pasos-comprar,
+    .info-compra-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .paso-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .paso-numero {
+        margin: 0 auto;
+    }
+    
+    .cta-comprar {
+        padding: 2rem 1rem;
+    }
+    
+    .cta-comprar h3 {
+        font-size: 1.5rem;
+    }
+    
     /* FOOTER EN MÓVIL */
     .contenedor-footer {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
     
-    /* MODAL EN MÓVIL */
+    /* MODAL EN MÓVIL - VERSIÓN MEJORADA */
     .modal-contenido {
-        max-width: 95%;
+        max-width: 100%;
+        width: 100%;
+        height: 100vh;
+        border-radius: 0;
+        margin: 0;
     }
     
     .modal-imagen-contenedor {
-        height: 60vh;
         padding: 10px;
+        flex: 1;
+    }
+    
+    #imagen-ampliada {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+    
+    .modal-info {
+        padding: 12px 15px;
+        flex-shrink: 0;
     }
     
     .modal-info h3 {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+    }
+    
+    .modal-info p {
+        font-size: 0.9rem;
+        margin-bottom: 12px;
+    }
+    
+    .modal-botones {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .boton-ver,
+    .boton-whatsapp-modal {
+        width: 100%;
+        padding: 0.8rem;
+        font-size: 0.9rem;
+        min-width: unset;
+    }
+    
+    .cerrar-modal {
+        top: 10px;
+        right: 10px;
+        width: 36px;
+        height: 36px;
+        font-size: 24px;
     }
     
     .whatsapp-button {
@@ -1188,7 +1562,12 @@ button {
     }
     
     .titulo-seccion {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
+    }
+    
+    .subtitulo-seccion {
+        font-size: 1rem;
+        margin-bottom: 2rem;
     }
     
     .three-images-grid {
@@ -1213,16 +1592,31 @@ button {
     }
     
     .menu-principal {
-        width: 50%;
+        width: 85%;
         min-width: 250px;
     }
     
-    .modal-contenido {
-        max-width: 90%;
+    /* MODAL EN MÓVILES PEQUEÑOS */
+    .modal-imagen-contenedor {
+        padding: 8px;
     }
     
-    .modal-imagen-contenedor {
-        height: 50vh;
+    .modal-info {
+        padding: 10px 12px;
+    }
+    
+    .modal-info h3 {
+        font-size: 1.1rem;
+    }
+    
+    .modal-info p {
+        font-size: 0.85rem;
+    }
+    
+    .boton-ver,
+    .boton-whatsapp-modal {
+        padding: 0.7rem;
+        font-size: 0.85rem;
     }
 }
 
@@ -1273,8 +1667,36 @@ button {
         min-width: auto;
     }
     
-    .modal-contenido {
-        max-width: 85%;
+    /* MODAL EN PANTALLAS MUY PEQUEÑAS */
+    .modal-imagen-contenedor {
+        padding: 5px;
+    }
+    
+    .modal-info {
+        padding: 8px 10px;
+    }
+    
+    .modal-info h3 {
+        font-size: 1rem;
+    }
+    
+    .modal-info p {
+        font-size: 0.8rem;
+        margin-bottom: 10px;
+    }
+    
+    .boton-ver,
+    .boton-whatsapp-modal {
+        padding: 0.6rem;
+        font-size: 0.8rem;
+    }
+    
+    .cerrar-modal {
+        top: 8px;
+        right: 8px;
+        width: 32px;
+        height: 32px;
+        font-size: 20px;
     }
 }
 
@@ -1293,7 +1715,9 @@ button {
 /* Mejorar rendimiento en transiciones */
 .item-popular,
 .producto-item,
-.modal-contenido {
+.modal-contenido,
+.proceso-card,
+.info-compra-card {
     will-change: transform;
     backface-visibility: hidden;
 }
@@ -1316,7 +1740,9 @@ button {
 /* Solo permitir selección en textos */
 .titulo-producto,
 .dimension-producto,
-.modal-info * {
+.modal-info *,
+.proceso-descripcion,
+.paso-contenido p {
     -webkit-user-select: text;
     user-select: text;
 }
@@ -1327,4 +1753,28 @@ button {
         -webkit-line-clamp: 2;
         line-clamp: 2;
     }
+    
+    .modal-botones {
+        flex-direction: column;
+    }
+    
+    .boton-ver,
+    .boton-whatsapp-modal {
+        width: 100%;
+    }
+}
+
+/* Clase para mejorar la visualización de imágenes en el modal */
+.modal-imagen-contenedor.centrado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Ajuste especial para imágenes muy grandes o muy pequeñas */
+#imagen-ampliada.ajustada {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
 }
