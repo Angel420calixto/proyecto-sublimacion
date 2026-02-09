@@ -9,7 +9,7 @@
     --color-secundario: #16213e;
     --color-terciario: #0f3460;
     --color-destacado: #e94560;
-    --color-whatsapp: #25D366;
+    --color-whatsapp: #25D366; 
     --color-texto: #ffffff;
     --color-texto-secundario: #b8b8d1;
     --color-fondo: #0d0d1a;
@@ -248,6 +248,11 @@ button {
     display: flex;
     align-items: center;
     gap: 5px;
+    background: none;
+    color: var(--color-texto);
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
 }
 
 .flecha-desplegable {
@@ -342,6 +347,13 @@ button {
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 998;
     display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.menu-overlay.activo {
+    display: block;
+    opacity: 1;
 }
 
 /* =============================================
@@ -444,7 +456,7 @@ button {
 
 /* Estado expandido - mostrar todos los elementos */
 .grid-popular.expandido {
-    max-height: 2000px;
+    max-height: 3000px;
 }
 
 /* Ocultar elementos adicionales inicialmente */
@@ -542,7 +554,7 @@ button {
 
 /* Estado expandido - mostrar todos los elementos */
 .galeria-productos.expandido {
-    max-height: 2000px;
+    max-height: 3000px;
 }
 
 /* Ocultar elementos adicionales inicialmente */
@@ -741,7 +753,7 @@ button {
 }
 
 .modal-imagen-contenedor {
-    height: 60vh;
+    height: 70vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -771,30 +783,6 @@ button {
     font-size: 1rem;
     margin-bottom: 10px;
     color: var(--color-texto-secundario);
-}
-
-.modal-info p:last-of-type {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--color-destacado);
-}
-
-.boton-seleccionar {
-    display: inline-block;
-    background-color: var(--color-terciario);
-    color: white;
-    padding: 0.8rem 1.5rem;
-    border-radius: 30px;
-    font-weight: 600;
-    margin: 10px 5px;
-    transition: var(--transicion-rapida);
-    border: 2px solid transparent;
-}
-
-.boton-seleccionar:hover {
-    background-color: var(--color-destacado);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
 }
 
 .boton-whatsapp {
@@ -956,16 +944,6 @@ button {
     .three-images-grid {
         height: 400px;
     }
-    
-    .grid-popular,
-    .galeria-productos {
-        max-height: 800px;
-    }
-    
-    .grid-popular.expandido,
-    .galeria-productos.expandido {
-        max-height: 2500px;
-    }
 }
 
 /* Tablets pequeñas (900px) */
@@ -978,11 +956,6 @@ button {
     .contenedor-imagen-popular,
     .contenedor-imagen-producto {
         height: 180px;
-    }
-    
-    .grid-popular,
-    .galeria-productos {
-        max-height: 750px;
     }
 }
 
@@ -999,7 +972,8 @@ button {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 300px;
+        width: 50%;
+        min-width: 280px;
         height: 100vh;
         background-color: var(--color-primario);
         flex-direction: column;
@@ -1036,6 +1010,7 @@ button {
     /* MENÚ DESPLEGABLE MÓVIL */
     .menu-con-desplegable {
         position: relative;
+        width: 100%;
     }
     
     .menu-con-desplegable .enlace-menu-desplegable {
@@ -1043,7 +1018,9 @@ button {
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        cursor: pointer;
+        padding: 1rem 0;
+        font-size: 1rem;
+        text-align: left;
     }
     
     .menu-con-desplegable .flecha-desplegable {
@@ -1056,21 +1033,22 @@ button {
     
     .menu-con-desplegable .submenu {
         position: static;
-        background: rgba(255, 255, 255, 0.05);
+        background: rgba(22, 33, 62, 0.9);
         box-shadow: none;
         padding: 0;
-        margin: 0.5rem 0 0 1rem;
+        margin: 0;
         max-height: 0;
         overflow: hidden;
         opacity: 1;
         visibility: visible;
         transform: none;
         transition: max-height 0.4s ease;
+        display: block;
     }
     
     .menu-con-desplegable.activo .submenu {
         max-height: 500px;
-        padding: 0.5rem 0;
+        padding: 0.5rem 0 0.5rem 1rem;
     }
     
     .menu-con-desplegable .submenu li {
@@ -1082,6 +1060,7 @@ button {
         padding: 0.5rem 1rem;
         font-size: 0.95rem;
         color: var(--color-texto-secundario);
+        display: block;
     }
     
     .menu-con-desplegable .submenu a:hover {
@@ -1163,8 +1142,13 @@ button {
     }
     
     /* MODAL EN MÓVIL */
+    .modal-contenido {
+        max-width: 95%;
+    }
+    
     .modal-imagen-contenedor {
-        height: 50vh;
+        height: 60vh;
+        padding: 10px;
     }
     
     .modal-info h3 {
@@ -1229,8 +1213,16 @@ button {
     }
     
     .menu-principal {
-        width: 100%;
-        max-width: none;
+        width: 50%;
+        min-width: 250px;
+    }
+    
+    .modal-contenido {
+        max-width: 90%;
+    }
+    
+    .modal-imagen-contenedor {
+        height: 50vh;
     }
 }
 
@@ -1271,79 +1263,31 @@ button {
     
     .grid-popular,
     .galeria-productos {
-        grid-template-columns: 1fr;
-        max-height: 1200px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.6rem;
     }
     
-    .grid-popular.expandido,
-    .galeria-productos.expandido {
-        max-height: 5000px;
+    .menu-principal {
+        width: 85%;
+        max-width: 280px;
+        min-width: auto;
+    }
+    
+    .modal-contenido {
+        max-width: 85%;
     }
 }
 
 /* =============================================
-   CORRECCIÓN ESPECÍFICA PARA EL MODAL
+   ESTILOS ESPECÍFICOS PARA MEJOR RENDIMIENTO
    ============================================= */
 
-.modal-imagen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.95);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    padding: 20px;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.modal-imagen.mostrar {
-    opacity: 1;
-    visibility: visible;
-}
-
-.modal-contenido {
-    background-color: var(--color-primario);
-    border-radius: 12px;
-    max-width: 800px;
-    width: 100%;
-    max-height: 90vh;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-    transform: scale(0.9);
-    transition: transform 0.3s ease;
-}
-
-.modal-imagen.mostrar .modal-contenido {
-    transform: scale(1);
-}
-
-/* Asegurar que el modal esté siempre centrado */
-.modal-imagen-contenedor {
-    height: 60vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.3);
-}
-
-#imagen-ampliada {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-}
-
 /* Prevenir que imágenes sean arrastradas */
-.imagen-producto {
+.imagen-producto,
+.grid-image {
     user-select: none;
     -webkit-user-drag: none;
+    pointer-events: none;
 }
 
 /* Mejorar rendimiento en transiciones */
@@ -1354,424 +1298,17 @@ button {
     backface-visibility: hidden;
 }
 
-/* =============================================
-   CORRECCIÓN ESPECÍFICA PARA SUBMENÚ MÓVIL
-   ============================================= */
-
-/* SUBMENÚ EN MÓVIL - VISIBLE Y FUNCIONAL */
-@media (max-width: 768px) {
-    /* Overlay del menú */
-    .menu-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.7);
-        z-index: 9998;
-        cursor: pointer;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-    
-    .menu-overlay.activo {
-        display: block;
-        opacity: 1;
-    }
-    
-    /* Menú principal móvil */
-    .menu-principal {
-        position: fixed;
-        top: 0;
-        right: -300px;
-        width: 280px;
-        height: 100vh;
-        background-color: var(--color-primario);
-        flex-direction: column;
-        padding: 100px 25px 30px;
-        transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        overflow-y: auto;
-        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
-        z-index: 9999;
-    }
-    
-    .menu-principal.activo {
-        right: 0;
-    }
-    
-    /* Items del menú */
-    .menu-principal li {
-        width: 100%;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .menu-principal li:last-child {
-        border-bottom: none;
-    }
-    
-    .enlace-menu {
-        display: block;
-        padding: 1rem 0;
-        font-size: 1rem;
-        color: var(--color-texto);
-        transition: color 0.3s ease;
-    }
-    
-    .enlace-menu:hover {
-        color: var(--color-destacado);
-    }
-    
-    /* SUBMENÚ DESPLEGABLE - CORRECCIÓN (NO NEGRO) */
-    .menu-con-desplegable {
-        position: relative;
-        background-color: var(--color-primario) !important;
-    }
-    
-    .menu-con-desplegable .enlace-menu-desplegable {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        cursor: pointer;
-        background-color: transparent !important;
-    }
-    
-    .menu-con-desplegable .flecha-desplegable {
-        transition: transform 0.3s ease;
-        font-size: 0.9rem;
-    }
-    
-    .menu-con-desplegable.activo .flecha-desplegable {
-        transform: rotate(180deg);
-    }
-    
-    /* Submenú - VISIBLE Y CON COLOR CORRECTO */
-    .menu-con-desplegable .submenu {
-        position: static !important;
-        background-color: rgba(26, 26, 46, 0.9) !important;
-        border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        padding: 0 !important;
-        margin: 10px 0 0 15px !important;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s ease;
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        transform: none !important;
-    }
-    
-    .menu-con-desplegable.activo .submenu {
-        max-height: 500px;
-        padding: 10px 0 !important;
-    }
-    
-    .menu-con-desplegable .submenu li {
-        border-bottom: none;
-        padding: 0 !important;
-        background-color: transparent !important;
-    }
-    
-    .menu-con-desplegable .submenu a {
-        display: block;
-        padding: 8px 20px !important;
-        color: var(--color-texto-secundario) !important;
-        font-size: 0.95rem;
-        transition: all 0.3s ease;
-        background-color: transparent !important;
-    }
-    
-    .menu-con-desplegable .submenu a:hover {
-        color: var(--color-destacado) !important;
-        background-color: rgba(233, 69, 96, 0.1) !important;
-        padding-left: 25px !important;
-    }
-    
-    /* Asegurar que no haya colores negros */
-    .menu-con-desplegable * {
-        background-color: transparent !important;
-    }
-    
-    /* Grid en móvil - 2 columnas */
-    .grid-popular,
-    .galeria-productos {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 1rem;
-    }
-    
-    .contenedor-imagen-popular,
-    .contenedor-imagen-producto {
-        height: 160px;
-    }
+/* Estilos para el botón de menú desplegable activo */
+.menu-con-desplegable.activo {
+    background: rgba(255, 255, 255, 0.05);
 }
 
-/* Para móviles más pequeños */
-@media (max-width: 576px) {
-    .menu-principal {
-        width: 250px;
-        right: -250px;
-    }
-    
-    .grid-popular,
-    .galeria-productos {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 0.8rem;
-    }
-    
-    .contenedor-imagen-popular,
-    .contenedor-imagen-producto {
-        height: 150px;
-    }
-}
-
-/* Para pantallas muy pequeñas */
-@media (max-width: 480px) {
-    .menu-principal {
-        width: 85%;
-        max-width: 280px;
-        right: -100%;
-    }
-    
-    .menu-principal.activo {
-        right: 0;
-    }
-    
-    .grid-popular,
-    .galeria-productos {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 0.6rem;
-    }
-}
-
-/* Modal - corrección final */
-.modal-imagen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.95);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10000;
-    padding: 20px;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
+/* Asegurar que el modal se vea bien en todos los dispositivos */
 .modal-imagen.mostrar {
-    opacity: 1;
-    visibility: visible;
+    display: flex !important;
 }
 
-/* Prevenir problemas de selección */
-* {
-    -webkit-tap-highlight-color: transparent;
-}
-
-.imagen-producto {
-    -webkit-user-select: none;
-    user-select: none;
-}
-
-
-/* =============================================
-   SOLUCIÓN DEFINITIVA PARA SUBMENÚ MÓVIL
-   ============================================= */
-
-@media (max-width: 768px) {
-    /* OVERLAY */
-    .menu-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.7);
-        z-index: 9998;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-    
-    .menu-overlay.activo {
-        display: block;
-        opacity: 1;
-    }
-    
-    /* MENÚ PRINCIPAL */
-    .menu-principal {
-        position: fixed;
-        top: 0;
-        right: -280px;
-        width: 280px;
-        height: 100vh;
-        background: #1a1a2e; /* Color explícito */
-        flex-direction: column;
-        padding: 100px 20px 30px;
-        transition: right 0.4s ease;
-        overflow-y: auto;
-        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
-        z-index: 9999;
-    }
-    
-    .menu-principal.activo {
-        right: 0;
-    }
-    
-    /* ITEMS DEL MENÚ */
-    .menu-principal > li {
-        width: 100%;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        position: relative; /* Importante para submenú */
-    }
-    
-    .menu-principal > li:last-child {
-        border-bottom: none;
-    }
-    
-    .enlace-menu {
-        display: block;
-        padding: 15px 0;
-        font-size: 1rem;
-        color: #ffffff; /* Color explícito */
-        transition: color 0.3s ease;
-        background: transparent !important;
-    }
-    
-    /* CONTENEDOR DEL SUBMENÚ */
-    .menu-con-desplegable {
-        position: relative;
-        background: transparent !important;
-    }
-    
-    /* ENLACE DEL SUBMENÚ */
-    .enlace-menu-desplegable {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        cursor: pointer;
-        background: transparent !important;
-        color: #ffffff !important; /* Color explícito */
-    }
-    
-    .flecha-desplegable {
-        transition: transform 0.3s ease;
-        font-size: 0.9rem;
-        color: #ffffff !important;
-    }
-    
-    .menu-con-desplegable.activo .flecha-desplegable {
-        transform: rotate(180deg);
-    }
-    
-    /* SUBMENÚ - ESTILOS NUEVOS Y LIMPIOS */
-    .menu-con-desplegable .submenu {
-        /* Reset de estilos problemáticos */
-        display: block !important;
-        position: relative !important;
-        top: auto !important;
-        left: auto !important;
-        right: auto !important;
-        bottom: auto !important;
-        width: 100% !important;
-        min-width: auto !important;
-        max-width: none !important;
-        
-        /* Estilos propios */
-        background: #16213e !important; /* Color diferente al menú principal */
-        border-radius: 6px;
-        margin: 10px 0 0 0 !important;
-        padding: 0 !important;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s ease;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        opacity: 1 !important;
-        visibility: visible !important;
-        transform: none !important;
-        z-index: 10000 !important;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .menu-con-desplegable.activo .submenu {
-        max-height: 400px;
-        padding: 8px 0 !important;
-    }
-    
-    /* ITEMS DEL SUBMENÚ */
-    .menu-con-desplegable .submenu li {
-        display: block;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        border: none !important;
-        background: transparent !important;
-        list-style: none !important;
-    }
-    
-    /* ENLACES DEL SUBMENÚ */
-    .menu-con-desplegable .submenu a {
-        display: block;
-        width: 100%;
-        padding: 10px 20px !important;
-        color: #b8b8d1 !important; /* Color texto secundario */
-        font-size: 0.9rem;
-        font-weight: 500;
-        text-decoration: none !important;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        background: transparent !important;
-        border: none !important;
-        outline: none !important;
-        text-align: left;
-    }
-    
-    .menu-con-desplegable .submenu a:hover,
-    .menu-con-desplegable .submenu a:focus {
-        color: #e94560 !important; /* Color destacado */
-        background: rgba(233, 69, 96, 0.1) !important;
-        padding-left: 25px !important;
-    }
-    
-    /* Asegurar que no haya sombras negras */
-    .menu-con-desplegable * {
-        box-shadow: none !important;
-        text-shadow: none !important;
-    }
-    
-    /* Grid en móvil */
-    .grid-popular,
-    .galeria-productos {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 1rem;
-    }
-}
-
-/* Para móviles más pequeños */
-@media (max-width: 480px) {
-    .menu-principal {
-        width: 85%;
-        max-width: 280px;
-        right: -100%;
-    }
-    
-    .menu-principal.activo {
-        right: 0;
-    }
-    
-    .grid-popular,
-    .galeria-productos {
-        grid-template-columns: repeat(2, 1fr) !important;
-    }
-}
-
-/* Estilos generales para prevenir problemas */
+/* Prevenir problemas de selección en móviles */
 * {
     -webkit-tap-highlight-color: transparent;
 }
@@ -1782,4 +1319,12 @@ button {
 .modal-info * {
     -webkit-user-select: text;
     user-select: text;
+}
+
+/* Mejorar la legibilidad en móviles */
+@media (max-width: 768px) {
+    .titulo-producto {
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+    }
 }

@@ -22,11 +22,14 @@ class Animetal {
     // 1. MENÚ MÓVIL
     // ===========================================
     setupMenuMobile() {
-        this.menuBtn = document.querySelector('.boton-menu-mobile');
-        this.menu = document.querySelector('.menu-principal');
-        this.overlay = document.querySelector('.menu-overlay');
+        this.menuBtn = document.getElementById('boton-menu-mobile');
+        this.menu = document.getElementById('menu-principal');
+        this.overlay = document.getElementById('menu-overlay');
 
-        if (!this.menuBtn || !this.menu) return;
+        if (!this.menuBtn || !this.menu) {
+            console.warn('⚠️ Elementos del menú móvil no encontrados');
+            return;
+        }
 
         // Evento para abrir/cerrar menú
         this.menuBtn.addEventListener('click', (e) => {
@@ -41,30 +44,44 @@ class Animetal {
             });
         }
 
-        // Cerrar menú al hacer clic en enlaces del menú principal (no submenú)
-        const enlacesPrincipales = this.menu.querySelectorAll('.enlace-menu:not(.enlace-menu-desplegable)');
-        enlacesPrincipales.forEach(enlace => {
+        // Cerrar menú al hacer clic en enlaces del menú principal
+        const enlacesMenu = this.menu.querySelectorAll('a');
+        enlacesMenu.forEach(enlace => {
             enlace.addEventListener('click', () => {
                 if (window.innerWidth <= 768) {
                     this.cerrarMenu();
                 }
             });
         });
+
+        // Cerrar menú al hacer clic fuera en móvil
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768 && 
+                this.menu.classList.contains('activo') &&
+                !this.menu.contains(e.target) && 
+                e.target !== this.menuBtn) {
+                this.cerrarMenu();
+            }
+        });
     }
 
     toggleMenu() {
-        if (this.menu.classList.contains('activo')) {
+        const estaActivo = this.menu.classList.contains('activo');
+        
+        if (estaActivo) {
             this.cerrarMenu();
         } else {
             this.abrirMenu();
         }
+        
+        // Actualizar atributo ARIA
+        this.menuBtn.setAttribute('aria-expanded', !estaActivo);
     }
 
     abrirMenu() {
         this.menu.classList.add('activo');
         if (this.overlay) {
-            this.overlay.style.display = 'block';
-            setTimeout(() => this.overlay.classList.add('activo'), 10);
+            this.overlay.classList.add('activo');
         }
         this.body.classList.add('menu-abierto');
     }
@@ -73,91 +90,96 @@ class Animetal {
         this.menu.classList.remove('activo');
         if (this.overlay) {
             this.overlay.classList.remove('activo');
-            setTimeout(() => this.overlay.style.display = 'none', 300);
         }
-        this.body.classList.remove('menu-abierto');
+        this.body.classList.remove('menu-aberto');
         
         // Cerrar submenú si está abierto
         const submenuActivo = document.querySelector('.menu-con-desplegable.activo');
-        if (submenuActivo) submenuActivo.classList.remove('activo');
+        if (submenuActivo) {
+            submenuActivo.classList.remove('activo');
+        }
+        
+        // Actualizar atributo ARIA
+        this.menuBtn.setAttribute('aria-expanded', 'false');
     }
 
     // ===========================================
-    // 2. SUBMENÚ MÓVIL - VERSIÓN SIMPLIFICADA
+    // 2. SUBMENÚ MÓVIL
     // ===========================================
     setupSubmenuMobile() {
         const menuDesplegable = document.querySelector('.menu-con-desplegable');
-        if (!menuDesplegable) return;
+        if (!menuDesplegable) {
+            console.warn('⚠️ Menú desplegable no encontrado');
+            return;
+        }
 
         const enlaceDesplegable = menuDesplegable.querySelector('.enlace-menu-desplegable');
         if (!enlaceDesplegable) return;
 
-        // SOLUCIÓN: Evento simple sin propagación compleja
+        // Evento para abrir/cerrar submenú en móvil
         enlaceDesplegable.addEventListener('click', (e) => {
-            // Solo en móvil
             if (window.innerWidth <= 768) {
                 e.preventDefault();
+                e.stopPropagation();
                 
-                // Toggle simple del submenú
                 const estaActivo = menuDesplegable.classList.contains('activo');
+                
+                // Cerrar otros submenús si están abiertos
+                document.querySelectorAll('.menu-con-desplegable.activo').forEach(item => {
+                    if (item !== menuDesplegable) {
+                        item.classList.remove('activo');
+                    }
+                });
+                
+                // Toggle del submenú actual
                 menuDesplegable.classList.toggle('activo');
                 
-                console.log(`Submenú ${estaActivo ? 'cerrado' : 'abierto'}`);
-                
-                // NO cerrar el menú principal cuando se abre el submenú
-                e.stopPropagation();
+                // Actualizar atributo ARIA
+                enlaceDesplegable.setAttribute('aria-expanded', !estaActivo);
             }
         });
 
-        // Permitir clics en enlaces del submenú
+        // Cerrar submenú al hacer clic en enlaces
         const submenu = menuDesplegable.querySelector('.submenu');
         if (submenu) {
             submenu.querySelectorAll('a').forEach(enlace => {
                 enlace.addEventListener('click', () => {
                     if (window.innerWidth <= 768) {
-                        // Cerrar ambos menús al seleccionar opción
                         this.cerrarMenu();
                     }
                 });
             });
         }
-
-        // Cerrar submenú al hacer clic fuera (pero dentro del menú principal)
-        document.addEventListener('click', (e) => {
-            if (window.innerWidth <= 768 && 
-                menuDesplegable.classList.contains('activo') &&
-                !menuDesplegable.contains(e.target)) {
-                menuDesplegable.classList.remove('activo');
-            }
-        });
     }
 
     // ===========================================
     // 3. BOTONES "VER MÁS"
     // ===========================================
     setupVerMasButtons() {
+        // Botón específico para Anime Popular
         const botonPopular = document.getElementById('boton-expandir-popular');
         const gridPopular = document.getElementById('grid-popular');
         
         if (botonPopular && gridPopular) {
             botonPopular.addEventListener('click', () => {
-                this.toggleSeccion(gridPopular, botonPopular);
+                const estaExpandido = gridPopular.classList.toggle('expandido');
+                botonPopular.textContent = estaExpandido ? 'Ver menos' : 'Ver más';
             });
         }
 
+        // Botones generales con data-target
         const botonesVerMas = document.querySelectorAll('.boton-ver-mas[data-target]');
         botonesVerMas.forEach(boton => {
             boton.addEventListener('click', () => {
-                const target = boton.getAttribute('data-target');
-                const galeria = document.getElementById(`galeria-${target}`);
-                if (galeria) this.toggleSeccion(galeria, boton);
+                const targetId = boton.getAttribute('data-target');
+                const galeria = document.getElementById(targetId);
+                
+                if (galeria) {
+                    const estaExpandido = galeria.classList.toggle('expandido');
+                    boton.textContent = estaExpandido ? 'Ver menos' : 'Ver más';
+                }
             });
         });
-    }
-
-    toggleSeccion(contenedor, boton) {
-        const estaExpandido = contenedor.classList.toggle('expandido');
-        boton.textContent = estaExpandido ? 'Ver menos' : 'Ver más';
     }
 
     // ===========================================
@@ -168,37 +190,37 @@ class Animetal {
         this.imagenAmpliada = document.getElementById('imagen-ampliada');
         this.modalTitulo = document.getElementById('modal-titulo');
         this.modalMedida = document.getElementById('modal-medida');
-        this.modalPrecio = document.getElementById('modal-precio');
         this.cerrarModal = document.querySelector('.cerrar-modal');
-        this.botonSeleccionar = document.getElementById('boton-seleccionar');
 
-        if (!this.modal) return;
+        if (!this.modal) {
+            console.warn('⚠️ Modal no encontrado');
+            return;
+        }
 
         this.setupEventosImagenes();
         this.setupCierreModal();
     }
 
     setupEventosImagenes() {
-        const imagenes = document.querySelectorAll('.imagen-producto');
-        imagenes.forEach(imagen => {
-            imagen.style.cursor = 'pointer';
-            imagen.addEventListener('click', (e) => {
+        // Delegación de eventos para imágenes de productos
+        document.addEventListener('click', (e) => {
+            // Verificar si se hizo clic en una imagen de producto
+            const imagen = e.target.closest('.imagen-producto');
+            if (imagen && !this.isModalOpen) {
                 e.preventDefault();
                 this.abrirModal(imagen);
-            });
-        });
-
-        const articulos = document.querySelectorAll('.item-popular, .producto-item');
-        articulos.forEach(articulo => {
-            articulo.style.cursor = 'pointer';
-            articulo.addEventListener('click', (e) => {
-                if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A') return;
+                return;
+            }
+            
+            // Verificar si se hizo clic en un artículo completo
+            const articulo = e.target.closest('.item-popular, .producto-item');
+            if (articulo && !this.isModalOpen) {
+                e.preventDefault();
                 const imagen = articulo.querySelector('.imagen-producto');
                 if (imagen) {
-                    e.preventDefault();
                     this.abrirModal(imagen);
                 }
-            });
+            }
         });
     }
 
@@ -216,60 +238,70 @@ class Animetal {
                 this.cerrarModalFunc();
             }
         });
-
-        if (this.botonSeleccionar) {
-            this.botonSeleccionar.addEventListener('click', () => {
-                const titulo = this.modalTitulo.textContent;
-                const precio = this.modalPrecio.textContent;
-                alert(`✅ Producto seleccionado:\n\n${titulo}\n${precio}\n\nAgregado a tu carrito.`);
-                this.cerrarModalFunc();
-            });
-        }
     }
 
     abrirModal(imagenElemento) {
         if (this.isModalOpen) return;
         this.isModalOpen = true;
 
-        this.imagenAmpliada.src = imagenElemento.src;
-        this.imagenAmpliada.alt = imagenElemento.getAttribute('data-titulo') || 'Producto';
-        this.modalTitulo.textContent = imagenElemento.getAttribute('data-titulo') || 'Producto sin título';
-        this.modalMedida.textContent = `Medida: ${imagenElemento.getAttribute('data-medida') || 'No especificada'}`;
-        this.modalPrecio.textContent = imagenElemento.getAttribute('data-precio') || '$0.00';
+        // Obtener datos de la imagen
+        const src = imagenElemento.src;
+        const titulo = imagenElemento.getAttribute('data-titulo') || 'Producto';
+        const medida = imagenElemento.getAttribute('data-medida') || 'No especificada';
 
+        // Actualizar contenido del modal
+        this.imagenAmpliada.src = src;
+        this.imagenAmpliada.alt = titulo;
+        this.modalTitulo.textContent = titulo;
+        this.modalMedida.textContent = `Medida: ${medida}`;
+
+        // Mostrar modal
         this.modal.classList.add('mostrar');
         this.body.style.overflow = 'hidden';
     }
 
     cerrarModalFunc() {
         if (!this.modal.classList.contains('mostrar')) return;
+        
         this.modal.classList.remove('mostrar');
         this.body.style.overflow = '';
         this.isModalOpen = false;
+        
+        // Limpiar imagen después de cerrar
+        setTimeout(() => {
+            this.imagenAmpliada.src = '';
+        }, 300);
     }
 
     // ===========================================
     // 5. SCROLL SUAVE
     // ===========================================
     setupScrollSuave() {
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', (e) => {
+        document.addEventListener('click', (e) => {
+            const anchor = e.target.closest('a[href^="#"]');
+            
+            if (anchor) {
                 const href = anchor.getAttribute('href');
+                
                 if (href !== '#' && href !== '') {
                     e.preventDefault();
                     const targetId = href.substring(1);
                     const targetElement = document.getElementById(targetId);
+                    
                     if (targetElement) {
+                        // Cerrar menú móvil si está abierto
                         if (this.menu && this.menu.classList.contains('activo')) {
                             this.cerrarMenu();
                         }
+                        
+                        // Scroll suave
                         window.scrollTo({
                             top: targetElement.offsetTop - 80,
                             behavior: 'smooth'
                         });
                     }
                 }
-            });
+            }
         });
     }
 
@@ -278,18 +310,35 @@ class Animetal {
     // ===========================================
     setupRedimensionamiento() {
         window.addEventListener('resize', () => {
+            // Cerrar menú móvil al cambiar a desktop
             if (window.innerWidth > 768) {
                 if (this.menu && this.menu.classList.contains('activo')) {
                     this.cerrarMenu();
                 }
-                const submenuActivo = document.querySelector('.menu-con-desplegable.activo');
-                if (submenuActivo) submenuActivo.classList.remove('activo');
+                
+                // Cerrar submenús
+                document.querySelectorAll('.menu-con-desplegable.activo').forEach(item => {
+                    item.classList.remove('activo');
+                });
             }
         });
     }
 }
 
-// Inicializar
+// Inicializar cuando el DOM esté completamente cargado
 document.addEventListener('DOMContentLoaded', () => {
-    new Animetal();
+    try {
+        const animetal = new Animetal();
+        console.log('🎉 ANIMETAL - Inicializado correctamente');
+    } catch (error) {
+        console.error('❌ Error al inicializar ANIMETAL:', error);
+    }
 });
+
+// Manejar errores de carga de imágenes
+window.addEventListener('error', (e) => {
+    if (e.target.tagName === 'IMG') {
+        console.warn(`⚠️ Error al cargar imagen: ${e.target.src}`);
+        e.target.style.opacity = '0.5';
+    }
+}, true);
