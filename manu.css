@@ -1,4 +1,4 @@
-/* manu.css - VERSIÓN CORREGIDA - MODAL MEJORADO */
+/* manu.css - VERSIÓN FINAL CORREGIDA */
 
 /* =============================================
    VARIABLES CSS GLOBALES
@@ -435,6 +435,133 @@ button {
 }
 
 /* =============================================
+   SECCIÓN CÓMO COMPRAR - MOVIDA DESPUÉS DEL BANNER
+   ============================================= */
+.seccion-como-comprar {
+    padding: 5rem 0;
+    background-color: var(--color-fondo);
+}
+
+.pasos-comprar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.paso-item {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.paso-numero {
+    width: 50px;
+    height: 50px;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.paso-contenido h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    color: var(--color-texto);
+}
+
+.paso-contenido p {
+    color: var(--color-texto-secundario);
+    line-height: 1.6;
+}
+
+.info-compra-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.info-compra-card {
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: var(--transicion-rapida);
+}
+
+.info-compra-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sombra-suave);
+}
+
+.info-compra-icono {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 1.5rem;
+    color: var(--color-destacado);
+}
+
+.info-compra-card h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--color-texto);
+}
+
+.info-compra-card p {
+    color: var(--color-texto-secundario);
+    line-height: 1.6;
+}
+
+.cta-comprar {
+    text-align: center;
+    padding: 3rem;
+    border-radius: 15px;
+    margin-top: 3rem;
+    background: linear-gradient(135deg, var(--color-primario), var(--color-terciario));
+}
+
+.cta-comprar h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--color-texto);
+}
+
+.cta-comprar p {
+    color: var(--color-texto-secundario);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.boton-whatsapp-grande {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--color-whatsapp);
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: var(--transicion-rapida);
+    box-shadow: var(--sombra-whatsapp);
+}
+
+.boton-whatsapp-grande:hover {
+    background-color: #1da851;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+}
+
+/* =============================================
    SECCIÓN ANIME POPULAR
    ============================================= */
 .seccion-popular {
@@ -615,13 +742,13 @@ button {
 }
 
 /* =============================================
-   SECCIÓN GRID SIMPLE - 3 IMÁGENES
+   SECCIÓN GRID SIMPLE - 3 IMÁGENES CON MARCO ANIME ELEGANTE
    ============================================= */
 .animetals-grid-section {
     width: 100%;
     background-color: var(--color-fondo);
-    padding: 40px 0;
-    margin: 40px 0;
+    padding: 60px 0;
+    margin: 60px 0;
     position: relative;
     overflow: hidden;
 }
@@ -640,14 +767,54 @@ button {
     position: relative;
 }
 
+/* Marco elegante estilo anime */
+.three-images-grid::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    border: 3px solid transparent;
+    background: linear-gradient(45deg, 
+        var(--color-destacado), 
+        #ff6b9d, 
+        #8a2be2, 
+        #00bfff, 
+        var(--color-destacado)) border-box;
+    background-size: 300% 300%;
+    border-radius: 20px;
+    z-index: -1;
+    animation: anime-border 4s ease infinite;
+    mask: 
+        linear-gradient(#fff 0 0) padding-box, 
+        linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+}
+
+@keyframes anime-border {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 .image-block {
     position: relative;
     height: 100%;
     overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.1);
 }
 
 .left-block {
     clip-path: polygon(0 0, 85% 0, 100% 100%, 0% 100%);
+    border-radius: 15px 0 0 15px;
+    border-right: none;
 }
 
 .middle-block {
@@ -658,6 +825,8 @@ button {
 
 .right-block {
     clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+    border-radius: 0 15px 15px 0;
+    border-left: none;
 }
 
 .image-inner {
@@ -678,12 +847,34 @@ button {
     transform: scale(1.05);
 }
 
+/* Efecto de brillo anime */
+.image-block::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: left 0.7s ease;
+}
+
+.image-block:hover::after {
+    left: 100%;
+}
+
 /* =============================================
    SECCIÓN NUESTRO PROCESO
    ============================================= */
 .seccion-proceso {
     padding: 5rem 0;
     position: relative;
+    background-color: var(--color-fondo);
 }
 
 .seccion-proceso::before {
@@ -693,6 +884,10 @@ button {
     left: 0;
     right: 0;
     height: 1px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        var(--color-destacado), 
+        transparent);
 }
 
 .proceso-grid {
@@ -708,12 +903,14 @@ button {
     text-align: center;
     transition: var(--transicion-rapida);
     border: 1px solid transparent;
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .proceso-card:hover {
     transform: translateY(-5px);
     border-color: var(--color-destacado);
     box-shadow: var(--sombra-destacada);
+    background: rgba(233, 69, 96, 0.1);
 }
 
 .proceso-icono {
@@ -726,6 +923,7 @@ button {
     margin: 0 auto 1.5rem;
     font-size: 1.8rem;
     color: var(--color-destacado);
+    background: rgba(233, 69, 96, 0.15);
 }
 
 .proceso-titulo {
@@ -750,6 +948,7 @@ button {
     padding: 1.5rem;
     border-radius: 10px;
     border-left: 4px solid var(--color-destacado);
+    background: rgba(255, 255, 255, 0.03);
 }
 
 .calidad-item h4 {
@@ -770,133 +969,7 @@ button {
 }
 
 /* =============================================
-   SECCIÓN CÓMO COMPRAR
-   ============================================= */
-.seccion-como-comprar {
-    padding: 5rem 0;
-    background-color: var(--color-fondo);
-}
-
-.pasos-comprar {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 3rem;
-}
-
-.paso-item {
-    display: flex;
-    gap: 1.5rem;
-    align-items: flex-start;
-}
-
-.paso-numero {
-    width: 50px;
-    height: 50px;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    font-weight: 700;
-    flex-shrink: 0;
-}
-
-.paso-contenido h3 {
-    font-size: 1.3rem;
-    margin-bottom: 0.8rem;
-    color: var(--color-texto);
-}
-
-.paso-contenido p {
-    color: var(--color-texto-secundario);
-    line-height: 1.6;
-}
-
-.info-compra-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin: 3rem 0;
-}
-
-.info-compra-card {
-    padding: 2rem;
-    border-radius: 12px;
-    text-align: center;
-    transition: var(--transicion-rapida);
-}
-
-.info-compra-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--sombra-suave);
-}
-
-.info-compra-icono {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1.5rem;
-    font-size: 1.5rem;
-    color: var(--color-destacado);
-}
-
-.info-compra-card h4 {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    color: var(--color-texto);
-}
-
-.info-compra-card p {
-    color: var(--color-texto-secundario);
-    line-height: 1.6;
-}
-
-.cta-comprar {
-    text-align: center;
-    padding: 3rem;
-   border-radius: 15px;
-    margin-top: 3rem;
-}
-
-.cta-comprar h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    color: var(--color-texto);
-}
-
-.cta-comprar p {
-    color: var(--color-texto-secundario);
-    margin-bottom: 2rem;
-    font-size: 1.1rem;
-}
-
-.boton-whatsapp-grande {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background-color: var(--color-whatsapp);
-    color: white;
-    padding: 1rem 2.5rem;
-    border-radius: 30px;
-    font-weight: 600;
-    font-size: 1.1rem;
-    transition: var(--transicion-rapida);
-    box-shadow: var(--sombra-whatsapp);
-}
-
-.boton-whatsapp-grande:hover {
-    background-color: #1da851;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
-}
-
-/* =============================================
-   MODAL PARA IMAGEN AMPLIADA - VERSIÓN CORREGIDA Y OPTIMIZADA
+   MODAL PARA IMAGEN AMPLIADA - CORREGIDO PARA MÓVIL
    ============================================= */
 .modal-imagen {
     position: fixed;
@@ -973,14 +1046,14 @@ button {
     transform: scale(1.1);
 }
 
-/* CONTENEDOR DE IMAGEN PRINCIPAL - AHORA OCUPA MÁS ESPACIO */
+/* CONTENEDOR DE IMAGEN PRINCIPAL - CON COLORES VIVOS */
 .modal-imagen-contenedor {
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.95);
     overflow: hidden;
     position: relative;
 }
@@ -991,10 +1064,25 @@ button {
     object-fit: contain;
     display: block;
     border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    /* Mejora la saturación para colores más vivos */
+    filter: saturate(1.1) contrast(1.05);
 }
 
-/* INFO DEL MODAL - AHORA MÁS COMPACTA */
+/* CORRECCIÓN ESPECIAL PARA MÓVIL - COLORES VIVOS */
+@media (max-width: 768px) {
+    .modal-imagen-contenedor {
+        background-color: #ffffff;
+        padding: 10px;
+    }
+    
+    #imagen-ampliada {
+        filter: saturate(1.15) contrast(1.1);
+        box-shadow: none;
+    }
+}
+
+/* INFO DEL MODAL */
 .modal-info {
     padding: 15px 20px;
     background-color: var(--color-secundario);
@@ -1015,7 +1103,7 @@ button {
     color: var(--color-texto-secundario);
 }
 
-/* BOTONES MÁS COMPACTOS */
+/* BOTONES DEL MODAL */
 .modal-botones {
     display: flex;
     gap: 10px;
@@ -1419,6 +1507,15 @@ button {
         gap: 0;
     }
     
+    .three-images-grid::before {
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+        border-width: 2px;
+        border-radius: 15px;
+    }
+    
     .left-block {
         clip-path: polygon(0 0, 75% 0, 100% 100%, 0% 100%);
     }
@@ -1464,7 +1561,7 @@ button {
         gap: 2rem;
     }
     
-    /* MODAL EN MÓVIL - VERSIÓN MEJORADA */
+    /* MODAL EN MÓVIL - VERSIÓN MEJORADA CON COLORES VIVOS */
     .modal-contenido {
         max-width: 100%;
         width: 100%;
@@ -1476,12 +1573,14 @@ button {
     .modal-imagen-contenedor {
         padding: 10px;
         flex: 1;
+        background-color: #ffffff !important;
     }
     
     #imagen-ampliada {
         max-width: 100%;
         max-height: 100%;
         object-fit: contain;
+        filter: saturate(1.15) contrast(1.1) brightness(1.05);
     }
     
     .modal-info {
@@ -1518,6 +1617,7 @@ button {
         width: 36px;
         height: 36px;
         font-size: 24px;
+        background: rgba(233, 69, 96, 0.9);
     }
     
     .whatsapp-button {
@@ -1566,8 +1666,8 @@ button {
     }
     
     .animetals-grid-section {
-        padding: 20px 0;
-        margin: 20px 0;
+        padding: 30px 0;
+        margin: 30px 0;
     }
     
     .left-block {
@@ -1590,6 +1690,11 @@ button {
     /* MODAL EN MÓVILES PEQUEÑOS */
     .modal-imagen-contenedor {
         padding: 8px;
+        background-color: #ffffff !important;
+    }
+    
+    #imagen-ampliada {
+        filter: saturate(1.2) contrast(1.15) brightness(1.08);
     }
     
     .modal-info {
@@ -1619,6 +1724,15 @@ button {
     
     .grid-images-container {
         padding: 0 5px;
+    }
+    
+    .three-images-grid::before {
+        top: -8px;
+        left: -8px;
+        right: -8px;
+        bottom: -8px;
+        border-width: 2px;
+        border-radius: 12px;
     }
     
     .left-block {
@@ -1661,6 +1775,11 @@ button {
     /* MODAL EN PANTALLAS MUY PEQUEÑAS */
     .modal-imagen-contenedor {
         padding: 5px;
+        background-color: #ffffff !important;
+    }
+    
+    #imagen-ampliada {
+        filter: saturate(1.25) contrast(1.2) brightness(1.1);
     }
     
     .modal-info {
@@ -1688,6 +1807,7 @@ button {
         width: 32px;
         height: 32px;
         font-size: 20px;
+        background: rgba(233, 69, 96, 0.9);
     }
 }
 
@@ -1768,4 +1888,16 @@ button {
     height: auto;
     max-width: 100%;
     max-height: 100%;
+}
+
+/* Animación para elementos adicionales */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
