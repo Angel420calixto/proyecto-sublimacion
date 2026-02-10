@@ -1,4 +1,4 @@
-/* manu.css - VERSIÓN FINAL CON MODAL TRANSPARENTE */
+/* manu.css - VERSIÓN FINAL CON MODAL HD Y PROPORCIONES PERFECTAS */
 
 /* =============================================
    VARIABLES CSS GLOBALES
@@ -969,7 +969,7 @@ button {
 }
 
 /* =============================================
-   MODAL PARA IMAGEN AMPLIADA - VERSIÓN TRANSPARENTE DEFINITIVA
+   MODAL PARA IMAGEN AMPLIADA - VERSIÓN HD PERFECTA
    ============================================= */
 .modal-imagen {
     position: fixed;
@@ -993,14 +993,7 @@ button {
     opacity: 1;
 }
 
-/* RESET COMPLETO PARA EVITAR PROBLEMAS DE CACHÉ VISUAL */
-.modal-imagen * {
-    opacity: 1 !important;
-    transform: none !important;
-    filter: none !important;
-    -webkit-filter: none !important;
-}
-
+/* CONTENEDOR PRINCIPAL DEL MODAL */
 .modal-contenido {
     background-color: transparent;
     border-radius: 0;
@@ -1017,6 +1010,7 @@ button {
     margin: 0;
 }
 
+/* BOTÓN CERRAR */
 .cerrar-modal {
     position: fixed;
     top: 20px;
@@ -1043,13 +1037,14 @@ button {
     box-shadow: 0 6px 20px rgba(233, 69, 96, 0.4);
 }
 
-/* CONTENEDOR DE IMAGEN PRINCIPAL - TRANSPARENTE */
+/* CONTENEDOR DE IMAGEN PRINCIPAL - CENTRADO PERFECTO */
 .modal-imagen-contenedor {
     flex: 1;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 60px 20px 80px; /* Espacio para botones superiores e inferiores */
     background-color: transparent;
     overflow: hidden;
     position: relative;
@@ -1057,9 +1052,10 @@ button {
     height: 100%;
 }
 
+/* IMAGEN HD CON PROPORCIONES PERFECTAS */
 #imagen-ampliada {
-    max-width: 90%;
-    max-height: 90vh;
+    max-width: 85%;
+    max-height: 70vh;
     object-fit: contain;
     display: block;
     border-radius: 0;
@@ -1067,88 +1063,101 @@ button {
     opacity: 1;
     filter: none;
     -webkit-filter: none;
-    image-rendering: auto;
+    image-rendering: optimizeQuality;
     -webkit-backface-visibility: visible;
     backface-visibility: visible;
     transform: translateZ(0);
     will-change: transform;
+    margin: 0 auto;
+    /* Mejoras para calidad HD */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-/* CONTROLES FLOTANTES PEQUEÑOS */
-.modal-controls {
-    position: fixed;
+/* CONTENEDOR DE BOTONES INFERIOR - CENTRADO */
+.modal-botones-inferiores {
+    position: absolute;
     bottom: 20px;
     left: 0;
     right: 0;
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 15px;
     z-index: 10001;
     padding: 0 20px;
 }
 
+/* BOTONES MODALES - TAMAÑO ADECUADO Y CENTRADOS */
 .boton-ver-modal {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     background-color: rgba(15, 52, 96, 0.9);
     color: white;
-    padding: 0.5rem 1.2rem;
-    border-radius: 20px;
+    padding: 0.7rem 1.5rem;
+    border-radius: 25px;
     font-weight: 600;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     transition: var(--transicion-rapida);
     border: 2px solid transparent;
     backdrop-filter: blur(10px);
-    min-width: 100px;
+    min-width: 140px;
     justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .boton-ver-modal:hover {
     background-color: rgba(233, 69, 96, 0.9);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(233, 69, 96, 0.4);
+    box-shadow: 0 6px 18px rgba(233, 69, 96, 0.4);
 }
 
 .boton-whatsapp-modal {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     background-color: rgba(37, 211, 102, 0.9);
     color: white;
-    padding: 0.5rem 1.2rem;
-    border-radius: 20px;
+    padding: 0.7rem 1.5rem;
+    border-radius: 25px;
     font-weight: 600;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     transition: var(--transicion-rapida);
     backdrop-filter: blur(10px);
-    min-width: 100px;
+    min-width: 140px;
     justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .boton-whatsapp-modal:hover {
     background-color: rgba(29, 168, 81, 0.9);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.4);
 }
 
-/* INFO FLOTANTE PEQUEÑA */
-.modal-info-flotante {
-    position: fixed;
+/* INFORMACIÓN SUPERIOR - CENTRADA */
+.modal-info-superior {
+    position: absolute;
     top: 20px;
-    left: 20px;
-    right: 80px;
+    left: 0;
+    right: 0;
     background: rgba(26, 26, 46, 0.8);
     backdrop-filter: blur(10px);
-    padding: 10px 15px;
+    padding: 12px 20px;
     border-radius: 10px;
     z-index: 10001;
-    max-width: 400px;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    border: 1px solid rgba(233, 69, 96, 0.2);
 }
 
-.modal-info-flotante h3 {
-    font-size: 1rem;
-    margin-bottom: 3px;
+.modal-info-superior h3 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
     color: var(--color-texto);
     font-weight: 600;
     white-space: nowrap;
@@ -1156,8 +1165,8 @@ button {
     text-overflow: ellipsis;
 }
 
-.modal-info-flotante p {
-    font-size: 0.8rem;
+.modal-info-superior p {
+    font-size: 0.9rem;
     color: var(--color-texto-secundario);
     margin: 0;
 }
@@ -1332,6 +1341,17 @@ button {
     
     .titulo-banner {
         font-size: 2.2rem;
+    }
+    
+    /* MODAL EN TABLET */
+    #imagen-ampliada {
+        max-width: 90%;
+        max-height: 65vh;
+    }
+    
+    .modal-info-superior {
+        max-width: 500px;
+        padding: 10px 15px;
     }
 }
 
@@ -1553,7 +1573,7 @@ button {
         gap: 2rem;
     }
     
-    /* MODAL EN MÓVIL - VERSIÓN TRANSPARENTE */
+    /* MODAL EN MÓVIL - VERSIÓN HD PERFECTA */
     .modal-contenido {
         max-width: 100%;
         width: 100%;
@@ -1564,46 +1584,51 @@ button {
     }
     
     .modal-imagen-contenedor {
-        padding: 15px;
+        padding: 50px 15px 80px; /* Más espacio superior para la info */
         background-color: transparent !important;
     }
     
     #imagen-ampliada {
         max-width: 95%;
-        max-height: 85vh;
+        max-height: 60vh;
         object-fit: contain;
         opacity: 1 !important;
         filter: none !important;
         -webkit-filter: none !important;
+        image-rendering: optimizeQuality;
     }
     
-    .modal-info-flotante {
+    .modal-info-superior {
         top: 15px;
         left: 15px;
-        right: 70px;
-        padding: 8px 12px;
-        max-width: calc(100% - 90px);
+        right: 15px;
+        max-width: 100%;
+        padding: 10px 15px;
+        margin: 0;
     }
     
-    .modal-info-flotante h3 {
-        font-size: 0.9rem;
+    .modal-info-superior h3 {
+        font-size: 0.95rem;
     }
     
-    .modal-info-flotante p {
-        font-size: 0.75rem;
+    .modal-info-superior p {
+        font-size: 0.8rem;
     }
     
-    .modal-controls {
+    .modal-botones-inferiores {
         bottom: 15px;
         padding: 0 15px;
-        gap: 8px;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
     
     .boton-ver-modal,
     .boton-whatsapp-modal {
-        padding: 0.4rem 1rem;
-        font-size: 0.8rem;
-        min-width: 90px;
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
+        min-width: 130px;
+        flex: 0 0 auto;
     }
     
     .cerrar-modal {
@@ -1684,42 +1709,40 @@ button {
     
     /* MODAL EN MÓVILES PEQUEÑOS */
     .modal-imagen-contenedor {
-        padding: 10px;
-        background-color: transparent !important;
+        padding: 45px 10px 70px;
     }
     
     #imagen-ampliada {
         max-width: 98%;
-        max-height: 80vh;
+        max-height: 55vh;
     }
     
-    .modal-info-flotante {
+    .modal-info-superior {
         top: 10px;
         left: 10px;
-        right: 60px;
-        padding: 6px 10px;
-        max-width: calc(100% - 80px);
+        right: 10px;
+        padding: 8px 12px;
     }
     
-    .modal-info-flotante h3 {
-        font-size: 0.85rem;
+    .modal-info-superior h3 {
+        font-size: 0.9rem;
     }
     
-    .modal-info-flotante p {
-        font-size: 0.7rem;
+    .modal-info-superior p {
+        font-size: 0.75rem;
     }
     
-    .modal-controls {
+    .modal-botones-inferiores {
         bottom: 10px;
         padding: 0 10px;
-        gap: 6px;
+        gap: 8px;
     }
     
     .boton-ver-modal,
     .boton-whatsapp-modal {
-        padding: 0.35rem 0.9rem;
-        font-size: 0.75rem;
-        min-width: 80px;
+        padding: 0.55rem 1rem;
+        font-size: 0.8rem;
+        min-width: 120px;
     }
 }
 
@@ -1781,43 +1804,47 @@ button {
     
     /* MODAL EN PANTALLAS MUY PEQUEÑAS */
     .modal-imagen-contenedor {
-        padding: 5px;
+        padding: 40px 8px 65px;
     }
     
     #imagen-ampliada {
         max-width: 100%;
-        max-height: 75vh;
+        max-height: 50vh;
     }
     
-    .modal-info-flotante {
+    .modal-info-superior {
         top: 8px;
         left: 8px;
-        right: 50px;
-        padding: 5px 8px;
-        max-width: calc(100% - 70px);
+        right: 8px;
+        padding: 6px 10px;
     }
     
-    .modal-info-flotante h3 {
-        font-size: 0.8rem;
+    .modal-info-superior h3 {
+        font-size: 0.85rem;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
     }
     
-    .modal-info-flotante p {
-        font-size: 0.65rem;
+    .modal-info-superior p {
+        font-size: 0.7rem;
     }
     
-    .modal-controls {
+    .modal-botones-inferiores {
         bottom: 8px;
         padding: 0 8px;
-        flex-wrap: wrap;
+        gap: 6px;
+        flex-direction: column;
+        align-items: center;
     }
     
     .boton-ver-modal,
     .boton-whatsapp-modal {
-        padding: 0.3rem 0.8rem;
-        font-size: 0.7rem;
-        min-width: 70px;
-        flex: 1;
-        max-width: calc(50% - 4px);
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+        min-width: 150px;
+        width: 100%;
+        max-width: 200px;
     }
     
     .cerrar-modal {
@@ -1830,7 +1857,7 @@ button {
 }
 
 /* =============================================
-   ESTILOS ESPECÍFICOS PARA MEJOR RENDIMIENTO
+   ESTILOS ESPECÍFICOS PARA MEJOR RENDIMIENTO Y HD
    ============================================= */
 
 /* Prevenir que imágenes sean arrastradas */
@@ -1869,7 +1896,7 @@ button {
 /* Solo permitir selección en textos */
 .titulo-producto,
 .dimension-producto,
-.modal-info-flotante *,
+.modal-info-superior *,
 .proceso-descripcion,
 .paso-contenido p {
     -webkit-user-select: text;
@@ -1896,63 +1923,80 @@ button {
     }
 }
 
-/* ESTILOS DE REINICIO PARA EL MODAL - SOLUCIÓN DEFINITIVA */
-.modal-imagen-contenedor,
-#imagen-ampliada,
-.modal-controls,
-.modal-info-flotante,
-.cerrar-modal {
-    opacity: 1 !important;
-    visibility: visible !important;
-    display: block !important;
+/* MEJORAS ESPECÍFICAS PARA CALIDAD HD EN EL MODAL */
+#imagen-ampliada.hd-quality {
+    image-rendering: optimizeQuality;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
 }
 
-/* Forzar reset visual cada vez que se abre el modal */
-.modal-imagen.mostrar .modal-contenido {
-    animation: none !important;
-}
-
-.modal-imagen.mostrar #imagen-ampliada {
-    opacity: 1 !important;
-    transform: none !important;
-    filter: none !important;
-    -webkit-filter: none !important;
-    animation: none !important;
-}
-
-/* Clase de reset explícito para imágenes en modal */
-.imagen-reset {
-    opacity: 1 !important;
-    filter: none !important;
-    -webkit-filter: none !important;
-    transform: none !important;
-    animation: none !important;
-    image-rendering: auto !important;
-    -webkit-backface-visibility: visible !important;
-    backface-visibility: visible !important;
-}
-
-/* Solución para el problema de caché visual */
-.modal-imagen {
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.modal-imagen.mostrar {
-    opacity: 1;
-}
-
-.modal-imagen.mostrar .modal-contenido {
-    transform: none;
-    animation: none;
-}
-
-/* Asegurar que la imagen se vea completa */
+/* Garantizar que la imagen mantenga proporciones */
 #imagen-ampliada {
+    aspect-ratio: auto;
     object-fit: contain;
     width: auto;
     height: auto;
+    max-width: min(85%, 1200px);
+    max-height: min(70vh, 800px);
+}
+
+/* Clase específica para imágenes con proporciones especiales */
+#imagen-ampliada.retrato {
+    max-height: 80vh;
+    max-width: 70%;
+}
+
+#imagen-ampliada.paisaje {
     max-width: 90%;
-    max-height: 90vh;
-    margin: auto;
+    max-height: 65vh;
+}
+
+/* Reset visual para cada apertura de modal */
+.modal-imagen.mostrar #imagen-ampliada {
+    opacity: 1 !important;
+    transform: none !important;
+    -webkit-filter: none !important;
+    filter: none !important;
+    animation: none !important;
+    visibility: visible !important;
+}
+
+/* Efecto sutil de aparición */
+@keyframes imagenAparece {
+    from {
+        opacity: 0;
+        transform: scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal-imagen.mostrar #imagen-ampliada {
+    animation: imagenAparece 0.3s ease forwards;
+}
+
+/* Asegurar que el modal se cierre completamente */
+.modal-imagen:not(.mostrar) {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+/* Solución para imágenes que se ven desproporcionadas */
+.modal-imagen-contenedor {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+#imagen-ampliada {
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: auto !important;
+    margin-bottom: auto !important;
 }
