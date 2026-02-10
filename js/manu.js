@@ -261,7 +261,7 @@ class Animetal {
         // Actualizar enlace de WhatsApp con información del producto
         if (this.whatsappLink) {
             const mensaje = `¡Hola! Quiero encargar este producto:%0A%0A• Producto: ${encodeURIComponent(titulo)}%0A• Medida: ${encodeURIComponent(medida)}%0A• Precio: ${encodeURIComponent(precio)}%0A%0ADiseño seleccionado del catálogo%0A%0A¿Podrías ayudarme con el pedido?`;
-            this.whatsappLink.href = `https://wa.me/1234567890?text=${mensaje}`;
+            this.whatsappLink.href = `https://wa.me/56982045756?text=${mensaje}`;
         }
 
         // Mostrar modal
