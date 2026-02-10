@@ -29,7 +29,8 @@
           "scrollbar-width: none",
           "scrollbar-color",
           "user-select",
-          "-webkit-user-drag"
+          "-webkit-user-drag",
+          "image-rendering: crisp-edges"
         ]
       }
     ],
