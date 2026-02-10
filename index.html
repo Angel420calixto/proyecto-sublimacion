@@ -3,1017 +3,1588 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mundo de Fantasía Animal</title>
+    <title>ANIMETAL - Posters y Cuadros Sublimados</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="real.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prata&family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="manu.css">
 </head>
 <body>
-     <!-- Encabezado -->
-    <header class="encabezado">
-        <nav class="navegacion-principal">
-            <a href="#" class="logo-link">
-                <img src="img/logo.jpg" alt="Logo Fantasía Animal" class="logo">
-                <span class="logo-text">MetalArts</span>
-            </a>
-            <button class="boton-encabezado">
-                <i class="fas fa-bars"></i>
-            </button>
-            <ul class="enlaces">
-                <li><a href="index.html" class="enlace-navegacion">Inicio</a></li>
-                <li><a href="menu.html" class="enlace-navegacion">Galería</a></li>
-                <li><a href="visualizacion.html" class="enlace-navegacion">Categorías</a></li>
-                <li><a href="#" class="enlace-navegacion">Personalizar</a></li>
-                <li><a href="#" class="enlace-navegacion">Contacto</a></li>
-            </ul>
-            <div class="iconos-usuario-mobile">
-                <a href="#" class="icono-usuario-mobile">
-                    <i class="fas fa-shopping-cart"></i>
-                </a>
-                <a href="#" class="icono-usuario-mobile">
-                    <i class="fas fa-user"></i>
-                </a>
+    <!-- Botón de WhatsApp fijo -->
+    <a href="https://wa.me/1234567890" class="whatsapp-button" target="_blank" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header principal -->
+    <header class="header-principal">
+        <nav class="navegacion">
+            <div class="contenedor-navegacion">
+                <!-- Logo -->
+                <div class="logo-contenedor">
+                    <img src="img/logo.jpg" alt="ANIMETAL Logo" class="logo">
+                    <h1 class="titulo-logo">ANIMETAL</h1>
+                </div>
+                
+                <!-- Menú principal -->
+                <ul class="menu-principal" id="menu-principal">
+                    <li><a href="index.html" class="enlace-menu">Inicio</a></li>
+                    <li class="menu-con-desplegable">
+                        <button class="enlace-menu-desplegable" aria-expanded="false" aria-controls="submenu-categorias">
+                            Categorías <i class="fas fa-chevron-down flecha-desplegable"></i>
+                        </button>
+                        <ul class="submenu" id="submenu-categorias">
+                            <li><a href="#">Anime</a></li>
+                            <li><a href="#">Juegos</a></li>
+                            <li><a href="#">Películas</a></li>
+                            <li><a href="#">Series</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#anime-popular" class="enlace-menu">Anime Popular</a></li>
+                    <li><a href="#proceso" class="enlace-menu">Proceso</a></li>
+                    <li><a href="#como-comprar" class="enlace-menu">Cómo Comprar</a></li>
+                </ul>
+                
+                <!-- Iconos de usuario y carrito -->
+                <div class="iconos-usuario">
+                    <a href="#" class="icono-usuario">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="texto-icono">Tienda</span>
+                    </a>
+                    <a href="#" class="icono-usuario">
+                        <i class="fas fa-user"></i>
+                        <span class="texto-icono">Mi cuenta</span>
+                    </a>
+                </div>
+                
+                <!-- Menú hamburguesa móvil -->
+                <button class="boton-menu-mobile" id="boton-menu-mobile" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-principal">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </nav>
-        <div class="galeria-container">
-        <!-- Barra lateral de categorías -->
-        
-        
-        <!-- Sección del carrusel -->
-        <div class="carrusel-seccion">
-                <h2 class="titulo-seccion">Bienvenidos a MetalArts</h2>
-            
-            <div class="contenedor-carrusel-3d">
-                <div class="carrusel-3d" data-carousel-id="main">
-                    <!-- Item 1 -->
-                    <div class="item-carrusel activo" data-item-index="0">
-                        <a href="categoria-anime.html" class="carrusel-link">
-                            <img src="img/broly.webp" alt="Animal realista 1">
-                            <div class="contenido-carrusel">
-                                <h3>Goku Fases</h3>
-                                <p></p>
-                            </div>
-                        </a>
-                    </div>
-                    
-                    <!-- Item 2 -->
-                    <div class="item-carrusel" data-item-index="1">
-                        <a href="categoria-anime.html" class="carrusel-link">
-                            <img src="img/vegeta6.webp" alt="Animal realista 2">
-                            <div class="contenido-carrusel">
-                                <h3>Veggeta Majin</h3>
-                                <p></p>
-                            </div>
-                        </a>
-                    </div>
-                    
-                    <!-- Item 3 -->
-                    <div class="item-carrusel" data-item-index="2">
-                        <a href="categoria-anime.html" class="carrusel-link">
-                            <img src="img/satoru3.avif" alt="Animal realista 3">
-                            <div class="contenido-carrusel">
-                                <h3>Goku Veggito</h3>
-                                <p></p>
-                            </div>
-                        </a>
-                    </div>
-                    
-                    <!-- Item 4 -->
-                    <div class="item-carrusel" data-item-index="3">
-                        <a href="categoria-anime.html" class="carrusel-link">
-                            <img src="img/goku3.webp" alt="Animal realista 4">
-                            <div class="contenido-carrusel">
-                                <h3>Veggeta vs Majin</h3>
-                                <p></p>
-                            </div>
-                        </a>
-                    </div>
-                    
-                    <!-- Item 5 -->
-                    <div class="item-carrusel" data-item-index="4">
-                        <a href="categoria-anime.html" class="carrusel-link">
-                            <img src="img/gohan1.webp" alt="Animal realista 5">
-                        </a>
-                    </div>
-                    
-                    <!-- Aquí se pueden agregar más items dinámicamente -->
-                </div>
-            </div>
-            
-            <div class="controles-carrusel">
-                <button class="btn-control" id="btn-prev">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                
-                <div class="indicadores">
-                    <span class="indicador activo" data-indicator="0"></span>
-                    <span class="indicador" data-indicator="1"></span>
-                    <span class="indicador" data-indicator="2"></span>
-                    <span class="indicador" data-indicator="3"></span>
-                    <span class="indicador" data-indicator="4"></span>
-                </div>
-                
-                <button class="btn-control" id="btn-next">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-        </div>
-    </div>
     </header>
 
-    <main class="menu">
+    <!-- Overlay para menú móvil -->
+    <div class="menu-overlay" id="menu-overlay"></div>
 
-        <section class="videos-carrusel">
-    <div class="container-videos">
-        <div class="encabezado-videos">
-            <h2 class="titulo-videos">Procesos MetalArts</h2>
-            <p class="subtitulo-videos">Conoce nuestro proceso creativo y los resultados finales</p>
-        </div>
-        
-        <!-- Carrusel horizontal para desktop -->
-        <div class="carrusel-horizontal-desktop">
-            <div class="contenedor-carrusel">
-                <div class="carrusel-track" data-carousel-id="videos-desktop">
-                    <!-- Video 1 -->
-                    <div class="carrusel-slide" data-video-id="1">
-                        <div class="video-item">
-                            <div class="video-thumbnail-carrusel">
-                                <video src="https://www.youtube.com/shorts/0q1zUZTf1Jk?feature=share" playsinline="" controls="" controlslist="nodownload" oncontextmenu="return false;" preload="metadata" loop="" muted="" autoplay=""></video>
-                                <div class="play-indicator">
-                                    <i class="fas fa-play"></i>
-                                </div>
-                                <div class="video-duracion-badge">0:45</div>
-                            </div>
-                            <div class="video-info-carrusel">
-                                <h3>Amazing Anime Metal Artwork</h3>
-                                <p>Arte en metal de Dragon Ball</p>
-                                <span class="video-fecha-carrusel">Nov 2023</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Video 2 -->
-                    <div class="carrusel-slide" data-video-id="2">
-                        <div class="video-item">
-                            <div class="video-thumbnail-carrusel">
-                                <img src="https://img.youtube.com/vi/0e3GPea1h6w/hqdefault.jpg" 
-                                     alt="Instalación LED" class="thumbnail-carrusel">
-                                <div class="play-indicator">
-                                    <i class="fas fa-play"></i>
-                                </div>
-                                <div class="video-duracion-badge">1:30</div>
-                            </div>
-                            <div class="video-info-carrusel">
-                                <h3>Proceso Sublimación</h3>
-                                <p>Cómo creamos arte en metal</p>
-                                <span class="video-fecha-carrusel">Oct 2023</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Video 3 -->
-                    <div class="carrusel-slide" data-video-id="3">
-                        <div class="video-item">
-                            <div class="video-thumbnail-carrusel">
-                                <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" 
-                                     alt="Colección Anime" class="thumbnail-carrusel">
-                                <div class="play-indicator">
-                                    <i class="fas fa-play"></i>
-                                </div>
-                                <div class="video-duracion-badge">4:15</div>
-                            </div>
-                            <div class="video-info-carrusel">
-                                <h3>Colección Anime</h3>
-                                <p>Personajes anime transformados en arte metal</p>
-                                <span class="video-fecha-carrusel">Dic 2023</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Video 4 -->
-                    <div class="carrusel-slide" data-video-id="4">
-                        <div class="video-item">
-                            <div class="video-thumbnail-carrusel">
-                            <iframe width="951" height="535" src="" title="Amazing Anime Metal artwork #art #metal #dragonball #metaleks #anime #viral #art #goku" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                                <div class="play-indicator">
-                                    <i class="fas fa-play"></i>
-                                </div>
-                                <div class="video-duracion-badge">5:20</div>
-                            </div>
-                            <div class="video-info-carrusel">
-                                <h3>Testimonios Clientes</h3>
-                                <p>Lo que dicen nuestros clientes satisfechos</p>
-                                <span class="video-fecha-carrusel">Ene 2024</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Video 5 -->
-                    <div class="carrusel-slide" data-video-id="5">
-                        <div class="video-item">
-                            <div class="video-thumbnail-carrusel">
-                                <img src="https://img.youtube.com/vi/LDU_Txk06tM/hqdefault.jpg" 
-                                     alt="Diseño Personalizado" class="thumbnail-carrusel">
-                                <div class="play-indicator">
-                                    <i class="fas fa-play"></i>
-                                </div>
-                                <div class="video-duracion-badge">3:10</div>
-                            </div>
-                            <div class="video-info-carrusel">
-                                <h3>Diseño Personalizado</h3>
-                                <p>Creamos cuadros únicos según tus ideas</p>
-                                <span class="video-fecha-carrusel">Feb 2024</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Video 6 -->
-                    <div class="carrusel-slide" data-video-id="6">
-                        <div class="video-item">
-                            <div class="video-thumbnail-carrusel">
-                                <img src="https://img.youtube.com/vi/5yx6BWlEVcY/hqdefault.jpg" 
-                                     alt="Materiales de Calidad" class="thumbnail-carrusel">
-                                <div class="play-indicator">
-                                    <i class="fas fa-play"></i>
-                                </div>
-                                <div class="video-duracion-badge">2:45</div>
-                            </div>
-                            <div class="video-info-carrusel">
-                                <h3>Materiales Premium</h3>
-                                <p>Usamos solo materiales de la más alta calidad</p>
-                                <span class="video-fecha-carrusel">Mar 2024</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Aquí se pueden agregar más videos dinámicamente -->
-                </div>
+    <!-- Banner principal -->
+    <section class="banner-principal">
+        <div class="contenedor-banner">
+            <div class="contenido-banner">
+                <h2 class="titulo-banner">Impresión Metálica HD Personalizada</h2>
+                <p class="texto-banner">Transforma tus personajes favoritos en arte duradero sobre metal</p>
+                <a href="#anime-popular" class="boton-banner">Ver Catálogo</a>
             </div>
-            
-            <!-- Controles del carrusel -->
-            <button class="carrusel-btn prev-btn" data-carousel-prev="videos-desktop">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <button class="carrusel-btn next-btn" data-carousel-next="videos-desktop">
-                <i class="fas fa-chevron-right"></i>
-            </button>
-            
-            <!-- Indicadores de posición -->
-            <div class="carrusel-indicadores">
-                <div class="indicador active" data-indicator="0"></div>
-                <div class="indicador" data-indicator="1"></div>
-                <div class="indicador" data-indicator="2"></div>
+            <div class="imagen-banner">
+                <img src="img/gokufrezer.webp" alt="Goku vs Freezer - Cuadro de anime en metal" loading="lazy">
             </div>
-        </div>
-        
-        <!-- Carrusel horizontal para móvil -->
-        <div class="carrusel-horizontal-mobile">
-            <div class="contenedor-carrusel-mobile">
-                <div class="carrusel-track-mobile" data-carousel-id="videos-mobile">
-                    <!-- Miniaturas de videos para móvil -->
-                    <div class="carrusel-slide-mobile" data-video-id="1">
-                        <div class="video-miniatura-mobile">
-                            <img src="https://img.youtube.com/vi/qwgbuq9XvEg/hqdefault.jpg" 
-                                 alt="Proceso de sublimación" class="miniatura-img">
-                            <div class="play-indicator-mobile">
-                                <i class="fas fa-play"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="carrusel-slide-mobile" data-video-id="2">
-                        <div class="video-miniatura-mobile">
-                            <img src="https://img.youtube.com/vi/0e3GPea1h6w/hqdefault.jpg" 
-                                 alt="Instalación LED" class="miniatura-img">
-                            <div class="play-indicator-mobile">
-                                <i class="fas fa-play"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="carrusel-slide-mobile" data-video-id="3">
-                        <div class="video-miniatura-mobile">
-                            <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" 
-                                 alt="Colección Anime" class="miniatura-img">
-                            <div class="play-indicator-mobile">
-                                <i class="fas fa-play"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="carrusel-slide-mobile" data-video-id="4">
-                        <div class="video-miniatura-mobile">
-                            <img src="https://img.youtube.com/vi/jfKfPfyJRdk/hqdefault.jpg" 
-                                 alt="Testimonios" class="miniatura-img">
-                            <div class="play-indicator-mobile">
-                                <i class="fas fa-play"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="carrusel-slide-mobile" data-video-id="5">
-                        <div class="video-miniatura-mobile">
-                            <img src="https://img.youtube.com/vi/LDU_Txk06tM/hqdefault.jpg" 
-                                 alt="Diseño Personalizado" class="miniatura-img">
-                            <div class="play-indicator-mobile">
-                                <i class="fas fa-play"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="carrusel-slide-mobile" data-video-id="6">
-                        <div class="video-miniatura-mobile">
-                            <img src="https://img.youtube.com/vi/5yx6BWlEVcY/hqdefault.jpg" 
-                                 alt="Materiales de Calidad" class="miniatura-img">
-                            <div class="play-indicator-mobile">
-                                <i class="fas fa-play"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Aquí se pueden agregar más miniaturas dinámicamente -->
-                </div>
-            </div>
-            
-            <!-- Controles del carrusel móvil -->
-            <button class="carrusel-btn-mobile prev-btn-mobile" data-carousel-prev="videos-mobile">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <button class="carrusel-btn-mobile next-btn-mobile" data-carousel-next="videos-mobile">
-                <i class="fas fa-chevron-right"></i>
-            </button>
-        </div>
-        
-        <!-- Modal para reproducir videos -->
-        <div class="video-modal" id="videoModal">
-            <div class="modal-content">
-                <button class="close-modal">&times;</button>
-                <div class="video-wrapper">
-                    <iframe id="youtubePlayer" width="100%" height="100%" 
-                            src="" frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                    </iframe>
-                </div>
-                <div class="video-details">
-                    <h3 id="videoTitle"></h3>
-                    <p id="videoDescription"></p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-            <!-- Sección Galería -->
-   <section class="galeria">
-        <h2 class="titulo-galeria">Anime</h2>
-        
-        <div class="categorias-slider">
-            <!-- Categoría 1 -->
-            <div class="categoria-slider" data-categoria="anime">
-                <h3 class="titulo-categoria">Jujutsu Kaisen</h3>
-                <div class="circular-3d-container">
-                    <div class="circular-3d-wrapper" data-carousel-id="anime">
-                        <a href="categoria-anime.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/2a03e9218636696162f68604ef780f06_420x.jpeg" alt="Animal realista 1">
-                            </div>
-                        </a>
-                        <a href="categoria-anime.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/34f47381c7e5766648a9b8c053dce075_420x.jpeg" alt="Animal realista 2">
-                            </div>
-                        </a>
-                        <a href="categoria-anime.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/2d000d50cc5f97b7d8cbfcc7a6ada116_420x.jpeg" alt="Animal realista 3">
-                            </div>
-                        </a>
-                        <a href="categoria-anime.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/7f8ba9afeb80d3c76728236a24d3da15_420x.jpeg" alt="Animal realista 4">
-                            </div>
-                        </a>
-                        <a href="categoria-anime.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/68798f5f6f297f9e42922479456eb245_420x.jpeg" alt="Animal realista 5">
-                            </div>
-                        </a>
-                        <!-- Aquí se pueden agregar más slides dinámicamente -->
-                    </div>
-                </div>
-                <div class="gallery-controls">
-                    <button class="gallery-btn prev-btn" data-carousel-prev="anime">←</button>
-                    <button class="gallery-btn next-btn" data-carousel-next="anime">→</button>
-                </div>
-            </div>
-            
-            <!-- Categoría 2 -->
-            <div class="categoria-slider" data-categoria="games">
-                <h3 class="titulo-categoria">Drangon Ball Z</h3>
-                <div class="circular-3d-container">
-                    <div class="circular-3d-wrapper" data-carousel-id="games">
-                        <a href="categoria-games.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/broly1.webp" alt="Criatura fantástica 1">
-                            </div>
-                        </a>
-                        <a href="categoria-games.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/gohan.webp" alt="Criatura fantástica 2">
-                            </div>
-                        </a>
-                        <a href="categoria-games.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/goku.webp" alt="Criatura fantástica 3">
-                            </div>
-                        </a>
-                        <a href="categoria-games.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/goku2.webp" alt="Criatura fantástica 4">
-                            </div>
-                        </a>
-                        <a href="categoria-games.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/vegeta5.webp" alt="Criatura fantástica 5">
-                            </div>
-                        </a>
-                        <!-- Aquí se pueden agregar más slides dinámicamente -->
-                    </div>
-                </div>
-                <div class="gallery-controls">
-                    <button class="gallery-btn prev-btn" data-carousel-prev="games">←</button>
-                    <button class="gallery-btn next-btn" data-carousel-next="games">→</button>
-                </div>
-            </div>
-            
-            <!-- Categoría 3 -->
-            <div class="categoria-slider" data-categoria="retratos">
-                <h3 class="titulo-categoria">Naruto</h3>
-                <div class="circular-3d-container">
-                    <div class="circular-3d-wrapper" data-carousel-id="retratos">
-                        <a href="categoria-retratos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/cf1051c4ace2ed06309464452973bf04_420x.jpeg" alt="Animal antropomórfico 1">
-                            </div>
-                        </a>
-                        <a href="categoria-retratos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/f9402035bed8b97bc4e47b8a93028ed5_420x.jpeg" alt="Animal antropomórfico 2">
-                            </div>
-                        </a>
-                        <a href="categoria-retratos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/3786b10c6f829933f5075372ade5fd0c_420x.jpeg" alt="Animal antropomórfico 3">
-                            </div>
-                        </a>
-                        <a href="categoria-retratos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/ca7d9f8a1c0cfc2da3d009d6246653a4_420x.jpeg" alt="Animal antropomórfico 4">
-                            </div>
-                        </a>
-                        <a href="categoria-retratos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/60a48578874df0a83f4820dea46c6ead_420x.jpeg" alt="Animal antropomórfico 5">
-                            </div>
-                        </a>
-                         <a href="categoria-retratos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/60a48578874df0a83f4820dea46c6ead_420x.jpeg" alt="Animal antropomórfico 6">
-                            </div>
-                        </a>
-                         <a href="categoria-retratos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/60a48578874df0a83f4820dea46c6ead_420x.jpeg" alt="Animal antropomórfico 7">
-                            </div>
-                        </a>
-                        <!-- Aquí se pueden agregar más slides dinámicamente -->
-                    </div>
-                </div>
-                <div class="gallery-controls">
-                    <button class="gallery-btn prev-btn" data-carousel-prev="retratos">←</button>
-                    <button class="gallery-btn next-btn" data-carousel-next="retratos">→</button>
-                </div>
-            </div>
-            
-            <!-- Categoría 4 -->
-            <div class="categoria-slider" data-categoria="animales">
-                <h3 class="titulo-categoria">Solo Leveling</h3>
-                <div class="circular-3d-container">
-                    <div class="circular-3d-wrapper" data-carousel-id="animales">
-                        <a href="categoria-animales.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima8.webp" alt="Animal antropomórfico 1">
-                            </div>
-                        </a>
-                        <a href="categoria-animales.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima.webp" alt="Animal antropomórfico 2">
-                            </div>
-                        </a>
-                        <a href="categoria-animales.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima16.webp" alt="Animal antropomórfico 3">
-                            </div>
-                        </a>
-                        <a href="categoria-animales.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima11.jpg" alt="Animal antropomórfico 4">
-                            </div>
-                        </a>
-                        <a href="categoria-animales.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima6.jpg" alt="Animal antropomórfico 5">
-                            </div>
-                        </a>
-                        <!-- Aquí se pueden agregar más slides dinámicamente -->
-                    </div>
-                </div>
-                <div class="gallery-controls">
-                    <button class="gallery-btn prev-btn" data-carousel-prev="animales">←</button>
-                    <button class="gallery-btn next-btn" data-carousel-next="animales">→</button>
-                </div>
-            </div>
-            
-            <!-- Aquí se pueden agregar más categorías dinámicamente -->
         </div>
     </section>
-     <section class="galeria">        
-        <div class="categorias-slider">
-            <!-- Categoría 1 -->
-            <div class="categoria-slider" data-categoria="anime">
-                <h3 class="titulo-categoria">Jujutsu Kaisen</h3>
-                <div class="circular-3d-container">
-                    <div class="circular-3d-wrapper" data-carousel-id="anime">
-                        <a href="categoria-anime.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/2a03e9218636696162f68604ef780f06_420x.jpeg" alt="Animal realista 1">
-                            </div>
-                        </a>
-                        <a href="categoria-anime.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/34f47381c7e5766648a9b8c053dce075_420x.jpeg" alt="Animal realista 2">
-                            </div>
-                        </a>
-                        <a href="categoria-anime.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/2d000d50cc5f97b7d8cbfcc7a6ada116_420x.jpeg" alt="Animal realista 3">
-                            </div>
-                        </a>
-                        <a href="categoria-anime.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/7f8ba9afeb80d3c76728236a24d3da15_420x.jpeg" alt="Animal realista 4">
-                            </div>
-                        </a>
-                        <a href="categoria-anime.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/68798f5f6f297f9e42922479456eb245_420x.jpeg" alt="Animal realista 5">
-                            </div>
-                        </a>
-                        <!-- Aquí se pueden agregar más slides dinámicamente -->
-                    </div>
-                </div>
-                <div class="gallery-controls">
-                    <button class="gallery-btn prev-btn" data-carousel-prev="anime">←</button>
-                    <button class="gallery-btn next-btn" data-carousel-next="anime">→</button>
-                </div>
-            </div>
-            
-            <!-- Categoría 2 -->
-            <div class="categoria-slider" data-categoria="games">
-                <h3 class="titulo-categoria">Drangon Ball Z</h3>
-                <div class="circular-3d-container">
-                    <div class="circular-3d-wrapper" data-carousel-id="games">
-                        <a href="categoria-games.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/broly1.webp" alt="Criatura fantástica 1">
-                            </div>
-                        </a>
-                        <a href="categoria-games.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/gohan.webp" alt="Criatura fantástica 2">
-                            </div>
-                        </a>
-                        <a href="categoria-games.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/goku.webp" alt="Criatura fantástica 3">
-                            </div>
-                        </a>
-                        <a href="categoria-games.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/goku2.webp" alt="Criatura fantástica 4">
-                            </div>
-                        </a>
-                        <a href="categoria-games.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/vegeta5.webp" alt="Criatura fantástica 5">
-                            </div>
-                        </a>
-                        <!-- Aquí se pueden agregar más slides dinámicamente -->
-                    </div>
-                </div>
-                <div class="gallery-controls">
-                    <button class="gallery-btn prev-btn" data-carousel-prev="games">←</button>
-                    <button class="gallery-btn next-btn" data-carousel-next="games">→</button>
-                </div>
-            </div>
-            
-            <!-- Categoría 3 -->
-            <div class="categoria-slider" data-categoria="retratos">
-                <h3 class="titulo-categoria">Naruto</h3>
-                <div class="circular-3d-container">
-                    <div class="circular-3d-wrapper" data-carousel-id="retratos">
-                        <a href="categoria-retratos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/cf1051c4ace2ed06309464452973bf04_420x.jpeg" alt="Animal antropomórfico 1">
-                            </div>
-                        </a>
-                        <a href="categoria-retratos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/f9402035bed8b97bc4e47b8a93028ed5_420x.jpeg" alt="Animal antropomórfico 2">
-                            </div>
-                        </a>
-                        <a href="categoria-retratos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/3786b10c6f829933f5075372ade5fd0c_420x.jpeg" alt="Animal antropomórfico 3">
-                            </div>
-                        </a>
-                        <a href="categoria-retratos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/ca7d9f8a1c0cfc2da3d009d6246653a4_420x.jpeg" alt="Animal antropomórfico 4">
-                            </div>
-                        </a>
-                        <a href="categoria-retratos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/60a48578874df0a83f4820dea46c6ead_420x.jpeg" alt="Animal antropomórfico 5">
-                            </div>
-                        </a>
-                         <a href="categoria-retratos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/60a48578874df0a83f4820dea46c6ead_420x.jpeg" alt="Animal antropomórfico 6">
-                            </div>
-                        </a>
-                         <a href="categoria-retratos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/60a48578874df0a83f4820dea46c6ead_420x.jpeg" alt="Animal antropomórfico 7">
-                            </div>
-                        </a>
-                        <!-- Aquí se pueden agregar más slides dinámicamente -->
-                    </div>
-                </div>
-                <div class="gallery-controls">
-                    <button class="gallery-btn prev-btn" data-carousel-prev="retratos">←</button>
-                    <button class="gallery-btn next-btn" data-carousel-next="retratos">→</button>
-                </div>
-            </div>
-            
-            <!-- Categoría 4 -->
-            <div class="categoria-slider" data-categoria="animales">
-                <h3 class="titulo-categoria">Solo Leveling</h3>
-                <div class="circular-3d-container">
-                    <div class="circular-3d-wrapper" data-carousel-id="animales">
-                        <a href="categoria-animales.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima8.webp" alt="Animal antropomórfico 1">
-                            </div>
-                        </a>
-                        <a href="categoria-animales.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima.webp" alt="Animal antropomórfico 2">
-                            </div>
-                        </a>
-                        <a href="categoria-animales.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima16.webp" alt="Animal antropomórfico 3">
-                            </div>
-                        </a>
-                        <a href="categoria-animales.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima11.jpg" alt="Animal antropomórfico 4">
-                            </div>
-                        </a>
-                        <a href="categoria-animales.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima6.jpg" alt="Animal antropomórfico 5">
-                            </div>
-                        </a>
-                        <!-- Aquí se pueden agregar más slides dinámicamente -->
-                    </div>
-                </div>
-                <div class="gallery-controls">
-                    <button class="gallery-btn prev-btn" data-carousel-prev="animales">←</button>
-                    <button class="gallery-btn next-btn" data-carousel-next="animales">→</button>
-                </div>
-            </div>
-            
-            <!-- Aquí se pueden agregar más categorías dinámicamente -->
-        </div>
-    </section>
-    
-    <section class="proceso-fabricacion">
-        <div class="contenedor-proceso">
-            <!-- Encabezado -->
+        <!-- Sección: Cómo Comprar -->
+    <section class="seccion-como-comprar" id="como-comprar">
+        <div class="contenedor-seccion">
             <div class="encabezado-seccion">
-                <h2 class="titulo-principal">ENCUADRE</h2>
-                <p class="subtitulo">Cuadros Artísticos en Metal HD</p>
-            </div>
-
-            <!-- Contenido principal - Estilo horizontal -->
-            <div class="contenido-horizontal">
-                <!-- Columna izquierda: Imagen y texto -->
-                <div class="columna-izquierda">
-                    <div class="imagen-contenedor">
-                        <img src="sololevelimng.webp" 
-                             alt="Materiales para cuadros en metal" class="imagen-destacada">
-                    </div>
-                    <div class="texto-descripcion">
-                        <p>La combinación de colores vibrantes y diseños acalmadores transforma tu espacio en un escenario de creatividad sin igual.</p>
-                        <p>Estas piezas de arte modernas e innovadoras fusionan la esencia del arte pop, anime, game y cómic, dando vida a creaciones que desafían los límites de la imaginación.</p>
-                    </div>
-                </div>
-
-                <!-- Columna derecha: Texto y video -->
-                <div class="columna-derecha">
-                    <div class="texto-destacado">
-                        <p>Cada obra es más que un simple cuadro: es una experiencia luminosa, gracias a la incorporación de luces LED que realzan la intensidad de cada detalle.</p>
-                    </div>
-                    <div class="video-contenedor">
-                        <video controls poster="sublima14.jpg" class="video-encuadre">
-                            <source src="https://video.aliexpress-media.com/play/u/ae_sg_item/2215376750286/p/1/e/6/t/10301/1100128527114.mp4" type="video/mp4">
-                            <source src="https://video.aliexpress-media.com/play/u/ae_sg_item/2215376750286/p/1/e/6/t/10301/1100128527114.mp4?from=chrome&definition=h265" type="video/mp4">
-                            Tu navegador no soporta el elemento de video.
-                        </video>
-                        <div class="video-controls-overlay">
-                            <button class="video-play-btn">
-                                <i class="fas fa-play"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                <h2 class="titulo-seccion">Cómo Comprar</h2>
+                <p class="subtitulo-seccion">Proceso simple en 4 pasos</p>
             </div>
             
-            <!-- Añadir el botón Ver Galería -->
-            <div class="contenedor-boton">
-                <a href="menu.html/seccion-popular" class="boton-gallery">Ver Galería</a>
+            <div class="pasos-comprar">
+                <div class="paso-item">
+                    <div class="paso-numero">1</div>
+                    <div class="paso-contenido">
+                        <h3>Elige tu diseño</h3>
+                        <p>Selecciona de nuestro catálogo o envíanos tu imagen personalizada por WhatsApp.</p>
+                    </div>
+                </div>
+                
+                <div class="paso-item">
+                    <div class="paso-numero">2</div>
+                    <div class="paso-contenido">
+                        <h3>Selecciona medidas</h3>
+                        <p>Elige entre nuestros tamaños estándar o solicita medidas personalizadas.</p>
+                    </div>
+                </div>
+                
+                <div class="paso-item">
+                    <div class="paso-numero">3</div>
+                    <div class="paso-contenido">
+                        <h3>Confirmación vía WhatsApp</h3>
+                        <p>Te enviamos una vista previa y confirmamos todos los detalles de tu pedido.</p>
+                    </div>
+                </div>
+                
+                <div class="paso-item">
+                    <div class="paso-numero">4</div>
+                    <div class="paso-contenido">
+                        <h3>Entrega en 5-7 días</h3>
+                        <p>Fabricamos y entregamos tu cuadro en perfecto estado. ¡Listo para colgar!</p>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+
+    <!-- Sección de Anime Popular -->
+    <section class="seccion-popular" id="anime-popular">
+        <div class="contenedor-seccion">
+            <div class="encabezado-seccion">
+                <h2 class="titulo-seccion">Anime Popular</h2>
+            </div>
+            <div class="grid-popular" id="grid-popular">
+                <!-- 8 elementos iniciales (2 filas de 4) -->
+                <!-- Item 1 -->
+                <article class="item-popular">
+                    <figure class="contenedor-imagen-popular">
+                        <img src="img/goku5.webp" alt="Goku Super Saiyan" loading="lazy" class="imagen-producto" data-titulo="Goku Super Saiyan" data-medida="40x60 cm" data-precio="$34.99" width="300" height="200">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Goku Super Saiyan</h3>
+                        <p class="dimension-producto">Medida: 40x60 cm</p>
+                    </div>
+                </article>
+                
+                <!-- Item 2 -->
+                <article class="item-popular">
+                    <figure class="contenedor-imagen-popular">
+                        <img src="https://img.fantaskycdn.com/13ee2ef5a0eb9c5814f23e00ffbe85b0_420x.jpeg" alt="Dragon Ball Z Crew" loading="lazy" class="imagen-producto" data-titulo="Dragon Ball Z Crew" data-medida="50x70 cm" data-precio="$39.99" width="300" height="200">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Dragon Ball Z Crew</h3>
+                        <p class="dimension-producto">Medida: 50x70 cm</p>
+                    </div>
+                </article>
+                
+                <!-- Item 3 -->
+                <article class="item-popular">
+                    <figure class="contenedor-imagen-popular">
+                        <img src="https://img.fantaskycdn.com/0cfdf168ee0211c5738b955f973c9aa5_420x.jpeg" alt="One Piece Crew" loading="lazy" class="imagen-producto" data-titulo="One Piece Crew" data-medida="45x65 cm" data-precio="$36.99" width="300" height="200">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">One Piece Crew</h3>
+                        <p class="dimension-producto">Medida: 45x65 cm</p>
+                    </div>
+                </article>
+                
+                <!-- Item 4 -->
+                <article class="item-popular">
+                    <figure class="contenedor-imagen-popular">
+                        <img src="https://img.fantaskycdn.com/dea8954ef407b466629c9142320d13ac_420x.jpeg" alt="Tanjiro Kamado" loading="lazy" class="imagen-producto" data-titulo="Tanjiro Kamado" data-medida="40x60 cm" data-precio="$34.99" width="300" height="200">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Tanjiro Kamado</h3>
+                        <p class="dimension-producto">Medida: 40x60 cm</p>
+                    </div>
+                </article>
+                
+                <!-- Item 5 -->
+                <article class="item-popular">
+                    <figure class="contenedor-imagen-popular">
+                        <img src="https://img.fantaskycdn.com/df3bc5e1f3e18141c4ed0c2a9f8d55c1_420x.jpeg" alt="Izuku Midoriya" loading="lazy" class="imagen-producto" data-titulo="Izuku Midoriya" data-medida="35x50 cm" data-precio="$32.99" width="300" height="200">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Izuku Midoriya</h3>
+                        <p class="dimension-producto">Medida: 35x50 cm</p>
+                    </div>
+                </article>
+                
+                <!-- Item 6 -->
+                <article class="item-popular">
+                    <figure class="contenedor-imagen-popular">
+                        <img src="https://img.fantaskycdn.com/2c27a09e8e3821bedf2fac193866143c_420x.jpeg" alt="Eren Yeager" loading="lazy" class="imagen-producto" data-titulo="Eren Yeager" data-medida="50x70 cm" data-precio="$39.99" width="300" height="200">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Eren Yeager</h3>
+                        <p class="dimension-producto">Medida: 50x70 cm</p>
+                    </div>
+                </article>
+                
+                <!-- Item 7 -->
+                <article class="item-popular">
+                    <figure class="contenedor-imagen-popular">
+                        <img src="https://img.fantaskycdn.com/47ba93a6733ad5295ccb50cc03782f0b_420x.jpeg" alt="AOT Squad" loading="lazy" class="imagen-producto" data-titulo="AOT Squad" data-medida="45x65 cm" data-precio="$36.99" width="300" height="200">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">AOT Squad</h3>
+                        <p class="dimension-producto">Medida: 45x65 cm</p>
+                    </div>
+                </article>
+                
+                <!-- Item 8 -->
+                <article class="item-popular">
+                    <figure class="contenedor-imagen-popular">
+                        <img src="https://img.fantaskycdn.com/cda048e60d464552914f3aad986d38d8_420x.jpeg" alt="Dragon Ball Super" loading="lazy" class="imagen-producto" data-titulo="Dragon Ball Super" data-medida="40x60 cm" data-precio="$34.99" width="300" height="200">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Dragon Ball Super</h3>
+                        <p class="dimension-producto">Medida: 40x60 cm</p>
+                    </div>
+                </article>
+
+                <article class="item-popular">
+                    <figure class="contenedor-imagen-popular">
+                        <img src="https://img.fantaskycdn.com/cda048e60d464552914f3aad986d38d8_420x.jpeg" alt="Dragon Ball Super" loading="lazy" class="imagen-producto" data-titulo="Dragon Ball Super" data-medida="40x60 cm" data-precio="$34.99" width="300" height="200">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Dragon Ball Super</h3>
+                        <p class="dimension-producto">Medida: 40x60 cm</p>
+                    </div>
+                </article>
+
+                <article class="item-popular">
+                    <figure class="contenedor-imagen-popular">
+                        <img src="https://img.fantaskycdn.com/cda048e60d464552914f3aad986d38d8_420x.jpeg" alt="Dragon Ball Super" loading="lazy" class="imagen-producto" data-titulo="Dragon Ball Super" data-medida="40x60 cm" data-precio="$34.99" width="300" height="200">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Dragon Ball Super</h3>
+                        <p class="dimension-producto">Medida: 40x60 cm</p>
+                    </div>
+                </article>
+
+                <article class="item-popular">
+                    <figure class="contenedor-imagen-popular">
+                        <img src="https://img.fantaskycdn.com/cda048e60d464552914f3aad986d38d8_420x.jpeg" alt="Dragon Ball Super" loading="lazy" class="imagen-producto" data-titulo="Dragon Ball Super" data-medida="40x60 cm" data-precio="$34.99" width="300" height="200">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Dragon Ball Super</h3>
+                        <p class="dimension-producto">Medida: 40x60 cm</p>
+                    </div>
+                </article>
+                
+                <!-- Elementos adicionales (se mostrarán al expandir) -->
+                <!-- Item 9 -->
+                <article class="item-popular adicional">
+                    <figure class="contenedor-imagen-popular">
+                        <img src="https://img.fantaskycdn.com/78b0dd0480cc092f1812fb40c7a6b0e6_420x.jpeg" alt="Luffy Gear 5" loading="lazy" class="imagen-producto" data-titulo="Luffy Gear 5" data-medida="50x70 cm" data-precio="$39.99" width="300" height="200">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Luffy Gear 5</h3>
+                        <p class="dimension-producto">Medida: 50x70 cm</p>
+                    </div>
+                </article>
+                
+                <!-- Item 10 -->
+                <article class="item-popular adicional">
+                    <figure class="contenedor-imagen-popular">
+                        <img src="https://img.fantaskycdn.com/a78f165d253b8c2121f6da5254883cff_420x.jpeg" alt="Demon Slayer Hashiras" loading="lazy" class="imagen-producto" data-titulo="Demon Slayer Hashiras" data-medida="60x80 cm" data-precio="$44.99" width="300" height="200">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Demon Slayer Hashiras</h3>
+                        <p class="dimension-producto">Medida: 60x80 cm</p>
+                    </div>
+                </article>
+            </div>
+            <div class="contenedor-boton-ver-mas">
+                <button class="boton-ver-mas" id="boton-expandir-popular">Ver más</button>
             </div>
         </div>
     </section>
-    
-    <!-- Sección Galería repetida -->
-    <section class="galeria" data-section-id="galeria-2">
-        <h2 class="titulo-galeria">Categorías</h2>
-        
-        <div class="categorias-slider">
-            <!-- Categoría 1 -->
-            <div class="categoria-slider" data-categoria="anime-2">
-                <h3 class="titulo-categoria">Anime</h3>
-                <div class="circular-3d-container">
-                    <div class="circular-3d-wrapper" data-carousel-id="anime-2">
-                        <a href="categoria-anime.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima12.jpg" alt="Animal realista 1">
-                            </div>
-                        </a>
-                        <a href="categoria-anime.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima11.jpg" alt="Animal realista 2">
-                            </div>
-                        </a>
-                        <a href="categoria-anime.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima10.webp" alt="Animal realista 3">
-                            </div>
-                        </a>
-                        <a href="categoria-anime.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima1.webp" alt="Animal realista 4">
-                            </div>
-                        </a>
-                        <a href="categoria-anime.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima.webp" alt="Animal realista 5">
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="gallery-controls">
-                    <button class="gallery-btn prev-btn" data-carousel-prev="anime-2">←</button>
-                    <button class="gallery-btn next-btn" data-carousel-next="anime-2">→</button>
-                </div>
+
+    <!-- Sección Jujutsu Kaisen -->
+    <section class="seccion-productos" id="seccion-jujutsu">
+        <div class="contenedor-seccion">
+            <div class="encabezado-seccion">
+                <h2 class="titulo-seccion">Jujutsu Kaisen</h2>
             </div>
             
-            <!-- Categoría 2 -->
-            <div class="categoria-slider" data-categoria="games-2">
-                <h3 class="titulo-categoria">Games</h3>
-                <div class="circular-3d-container">
-                    <div class="circular-3d-wrapper" data-carousel-id="games-2">
-                        <a href="categoria-games.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima13.jpg" alt="Criatura fantástica 1">
-                            </div>
-                        </a>
-                        <a href="categoria-games.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima15.webp" alt="Criatura fantástica 2">
-                            </div>
-                        </a>
-                        <a href="categoria-games.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima16.webp" alt="Criatura fantástica 3">
-                            </div>
-                        </a>
-                        <a href="categoria-games.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima3.webp" alt="Criatura fantástica 4">
-                            </div>
-                        </a>
-                        <a href="categoria-games.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima4.webp" alt="Criatura fantástica 5">
-                            </div>
-                        </a>
+            <!-- Galería de productos Jujutsu Kaisen -->
+            <div class="galeria-productos" id="galeria-jujutsu">
+                <!-- 8 elementos iniciales -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/2240dd4e4be684f930619b96f86d69db_420x.jpeg" alt="Vacio ilimitado Satoru Gojo" loading="lazy" class="imagen-producto" data-titulo="Vacio ilimitado Satoru Gojo" data-medida="40x60 cm" data-precio="$34.99" width="300" height="200">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Vacio ilimitado Satoru Gojo</h3>
+                        <p class="dimension-producto">Medida: 40x60 cm</p>
                     </div>
-                </div>
-                <div class="gallery-controls">
-                    <button class="gallery-btn prev-btn" data-carousel-prev="games-2">←</button>
-                    <button class="gallery-btn next-btn" data-carousel-next="games-2">→</button>
-                </div>
-            </div>
-            
-            <!-- Categoría 3 -->
-            <div class="categoria-slider" data-categoria="retratos-2">
-                <h3 class="titulo-categoria">Retratos</h3>
-                <div class="circular-3d-container">
-                    <div class="circular-3d-wrapper" data-carousel-id="retratos-2">
-                        <a href="categoria-retratos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima8.webp" alt="Animal antropomórfico 1">
-                            </div>
-                        </a>
-                        <a href="categoria-retratos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima.webp" alt="Animal antropomórfico 2">
-                            </div>
-                        </a>
-                        <a href="categoria-retratos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima16.webp" alt="Animal antropomórfico 3">
-                            </div>
-                        </a>
-                        <a href="categoria-retratos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima11.jpg" alt="Animal antropomórfico 4">
-                            </div>
-                        </a>
-                        <a href="categoria-retratos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima6.jpg" alt="Animal antropomórfico 5">
-                            </div>
-                        </a>
+                </article>
+                
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/59f4d202354484c24298252ccd3bc736_420x.jpeg" alt="Yuji Itadori y Satoru Gojo" loading="lazy" class="imagen-producto" data-titulo="Yuji Itadori y Satoru Gojo" data-medida="50x70 cm" data-precio="$39.99" width="300" height="200">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Yuji Itadori y Satoru Gojo</h3>
+                        <p class="dimension-producto">Medida: 50x70 cm</p>
                     </div>
-                </div>
-                <div class="gallery-controls">
-                    <button class="gallery-btn prev-btn" data-carousel-prev="retratos-2">←</button>
-                    <button class="gallery-btn next-btn" data-carousel-next="retratos-2">→</button>
-                </div>
-            </div>
-            
-            <!-- Categoría 4 -->
-            <div class="categoria-slider" data-categoria="animales-fantasticos">
-                <h3 class="titulo-categoria">Animales Fantásticos</h3>
-                <div class="circular-3d-container">
-                    <div class="circular-3d-wrapper" data-carousel-id="animales-fantasticos">
-                        <a href="categoria-animales-fantasticos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima8.webp" alt="Animal antropomórfico 1">
-                            </div>
-                        </a>
-                        <a href="categoria-animales-fantasticos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima.webp" alt="Animal antropomórfico 2">
-                            </div>
-                        </a>
-                        <a href="categoria-animales-fantasticos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima16.webp" alt="Animal antropomórfico 3">
-                            </div>
-                        </a>
-                        <a href="categoria-animales-fantasticos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima11.jpg" alt="Animal antropomórfico 4">
-                            </div>
-                        </a>
-                        <a href="categoria-animales-fantasticos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima6.jpg" alt="Animal antropomórfico 5">
-                            </div>
-                        </a>
+                </article>
+
+                 <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/5eb2d52f007c962ddee0afc6153857f9_420x.jpeg" alt="Yuji Itadori y Satoru Gojo" loading="lazy" class="imagen-producto" data-titulo="Yuji Itadori y Satoru Gojo" data-medida="50x70 cm" data-precio="$39.99" width="300" height="200">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Yuji Itadori y Satoru Gojo</h3>
+                        <p class="dimension-producto">Medida: 50x70 cm</p>
                     </div>
-                </div>
-                <div class="gallery-controls">
-                    <button class="gallery-btn prev-btn" data-carousel-prev="animales-fantasticos">←</button>
-                    <button class="gallery-btn next-btn" data-carousel-next="animales-fantasticos">→</button>
-                </div>
+                </article>
+
+                 <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/d702c397fa1380e4f32796415edc9b00_420x.jpeg" alt="Yuji Itadori y Satoru Gojo" loading="lazy" class="imagen-producto" data-titulo="Yuji Itadori y Satoru Gojo" data-medida="50x70 cm" data-precio="$39.99" width="300" height="200">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Yuji Itadori y Satoru Gojo</h3>
+                        <p class="dimension-producto">Medida: 50x70 cm</p>
+                    </div>
+                </article>
+
+                 <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/1509276bcf39a732bb0f4b4418fdd0f3_420x.jpeg" alt="Yuji Itadori y Satoru Gojo" loading="lazy" class="imagen-producto" data-titulo="Yuji Itadori y Satoru Gojo" data-medida="50x70 cm" data-precio="$39.99" width="300" height="200">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Yuji Itadori y Satoru Gojo</h3>
+                        <p class="dimension-producto">Medida: 50x70 cm</p>
+                    </div>
+                </article>
+
+                 <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/bc1fffe55aed62693a7934c7e6884593_420x.jpeg" alt="Yuji Itadori y Satoru Gojo" loading="lazy" class="imagen-producto" data-titulo="Yuji Itadori y Satoru Gojo" data-medida="50x70 cm" data-precio="$39.99" width="300" height="200">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Yuji Itadori y Satoru Gojo</h3>
+                        <p class="dimension-producto">Medida: 50x70 cm</p>
+                    </div>
+                </article>
+
+                 <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/7f8ba9afeb80d3c76728236a24d3da15_420x.jpeg" alt="Yuji Itadori y Satoru Gojo" loading="lazy" class="imagen-producto" data-titulo="Yuji Itadori y Satoru Gojo" data-medida="50x70 cm" data-precio="$39.99" width="300" height="200">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Yuji Itadori y Satoru Gojo</h3>
+                        <p class="dimension-producto">Medida: 50x70 cm</p>
+                    </div>
+                </article>
+
+                 <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/a1a53f2d9076d3b1b34bb470dcb9fc32_420x.jpeg" alt="Yuji Itadori y Satoru Gojo" loading="lazy" class="imagen-producto" data-titulo="Yuji Itadori y Satoru Gojo" data-medida="50x70 cm" data-precio="$39.99" width="300" height="200">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Yuji Itadori y Satoru Gojo</h3>
+                        <p class="dimension-producto">Medida: 50x70 cm</p>
+                    </div>
+                </article>
+
+                 <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/3b0bb2103c25943e0a55d48ccca088b8_420x.jpeg" alt="Yuji Itadori y Satoru Gojo" loading="lazy" class="imagen-producto" data-titulo="Yuji Itadori y Satoru Gojo" data-medida="50x70 cm" data-precio="$39.99" width="300" height="200">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Yuji Itadori y Satoru Gojo</h3>
+                        <p class="dimension-producto">Medida: 50x70 cm</p>
+                    </div>
+                </article>
+
+                 <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/75ca2cec3672269c1b6dc3f3994b8f11_420x.jpeg" alt="Yuji Itadori y Satoru Gojo" loading="lazy" class="imagen-producto" data-titulo="Yuji Itadori y Satoru Gojo" data-medida="50x70 cm" data-precio="$39.99" width="300" height="200">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Yuji Itadori y Satoru Gojo</h3>
+                        <p class="dimension-producto">Medida: 50x70 cm</p>
+                    </div>
+                </article>
+
+                 <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/7fac98331dbfb61fbc97eec9f9f5c8e9_420x.jpeg" alt="Yuji Itadori y Satoru Gojo" loading="lazy" class="imagen-producto" data-titulo="Yuji Itadori y Satoru Gojo" data-medida="50x70 cm" data-precio="$39.99" width="300" height="200">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Yuji Itadori y Satoru Gojo</h3>
+                        <p class="dimension-producto">Medida: 50x70 cm</p>
+                    </div>
+                </article>
+
+                 <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/e5b89cc9f2a32a797424f6c4993d1318_420x.jpeg" alt="Yuji Itadori y Satoru Gojo" loading="lazy" class="imagen-producto" data-titulo="Yuji Itadori y Satoru Gojo" data-medida="50x70 cm" data-precio="$39.99" width="300" height="200">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Yuji Itadori y Satoru Gojo</h3>
+                        <p class="dimension-producto">Medida: 50x70 cm</p>
+                    </div>
+                </article>
+
+                 <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/cd747aad0a9b94e30e0d23b1811f449c_420x.jpeg" alt="Yuji Itadori y Satoru Gojo" loading="lazy" class="imagen-producto" data-titulo="Yuji Itadori y Satoru Gojo" data-medida="50x70 cm" data-precio="$39.99" width="300" height="200">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Yuji Itadori y Satoru Gojo</h3>
+                        <p class="dimension-producto">Medida: 50x70 cm</p>
+                    </div>
+                </article>
+
+                 <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/1243cb524941202796969bf4c3597988_420x.jpeg" alt="Yuji Itadori y Satoru Gojo" loading="lazy" class="imagen-producto" data-titulo="Yuji Itadori y Satoru Gojo" data-medida="50x70 cm" data-precio="$39.99" width="300" height="200">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Yuji Itadori y Satoru Gojo</h3>
+                        <p class="dimension-producto">Medida: 50x70 cm</p>
+                    </div>
+                </article>
+                
+                 <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/b20be5103a423c32886580fa18241630_420x.jpeg" alt="Yuji Itadori y Satoru Gojo" loading="lazy" class="imagen-producto" data-titulo="Yuji Itadori y Satoru Gojo" data-medida="50x70 cm" data-precio="$39.99" width="300" height="200">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Yuji Itadori y Satoru Gojo</h3>
+                        <p class="dimension-producto">Medida: 50x70 cm</p>
+                    </div>
+                </article>
+
+                 <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/c6442b5d69e1b5b25831b28e13afa810_420x.jpeg" alt="Yuji Itadori y Satoru Gojo" loading="lazy" class="imagen-producto" data-titulo="Yuji Itadori y Satoru Gojo" data-medida="50x70 cm" data-precio="$39.99" width="300" height="200">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Yuji Itadori y Satoru Gojo</h3>
+                        <p class="dimension-producto">Medida: 50x70 cm</p>
+                    </div>
+                </article>
+
+                 <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/3f7a2d4f5b4989be33c336fe2a696b3b_420x.jpeg" alt="Yuji Itadori y Satoru Gojo" loading="lazy" class="imagen-producto" data-titulo="Yuji Itadori y Satoru Gojo" data-medida="50x70 cm" data-precio="$39.99" width="300" height="200">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Yuji Itadori y Satoru Gojo</h3>
+                        <p class="dimension-producto">Medida: 50x70 cm</p>
+                    </div>
+                </article>
+
+                 <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/8ed543bdfa892365061c800ac4091aeb_420x.jpeg" alt="Yuji Itadori y Satoru Gojo" loading="lazy" class="imagen-producto" data-titulo="Yuji Itadori y Satoru Gojo" data-medida="50x70 cm" data-precio="$39.99" width="300" height="200">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Yuji Itadori y Satoru Gojo</h3>
+                        <p class="dimension-producto">Medida: 50x70 cm</p>
+                    </div>
+                </article>
+
+                 <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/dbe32e888c5d623ebeaabb75b692b0c6_420x.jpeg" alt="Yuji Itadori y Satoru Gojo" loading="lazy" class="imagen-producto" data-titulo="Yuji Itadori y Satoru Gojo" data-medida="50x70 cm" data-precio="$39.99" width="300" height="200">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Yuji Itadori y Satoru Gojo</h3>
+                        <p class="dimension-producto">Medida: 50x70 cm</p>
+                    </div>
+                </article>
+
+                 <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/06eb9b57da6bb8ccb999fe2ab7921b20_420x.jpeg" alt="Yuji Itadori y Satoru Gojo" loading="lazy" class="imagen-producto" data-titulo="Yuji Itadori y Satoru Gojo" data-medida="50x70 cm" data-precio="$39.99" width="300" height="200">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Yuji Itadori y Satoru Gojo</h3>
+                        <p class="dimension-producto">Medida: 50x70 cm</p>
+                    </div>
+                </article>
+
+                 <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/09f5e0b9c264918b04680762b52a7e29_420x.jpeg" alt="Yuji Itadori y Satoru Gojo" loading="lazy" class="imagen-producto" data-titulo="Yuji Itadori y Satoru Gojo" data-medida="50x70 cm" data-precio="$39.99" width="300" height="200">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Yuji Itadori y Satoru Gojo</h3>
+                        <p class="dimension-producto">Medida: 50x70 cm</p>
+                    </div>
+                </article>
+
+                 <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/ba1193fbeaa93d561669faaa08501ec8_420x.jpeg" alt="Yuji Itadori y Satoru Gojo" loading="lazy" class="imagen-producto" data-titulo="Yuji Itadori y Satoru Gojo" data-medida="50x70 cm" data-precio="$39.99" width="300" height="200">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Yuji Itadori y Satoru Gojo</h3>
+                        <p class="dimension-producto">Medida: 50x70 cm</p>
+                    </div>
+                </article>
+
+                 <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/6b0e655634626683f0aca30b8d9e0a45_420x.jpeg" alt="Yuji Itadori y Satoru Gojo" loading="lazy" class="imagen-producto" data-titulo="Yuji Itadori y Satoru Gojo" data-medida="50x70 cm" data-precio="$39.99" width="300" height="200">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Yuji Itadori y Satoru Gojo</h3>
+                        <p class="dimension-producto">Medida: 50x70 cm</p>
+                    </div>
+                </article>
+
+                 <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/7f8ba9afeb80d3c76728236a24d3da15_420x.jpeg" alt="Yuji Itadori y Satoru Gojo" loading="lazy" class="imagen-producto" data-titulo="Yuji Itadori y Satoru Gojo" data-medida="50x70 cm" data-precio="$39.99" width="300" height="200">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Yuji Itadori y Satoru Gojo</h3>
+                        <p class="dimension-producto">Medida: 50x70 cm</p>
+                    </div>
+                </article>
+                <!-- Más elementos... -->
             </div>
-            
-            <!-- Aquí se pueden agregar más categorías dinámicamente -->
+            <div class="contenedor-boton-ver-mas">
+                <button class="boton-ver-mas" data-target="galeria-jujutsu">Ver más</button>
+            </div>
         </div>
     </section>
-    
-    <section class="metal-features">
-        <div class="container">
-            <h2 class="section-title">Nuestros cuadros en metal</h2>
+
+    <!-- Sección ANIMETAL - 3 imágenes -->
+    <section class="animetals-grid-section">
+        <div class="grid-images-container">
+            <div class="three-images-grid">
+                <div class="image-block left-block">
+                    <div class="image-inner">
+                        <img src="https://img.fantaskycdn.com/ba0f216093fcc49f618b670e1fec34e9_420x.jpeg" alt="Anime 1" class="grid-image" width="500" height="500">
+                    </div>
+                </div>
+                
+                <div class="image-block middle-block">
+                    <div class="image-inner">
+                        <img src="https://img.fantaskycdn.com/9a1c62f5351ff4a96c88a3832c0bb4af_420x.jpeg" alt="Anime 2" class="grid-image" width="500" height="500">
+                    </div>
+                </div>
+                
+                <div class="image-block right-block">
+                    <div class="image-inner">
+                        <img src="https://img.fantaskycdn.com/34220cb040be73de24d57bd21f6d74e0_540x.jpeg" alt="Anime 3" class="grid-image" width="500" height="500">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Naruto -->
+    <section class="seccion-productos" id="seccion-naruto">
+        <div class="contenedor-seccion">
+            <div class="encabezado-seccion">
+                <h2 class="titulo-seccion">Naruto</h2>
+            </div>
             
-            <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">
+            <!-- Galería de productos Naruto -->
+            <div class="galeria-productos" id="galeria-naruto">
+                <!-- 8 elementos iniciales -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/ff5ee0be8a4adab5b03bf9bd15d68039_420x.jpeg " alt="Naruto Uzumaki" loading="lazy" class="imagen-producto" data-titulo="Naruto Uzumaki" data-medida="40x60 cm" data-precio="$34.99" width="300" height="200">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Naruto Uzumaki</h3>
+                        <p class="dimension-producto">Medida: 40x60 cm</p>
+                    </div>
+                </article>
+                
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/6d48db7138463c21afc700ac564026f8_420x.jpeg" alt="Naruto Uzumaki" loading="lazy" class="imagen-producto" data-titulo="Naruto Uzumaki" data-medida="40x60 cm" data-precio="$34.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Naruto Uzumaki</h3>
+                        <p class="dimension-producto">Medida: 40x60 cm</p>
+                    </div>
+                </article>
+                
+                <!-- Producto 2 -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/ca7d9f8a1c0cfc2da3d009d6246653a4_420x.jpeg" alt="Sasuke Uchiha" loading="lazy" class="imagen-producto" data-titulo="Sasuke Uchiha" data-medida="40x60 cm" data-precio="$34.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Sasuke Uchiha</h3>
+                        <p class="dimension-producto">Medida: 40x60 cm</p>
+                    </div>
+                </article>
+                
+                <!-- Producto 3 -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/3786b10c6f829933f5075372ade5fd0c_420x.jpeg" alt="Kakashi Hatake" loading="lazy" class="imagen-producto" data-titulo="Kakashi Hatake" data-medida="35x50 cm" data-precio="$32.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Kakashi Hatake</h3>
+                        <p class="dimension-producto">Medida: 35x50 cm</p>
+                    </div>
+                </article>
+                
+                <!-- Producto 4 -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/cf1051c4ace2ed06309464452973bf04_420x.jpeg" alt="Madara Uchiha" loading="lazy" class="imagen-producto" data-titulo="Madara Uchiha" data-medida="50x70 cm" data-precio="$39.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Madara Uchiha</h3>
+                        <p class="dimension-producto">Medida: 50x70 cm</p>
+                    </div>
+                </article>
+                
+                <!-- Producto 5 -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/b4e0398e02961d20c4c15cffaf0b0126_420x.jpeg" alt="Naruto y Sasuke" loading="lazy" class="imagen-producto" data-titulo="Naruto y Sasuke" data-medida="60x80 cm" data-precio="$44.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Naruto y Sasuke</h3>
+                        <p class="dimension-producto">Medida: 60x80 cm</p>
+                    </div>
+                </article>
+                
+                <!-- Producto 6 -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/23f6aba2d1d1c94413d4feaa25a04969_420x.jpeg" alt="Itachi Uchiha" loading="lazy" class="imagen-producto" data-titulo="Itachi Uchiha" data-medida="45x65 cm" data-precio="$36.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Itachi Uchiha</h3>
+                        <p class="dimension-producto">Medida: 45x65 cm</p>
+                    </div>
+                </article>
+                
+                <!-- Producto 7 -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/cdd3edcda49ef7bff26549c15233d789_420x.jpeg" alt="Minato Namikaze" loading="lazy" class="imagen-producto" data-titulo="Minato Namikaze" data-medida="40x60 cm" data-precio="$34.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Minato Namikaze</h3>
+                        <p class="dimension-producto">Medida: 40x60 cm</p>
+                    </div>
+                </article>
+                
+                <!-- Producto 8 -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/54c2d0160358b2005119acd356c541ff_420x.jpeg" alt="Pain Akatsuki" loading="lazy" class="imagen-producto" data-titulo="Pain Akatsuki" data-medida="50x70 cm" data-precio="$39.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Pain Akatsuki</h3>
+                        <p class="dimension-producto">Medida: 50x70 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/9314905ead264b550f59c519cfc59b94_420x.jpeg" alt="Naruto Hokage" loading="lazy" class="imagen-producto" data-titulo="Naruto Hokage" data-medida="60x80 cm" data-precio="$44.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Naruto Hokage</h3>
+                        <p class="dimension-producto">Medida: 60x80 cm</p>
+                    </div>
+                </article>
+                
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/854c5343447867773b7b84912d6ac5d0_420x.jpeg" alt="Gaara del Desierto" loading="lazy" class="imagen-producto" data-titulo="Gaara del Desierto" data-medida="45x65 cm" data-precio="$36.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Gaara del Desierto</h3>
+                        <p class="dimension-producto">Medida: 45x65 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/9c1d342761afe4eda84d9d2a2b9c43fa_420x.jpeg" alt="Gaara del Desierto" loading="lazy" class="imagen-producto" data-titulo="Gaara del Desierto" data-medida="45x65 cm" data-precio="$36.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Gaara del Desierto</h3>
+                        <p class="dimension-producto">Medida: 45x65 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/0f9e2eb10d0068e6029482e98a14475e_420x.jpeg" alt="Gaara del Desierto" loading="lazy" class="imagen-producto" data-titulo="Gaara del Desierto" data-medida="45x65 cm" data-precio="$36.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Gaara del Desierto</h3>
+                        <p class="dimension-producto">Medida: 45x65 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/32d5dd413baf482adb68fbba2fccac52_420x.jpeg" alt="Gaara del Desierto" loading="lazy" class="imagen-producto" data-titulo="Gaara del Desierto" data-medida="45x65 cm" data-precio="$36.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Gaara del Desierto</h3>
+                        <p class="dimension-producto">Medida: 45x65 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/f61a09d087f93d82d56e3cb2c76e76d4_420x.jpeg" alt="Gaara del Desierto" loading="lazy" class="imagen-producto" data-titulo="Gaara del Desierto" data-medida="45x65 cm" data-precio="$36.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Gaara del Desierto</h3>
+                        <p class="dimension-producto">Medida: 45x65 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/9a1c62f5351ff4a96c88a3832c0bb4af_420x.jpeg" alt="Gaara del Desierto" loading="lazy" class="imagen-producto" data-titulo="Gaara del Desierto" data-medida="45x65 cm" data-precio="$36.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Gaara del Desierto</h3>
+                        <p class="dimension-producto">Medida: 45x65 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/ee61a97c3151000128324f12af49fc51_420x.jpeg" alt="Gaara del Desierto" loading="lazy" class="imagen-producto" data-titulo="Gaara del Desierto" data-medida="45x65 cm" data-precio="$36.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Gaara del Desierto</h3>
+                        <p class="dimension-producto">Medida: 45x65 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/790d1bf066fc2a825ae2ef10dffa391c_420x.jpeg" alt="Gaara del Desierto" loading="lazy" class="imagen-producto" data-titulo="Gaara del Desierto" data-medida="45x65 cm" data-precio="$36.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Gaara del Desierto</h3>
+                        <p class="dimension-producto">Medida: 45x65 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/0aa60dcefe793ce798ec1c835a0d5ae2_420x.jpeg" alt="Gaara del Desierto" loading="lazy" class="imagen-producto" data-titulo="Gaara del Desierto" data-medida="45x65 cm" data-precio="$36.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Gaara del Desierto</h3>
+                        <p class="dimension-producto">Medida: 45x65 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/00a623b889be30f70a26b66aa7033a4a_420x.jpeg" alt="Gaara del Desierto" loading="lazy" class="imagen-producto" data-titulo="Gaara del Desierto" data-medida="45x65 cm" data-precio="$36.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Gaara del Desierto</h3>
+                        <p class="dimension-producto">Medida: 45x65 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/48f784a5f3815f8a67af409d6cb4e46d_420x.jpeg" alt="Gaara del Desierto" loading="lazy" class="imagen-producto" data-titulo="Gaara del Desierto" data-medida="45x65 cm" data-precio="$36.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Gaara del Desierto</h3>
+                        <p class="dimension-producto">Medida: 45x65 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/2986caf9d5db82f88b57df45d81ea8d2_420x.jpeg" alt="Gaara del Desierto" loading="lazy" class="imagen-producto" data-titulo="Gaara del Desierto" data-medida="45x65 cm" data-precio="$36.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Gaara del Desierto</h3>
+                        <p class="dimension-producto">Medida: 45x65 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/fa84e5e3e159f83cc71e4817c2b55fa7_420x.jpeg" alt="Gaara del Desierto" loading="lazy" class="imagen-producto" data-titulo="Gaara del Desierto" data-medida="45x65 cm" data-precio="$36.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Gaara del Desierto</h3>
+                        <p class="dimension-producto">Medida: 45x65 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/67fe5164ef5dedd86bfc4c3418d139a2_420x.jpeg" alt="Gaara del Desierto" loading="lazy" class="imagen-producto" data-titulo="Gaara del Desierto" data-medida="45x65 cm" data-precio="$36.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Gaara del Desierto</h3>
+                        <p class="dimension-producto">Medida: 45x65 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/c98f289a2e7b8f853054e0cb542f8371_420x.jpeg" alt="Gaara del Desierto" loading="lazy" class="imagen-producto" data-titulo="Gaara del Desierto" data-medida="45x65 cm" data-precio="$36.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Gaara del Desierto</h3>
+                        <p class="dimension-producto">Medida: 45x65 cm</p>
+                    </div>
+                </article>
+                <!-- Más elementos... -->
+            </div>
+            <div class="contenedor-boton-ver-mas">
+                <button class="boton-ver-mas" data-target="galeria-naruto">Ver más</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Dragon Ball -->
+    <section class="seccion-productos" id="seccion-dragonball">
+        <div class="contenedor-seccion">
+            <div class="encabezado-seccion">
+                <h2 class="titulo-seccion">Dragon Ball</h2>
+            </div>
+            
+            <!-- Galería de productos Dragon Ball -->
+            <div class="galeria-productos" id="galeria-dragonball">
+                <!-- 8 elementos iniciales -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/c163f616eb2366c7dce9cbd2155f15b6_420x.jpeg" alt="Dragon Ball Z" loading="lazy" class="imagen-producto" data-titulo="Dragon Ball Z" data-medida="40x60 cm" data-precio="$34.99" width="300" height="200">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Dragon Ball Z</h3>
+                        <p class="dimension-producto">Medida: 40x60 cm</p>
+                    </div>
+                </article>
+                
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/9aff1f2fbac86bedd3667383136dff31_420x.jpeg" alt="Dragon Ball Z" loading="lazy" class="imagen-producto" data-titulo="Dragon Ball Z" data-medida="40x60 cm" data-precio="$34.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Dragon Ball Z</h3>
+                        <p class="dimension-producto">Medida: 40x60 cm</p>
+                    </div>
+                </article>
+                
+                <!-- Producto 2 -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/06034279dc259511ae0a1f453595cc34_420x.jpeg" alt="Goku Ultra Instinct" loading="lazy" class="imagen-producto" data-titulo="Goku Ultra Instinct" data-medida="50x70 cm" data-precio="$39.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Goku Ultra Instinct</h3>
+                        <p class="dimension-producto">Medida: 50x70 cm</p>
+                    </div>
+                </article>
+                
+                <!-- Producto 3 -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/cab635ad42719ef9f0a1111425b909d6_420x.jpeg" alt="Vegeta Super Saiyan" loading="lazy" class="imagen-producto" data-titulo="Vegeta Super Saiyan" data-medida="35x50 cm" data-precio="$32.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Vegeta Super Saiyan</h3>
+                        <p class="dimension-producto">Medida: 35x50 cm</p>
+                    </div>
+                </article>
+                
+                <!-- Producto 4 -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/f48970094a8f873d35b13dd828644bff_420x.jpeg" alt="Broly Legendario" loading="lazy" class="imagen-producto" data-titulo="Broly Legendario" data-medida="45x65 cm" data-precio="$36.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Broly Legendario</h3>
+                        <p class="dimension-producto">Medida: 45x65 cm</p>
+                    </div>
+                </article>
+                
+                <!-- Producto 5 -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/aa3aa67a16cbf93ddb2604bcc5c6fdf5_420x.jpeg" alt="Gohan Beast" loading="lazy" class="imagen-producto" data-titulo="Gohan Beast" data-medida="60x80 cm" data-precio="$44.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Gohan Beast</h3>
+                        <p class="dimension-producto">Medida: 60x80 cm</p>
+                    </div>
+                </article>
+                
+                <!-- Producto 6 -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/9bac8ecef5d59e2d802503c73235170d_420x.jpeg" alt="Freezer Dorado" loading="lazy" class="imagen-producto" data-titulo="Freezer Dorado" data-medida="55x75 cm" data-precio="$42.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Freezer Dorado</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
+                </article>
+                
+                <!-- Producto 7 -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/fb8883f3520f309d4e15592022825d5c_420x.jpeg" alt="Trunks del Futuro" loading="lazy" class="imagen-producto" data-titulo="Trunks del Futuro" data-medida="40x60 cm" data-precio="$34.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Trunks del Futuro</h3>
+                        <p class="dimension-producto">Medida: 40x60 cm</p>
+                    </div>
+                </article>
+                
+                <!-- Producto 8 -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/8f3ba61dcc02b1115b06656eb6b1623b_420x.jpeg" alt="Cell Perfecto" loading="lazy" class="imagen-producto" data-titulo="Cell Perfecto" data-medida="50x70 cm" data-precio="$39.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Cell Perfecto</h3>
+                        <p class="dimension-producto">Medida: 50x70 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/750d09ea7b6f42f4bb491beabf067362_420x.jpeg" alt="Gotenks" loading="lazy" class="imagen-producto" data-titulo="Gotenks" data-medida="45x65 cm" data-precio="$36.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Gotenks</h3>
+                        <p class="dimension-producto">Medida: 45x65 cm</p>
+                    </div>
+                </article>
+                
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/349317ed1bc6ef7a152849b89a2a26b3_420x.jpeg" alt="Majin Buu" loading="lazy" class="imagen-producto" data-titulo="Majin Buu" data-medida="55x75 cm" data-precio="$42.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Majin Buu</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/9039a2ccfd440dda22ffdfae336ccb92_420x.jpeg" alt="Majin Buu" loading="lazy" class="imagen-producto" data-titulo="Majin Buu" data-medida="55x75 cm" data-precio="$42.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Majin Buu</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/b25886cf0597e7a1d4586f121d730d45_420x.jpeg" alt="Majin Buu" loading="lazy" class="imagen-producto" data-titulo="Majin Buu" data-medida="55x75 cm" data-precio="$42.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Majin Buu</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/f60f5b8b05658a208d2134a6a5db3f5f_420x.jpeg" alt="Majin Buu" loading="lazy" class="imagen-producto" data-titulo="Majin Buu" data-medida="55x75 cm" data-precio="$42.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Majin Buu</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/7305d5068f9a4f2044e38dabdf92c570_420x.jpeg" alt="Majin Buu" loading="lazy" class="imagen-producto" data-titulo="Majin Buu" data-medida="55x75 cm" data-precio="$42.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Majin Buu</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/f943eb69a87f26805b1154f3b9e177cb_420x.jpeg" alt="Majin Buu" loading="lazy" class="imagen-producto" data-titulo="Majin Buu" data-medida="55x75 cm" data-precio="$42.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Majin Buu</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/d053360b661c984de2c9ca8118a6f19f_420x.jpeg" alt="Majin Buu" loading="lazy" class="imagen-producto" data-titulo="Majin Buu" data-medida="55x75 cm" data-precio="$42.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Majin Buu</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/7674cc7a253fdd1f6faa59b5ac03bd47_420x.jpeg" alt="Majin Buu" loading="lazy" class="imagen-producto" data-titulo="Majin Buu" data-medida="55x75 cm" data-precio="$42.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Majin Buu</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/e24c7b0c7e98d6c5f345feac993bdf1b_420x.jpeg" alt="Majin Buu" loading="lazy" class="imagen-producto" data-titulo="Majin Buu" data-medida="55x75 cm" data-precio="$42.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Majin Buu</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/02a6e357b6b219fe0284be4d636ae171_420x.jpeg" alt="Majin Buu" loading="lazy" class="imagen-producto" data-titulo="Majin Buu" data-medida="55x75 cm" data-precio="$42.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Majin Buu</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/e1f4f9f8033cf2b9cc4050d726de1ddd_420x.jpeg" alt="Majin Buu" loading="lazy" class="imagen-producto" data-titulo="Majin Buu" data-medida="55x75 cm" data-precio="$42.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Majin Buu</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/1d7aae6baa4d844233e1b20b696ac6d2_420x.jpeg" alt="Majin Buu" loading="lazy" class="imagen-producto" data-titulo="Majin Buu" data-medida="55x75 cm" data-precio="$42.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Majin Buu</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/68e8dbd908de8cfd8233612afcd8625d_420x.jpeg" alt="Majin Buu" loading="lazy" class="imagen-producto" data-titulo="Majin Buu" data-medida="55x75 cm" data-precio="$42.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Majin Buu</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/a3f74ca0d36f04bbcd1f15122b5e09e8_420x.jpeg" alt="Majin Buu" loading="lazy" class="imagen-producto" data-titulo="Majin Buu" data-medida="55x75 cm" data-precio="$42.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Majin Buu</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/82b04f20747096fc16e31c48c1ff1d04_420x.jpeg" alt="Majin Buu" loading="lazy" class="imagen-producto" data-titulo="Majin Buu" data-medida="55x75 cm" data-precio="$42.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Majin Buu</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
+                </article>
+                <!-- Más elementos... -->
+            </div>
+            <div class="contenedor-boton-ver-mas">
+                <button class="boton-ver-mas" data-target="galeria-dragonball">Ver más</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Demon Slayer -->
+    <section class="seccion-productos" id="seccion-demonslayer">
+        <div class="contenedor-seccion">
+            <div class="encabezado-seccion">
+                <h2 class="titulo-seccion">Demon Slayer</h2>
+            </div>
+            
+            <!-- Galería de productos Demon Slayer -->
+            <div class="galeria-productos" id="galeria-demonslayer">
+                <!-- 8 elementos iniciales -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/f2f89f0b147a2f1dcf8dad13bbdf07fb_420x.jpeg" alt="Tanjiro Kamado" loading="lazy" class="imagen-producto" data-titulo="Tanjiro Kamado" data-medida="40x60 cm" data-precio="$34.99" width="300" height="200">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Tanjiro Kamado</h3>
+                        <p class="dimension-producto">Medida: 40x60 cm</p>
+                    </div>
+                </article>
+                
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/aa86388c259a573d905ce6e0c833de19_420x.jpeg" alt="Tanjiro Kamado" loading="lazy" class="imagen-producto" data-titulo="Tanjiro Kamado" data-medida="40x60 cm" data-precio="$34.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Tanjiro Kamado</h3>
+                        <p class="dimension-producto">Medida: 40x60 cm</p>
+                    </div>
+                </article>
+                
+                <!-- Producto 2 -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/20a007a2f15932043c22daf60a1b1fc7_420x.jpeg" alt="Nezuko Kamado" loading="lazy" class="imagen-producto" data-titulo="Nezuko Kamado" data-medida="35x50 cm" data-precio="$32.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Nezuko Kamado</h3>
+                        <p class="dimension-producto">Medida: 35x50 cm</p>
+                    </div>
+                </article>
+                
+                <!-- Producto 3 -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/3e1f68c2c530fb9410e7271857000c7f_420x.jpg" alt="Zenitsu Agatsuma" loading="lazy" class="imagen-producto" data-titulo="Zenitsu Agatsuma" data-medida="40x60 cm" data-precio="$34.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Zenitsu Agatsuma</h3>
+                        <p class="dimension-producto">Medida: 40x60 cm</p>
+                    </div>
+                </article>
+                
+                <!-- Producto 4 -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/cfc1f695d3740c3aedb3aa9b591fe6c4_420x.jpeg" alt="Inosuke Hashibira" loading="lazy" class="imagen-producto" data-titulo="Inosuke Hashibira" data-medida="40x60 cm" data-precio="$34.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Inosuke Hashibira</h3>
+                        <p class="dimension-producto">Medida: 40x60 cm</p>
+                    </div>
+                </article>
+                
+                <!-- Producto 5 -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/79969793b00d36f74934189f8ae9abef_420x.jpeg" alt="Muzan Kibutsuji" loading="lazy" class="imagen-producto" data-titulo="Muzan Kibutsuji" data-medida="60x80 cm" data-precio="$44.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Muzan Kibutsuji</h3>
+                        <p class="dimension-producto">Medida: 60x80 cm</p>
+                    </div>
+                </article>
+                
+                <!-- Producto 6 -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/3cce4ec442b0f67f4403aa0ddaaa9047_420x.jpeg" alt="Hashiras Completo" loading="lazy" class="imagen-producto" data-titulo="Hashiras Completo" data-medida="55x75 cm" data-precio="$42.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Hashiras Completo</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
+                </article>
+                
+                <!-- Producto 7 -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/62ad16b939a817367ef64378fc34a4a4_420x.jpeg" alt="Rengoku Kyojuro" loading="lazy" class="imagen-producto" data-titulo="Rengoku Kyojuro" data-medida="50x70 cm" data-precio="$39.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Rengoku Kyojuro</h3>
+                        <p class="dimension-producto">Medida: 50x70 cm</p>
+                    </div>
+                </article>
+                
+                <!-- Producto 8 -->
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/b4537a02af854a4d029174f889b12330_420x.jpeg" alt="Shinobu Kocho" loading="lazy" class="imagen-producto" data-titulo="Shinobu Kocho" data-medida="40x60 cm" data-precio="$34.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Shinobu Kocho</h3>
+                        <p class="dimension-producto">Medida: 40x60 cm</p>
+                    </div>
+                </article>
+
+                 <article class="producto-item adicional">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/5e3854e9111abccdfdff281488959ff2_420x.jpeg" alt="Giyu Tomioka" loading="lazy" class="imagen-producto" data-titulo="Giyu Tomioka" data-medida="45x65 cm" data-precio="$36.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Giyu Tomioka</h3>
+                        <p class="dimension-producto">Medida: 45x65 cm</p>
+                    </div>
+                </article>
+                
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/dd906a6215fae3093d727ec20836356e_420x.jpeg" alt="Mitsuri Kanroji" loading="lazy" class="imagen-producto" data-titulo="Mitsuri Kanroji" data-medida="55x75 cm" data-precio="$42.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Mitsuri Kanroji</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/dd906a6215fae3093d727ec20836356e_420x.jpeg" alt="Mitsuri Kanroji" loading="lazy" class="imagen-producto" data-titulo="Mitsuri Kanroji" data-medida="55x75 cm" data-precio="$42.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Mitsuri Kanroji</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/dd906a6215fae3093d727ec20836356e_420x.jpeg" alt="Mitsuri Kanroji" loading="lazy" class="imagen-producto" data-titulo="Mitsuri Kanroji" data-medida="55x75 cm" data-precio="$42.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Mitsuri Kanroji</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/dd906a6215fae3093d727ec20836356e_420x.jpeg" alt="Mitsuri Kanroji" loading="lazy" class="imagen-producto" data-titulo="Mitsuri Kanroji" data-medida="55x75 cm" data-precio="$42.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Mitsuri Kanroji</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/dd906a6215fae3093d727ec20836356e_420x.jpeg" alt="Mitsuri Kanroji" loading="lazy" class="imagen-producto" data-titulo="Mitsuri Kanroji" data-medida="55x75 cm" data-precio="$42.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Mitsuri Kanroji</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/dd906a6215fae3093d727ec20836356e_420x.jpeg" alt="Mitsuri Kanroji" loading="lazy" class="imagen-producto" data-titulo="Mitsuri Kanroji" data-medida="55x75 cm" data-precio="$42.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Mitsuri Kanroji</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/dd906a6215fae3093d727ec20836356e_420x.jpeg" alt="Mitsuri Kanroji" loading="lazy" class="imagen-producto" data-titulo="Mitsuri Kanroji" data-medida="55x75 cm" data-precio="$42.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Mitsuri Kanroji</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/dd906a6215fae3093d727ec20836356e_420x.jpeg" alt="Mitsuri Kanroji" loading="lazy" class="imagen-producto" data-titulo="Mitsuri Kanroji" data-medida="55x75 cm" data-precio="$42.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Mitsuri Kanroji</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/dd906a6215fae3093d727ec20836356e_420x.jpeg" alt="Mitsuri Kanroji" loading="lazy" class="imagen-producto" data-titulo="Mitsuri Kanroji" data-medida="55x75 cm" data-precio="$42.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Mitsuri Kanroji</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/dd906a6215fae3093d727ec20836356e_420x.jpeg" alt="Mitsuri Kanroji" loading="lazy" class="imagen-producto" data-titulo="Mitsuri Kanroji" data-medida="55x75 cm" data-precio="$42.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Mitsuri Kanroji</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/dd906a6215fae3093d727ec20836356e_420x.jpeg" alt="Mitsuri Kanroji" loading="lazy" class="imagen-producto" data-titulo="Mitsuri Kanroji" data-medida="55x75 cm" data-precio="$42.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Mitsuri Kanroji</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/dd906a6215fae3093d727ec20836356e_420x.jpeg" alt="Mitsuri Kanroji" loading="lazy" class="imagen-producto" data-titulo="Mitsuri Kanroji" data-medida="55x75 cm" data-precio="$42.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Mitsuri Kanroji</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/dd906a6215fae3093d727ec20836356e_420x.jpeg" alt="Mitsuri Kanroji" loading="lazy" class="imagen-producto" data-titulo="Mitsuri Kanroji" data-medida="55x75 cm" data-precio="$42.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Mitsuri Kanroji</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/dd906a6215fae3093d727ec20836356e_420x.jpeg" alt="Mitsuri Kanroji" loading="lazy" class="imagen-producto" data-titulo="Mitsuri Kanroji" data-medida="55x75 cm" data-precio="$42.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Mitsuri Kanroji</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/dd906a6215fae3093d727ec20836356e_420x.jpeg" alt="Mitsuri Kanroji" loading="lazy" class="imagen-producto" data-titulo="Mitsuri Kanroji" data-medida="55x75 cm" data-precio="$42.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Mitsuri Kanroji</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/dd906a6215fae3093d727ec20836356e_420x.jpeg" alt="Mitsuri Kanroji" loading="lazy" class="imagen-producto" data-titulo="Mitsuri Kanroji" data-medida="55x75 cm" data-precio="$42.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Mitsuri Kanroji</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/dd906a6215fae3093d727ec20836356e_420x.jpeg" alt="Mitsuri Kanroji" loading="lazy" class="imagen-producto" data-titulo="Mitsuri Kanroji" data-medida="55x75 cm" data-precio="$42.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Mitsuri Kanroji</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/dd906a6215fae3093d727ec20836356e_420x.jpeg" alt="Mitsuri Kanroji" loading="lazy" class="imagen-producto" data-titulo="Mitsuri Kanroji" data-medida="55x75 cm" data-precio="$42.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Mitsuri Kanroji</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/dd906a6215fae3093d727ec20836356e_420x.jpeg" alt="Mitsuri Kanroji" loading="lazy" class="imagen-producto" data-titulo="Mitsuri Kanroji" data-medida="55x75 cm" data-precio="$42.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Mitsuri Kanroji</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/dd906a6215fae3093d727ec20836356e_420x.jpeg" alt="Mitsuri Kanroji" loading="lazy" class="imagen-producto" data-titulo="Mitsuri Kanroji" data-medida="55x75 cm" data-precio="$42.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Mitsuri Kanroji</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
+                </article>
+
+                <article class="producto-item">
+                    <figure class="contenedor-imagen-producto">
+                        <img src="https://img.fantaskycdn.com/dd906a6215fae3093d727ec20836356e_420x.jpeg" alt="Mitsuri Kanroji" loading="lazy" class="imagen-producto" data-titulo="Mitsuri Kanroji" data-medida="55x75 cm" data-precio="$42.99">
+                    </figure>
+                    <div class="info-producto">
+                        <h3 class="titulo-producto">Mitsuri Kanroji</h3>
+                        <p class="dimension-producto">Medida: 55x75 cm</p>
+                    </div>
+                </article>
+                <!-- Más elementos... -->
+            </div>
+            <div class="contenedor-boton-ver-mas">
+                <button class="boton-ver-mas" data-target="galeria-demonslayer">Ver más</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Nuestro Proceso de Fabricación -->
+    <section class="seccion-proceso" id="proceso">
+        <div class="contenedor-seccion">
+            <div class="encabezado-seccion">
+                <h2 class="titulo-seccion">Nuestro Proceso</h2>
+                <p class="subtitulo-seccion">Calidad y durabilidad en cada cuadro</p>
+            </div>
+            
+            <div class="proceso-grid">
+                <div class="proceso-card">
+                    <div class="proceso-icono">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h3 class="proceso-titulo">Impresión Sublimada</h3>
+                    <p class="proceso-descripcion">Tinta especial que se fusiona con el metal para crear imágenes vibrantes y duraderas.</p>
+                </div>
+                
+                <div class="proceso-card">
+                    <div class="proceso-icono">
                         <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3>Durabilidad</h3>
-                    <p>El metal es un material duradero, resistente a la decoloración, la corrosión y los daños causados por la luz solar. Los cuadros sublimados en metal tienden a durar más tiempo en comparación con otros materiales.</p>
+                    <h3 class="proceso-titulo">Acabado Protector</h3>
+                    <p class="proceso-descripcion">Capa protectora UV que evita el desvanecimiento por más de 10 años.</p>
                 </div>
                 
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-tint-slash"></i>
+                <div class="proceso-card">
+                    <div class="proceso-icono">
+                        <i class="fas fa-ruler-combined"></i>
                     </div>
-                    <h3>Fácil limpieza</h3>
-                    <p>Los cuadros sublimados en metal son fáciles de limpieza. Basta con un paño suave y húmedo para quitar el polvo o las manchas leves.</p>
+                    <h3 class="proceso-titulo">Medidas Precisas</h3>
+                    <p class="proceso-descripcion">Corte láser de alta precisión para bordes perfectos en cada tamaño.</p>
                 </div>
                 
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-star"></i>
+                <div class="proceso-card">
+                    <div class="proceso-icono">
+                        <i class="fas fa-award"></i>
                     </div>
-                    <h3>Calidad de imagen</h3>
-                    <p>La sublimación en metal ofrece una alta calidad de imagen. La técnica permite una reproducción nítida y detallada de fotografías, ilustraciones o diseños, con colores vibrantes y vivos.</p>
+                    <h3 class="proceso-titulo">Calidad Premium</h3>
+                    <p class="proceso-descripcion">Metal de aluminio grado fotográfico para máxima nitidez y contraste.</p>
+                </div>
+            </div>
+            
+            <!-- Características de calidad -->
+            <div class="calidad-grid">
+                <div class="calidad-item">
+                    <h4><i class="fas fa-check-circle"></i> Durabilidad</h4>
+                    <p>Resistente a la humedad, rayos UV y cambios de temperatura. Vida útil de más de 15 años.</p>
+                </div>
+                
+                <div class="calidad-item">
+                    <h4><i class="fas fa-check-circle"></i> Resolución HD</h4>
+                    <p>Impresión en 1440 DPI para detalles nítidos y colores vibrantes que no se desvanecen.</p>
+                </div>
+                
+                <div class="calidad-item">
+                    <h4><i class="fas fa-check-circle"></i> Instalación Fácil</h4>
+                    <p>Incluye sistema de montaje completo. Peso ligero y fácil de colocar en cualquier pared.</p>
+                </div>
+                
+                <div class="calidad-item">
+                    <h4><i class="fas fa-check-circle"></i> Ecológico</h4>
+                    <p>Material 100% reciclable. Proceso de producción con bajo impacto ambiental.</p>
                 </div>
             </div>
         </div>
     </section>
-    
-</main>
 
-<footer class="anime-footer">
-    <div class="footer-content">
-        <div class="footer-section">
-            <h3>Cuadros Sublimados</h3>
-            <p>Transformamos tus momentos especiales en arte duradero sobre metal.</p>
-            <div class="social-icons">
-                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+
+    <!-- Modal para imagen ampliada -->
+    <div class="modal-imagen" id="modal-imagen">
+        <div class="modal-contenido">
+            <button class="cerrar-modal" aria-label="Cerrar modal">&times;</button>
+            <div class="modal-imagen-contenedor">
+                <img id="imagen-ampliada" src="" alt="">
+            </div>
+            <div class="modal-info">
+                <h3 id="modal-titulo">Título del Producto</h3>
+                <p id="modal-medida">Medida: 30x40 cm</p>
+                <div class="modal-botones">
+                    <a href="producto-detalle.html" class="boton-ver">
+                        <i class="fas fa-eye"></i> Ver Detalles
+                    </a>
+                    <a href="https://wa.me/1234567890?text=¡Hola!%20Quiero%20encargar%20este%20producto:%0A%0A•%20Producto:%20[TITULO]%0A•%20Medida:%20[MEDIDA]%0A•%20Diseño%20seleccionado%20del%20catálogo%0A%0A¿Podrías%20ayudarme%20con%20el%20pedido?" class="boton-whatsapp-modal" target="_blank" id="whatsapp-link">
+                        <i class="fab fa-whatsapp"></i> Encargar por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-principal">
+        <div class="contenedor-footer">
+            <div class="columna-footer">
+                <h3 class="titulo-footer">ANIMETAL</h3>
+                <p class="texto-footer">Transformamos tus personajes favoritos en arte duradero sobre metal con impresión HD de alta calidad.</p>
+                <div class="redes-sociales">
+                    <a href="#" class="enlace-red-social" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="enlace-red-social" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="enlace-red-social" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            
+            <div class="columna-footer">
+                <h4 class="titulo-columna">Categorías</h4>
+                <ul class="lista-enlaces">
+                    <li><a href="#">Anime</a></li>
+                    <li><a href="#">Videojuegos</a></li>
+                    <li><a href="#">Películas</a></li>
+                    <li><a href="#">Series</a></li>
+                    <li><a href="#">Personalizados</a></li>
+                </ul>
+            </div>
+            
+            <div class="columna-footer">
+                <h4 class="titulo-columna">Enlaces útiles</h4>
+                <ul class="lista-enlaces">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="#proceso">Nuestro Proceso</a></li>
+                    <li><a href="#como-comprar">Cómo Comprar</a></li>
+                    <li><a href="#">Preguntas frecuentes</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+            
+            <div class="columna-footer">
+                <h4 class="titulo-columna">Contacto</h4>
+                <div class="info-contacto">
+                    <p><i class="fas fa-map-marker-alt"></i> Av. Principal #123, Ciudad</p>
+                    <p><i class="fas fa-phone"></i> +1 234 567 890</p>
+                    <p><i class="fas fa-envelope"></i> info@animetalshop.com</p>
+                    <p><i class="fab fa-whatsapp"></i> WhatsApp: +1 234 567 890</p>
+                </div>
             </div>
         </div>
         
-        <div class="footer-section">
-            <h4>Enlaces Rápidos</h4>
-            <ul>
-                <li><a href="#"><i class="fas fa-chevron-right"></i> Inicio</a></li>
-                <li><a href="#"><i class="fas fa-chevron-right"></i> Galería</a></li>
-                <li><a href="#"><i class="fas fa-chevron-right"></i> Precios</a></li>
-                <li><a href="#"><i class="fas fa-chevron-right"></i> Contacto</a></li>
-            </ul>
+        <div class="pie-footer">
+            <p>&copy; 2023 ANIMETAL - Todos los derechos reservados</p>
         </div>
-        
-        <div class="footer-section">
-            <h4>Contacto</h4>
-            <div class="contact-info">
-                <p><i class="fas fa-map-marker-alt"></i> Av. Principal #123, Ciudad</p>
-                <p><i class="fas fa-phone"></i> +1 234 567 890</p>
-                <p><i class="fas fa-envelope"></i> info@cuadrosmetal.com</p>
-            </div>
-        </div>
-        
-        <div class="footer-section">
-            <h4>Newsletter</h4>
-            <p>Suscríbete para recibir promociones exclusivas.</p>
-            <form class="newsletter-form">
-                <input type="email" placeholder="Tu correo electrónico" required>
-                <button type="submit">Suscribirse <i class="fas fa-paper-plane"></i></button>
-            </form>
-        </div>
-    </div>
-    
-    <div class="footer-bottom">
-        <p>&copy; 2023 Cuadros Sublimados en Metal. Todos los derechos reservados.</p>
-    </div>
-    
-    <div class="footer-particles">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-    </div>
-</footer>
+    </footer>
 
-<script src="js/porsia.js"></script>
-<script src="js/dynamic-images.js"></script>
-
+    <script src="js/manu.js"></script>
 </body>
 </html>

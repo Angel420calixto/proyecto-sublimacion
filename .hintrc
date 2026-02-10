@@ -30,7 +30,9 @@
           "scrollbar-color",
           "user-select",
           "-webkit-user-drag",
-          "image-rendering: crisp-edges"
+          "image-rendering: crisp-edges",
+          "mask-composite",
+          "mask-composite: exclude"
         ]
       }
     ],
