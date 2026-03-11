@@ -406,3 +406,4 @@ window.addEventListener('scroll', () => {
         }, 10);
     }
 });
+

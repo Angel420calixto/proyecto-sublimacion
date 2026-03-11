@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANIMETAL - Colecciones Especiales: Autos, Películas, Retratos Personalizados</title>
+    <meta name="description" content="Descubre nuestras colecciones especiales de cuadros metálicos: autos y motos, películas y series, paisajes, arte religioso y retratos personalizados. Impresión HD sobre metal.">
+    <meta name="keywords" content="cuadros personalizados, retratos sobre metal, arte cyberpunk, cuadros marvel, cuadros dc comics, star wars metal, paisajes en metal, arte religioso, regalos personalizados">
+    <meta name="author" content="ANIMETAL">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.animetal.cl/colecciones-especiales">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.animetal.cl/colecciones-especiales">
+    <meta property="og:title" content="ANIMETAL - Colecciones Especiales en Metal">
+    <meta property="og:description" content="Arte en metal de tus películas, series y temas favoritos. Retratos personalizados y más.">
+    <meta property="og:image" content="https://www.animetal.cl/img/logo.jpg">
+    <meta property="og:locale" content="es_CL">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.animetal.cl/colecciones-especiales">
+    <meta name="twitter:title" content="ANIMETAL - Colecciones Especiales">
+    <meta name="twitter:description" content="Descubre nuestras colecciones exclusivas de cuadros metálicos">
+    <meta name="twitter:image" content="https://www.animetal.cl/img/logo.jpg">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="nuevacategoria.css">
+</head>
+<body>
+    <!-- Botón de WhatsApp fijo -->
+    <a href="https://wa.me/56982045756" class="nc-whatsapp-button" target="_blank" aria-label="Contactar por WhatsApp para pedidos y consultas de colecciones especiales">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </a>
+
+    <!-- Header principal -->
+    <header class="nc-header-principal">
+        <nav class="nc-navegacion" aria-label="Menú principal de colecciones">
+            <div class="nc-contenedor-navegacion">
+                <!-- Logo -->
+                <div class="nc-logo-contenedor">
+                    <img src="img/logo.jpg" alt="ANIMETAL - Tienda de cuadros metálicos y colecciones especiales" class="nc-logo" width="50" height="50">
+                    <h1 class="nc-titulo-logo">ANIMETAL</h1>
+                </div>
+                
+                <!-- Menú principal -->
+                <ul class="nc-menu-principal" id="nc-menu-principal" role="list">
+                    <li role="listitem"><a href="index.html" class="nc-enlace-menu">Inicio</a></li>
+                    <li class="nc-menu-con-desplegable" role="listitem">
+                        <button class="nc-enlace-menu-desplegable" aria-expanded="false" aria-controls="nc-submenu-categorias" aria-haspopup="true">
+                            Colecciones <i class="fas fa-chevron-down nc-flecha-desplegable" aria-hidden="true"></i>
+                        </button>
+                        <ul class="nc-submenu" id="nc-submenu-categorias" role="list" aria-label="Subcategorías de colecciones">
+                            <li role="listitem"><a href="#nc-popular">Autos y Motos</a></li>
+                            <li role="listitem"><a href="#nc-marvel">Películas y Series</a></li>
+                            <li role="listitem"><a href="#nc-dc">Paisajes y Religión</a></li>
+                            <li role="listitem"><a href="#nc-starwars">Retratos Personalizados</a></li>
+                        </ul>
+                    </li>
+                    <li role="listitem"><a href="#nc-popular" class="nc-enlace-menu" aria-current="page">Cyberpunk</a></li>
+                    <li role="listitem"><a href="#nc-proceso" class="nc-enlace-menu">Servicios y Productos</a></li>
+                    <li role="listitem"><a href="#nc-como-comprar" class="nc-enlace-menu">Cómo Comprar</a></li>
+                </ul>
+                
+                <!-- Iconos de usuario y carrito -->
+                <div class="nc-iconos-usuario">
+                    <a href="#" class="nc-icono-usuario" aria-label="Ver carrito de compras">
+                        <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                        <span class="nc-texto-icono">Tienda</span>
+                    </a>
+                    <a href="#" class="nc-icono-usuario" aria-label="Mi cuenta de usuario">
+                        <i class="fas fa-user" aria-hidden="true"></i>
+                        <span class="nc-texto-icono">Mi cuenta</span>
+                    </a>
+                </div>
+                
+                <!-- Menú hamburguesa móvil -->
+                <button class="nc-boton-menu-mobile" id="nc-boton-menu-mobile" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="nc-menu-principal">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Overlay para menú móvil -->
+    <div class="nc-menu-overlay" id="nc-menu-overlay" aria-hidden="true"></div>
+
+    <main id="contenido-principal-colecciones">
+        <!-- Banner principal -->
+        <section class="nc-banner-principal" aria-label="Banner colecciones especiales">
+            <div class="nc-contenedor-banner">
+                <div class="nc-contenido-banner">
+                    <h2 class="nc-titulo-banner">Ediciones Especiales en Metal</h2>
+                    <p class="nc-texto-banner">Lleva el arte de tus universos favoritos a otro nivel</p>
+                    <a href="#nc-popular" class="nc-boton-banner" aria-label="Explorar colecciones especiales">Explorar Colecciones</a>
+                </div>
+                <div class="nc-imagen-banner">
+                    <img src="img/autos-y-motos/cyberpunk-banner.webp" alt="Arte Cyberpunk futurista en cuadro metálico - colección especial" loading="eager" width="600" height="400">
+                </div>
+            </div>
+        </section>
+        
+        <!-- Sección: Cómo Comprar -->
+        <section class="nc-seccion-como-comprar" id="nc-como-comprar" aria-labelledby="titulo-como-comprar-colecciones">
+            <div class="nc-contenedor-seccion">
+                <div class="nc-encabezado-seccion">
+                    <h2 class="nc-titulo-seccion" id="titulo-como-comprar-colecciones">Cómo Comprar</h2>
+                    <p class="nc-subtitulo-seccion">Proceso simple en 4 pasos</p>
+                </div>
+                
+                <div class="nc-pasos-comprar">
+                    <article class="nc-paso-item">
+                        <div class="nc-paso-numero" aria-hidden="true">1</div>
+                        <div class="nc-paso-contenido">
+                            <h3>Elige tu diseño</h3>
+                            <p>Selecciona de nuestro catálogo o envíanos tu imagen personalizada por WhatsApp, presionando el logo de WhatsApp en la esquina inferior derecha.</p>
+                        </div>
+                    </article>
+                    
+                    <article class="nc-paso-item">
+                        <div class="nc-paso-numero" aria-hidden="true">2</div>
+                        <div class="nc-paso-contenido">
+                            <h3>Selecciona medidas</h3>
+                            <p>Elige entre nuestros tamaños estándar o solicita medidas personalizadas.</p>
+                        </div>
+                    </article>
+                    
+                    <article class="nc-paso-item">
+                        <div class="nc-paso-numero" aria-hidden="true">3</div>
+                        <div class="nc-paso-contenido">
+                            <h3>Confirmación vía WhatsApp</h3>
+                            <p>Te enviamos una vista previa y confirmamos todos los detalles de tu pedido.</p>
+                        </div>
+                    </article>
+                    
+                    <article class="nc-paso-item">
+                        <div class="nc-paso-numero" aria-hidden="true">4</div>
+                        <div class="nc-paso-contenido">
+                            <h3>Entrega en 1-3 días</h3>
+                            <p>Fabricamos y entregamos tu cuadro en perfecto estado. ¡Listo para colgar!</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Autos y Motos (Cyberpunk/Urbano) -->
+        <section class="nc-seccion-popular" id="nc-popular" aria-labelledby="titulo-autos-motos">
+            <div class="nc-contenedor-seccion">
+                <div class="nc-encabezado-seccion">
+                    <h2 class="nc-titulo-seccion" id="titulo-autos-motos">Autos y Motos</h2>
+                    <p class="nc-subtitulo-seccion">Estilo urbano y cyberpunk sobre metal</p>
+                </div>
+                <div class="nc-grid-popular" id="nc-grid-popular">
+                    <!-- Item 1 -->
+                    <article class="nc-item-popular">
+                        <figure class="nc-contenedor-imagen-popular">
+                            <img src="img/autos-motos/samurai-urbano.webp" alt="Samurai urbano con luces de neón - arte cyberpunk para cuadro metálico" loading="lazy" class="nc-imagen-producto" data-titulo="Samurai Urbano" data-medida="20x22 cm" data-precio="$15.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">Samurai Urbano</h3>
+                            <p class="nc-dimension-producto">Medida: 20x22 cm | 32x45 cm | 40x60 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio desde 15.990 pesos chilenos">Desde $15.990 CLP</p>
+                        </div>
+                    </article>
+                    
+                    <!-- Item 2 -->
+                    <article class="nc-item-popular">
+                        <figure class="nc-contenedor-imagen-popular">
+                            <img src="img/autos-motos/neon-cityscape.webp" alt="Ciudad futurista con neones y rascacielos - paisaje cyberpunk" loading="lazy" class="nc-imagen-producto" data-titulo="Neon Cityscape" data-medida="20x22 cm" data-precio="$15.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">Neon Cityscape</h3>
+                            <p class="nc-dimension-producto">Medida: 20x22 cm | 32x45 cm | 40x60 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio desde 15.990 pesos chilenos">Desde $15.990 CLP</p>
+                        </div>
+                    </article>
+                    
+                    <!-- Item 3 -->
+                    <article class="nc-item-popular">
+                        <figure class="nc-contenedor-imagen-popular">
+                            <img src="img/autos-motos/hacker-netrunner.webp" alt="Hacker Netrunner con interfaz cyberpunk - arte digital" loading="lazy" class="nc-imagen-producto" data-titulo="Hacker Netrunner" data-medida="20x22 cm" data-precio="$15.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">Hacker Netrunner</h3>
+                            <p class="nc-dimension-producto">Medida: 20x22 cm | 32x45 cm | 40x60 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio desde 15.990 pesos chilenos">Desde $15.990 CLP</p>
+                        </div>
+                    </article>
+                    
+                    <!-- Item 4 -->
+                    <article class="nc-item-popular">
+                        <figure class="nc-contenedor-imagen-popular">
+                            <img src="img/autos-motos/ojo-cibernetico.webp" alt="Ojo cibernético con detalles tecnológicos - arte futurista" loading="lazy" class="nc-imagen-producto" data-titulo="Ojo Cibernético" data-medida="20x22 cm" data-precio="$15.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">Ojo Cibernético</h3>
+                            <p class="nc-dimension-producto">Medida: 20x22 cm | 32x45 cm | 40x60 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio desde 15.990 pesos chilenos">Desde $15.990 CLP</p>
+                        </div>
+                    </article>
+                    
+                    <!-- Item 5 -->
+                    <article class="nc-item-popular">
+                        <figure class="nc-contenedor-imagen-popular">
+                            <img src="img/autos-motos/persecucion-futurista.webp" alt="Moto deportiva en persecución cyberpunk - arte dinámico" loading="lazy" class="nc-imagen-producto" data-titulo="Persecución Futurista" data-medida="20x22 cm" data-precio="$15.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">Persecución Futurista</h3>
+                            <p class="nc-dimension-producto">Medida: 20x22 cm | 32x45 cm | 40x60 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio desde 15.990 pesos chilenos">Desde $15.990 CLP</p>
+                        </div>
+                    </article>
+                    
+                    <!-- Item 6 -->
+                    <article class="nc-item-popular">
+                        <figure class="nc-contenedor-imagen-popular">
+                            <img src="img/autos-motos/retrato-glitch.webp" alt="Retrato con efecto glitch - arte digital contemporáneo" loading="lazy" class="nc-imagen-producto" data-titulo="Retrato Glitch" data-medida="20x22 cm" data-precio="$15.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">Retrato Glitch</h3>
+                            <p class="nc-dimension-producto">Medida: 20x22 cm | 32x45 cm | 40x60 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio desde 15.990 pesos chilenos">Desde $15.990 CLP</p>
+                        </div>
+                    </article>
+                    
+                    <!-- Item 7 -->
+                    <article class="nc-item-popular">
+                        <figure class="nc-contenedor-imagen-popular">
+                            <img src="img/autos-motos/ciudad-drones.webp" alt="Ciudad futurista con drones volando - paisaje cyberpunk" loading="lazy" class="nc-imagen-producto" data-titulo="Ciudad de Drones" data-medida="20x22 cm" data-precio="$15.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">Ciudad de Drones</h3>
+                            <p class="nc-dimension-producto">Medida: 20x22 cm | 32x45 cm | 40x60 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio desde 15.990 pesos chilenos">Desde $15.990 CLP</p>
+                        </div>
+                    </article>
+                    
+                    <!-- Item 8 -->
+                    <article class="nc-item-popular">
+                        <figure class="nc-contenedor-imagen-popular">
+                            <img src="img/autos-motos/geisha-cibernetica.webp" alt="Geisha cibernética con elementos tecnológicos - fusión tradición y futuro" loading="lazy" class="nc-imagen-producto" data-titulo="Geisha Cibernética" data-medida="20x22 cm" data-precio="$15.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">Geisha Cibernética</h3>
+                            <p class="nc-dimension-producto">Medida: 20x22 cm | 32x45 cm | 40x60 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio desde 15.990 pesos chilenos">Desde $15.990 CLP</p>
+                        </div>
+                    </article>
+
+                    <!-- Item 9 -->
+                    <article class="nc-item-popular">
+                        <figure class="nc-contenedor-imagen-popular">
+                            <img src="img/autos-motos/guerrero-cyborg.webp" alt="Guerrero cyborg con armadura futurista - arte sci-fi" loading="lazy" class="nc-imagen-producto" data-titulo="Guerrero Cyborg" data-medida="20x22 cm" data-precio="$15.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">Guerrero Cyborg</h3>
+                            <p class="nc-dimension-producto">Medida: 20x22 cm | 32x45 cm | 40x60 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio desde 15.990 pesos chilenos">Desde $15.990 CLP</p>
+                        </div>
+                    </article>
+
+                    <!-- Item 10 -->
+                    <article class="nc-item-popular">
+                        <figure class="nc-contenedor-imagen-popular">
+                            <img src="img/autos-motos/geisha-neon.webp" alt="Geisha de neón con fondo de ciudad futurista - arte cyberpunk" loading="lazy" class="nc-imagen-producto" data-titulo="Geisha de Neón" data-medida="20x22 cm" data-precio="$15.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">Geisha de Neón</h3>
+                            <p class="nc-dimension-producto">Medida: 20x22 cm | 32x45 cm | 40x60 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio desde 15.990 pesos chilenos">Desde $15.990 CLP</p>
+                        </div>
+                    </article>
+                    
+                    <!-- Elementos adicionales (se mostrarán al expandir) -->
+                    <article class="nc-item-popular nc-adicional">
+                        <figure class="nc-contenedor-imagen-popular">
+                            <img src="img/autos-motos/lluvia-ciudad.webp" alt="Ciudad cyberpunk bajo la lluvia con neones reflejados" loading="lazy" class="nc-imagen-producto" data-titulo="Lluvia en la Ciudad" data-medida="20x22 cm" data-precio="$15.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">Lluvia en la Ciudad</h3>
+                            <p class="nc-dimension-producto">Medida: 20x22 cm | 32x45 cm | 40x60 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio desde 15.990 pesos chilenos">Desde $15.990 CLP</p>
+                        </div>
+                    </article>
+                    
+                    <article class="nc-item-popular nc-adicional">
+                        <figure class="nc-contenedor-imagen-popular">
+                            <img src="img/autos-motos/tigre-holografico.webp" alt="Tigre holográfico con efectos de luz - arte digital" loading="lazy" class="nc-imagen-producto" data-titulo="Tigre Holográfico" data-medida="20x22 cm" data-precio="$15.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">Tigre Holográfico</h3>
+                            <p class="nc-dimension-producto">Medida: 20x22 cm | 32x45 cm | 40x60 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio desde 15.990 pesos chilenos">Desde $15.990 CLP</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="nc-contenedor-boton-ver-mas">
+                    <button class="nc-boton-ver-mas" id="nc-boton-expandir-popular" aria-label="Ver más diseños de autos y motos">Ver más</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Películas y Series (Marvel) -->
+        <section class="nc-seccion-productos" id="nc-marvel" aria-labelledby="titulo-peliculas-series">
+            <div class="nc-contenedor-seccion">
+                <div class="nc-encabezado-seccion">
+                    <h2 class="nc-titulo-seccion" id="titulo-peliculas-series">Películas y Series</h2>
+                    <p class="nc-subtitulo-seccion">Tus personajes favoritos del cine y TV</p>
+                </div>
+                
+                <!-- Galería de productos Películas y Series -->
+                <div class="nc-galeria-productos" id="nc-galeria-marvel">
+                    <!-- Producto 1 -->
+                    <article class="nc-producto-item">
+                        <figure class="nc-contenedor-imagen-producto">
+                            <img src="img/peliculas-series/iron-man-mark3.webp" alt="Iron Man Mark III en acción - Marvel Studios" loading="lazy" class="nc-imagen-producto" data-titulo="Iron Man Mark III" data-medida="20x22 cm" data-precio="$15.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">Iron Man Mark III</h3>
+                            <p class="nc-dimension-producto">Medida: 20x22 cm | 32x45 cm | 40x60 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio desde 15.990 pesos chilenos">Desde $15.990 CLP</p>
+                        </div>
+                    </article>
+                    
+                    <!-- Producto 2 -->
+                    <article class="nc-producto-item">
+                        <figure class="nc-contenedor-imagen-producto">
+                            <img src="img/peliculas-series/spider-man-miles.webp" alt="Spider-Man (Miles Morales) con traje y efectos" loading="lazy" class="nc-imagen-producto" data-titulo="Spider-Man Miles Morales" data-medida="20x22 cm" data-precio="$15.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">Spider-Man (Miles Morales)</h3>
+                            <p class="nc-dimension-producto">Medida: 20x22 cm | 32x45 cm | 40x60 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio desde 15.990 pesos chilenos">Desde $15.990 CLP</p>
+                        </div>
+                    </article>
+
+                    <!-- Producto 3 -->
+                    <article class="nc-producto-item">
+                        <figure class="nc-contenedor-imagen-producto">
+                            <img src="img/peliculas-series/thor-odinson.webp" alt="Thor Odinson con su martillo y rayos" loading="lazy" class="nc-imagen-producto" data-titulo="Thor Odinson" data-medida="20x22 cm" data-precio="$15.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">Thor Odinson</h3>
+                            <p class="nc-dimension-producto">Medida: 20x22 cm | 32x45 cm | 40x60 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio desde 15.990 pesos chilenos">Desde $15.990 CLP</p>
+                        </div>
+                    </article>
+
+                    <!-- Producto 4 -->
+                    <article class="nc-producto-item">
+                        <figure class="nc-contenedor-imagen-producto">
+                            <img src="img/peliculas-series/black-panther.webp" alt="Black Panther de Wakanda con traje de vibranium" loading="lazy" class="nc-imagen-producto" data-titulo="Black Panther" data-medida="20x22 cm" data-precio="$15.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">Black Panther</h3>
+                            <p class="nc-dimension-producto">Medida: 20x22 cm | 32x45 cm | 40x60 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio desde 15.990 pesos chilenos">Desde $15.990 CLP</p>
+                        </div>
+                    </article>
+
+                    <!-- Producto 5 -->
+                    <article class="nc-producto-item">
+                        <figure class="nc-contenedor-imagen-producto">
+                            <img src="img/peliculas-series/doctor-strange.webp" alt="Doctor Strange con magia y ojo de agamotto" loading="lazy" class="nc-imagen-producto" data-titulo="Doctor Strange" data-medida="20x22 cm" data-precio="$15.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">Doctor Strange</h3>
+                            <p class="nc-dimension-producto">Medida: 20x22 cm | 32x45 cm | 40x60 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio desde 15.990 pesos chilenos">Desde $15.990 CLP</p>
+                        </div>
+                    </article>
+
+                    <!-- Producto 6 -->
+                    <article class="nc-producto-item">
+                        <figure class="nc-contenedor-imagen-producto">
+                            <img src="img/peliculas-series/capitan-america.webp" alt="Capitán América con su escudo en acción" loading="lazy" class="nc-imagen-producto" data-titulo="Capitán América" data-medida="20x22 cm" data-precio="$15.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">Capitán América</h3>
+                            <p class="nc-dimension-producto">Medida: 20x22 cm | 32x45 cm | 40x60 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio desde 15.990 pesos chilenos">Desde $15.990 CLP</p>
+                        </div>
+                    </article>
+
+                    <!-- Producto 7 -->
+                    <article class="nc-producto-item">
+                        <figure class="nc-contenedor-imagen-producto">
+                            <img src="img/peliculas-series/wolverine.webp" alt="Wolverine con sus garras de adamantium" loading="lazy" class="nc-imagen-producto" data-titulo="Wolverine" data-medida="20x22 cm" data-precio="$15.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">Wolverine</h3>
+                            <p class="nc-dimension-producto">Medida: 20x22 cm | 32x45 cm | 40x60 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio desde 15.990 pesos chilenos">Desde $15.990 CLP</p>
+                        </div>
+                    </article>
+
+                    <!-- Producto 8 -->
+                    <article class="nc-producto-item">
+                        <figure class="nc-contenedor-imagen-producto">
+                            <img src="img/peliculas-series/deadpool.webp" alt="Deadpool en pose graciosa con sus katanas" loading="lazy" class="nc-imagen-producto" data-titulo="Deadpool" data-medida="20x22 cm" data-precio="$15.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">Deadpool</h3>
+                            <p class="nc-dimension-producto">Medida: 20x22 cm | 32x45 cm | 40x60 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio desde 15.990 pesos chilenos">Desde $15.990 CLP</p>
+                        </div>
+                    </article>
+
+                    <!-- Elementos adicionales -->
+                    <article class="nc-producto-item nc-adicional">
+                        <figure class="nc-contenedor-imagen-producto">
+                            <img src="img/peliculas-series/venom.webp" alt="Venom con simbionte y lengua característica" loading="lazy" class="nc-imagen-producto" data-titulo="Venom" data-medida="20x22 cm" data-precio="$15.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">Venom</h3>
+                            <p class="nc-dimension-producto">Medida: 20x22 cm | 32x45 cm | 40x60 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio desde 15.990 pesos chilenos">Desde $15.990 CLP</p>
+                        </div>
+                    </article>
+
+                    <article class="nc-producto-item nc-adicional">
+                        <figure class="nc-contenedor-imagen-producto">
+                            <img src="img/peliculas-series/loki.webp" alt="Loki con su casco y cetro" loading="lazy" class="nc-imagen-producto" data-titulo="Loki" data-medida="20x22 cm" data-precio="$15.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">Loki</h3>
+                            <p class="nc-dimension-producto">Medida: 20x22 cm | 32x45 cm | 40x60 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio desde 15.990 pesos chilenos">Desde $15.990 CLP</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="nc-contenedor-boton-ver-mas">
+                    <button class="nc-boton-ver-mas" data-target="nc-galeria-marvel" aria-label="Ver más productos de películas y series">Ver más</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Grid Simple - Galería destacada -->
+        <section class="nc-grid-section" aria-label="Galería destacada de colecciones">
+            <div class="nc-grid-images-container">
+                <div class="nc-three-images-grid">
+                    <div class="nc-image-block nc-left-block">
+                        <div class="nc-image-inner">
+                            <img src="img/destacados/coleccion-arte-1.webp" alt="Colección de arte futurista en cuadros metálicos" class="nc-grid-image" width="500" height="500" loading="lazy">
+                        </div>
+                    </div>
+                    
+                    <div class="nc-image-block nc-middle-block">
+                        <div class="nc-image-inner">
+                            <img src="img/destacados/coleccion-arte-2.webp" alt="Detalle de impresión en metal de personajes de películas" class="nc-grid-image" width="500" height="500" loading="lazy">
+                        </div>
+                    </div>
+                    
+                    <div class="nc-image-block nc-right-block">
+                        <div class="nc-image-inner">
+                            <img src="img/destacados/coleccion-arte-3.webp" alt="Galería de cuadros personalizados en exhibición" class="nc-grid-image" width="500" height="500" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Paisajes y Religión (anteriormente DC) -->
+        <section class="nc-seccion-productos" id="nc-dc" aria-labelledby="titulo-paisajes-religion">
+            <div class="nc-contenedor-seccion">
+                <div class="nc-encabezado-seccion">
+                    <h2 class="nc-titulo-seccion" id="titulo-paisajes-religion">Paisajes y Religión</h2>
+                    <p class="nc-subtitulo-seccion">Arte para el alma y la contemplación</p>
+                </div>
+                
+                <!-- Galería de productos Paisajes y Religión -->
+                <div class="nc-galeria-productos" id="nc-galeria-dc">
+                    <!-- Producto 1 -->
+                    <article class="nc-producto-item">
+                        <figure class="nc-contenedor-imagen-producto">
+                            <img src="img/paisajes-religion/paisaje-andino.webp" alt="Paisaje andino con montañas y lagos - fotografía en metal" loading="lazy" class="nc-imagen-producto" data-titulo="Paisaje Andino" data-medida="40x60 cm" data-precio="$18.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">Paisaje Andino</h3>
+                            <p class="nc-dimension-producto">Medida: 40x60 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio: 18.990 pesos chilenos">$18.990 CLP</p>
+                        </div>
+                    </article>
+                    
+                    <!-- Producto 2 -->
+                    <article class="nc-producto-item">
+                        <figure class="nc-contenedor-imagen-producto">
+                            <img src="img/paisajes-religion/virgen-carmen.webp" alt="Virgen del Carmen - arte religioso tradicional" loading="lazy" class="nc-imagen-producto" data-titulo="Virgen del Carmen" data-medida="40x60 cm" data-precio="$18.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">Virgen del Carmen</h3>
+                            <p class="nc-dimension-producto">Medida: 40x60 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio: 18.990 pesos chilenos">$18.990 CLP</p>
+                        </div>
+                    </article>
+                    
+                    <!-- Producto 3 -->
+                    <article class="nc-producto-item">
+                        <figure class="nc-contenedor-imagen-producto">
+                            <img src="img/paisajes-religion/atardecer-playa.webp" alt="Atardecer en la playa con palmeras - paisaje tropical" loading="lazy" class="nc-imagen-producto" data-titulo="Atardecer en la Playa" data-medida="40x60 cm" data-precio="$18.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">Atardecer en la Playa</h3>
+                            <p class="nc-dimension-producto">Medida: 40x60 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio: 18.990 pesos chilenos">$18.990 CLP</p>
+                        </div>
+                    </article>
+                    
+                    <!-- Producto 4 -->
+                    <article class="nc-producto-item">
+                        <figure class="nc-contenedor-imagen-producto">
+                            <img src="img/paisajes-religion/cristo-redentor.webp" alt="Cristo Redentor - imagen religiosa en metal" loading="lazy" class="nc-imagen-producto" data-titulo="Cristo Redentor" data-medida="35x50 cm" data-precio="$16.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">Cristo Redentor</h3>
+                            <p class="nc-dimension-producto">Medida: 35x50 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio: 16.990 pesos chilenos">$16.990 CLP</p>
+                        </div>
+                    </article>
+                    
+                    <!-- Producto 5 -->
+                    <article class="nc-producto-item">
+                        <figure class="nc-contenedor-imagen-producto">
+                            <img src="img/paisajes-religion/bosque-otoño.webp" alt="Bosque en otoño con hojas doradas" loading="lazy" class="nc-imagen-producto" data-titulo="Bosque Otoñal" data-medida="50x70 cm" data-precio="$22.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">Bosque Otoñal</h3>
+                            <p class="nc-dimension-producto">Medida: 50x70 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio: 22.990 pesos chilenos">$22.990 CLP</p>
+                        </div>
+                    </article>
+                    
+                    <!-- Producto 6 -->
+                    <article class="nc-producto-item">
+                        <figure class="nc-contenedor-imagen-producto">
+                            <img src="img/paisajes-religion/sagrado-corazon.webp" alt="Sagrado Corazón de Jesús - arte religioso" loading="lazy" class="nc-imagen-producto" data-titulo="Sagrado Corazón" data-medida="60x80 cm" data-precio="$26.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">Sagrado Corazón</h3>
+                            <p class="nc-dimension-producto">Medida: 60x80 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio: 26.990 pesos chilenos">$26.990 CLP</p>
+                        </div>
+                    </article>
+                    
+                    <!-- Producto 7 -->
+                    <article class="nc-producto-item">
+                        <figure class="nc-contenedor-imagen-producto">
+                            <img src="img/paisajes-religion/cascada.webp" alt="Cascada en bosque tropical - paisaje natural" loading="lazy" class="nc-imagen-producto" data-titulo="Cascada" data-medida="45x65 cm" data-precio="$20.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">Cascada</h3>
+                            <p class="nc-dimension-producto">Medida: 45x65 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio: 20.990 pesos chilenos">$20.990 CLP</p>
+                        </div>
+                    </article>
+                    
+                    <!-- Producto 8 -->
+                    <article class="nc-producto-item">
+                        <figure class="nc-contenedor-imagen-producto">
+                            <img src="img/paisajes-religion/san-martin-caballero.webp" alt="San Martín de Caballero - arte religioso" loading="lazy" class="nc-imagen-producto" data-titulo="San Martín Caballero" data-medida="40x60 cm" data-precio="$18.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">San Martín Caballero</h3>
+                            <p class="nc-dimension-producto">Medida: 40x60 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio: 18.990 pesos chilenos">$18.990 CLP</p>
+                        </div>
+                    </article>
+
+                    <!-- Elementos adicionales -->
+                    <article class="nc-producto-item nc-adicional">
+                        <figure class="nc-contenedor-imagen-producto">
+                            <img src="img/paisajes-religion/aurora-boreal.webp" alt="Aurora boreal en cielo estrellado" loading="lazy" class="nc-imagen-producto" data-titulo="Aurora Boreal" data-medida="60x80 cm" data-precio="$26.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">Aurora Boreal</h3>
+                            <p class="nc-dimension-producto">Medida: 60x80 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio: 26.990 pesos chilenos">$26.990 CLP</p>
+                        </div>
+                    </article>
+
+                    <article class="nc-producto-item nc-adicional">
+                        <figure class="nc-contenedor-imagen-producto">
+                            <img src="img/paisajes-religion/divina-misericordia.webp" alt="Divina Misericordia - imagen religiosa" loading="lazy" class="nc-imagen-producto" data-titulo="Divina Misericordia" data-medida="45x65 cm" data-precio="$20.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">Divina Misericordia</h3>
+                            <p class="nc-dimension-producto">Medida: 45x65 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio: 20.990 pesos chilenos">$20.990 CLP</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="nc-contenedor-boton-ver-mas">
+                    <button class="nc-boton-ver-mas" data-target="nc-galeria-dc" aria-label="Ver más paisajes y arte religioso">Ver más</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Retratos Personalizados (anteriormente Star Wars) -->
+        <section class="nc-seccion-productos" id="nc-starwars" aria-labelledby="titulo-retratos">
+            <div class="nc-contenedor-seccion">
+                <div class="nc-encabezado-seccion">
+                    <h2 class="nc-titulo-seccion" id="titulo-retratos">Retratos Personalizados</h2>
+                    <p class="nc-subtitulo-seccion">Tus momentos especiales en metal</p>
+                </div>
+                
+                <!-- Galería de productos Retratos -->
+                <div class="nc-galeria-productos" id="nc-galeria-starwars">
+                    <!-- Producto 1 -->
+                    <article class="nc-producto-item">
+                        <figure class="nc-contenedor-imagen-producto">
+                            <img src="img/retratos/retrato-familiar.webp" alt="Retrato familiar en metal - ejemplo de personalización" loading="lazy" class="nc-imagen-producto" data-titulo="Retrato Familiar" data-medida="40x60 cm" data-precio="$24.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">Retrato Familiar</h3>
+                            <p class="nc-dimension-producto">Medida: 40x60 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio: 24.990 pesos chilenos">$24.990 CLP</p>
+                        </div>
+                    </article>
+                    
+                    <!-- Producto 2 -->
+                    <article class="nc-producto-item">
+                        <figure class="nc-contenedor-imagen-producto">
+                            <img src="img/retratos/mascota-perro.webp" alt="Retrato de mascota perro en metal" loading="lazy" class="nc-imagen-producto" data-titulo="Retrato de Mascota" data-medida="40x60 cm" data-precio="$24.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">Retrato de Mascota</h3>
+                            <p class="nc-dimension-producto">Medida: 40x60 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio: 24.990 pesos chilenos">$24.990 CLP</p>
+                        </div>
+                    </article>
+                    
+                    <!-- Producto 3 -->
+                    <article class="nc-producto-item">
+                        <figure class="nc-contenedor-imagen-producto">
+                            <img src="img/retratos/pareja-boda.webp" alt="Retrato de pareja para aniversario o boda" loading="lazy" class="nc-imagen-producto" data-titulo="Retrato de Pareja" data-medida="50x70 cm" data-precio="$28.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">Retrato de Pareja</h3>
+                            <p class="nc-dimension-producto">Medida: 50x70 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio: 28.990 pesos chilenos">$28.990 CLP</p>
+                        </div>
+                    </article>
+                    
+                    <!-- Producto 4 -->
+                    <article class="nc-producto-item">
+                        <figure class="nc-contenedor-imagen-producto">
+                            <img src="img/retratos/bautizo.webp" alt="Retrato de bautizo personalizado en metal" loading="lazy" class="nc-imagen-producto" data-titulo="Retrato de Bautizo" data-medida="35x50 cm" data-precio="$22.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">Retrato de Bautizo</h3>
+                            <p class="nc-dimension-producto">Medida: 35x50 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio: 22.990 pesos chilenos">$22.990 CLP</p>
+                        </div>
+                    </article>
+                    
+                    <!-- Producto 5 -->
+                    <article class="nc-producto-item">
+                        <figure class="nc-contenedor-imagen-producto">
+                            <img src="img/retratos/foto-vintage.webp" alt="Foto vintage convertida a metal - efecto retro" loading="lazy" class="nc-imagen-producto" data-titulo="Foto Vintage" data-medida="45x65 cm" data-precio="$26.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">Foto Vintage</h3>
+                            <p class="nc-dimension-producto">Medida: 45x65 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio: 26.990 pesos chilenos">$26.990 CLP</p>
+                        </div>
+                    </article>
+                    
+                    <!-- Producto 6 -->
+                    <article class="nc-producto-item">
+                        <figure class="nc-contenedor-imagen-producto">
+                            <img src="img/retratos/graduacion.webp" alt="Retrato de graduación personalizado" loading="lazy" class="nc-imagen-producto" data-titulo="Retrato de Graduación" data-medida="60x80 cm" data-precio="$32.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">Retrato de Graduación</h3>
+                            <p class="nc-dimension-producto">Medida: 60x80 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio: 32.990 pesos chilenos">$32.990 CLP</p>
+                        </div>
+                    </article>
+                    
+                    <!-- Producto 7 -->
+                    <article class="nc-producto-item">
+                        <figure class="nc-contenedor-imagen-producto">
+                            <img src="img/retratos/retrato-infantil.webp" alt="Retrato infantil personalizado en metal" loading="lazy" class="nc-imagen-producto" data-titulo="Retrato Infantil" data-medida="55x75 cm" data-precio="$29.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">Retrato Infantil</h3>
+                            <p class="nc-dimension-producto">Medida: 55x75 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio: 29.990 pesos chilenos">$29.990 CLP</p>
+                        </div>
+                    </article>
+                    
+                    <!-- Producto 8 -->
+                    <article class="nc-producto-item">
+                        <figure class="nc-contenedor-imagen-producto">
+                            <img src="img/retratos/retrato-empresarial.webp" alt="Retrato empresarial para oficina o regalo corporativo" loading="lazy" class="nc-imagen-producto" data-titulo="Retrato Empresarial" data-medida="40x60 cm" data-precio="$24.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">Retrato Empresarial</h3>
+                            <p class="nc-dimension-producto">Medida: 40x60 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio: 24.990 pesos chilenos">$24.990 CLP</p>
+                        </div>
+                    </article>
+
+                    <!-- Elementos adicionales -->
+                    <article class="nc-producto-item nc-adicional">
+                        <figure class="nc-contenedor-imagen-producto">
+                            <img src="img/retratos/foto-paisaje-personalizado.webp" alt="Fotografía de paisaje personalizada en metal" loading="lazy" class="nc-imagen-producto" data-titulo="Foto Paisaje Personalizado" data-medida="55x75 cm" data-precio="$26.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">Foto Paisaje Personalizado</h3>
+                            <p class="nc-dimension-producto">Medida: 55x75 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio: 26.990 pesos chilenos">$26.990 CLP</p>
+                        </div>
+                    </article>
+
+                    <article class="nc-producto-item nc-adicional">
+                        <figure class="nc-contenedor-imagen-producto">
+                            <img src="img/retratos/colage-fotos.webp" alt="Colage de fotos personalizado en metal" loading="lazy" class="nc-imagen-producto" data-titulo="Colage de Fotos" data-medida="60x80 cm" data-precio="$34.990" width="300" height="200">
+                        </figure>
+                        <div class="nc-info-producto">
+                            <h3 class="nc-titulo-producto">Colage de Fotos</h3>
+                            <p class="nc-dimension-producto">Medida: 60x80 cm</p>
+                            <p class="nc-precio-producto" aria-label="Precio: 34.990 pesos chilenos">$34.990 CLP</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="nc-contenedor-boton-ver-mas">
+                    <button class="nc-boton-ver-mas" data-target="nc-galeria-starwars" aria-label="Ver más opciones de retratos personalizados">Ver más</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección: Nuestro Proceso de Fabricación -->
+        <section class="nc-seccion-proceso" id="nc-proceso" aria-labelledby="titulo-proceso-colecciones">
+            <div class="nc-contenedor-seccion">
+                <div class="nc-encabezado-seccion">
+                    <h2 class="nc-titulo-seccion" id="titulo-proceso-colecciones">Nuestro Proceso</h2>
+                    <p class="nc-subtitulo-seccion">Calidad y durabilidad en cada cuadro</p>
+                </div>
+                
+                <div class="nc-proceso-grid">
+                    <article class="nc-proceso-card">
+                        <div class="nc-proceso-icono" aria-hidden="true">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <h3 class="nc-proceso-titulo">Impresión Sublimada</h3>
+                        <p class="nc-proceso-descripcion">Tinta especial que se fusiona con el metal para crear imágenes vibrantes y duraderas.</p>
+                    </article>
+                    
+                    <article class="nc-proceso-card">
+                        <div class="nc-proceso-icono" aria-hidden="true">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="nc-proceso-titulo">Acabado Protector</h3>
+                        <p class="nc-proceso-descripcion">Capa protectora UV que evita el desvanecimiento por más de 10 años.</p>
+                    </article>
+                    
+                    <article class="nc-proceso-card">
+                        <div class="nc-proceso-icono" aria-hidden="true">
+                            <i class="fas fa-ruler-combined"></i>
+                        </div>
+                        <h3 class="nc-proceso-titulo">Medidas Precisas</h3>
+                        <p class="nc-proceso-descripcion">Corte láser de alta precisión para bordes perfectos en cada tamaño.</p>
+                    </article>
+                    
+                    <article class="nc-proceso-card">
+                        <div class="nc-proceso-icono" aria-hidden="true">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3 class="nc-proceso-titulo">Calidad Premium</h3>
+                        <p class="nc-proceso-descripcion">Metal de aluminio grado fotográfico para máxima nitidez y contraste.</p>
+                    </article>
+                </div>
+                
+                <!-- Características de calidad -->
+                <div class="nc-calidad-grid">
+                    <div class="nc-calidad-item">
+                        <h4><i class="fas fa-check-circle" aria-hidden="true"></i> Durabilidad</h4>
+                        <p>Resistente a la humedad, rayos UV y cambios de temperatura. Vida útil de más de 15 años.</p>
+                    </div>
+                    
+                    <div class="nc-calidad-item">
+                        <h4><i class="fas fa-check-circle" aria-hidden="true"></i> Resolución HD</h4>
+                        <p>Impresión en 1440 DPI para detalles nítidos y colores vibrantes que no se desvanecen.</p>
+                    </div>
+                    
+                    <div class="nc-calidad-item">
+                        <h4><i class="fas fa-check-circle" aria-hidden="true"></i> Instalación Fácil</h4>
+                        <p>Incluye sistema de montaje completo. Peso ligero y fácil de colocar en cualquier pared.</p>
+                    </div>
+                    
+                    <div class="nc-calidad-item">
+                        <h4><i class="fas fa-check-circle" aria-hidden="true"></i> Ecológico</h4>
+                        <p>Material 100% reciclable. Proceso de producción con bajo impacto ambiental.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal para imagen ampliada -->
+    <div class="nc-modal-imagen" id="nc-modal-imagen" role="dialog" aria-modal="true" aria-labelledby="nc-modal-titulo" aria-hidden="true">
+        <div class="nc-modal-contenido">
+            <button class="nc-cerrar-modal" aria-label="Cerrar ventana modal">×</button>
+            <div class="nc-modal-imagen-contenedor">
+                <img id="nc-imagen-ampliada" src="" alt="" role="img">
+            </div>
+            <div class="nc-modal-info">
+                <h3 id="nc-modal-titulo">Título del Producto</h3>
+                <p id="nc-modal-medida">Medida: 20x22 cm | 32x45 cm | 40x60 cm</p>
+                <p id="nc-modal-precio">Precio: $15.990 CLP</p>
+                <div class="nc-modal-botones">
+                    <a href="#" class="nc-boton-ver" id="nc-ver-detalles-link" aria-label="Ver detalles del producto">
+                        <i class="fas fa-eye" aria-hidden="true"></i> Ver Detalles
+                    </a>
+                    <a href="https://wa.me/56982045756?text=¡Hola!%20Quiero%20encargar%20este%20producto%20de%20la%20colección%20especial:%0A%0A•%20Producto:%20[TITULO]%0A•%20Medida:%20[MEDIDA]%0A•%20Diseño%20seleccionado%20del%20catálogo%0A%0A¿Podrías%20ayudarme%20con%20el%20pedido?" class="nc-boton-whatsapp-modal" target="_blank" id="nc-whatsapp-link" aria-label="Encargar por WhatsApp">
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i> Encargar por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="nc-footer-principal" role="contentinfo">
+        <div class="nc-contenedor-footer">
+            <div class="nc-columna-footer">
+                <h3 class="nc-titulo-footer">ANIMETAL</h3>
+                <p class="nc-texto-footer">Transformamos tus momentos favoritos en arte duradero sobre metal con impresión HD de alta calidad.</p>
+                <div class="nc-redes-sociales">
+                    <a href="#" class="nc-enlace-red-social" aria-label="Síguenos en Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                    <a href="#" class="nc-enlace-red-social" aria-label="Síguenos en Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                    <a href="#" class="nc-enlace-red-social" aria-label="Síguenos en Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                </div>
+            </div>
+            
+            <div class="nc-columna-footer">
+                <h4 class="nc-titulo-columna">Colecciones</h4>
+                <ul class="nc-lista-enlaces" role="list">
+                    <li role="listitem"><a href="#nc-popular">Autos y Motos</a></li>
+                    <li role="listitem"><a href="#nc-marvel">Películas y Series</a></li>
+                    <li role="listitem"><a href="#nc-dc">Paisajes y Religión</a></li>
+                    <li role="listitem"><a href="#nc-starwars">Retratos Personalizados</a></li>
+                </ul>
+            </div>
+            
+            <div class="nc-columna-footer">
+                <h4 class="nc-titulo-columna">Enlaces útiles</h4>
+                <ul class="nc-lista-enlaces" role="list">
+                    <li role="listitem"><a href="index.html">Inicio</a></li>
+                    <li role="listitem"><a href="#nc-proceso">Nuestro Proceso</a></li>
+                    <li role="listitem"><a href="#nc-como-comprar">Cómo Comprar</a></li>
+                    <li role="listitem"><a href="#">Preguntas frecuentes</a></li>
+                    <li role="listitem"><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+            
+            <div class="nc-columna-footer">
+                <h4 class="nc-titulo-columna">Contacto</h4>
+                <div class="nc-info-contacto">
+                    <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Av. Principal #123, Santiago, Chile</p>
+                    <p><i class="fas fa-phone" aria-hidden="true"></i> <a href="tel:+56982045756">+56 9 8204 5756</a></p>
+                    <p><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:info@animetal.cl">info@animetal.cl</a></p>
+                    <p><i class="fab fa-whatsapp" aria-hidden="true"></i> <a href="https://wa.me/56982045756">WhatsApp: +56 9 8204 5756</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="nc-pie-footer">
+            <p>&copy; 2024 ANIMETAL - Todos los derechos reservados. Santiago, Chile.</p>
+        </div>
+    </footer>
+
+    <script src="nuevacategoria.js"></script>
+</body>
+</html>
