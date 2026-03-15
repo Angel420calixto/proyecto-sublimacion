@@ -1,7 +1,7 @@
-/* manu.css - SOLUCIÓN DEFINITIVA: imagen ampliada con MISMO BRILLO, descripción MINI, menú 100% funcional */
+/* manu.css - VERSIÓN DEFINITIVA: menú funcional, grid original, imagen HD, sección 3 imágenes compacta en mobile */
 
 /* =============================================
-   VARIABLES CSS GLOBALES - MANTENEMOS ORIGINALES
+   VARIABLES CSS GLOBALES - ORIGINALES
    ============================================= */
 :root {
     --color-primario: #1a1a2e;
@@ -21,7 +21,7 @@
 }
 
 /* =============================================
-   RESET Y ESTILOS BASE - ORIGINAL
+   RESET Y ESTILOS BASE
    ============================================= */
 * {
     margin: 0;
@@ -47,7 +47,7 @@ body.menu-abierto {
 }
 
 /* =============================================
-   BOTÓN DE WHATSAPP FIJO - ORIGINAL
+   BOTÓN DE WHATSAPP FIJO
    ============================================= */
 .whatsapp-button {
     position: fixed;
@@ -80,7 +80,7 @@ body.menu-abierto {
 }
 
 /* =============================================
-   ELEMENTOS DE INTERFAZ - ORIGINAL
+   ELEMENTOS DE INTERFAZ
    ============================================= */
 a {
     text-decoration: none;
@@ -100,7 +100,7 @@ button {
 }
 
 /* =============================================
-   CLASES DE UTILIDAD - ORIGINAL
+   CLASES DE UTILIDAD
    ============================================= */
 .contenedor-seccion {
     max-width: 1400px;
@@ -169,7 +169,7 @@ button {
 }
 
 /* =============================================
-   HEADER Y NAVEGACIÓN - ORIGINAL
+   HEADER Y NAVEGACIÓN
    ============================================= */
 .header-principal {
     background-color: var(--color-primario);
@@ -346,7 +346,7 @@ button {
 }
 
 /* =============================================
-   OVERLAY PARA MENÚ MÓVIL - ORIGINAL
+   OVERLAY PARA MENÚ MÓVIL
    ============================================= */
 .menu-overlay {
     position: fixed;
@@ -367,7 +367,7 @@ button {
 }
 
 /* =============================================
-   BANNER PRINCIPAL - CORREGIDO
+   BANNER PRINCIPAL
    ============================================= */
 .banner-principal {
     background: linear-gradient(135deg, var(--color-primario), var(--color-terciario));
@@ -441,7 +441,7 @@ button {
 }
 
 /* =============================================
-   SECCIÓN ANIME POPULAR - 12 IMÁGENES INICIALES
+   SECCIÓN ANIME POPULAR - FONDO NEGRO
    ============================================= */
 .seccion-popular {
     padding: 4rem 0;
@@ -454,17 +454,14 @@ button {
     gap: 1.5rem;
 }
 
-/* Mostrar 12 imágenes inicialmente (2 filas de 6) */
 .grid-popular .item-popular {
     display: flex;
 }
 
-/* Ocultar a partir del 13º elemento */
 .grid-popular .item-popular:nth-child(n+13) {
     display: none;
 }
 
-/* Cuando está expandido, mostrar todos */
 .grid-popular.expandido .item-popular:nth-child(n+13) {
     display: flex;
     animation: fadeInUp 0.5s ease forwards;
@@ -555,7 +552,7 @@ button {
 }
 
 /* =============================================
-   SECCIÓN PRODUCTOS - 12 IMÁGENES INICIALES
+   SECCIÓN PRODUCTOS - FONDO NEGRO
    ============================================= */
 .seccion-productos {
     padding: 3rem 0;
@@ -568,17 +565,14 @@ button {
     gap: 1.5rem;
 }
 
-/* Mostrar 12 imágenes inicialmente */
 .galeria-productos .producto-item {
     display: flex;
 }
 
-/* Ocultar a partir del 13º elemento */
 .galeria-productos .producto-item:nth-child(n+13) {
     display: none;
 }
 
-/* Cuando está expandido, mostrar todos */
 .galeria-productos.expandido .producto-item:nth-child(n+13) {
     display: flex;
     animation: fadeInUp 0.5s ease forwards;
@@ -633,7 +627,7 @@ button {
 }
 
 /* =============================================
-   MODAL PARA IMAGEN AMPLIADA - SOLUCIÓN DEFINITIVA
+   MODAL PARA IMAGEN AMPLIADA - HD PERFECTO
    ============================================= */
 .modal-imagen {
     position: fixed;
@@ -664,13 +658,13 @@ button {
 
 .cerrar-modal {
     position: absolute;
-    top: 15px;
-    right: 15px;
+    top: 20px;
+    right: 20px;
     background: #e94560;
     color: white;
-    font-size: 20px;
-    width: 36px;
-    height: 36px;
+    font-size: 24px;
+    width: 44px;
+    height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -678,9 +672,9 @@ button {
     z-index: 10002;
     border-radius: 50%;
     border: 2px solid white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
-/* LA IMAGEN DEBE VERSE EXACTAMENTE IGUAL QUE EN LA GALERÍA */
 #imagen-ampliada {
     max-width: 95vw;
     max-height: 90vh;
@@ -688,12 +682,11 @@ button {
     height: auto;
     object-fit: contain;
     display: block;
-    /* SIN NINGÚN FILTRO QUE AFECTE EL BRILLO */
-    filter: none !important;
-    opacity: 1 !important;
-    transform: none !important;
-    box-shadow: none !important;
-    border-radius: 0;
+    /* SIN NINGÚN FILTRO - IMAGEN PURA */
+    filter: none;
+    opacity: 1;
+    image-rendering: auto;
+    -webkit-filter: none;
 }
 
 .modal-imagen-contenedor {
@@ -702,49 +695,49 @@ button {
     align-items: center;
     width: 100%;
     height: 100%;
-    padding: 10px;
+    padding: 20px;
 }
 
-/* DESCRIPCIÓN MINIMAL - LO MÁS PEQUEÑA POSIBLE */
 .modal-info {
     position: absolute;
-    bottom: 15px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     background: rgba(0, 0, 0, 0.6);
-    padding: 4px 12px;
-    border-radius: 20px;
-    border: 1px solid rgba(233, 69, 96, 0.3);
+    padding: 6px 16px;
+    border-radius: 30px;
+    border: 1px solid rgba(233, 69, 96, 0.5);
     z-index: 10001;
     backdrop-filter: blur(2px);
 }
 
 .modal-info h3 {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     color: white;
     font-weight: 400;
-    letter-spacing: 0.2px;
+    margin-bottom: 2px;
 }
 
 .modal-info p {
-    display: none; /* OCULTAMOS MEDIDAS */
+    display: none;
 }
 
 .modal-botones {
     display: flex;
-    gap: 5px;
+    gap: 8px;
     justify-content: center;
-    margin-top: 2px;
+    margin-top: 4px;
 }
 
 .boton-ver, .boton-whatsapp-modal {
-    padding: 2px 8px;
-    border-radius: 12px;
-    font-size: 0.6rem;
-    font-weight: 400;
-    min-width: 70px;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 0.65rem;
+    font-weight: 500;
+    min-width: 80px;
     text-align: center;
     border: none;
+    transition: var(--transicion-rapida);
 }
 
 .boton-ver {
@@ -758,42 +751,46 @@ button {
 }
 
 .boton-ver:hover, .boton-whatsapp-modal:hover {
-    filter: brightness(1.1);
+    filter: brightness(1.2);
+    transform: translateY(-1px);
 }
 
 /* =============================================
-   SECCIÓN GRID SIMPLE - 3 IMÁGENES (ORIGINAL)
+   SECCIÓN GRID SIMPLE - 3 IMÁGENES (MÁS ANCHA Y COMPACTA EN MOBILE)
    ============================================= */
 .animetals-grid-section {
     width: 100%;
     background-color: var(--color-fondo);
-    padding: 60px 0;
-    margin: 60px 0;
+    padding: 40px 0; /* REDUCIDO de 80px a 40px para menos espacio vertical */
+    margin: 40px 0; /* REDUCIDO de 80px a 40px */
     position: relative;
     overflow: hidden;
 }
 
 .grid-images-container {
-    max-width: 1400px;
+    max-width: 1600px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 30px;
+    width: 100%;
 }
 
 .three-images-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 0;
-    height: 550px;
+    height: 600px; /* Altura fija en desktop */
     position: relative;
+    width: 100%;
 }
 
+/* Marco más grande y ancho */
 .three-images-grid::before {
     content: '';
     position: absolute;
-    top: -15px;
-    left: -15px;
-    right: -15px;
-    bottom: -15px;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
     border: 3px solid transparent;
     background: linear-gradient(45deg, 
         var(--color-destacado), 
@@ -802,7 +799,7 @@ button {
         #00bfff, 
         var(--color-destacado)) border-box;
     background-size: 300% 300%;
-    border-radius: 20px;
+    border-radius: 25px;
     z-index: -1;
     animation: anime-border 4s ease infinite;
     mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
@@ -1252,7 +1249,7 @@ button {
 }
 
 /* =============================================
-   MENÚ MÓVIL - COMPLETAMENTE FUNCIONAL
+   MENÚ MÓVIL - 100% FUNCIONAL
    ============================================= */
 @media (max-width: 768px) {
     .boton-menu-mobile {
@@ -1278,7 +1275,6 @@ button {
         box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
         transition: right 0.3s ease;
         display: flex;
-        pointer-events: auto;
     }
     
     .menu-principal.activo {
@@ -1303,12 +1299,16 @@ button {
         font-size: 1rem;
         width: 100%;
         color: var(--color-texto);
-        pointer-events: auto;
         cursor: pointer;
         text-align: left;
+        -webkit-tap-highlight-color: transparent;
     }
     
-    /* Menú desplegable en móvil - FUNCIONAL */
+    .enlace-menu:active {
+        background-color: rgba(233, 69, 96, 0.2);
+    }
+    
+    /* MENÚ DESPLEGABLE - FUNCIONAL */
     .menu-con-desplegable {
         position: relative;
         width: 100%;
@@ -1325,14 +1325,17 @@ button {
         color: var(--color-texto);
         border: none;
         cursor: pointer;
-        pointer-events: auto;
         text-align: left;
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    .enlace-menu-desplegable:active {
+        background-color: rgba(233, 69, 96, 0.2);
     }
     
     .enlace-menu-desplegable .flecha-desplegable {
         transition: transform 0.3s ease;
         font-size: 0.8rem;
-        pointer-events: none;
     }
     
     .menu-con-desplegable.activo .flecha-desplegable {
@@ -1341,24 +1344,23 @@ button {
     
     .submenu {
         position: relative;
-        opacity: 1;
-        visibility: visible;
-        transform: none;
         background-color: rgba(0, 0, 0, 0.3);
-        box-shadow: none;
         padding: 0;
         margin: 0;
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.4s ease;
-        border-radius: 0;
         width: 100%;
-        pointer-events: auto;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        border-radius: 0;
     }
     
     .menu-con-desplegable.activo .submenu {
         max-height: 350px;
-        padding: 5px 0 10px 15px;
+        padding: 5px 0 10px 0;
     }
     
     .submenu li {
@@ -1370,18 +1372,19 @@ button {
     
     .submenu a {
         display: block;
-        padding: 10px 10px;
+        padding: 10px 10px 10px 25px;
         font-size: 0.9rem;
         color: #cccccc;
-        pointer-events: auto;
         cursor: pointer;
-        transition: color 0.2s ease;
+        transition: all 0.2s ease;
         width: 100%;
         text-align: left;
+        -webkit-tap-highlight-color: transparent;
     }
     
-    .submenu a:hover {
+    .submenu a:active {
         color: var(--color-destacado);
+        background-color: rgba(233, 69, 96, 0.1);
     }
     
     .iconos-usuario {
@@ -1390,7 +1393,6 @@ button {
     
     .menu-overlay {
         z-index: 1001;
-        pointer-events: auto;
         cursor: pointer;
     }
     
@@ -1421,7 +1423,12 @@ button {
     }
     
     .three-images-grid {
-        height: 450px;
+        height: 500px;
+    }
+    
+    .grid-images-container {
+        max-width: 1400px;
+        padding: 0 25px;
     }
     
     .contenedor-footer {
@@ -1463,12 +1470,17 @@ button {
     }
     
     .three-images-grid {
-        height: 380px;
+        height: 400px; /* Reducido para tablets */
+    }
+    
+    .grid-images-container {
+        max-width: 1200px;
+        padding: 0 20px;
     }
 }
 
 /* =============================================
-   RESPONSIVE - MÓVILES GRANDES
+   RESPONSIVE - MÓVILES GRANDES - CORREGIDO PARA MÁS ALTURA
    ============================================= */
 @media (max-width: 768px) {
     .contenedor-banner {
@@ -1510,8 +1522,19 @@ button {
         padding: 12px 6px 6px;
     }
     
+    /* SECCIÓN 3 IMÁGENES - CORREGIDA PARA MOBILE */
+    .animetals-grid-section {
+        padding: 20px 0; /* Aún más reducido en mobile */
+        margin: 20px 0;
+    }
+    
     .three-images-grid {
-        height: 280px;
+        height: 350px; /* AUMENTADO de 300px a 350px para imágenes más grandes */
+    }
+    
+    .grid-images-container {
+        max-width: 100%;
+        padding: 0 10px; /* Reducido padding lateral para más ancho */
     }
     
     .left-block {
@@ -1524,6 +1547,16 @@ button {
     
     .right-block {
         clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
+    }
+    
+    /* Marco más compacto en mobile */
+    .three-images-grid::before {
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+        border-width: 2px;
+        border-radius: 15px;
     }
     
     .proceso-grid,
@@ -1552,29 +1585,24 @@ button {
         gap: 2rem;
     }
     
-    /* Modal responsivo */
     #imagen-ampliada {
         max-height: 85vh;
         max-width: 98vw;
     }
     
     .modal-info {
-        bottom: 10px;
-        padding: 3px 10px;
+        bottom: 15px;
+        padding: 5px 12px;
+    }
+    
+    .modal-info h3 {
+        font-size: 0.7rem;
     }
     
     .boton-ver, .boton-whatsapp-modal {
-        min-width: 60px;
-        padding: 2px 6px;
-        font-size: 0.55rem;
-    }
-    
-    .cerrar-modal {
-        top: 10px;
-        right: 10px;
-        width: 32px;
-        height: 32px;
-        font-size: 18px;
+        min-width: 70px;
+        padding: 2px 8px;
+        font-size: 0.6rem;
     }
 }
 
@@ -1623,8 +1651,9 @@ button {
         padding: 8px 4px 4px;
     }
     
+    /* SECCIÓN 3 IMÁGENES - MÓVILES PEQUEÑOS */
     .three-images-grid {
-        height: 200px;
+        height: 280px; /* AUMENTADO de 250px a 280px */
     }
     
     .menu-principal {
@@ -1650,13 +1679,11 @@ button {
     -webkit-tap-highlight-color: transparent;
 }
 
-/* Forzar texto centrado en tarjetas de productos */
 .seccion-popular .info-producto *,
 .seccion-productos .info-producto * {
     text-align: center;
 }
 
-/* Eliminar cualquier borde o fondo residual SOLO en secciones de productos */
 .seccion-popular .item-popular,
 .seccion-popular .contenedor-imagen-popular,
 .seccion-popular .info-producto,
@@ -1669,7 +1696,6 @@ button {
     background: transparent !important;
 }
 
-/* Asegurar fondo negro SOLO en secciones de productos */
 .seccion-popular,
 .seccion-productos {
     background-color: #000000 !important;
