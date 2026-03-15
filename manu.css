@@ -1,4 +1,4 @@
-/* manu.css - OPTIMIZACIÓN FINAL: solo secciones de productos con fondo negro y sin bordes */
+/* manu.css - SOLUCIÓN DEFINITIVA: imagen ampliada con MISMO BRILLO, descripción MINI, menú 100% funcional */
 
 /* =============================================
    VARIABLES CSS GLOBALES - MANTENEMOS ORIGINALES
@@ -367,7 +367,7 @@ button {
 }
 
 /* =============================================
-   BANNER PRINCIPAL - CORREGIDO: imagen perfecta sin distorsión
+   BANNER PRINCIPAL - CORREGIDO
    ============================================= */
 .banner-principal {
     background: linear-gradient(135deg, var(--color-primario), var(--color-terciario));
@@ -430,7 +430,6 @@ button {
     align-items: center;
 }
 
-/* CORREGIDO: imagen del banner sin distorsión */
 .imagen-banner img {
     max-width: 100%;
     height: auto;
@@ -442,21 +441,35 @@ button {
 }
 
 /* =============================================
-   SECCIÓN ANIME POPULAR - FONDO NEGRO, SIN BORDES, IMÁGENES COMPLETAS
+   SECCIÓN ANIME POPULAR - 12 IMÁGENES INICIALES
    ============================================= */
 .seccion-popular {
     padding: 4rem 0;
     background-color: #000000;
 }
 
-/* GRID POPULAR - 6 COLUMNAS */
 .grid-popular {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     gap: 1.5rem;
 }
 
-/* TARJETA DE PRODUCTO - SIN BORDES, SIN MARCOS, FONDO NEGRO */
+/* Mostrar 12 imágenes inicialmente (2 filas de 6) */
+.grid-popular .item-popular {
+    display: flex;
+}
+
+/* Ocultar a partir del 13º elemento */
+.grid-popular .item-popular:nth-child(n+13) {
+    display: none;
+}
+
+/* Cuando está expandido, mostrar todos */
+.grid-popular.expandido .item-popular:nth-child(n+13) {
+    display: flex;
+    animation: fadeInUp 0.5s ease forwards;
+}
+
 .item-popular {
     background: transparent;
     overflow: hidden;
@@ -471,7 +484,6 @@ button {
     transform: translateY(-8px);
 }
 
-/* CONTENEDOR DE IMAGEN - SIN BORDES */
 .contenedor-imagen-popular {
     width: 100%;
     height: 320px;
@@ -483,7 +495,6 @@ button {
     flex-shrink: 0;
 }
 
-/* IMAGEN - OCUPA TODO EL CONTENEDOR CON COVER */
 .contenedor-imagen-popular img {
     width: 100%;
     height: 100%;
@@ -496,7 +507,6 @@ button {
     transform: scale(1.08);
 }
 
-/* INFO DEL PRODUCTO - SIN FONDO, TEXTO CENTRADO */
 .info-producto {
     padding: 16px 8px 8px;
     text-align: center;
@@ -545,7 +555,7 @@ button {
 }
 
 /* =============================================
-   SECCIÓN PRODUCTOS (Jujutsu, Naruto, Dragon Ball, Demon Slayer) - MISMO ESTILO NEGRO
+   SECCIÓN PRODUCTOS - 12 IMÁGENES INICIALES
    ============================================= */
 .seccion-productos {
     padding: 3rem 0;
@@ -556,6 +566,22 @@ button {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     gap: 1.5rem;
+}
+
+/* Mostrar 12 imágenes inicialmente */
+.galeria-productos .producto-item {
+    display: flex;
+}
+
+/* Ocultar a partir del 13º elemento */
+.galeria-productos .producto-item:nth-child(n+13) {
+    display: none;
+}
+
+/* Cuando está expandido, mostrar todos */
+.galeria-productos.expandido .producto-item:nth-child(n+13) {
+    display: flex;
+    animation: fadeInUp 0.5s ease forwards;
 }
 
 .producto-item {
@@ -595,20 +621,6 @@ button {
     transform: scale(1.08);
 }
 
-/* =============================================
-   CONTROL DE VISIBILIDAD PARA "VER MÁS"
-   ============================================= */
-.grid-popular .item-popular:nth-child(n+9),
-.galeria-productos .producto-item:nth-child(n+9) {
-    display: none;
-}
-
-.grid-popular.expandido .item-popular:nth-child(n+9),
-.galeria-productos.expandido .producto-item:nth-child(n+9) {
-    display: flex;
-    animation: fadeInUp 0.5s ease forwards;
-}
-
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -621,7 +633,136 @@ button {
 }
 
 /* =============================================
-   SECCIÓN GRID SIMPLE - 3 IMÁGENES (CON ESTILO ORIGINAL)
+   MODAL PARA IMAGEN AMPLIADA - SOLUCIÓN DEFINITIVA
+   ============================================= */
+.modal-imagen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.modal-imagen.mostrar {
+    display: flex;
+}
+
+.modal-contenido {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cerrar-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #e94560;
+    color: white;
+    font-size: 20px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10002;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+/* LA IMAGEN DEBE VERSE EXACTAMENTE IGUAL QUE EN LA GALERÍA */
+#imagen-ampliada {
+    max-width: 95vw;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    /* SIN NINGÚN FILTRO QUE AFECTE EL BRILLO */
+    filter: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    box-shadow: none !important;
+    border-radius: 0;
+}
+
+.modal-imagen-contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+/* DESCRIPCIÓN MINIMAL - LO MÁS PEQUEÑA POSIBLE */
+.modal-info {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(233, 69, 96, 0.3);
+    z-index: 10001;
+    backdrop-filter: blur(2px);
+}
+
+.modal-info h3 {
+    font-size: 0.7rem;
+    color: white;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+}
+
+.modal-info p {
+    display: none; /* OCULTAMOS MEDIDAS */
+}
+
+.modal-botones {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    margin-top: 2px;
+}
+
+.boton-ver, .boton-whatsapp-modal {
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.6rem;
+    font-weight: 400;
+    min-width: 70px;
+    text-align: center;
+    border: none;
+}
+
+.boton-ver {
+    background: #e94560;
+    color: white;
+}
+
+.boton-whatsapp-modal {
+    background: #25D366;
+    color: white;
+}
+
+.boton-ver:hover, .boton-whatsapp-modal:hover {
+    filter: brightness(1.1);
+}
+
+/* =============================================
+   SECCIÓN GRID SIMPLE - 3 IMÁGENES (ORIGINAL)
    ============================================= */
 .animetals-grid-section {
     width: 100%;
@@ -646,7 +787,6 @@ button {
     position: relative;
 }
 
-/* Marco elegante estilo anime - ORIGINAL */
 .three-images-grid::before {
     content: '';
     position: absolute;
@@ -736,141 +876,6 @@ button {
 
 .image-block:hover::after {
     left: 100%;
-}
-
-/* =============================================
-   MODAL PARA IMAGEN AMPLIADA - ORIGINAL
-   ============================================= */
-.modal-imagen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.98);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    overflow: auto;
-    padding: 20px;
-}
-
-.modal-imagen.mostrar {
-    display: flex;
-}
-
-.modal-contenido {
-    max-width: 1300px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    position: relative;
-    padding: 20px;
-}
-
-.cerrar-modal {
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: var(--color-destacado);
-    color: white;
-    font-size: 24px;
-    width: 44px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 10002;
-    transition: var(--transicion-rapida);
-    border-radius: 50%;
-    border: 2px solid white;
-}
-
-.cerrar-modal:hover {
-    background: #ff5773;
-    transform: scale(1.1);
-}
-
-#imagen-ampliada {
-    max-width: 100%;
-    max-height: 70vh;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    display: block;
-    border-radius: 8px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-}
-
-.modal-imagen-contenedor {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-}
-
-.modal-info {
-    text-align: center;
-    background: rgba(10, 10, 20, 0.95);
-    backdrop-filter: blur(10px);
-    padding: 24px 32px;
-    border-radius: 12px;
-    border: 1px solid var(--color-destacado);
-    max-width: 600px;
-    width: 100%;
-}
-
-.modal-info h3 {
-    font-size: 1.5rem;
-    color: var(--color-texto);
-    margin-bottom: 8px;
-}
-
-.modal-info p {
-    font-size: 1.1rem;
-    color: var(--color-texto-secundario);
-    margin: 4px 0;
-}
-
-.modal-botones {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    margin-top: 20px;
-    flex-wrap: wrap;
-}
-
-.boton-ver, .boton-whatsapp-modal {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-weight: 600;
-    transition: var(--transicion-rapida);
-    min-width: 180px;
-    justify-content: center;
-}
-
-.boton-ver {
-    background: linear-gradient(135deg, var(--color-terciario), var(--color-secundario));
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.boton-whatsapp-modal {
-    background: linear-gradient(135deg, var(--color-whatsapp), #128C7E);
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.boton-ver:hover, .boton-whatsapp-modal:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(233, 69, 96, 0.4);
 }
 
 /* =============================================
@@ -1247,6 +1252,155 @@ button {
 }
 
 /* =============================================
+   MENÚ MÓVIL - COMPLETAMENTE FUNCIONAL
+   ============================================= */
+@media (max-width: 768px) {
+    .boton-menu-mobile {
+        display: flex;
+        cursor: pointer;
+        z-index: 1003;
+    }
+    
+    .menu-principal {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 350px;
+        height: 100vh;
+        background-color: var(--color-primario);
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 80px 20px 30px;
+        gap: 0;
+        z-index: 1002;
+        overflow-y: auto;
+        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
+        transition: right 0.3s ease;
+        display: flex;
+        pointer-events: auto;
+    }
+    
+    .menu-principal.activo {
+        right: 0;
+    }
+    
+    .menu-principal li {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        list-style: none;
+    }
+    
+    .menu-principal li:last-child {
+        border-bottom: none;
+    }
+    
+    .enlace-menu {
+        display: block;
+        padding: 15px 10px;
+        font-size: 1rem;
+        width: 100%;
+        color: var(--color-texto);
+        pointer-events: auto;
+        cursor: pointer;
+        text-align: left;
+    }
+    
+    /* Menú desplegable en móvil - FUNCIONAL */
+    .menu-con-desplegable {
+        position: relative;
+        width: 100%;
+    }
+    
+    .enlace-menu-desplegable {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 15px 10px;
+        font-size: 1rem;
+        background: transparent;
+        color: var(--color-texto);
+        border: none;
+        cursor: pointer;
+        pointer-events: auto;
+        text-align: left;
+    }
+    
+    .enlace-menu-desplegable .flecha-desplegable {
+        transition: transform 0.3s ease;
+        font-size: 0.8rem;
+        pointer-events: none;
+    }
+    
+    .menu-con-desplegable.activo .flecha-desplegable {
+        transform: rotate(180deg);
+    }
+    
+    .submenu {
+        position: relative;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        background-color: rgba(0, 0, 0, 0.3);
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+        border-radius: 0;
+        width: 100%;
+        pointer-events: auto;
+    }
+    
+    .menu-con-desplegable.activo .submenu {
+        max-height: 350px;
+        padding: 5px 0 10px 15px;
+    }
+    
+    .submenu li {
+        border-bottom: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+    
+    .submenu a {
+        display: block;
+        padding: 10px 10px;
+        font-size: 0.9rem;
+        color: #cccccc;
+        pointer-events: auto;
+        cursor: pointer;
+        transition: color 0.2s ease;
+        width: 100%;
+        text-align: left;
+    }
+    
+    .submenu a:hover {
+        color: var(--color-destacado);
+    }
+    
+    .iconos-usuario {
+        display: none;
+    }
+    
+    .menu-overlay {
+        z-index: 1001;
+        pointer-events: auto;
+        cursor: pointer;
+    }
+    
+    .menu-overlay.activo {
+        display: block;
+        opacity: 1;
+    }
+}
+
+/* =============================================
    RESPONSIVE - TABLETS GRANDES
    ============================================= */
 @media (max-width: 1200px) {
@@ -1317,46 +1471,6 @@ button {
    RESPONSIVE - MÓVILES GRANDES
    ============================================= */
 @media (max-width: 768px) {
-    .boton-menu-mobile {
-        display: flex;
-    }
-    
-    .menu-principal {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 70%;
-        max-width: 320px;
-        height: 100vh;
-        background-color: var(--color-primario);
-        flex-direction: column;
-        justify-content: flex-start;
-        padding: 100px 2rem 2rem;
-        gap: 0;
-        z-index: 9999;
-        overflow-y: auto;
-        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
-        transition: right 0.4s ease;
-    }
-    
-    .menu-principal.activo {
-        right: 0;
-    }
-    
-    .menu-principal li {
-        width: 100%;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .enlace-menu {
-        display: block;
-        padding: 1rem 0;
-    }
-    
-    .iconos-usuario {
-        display: none;
-    }
-    
     .contenedor-banner {
         flex-direction: column;
         text-align: center;
@@ -1438,14 +1552,29 @@ button {
         gap: 2rem;
     }
     
-    .modal-botones {
-        flex-direction: column;
-        gap: 10px;
+    /* Modal responsivo */
+    #imagen-ampliada {
+        max-height: 85vh;
+        max-width: 98vw;
     }
     
-    .boton-ver,
-    .boton-whatsapp-modal {
-        width: 100%;
+    .modal-info {
+        bottom: 10px;
+        padding: 3px 10px;
+    }
+    
+    .boton-ver, .boton-whatsapp-modal {
+        min-width: 60px;
+        padding: 2px 6px;
+        font-size: 0.55rem;
+    }
+    
+    .cerrar-modal {
+        top: 10px;
+        right: 10px;
+        width: 32px;
+        height: 32px;
+        font-size: 18px;
     }
 }
 
@@ -1504,14 +1633,6 @@ button {
     
     .titulo-seccion {
         font-size: 1.4rem;
-    }
-    
-    .modal-info {
-        padding: 16px;
-    }
-    
-    .modal-info h3 {
-        font-size: 1.2rem;
     }
 }
 
