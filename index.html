@@ -3,44 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANIMETAL - Cuadros de Anime sobre Metal | Impresión HD Personalizada</title>
+    <title>SublimArts - Cuadros de Anime sobre Metal | Impresión HD Personalizada</title>
     <meta name="description" content="Cuadros de anime sobre metal con impresión HD. Personalizamos tu personaje favorito de Dragon Ball, Naruto, Jujutsu Kaisen, Demon Slayer y más. Calidad y durabilidad excepcional. Envíos a todo Chile.">
     <meta name="keywords" content="cuadros anime, cuadros metal, impresión metálica, posters anime, decoración otaku, cuadros personalizados, dragon ball, naruto, jujutsu kaisen">
     <meta name="author" content="ANIMETAL">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.animetal.cl/">
+    
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.animetal.cl/">
     <meta property="og:title" content="ANIMETAL - Cuadros de Anime sobre Metal">
     <meta property="og:description" content="Transforma tus personajes favoritos en arte duradero sobre metal. Impresión HD personalizada.">
     <meta property="og:image" content="https://www.animetal.cl/img/logo.jpg">
+    
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.animetal.cl/">
     <meta property="twitter:title" content="ANIMETAL - Cuadros de Anime sobre Metal">
     <meta property="twitter:description" content="Transforma tus personajes favoritos en arte duradero sobre metal. Impresión HD personalizada.">
     <meta property="twitter:image" content="https://www.animetal.cl/img/logo.jpg">
+    
     <!-- Preconexión y recursos -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-    <noscript>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    </noscript>
-    <!-- CSS principal (se cargará después con el atributo defer en el enlace) -->
-    <link rel="stylesheet" href="manu.css" media="print" id="css-main" onload="this.media='all'">
-    <style>
-        /* Minimizar reordenamiento: estilos críticos inline para el banner y estructura básica */
-        body { margin:0; font-family:'Montserrat',sans-serif; background:#f5f5f5; } /*# sourceMappingURL=critical.css.map */
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="manu.css">
 </head>
 <body>
     <!-- Botón de WhatsApp fijo -->
-    <a href="https://wa.me/56982045756" class="whatsapp-button" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp para pedidos y consultas">
+    <a href="https://wa.me/56982045756" class="whatsapp-button" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
         <i class="fab fa-whatsapp" aria-hidden="true"></i>
     </a>
 
@@ -50,44 +46,47 @@
             <div class="contenedor-navegacion">
                 <!-- Logo -->
                 <div class="logo-contenedor">
-                    <img src="ChatGPT Image 11 mar 2026, 02_12_48 a.m..png" alt="ANIMETAL - Logo de tienda de cuadros de anime sobre metal" class="logo" width="50" height="50" loading="eager">
-                    <span class="titulo-logo">ANIMETAL</span>
+                    <img src="ChatGPT Image 11 mar 2026, 02_12_48 a.m..png" alt="ANIMETAL - Logo" class="logo" width="50" height="50" loading="eager">
+                    <span class="titulo-logo">SublimArts</span>
                 </div>
                 
-                <!-- Menú principal -->
-                <ul class="menu-principal" id="menu-principal" role="list">
-                    <li role="listitem"><a href="index.html" class="enlace-menu" aria-current="page">Inicio</a></li>
-                    <li class="menu-con-desplegable" role="listitem">
-                        <button class="enlace-menu-desplegable" aria-expanded="false" aria-controls="submenu-categorias" aria-haspopup="true">
+                <!-- Menú principal - CON TODOS LOS IDs CORREGIDOS -->
+                <ul class="menu-principal" id="menu-principal">
+                    <li><a href="index.html" class="enlace-menu" aria-current="page">Inicio</a></li>
+                    
+                    <!-- CATEGORÍAS - CON IDs CORRECTOS PARA JS -->
+                    <li class="menu-con-desplegable" id="categorias-dropdown">
+                        <button class="enlace-menu-desplegable" id="categorias-btn" aria-expanded="false">
                             Categorías <i class="fas fa-chevron-down flecha-desplegable" aria-hidden="true"></i>
                         </button>
-                        <ul class="submenu" id="submenu-categorias" role="list" aria-label="Subcategorías de anime">
-                            <li role="listitem"><a href="#anime-popular">Anime Popular</a></li>
-                            <li role="listitem"><a href="#seccion-jujutsu">Jujutsu Kaisen</a></li>
-                            <li role="listitem"><a href="#seccion-naruto">Naruto</a></li>
-                            <li role="listitem"><a href="#seccion-dragonball">Dragon Ball</a></li>
-                            <li role="listitem"><a href="#seccion-demonslayer">Demon Slayer</a></li>
+                        <ul class="submenu" id="categorias-submenu">
+                            <li><a href="#anime-popular">Anime Popular</a></li>
+                            <li><a href="#seccion-jujutsu">Jujutsu Kaisen</a></li>
+                            <li><a href="#seccion-naruto">Naruto</a></li>
+                            <li><a href="#seccion-dragonball">Dragon Ball</a></li>
+                            <li><a href="#seccion-demonslayer">Demon Slayer</a></li>
                         </ul>
                     </li>
-                    <li role="listitem"><a href="categoria2.html" class="enlace-menu">Temáticas y Retratos</a></li>
-                    <li role="listitem"><a href="visualizacion.html" class="enlace-menu">Servicios y Productos</a></li>
-                    <li role="listitem"><a href="#como-comprar" class="enlace-menu">Qué es la Impresión Metálica HD</a></li>
+                    
+                    <li><a href="categoria2.html" class="enlace-menu">Temáticas y Retratos</a></li>
+                    <li><a href="visualizacion.html" class="enlace-menu">Servicios y Productos</a></li>
+                    <li><a href="#proceso-fabricacion" class="enlace-menu">Qué es la Impresión Metálica HD</a></li>
                 </ul>
                 
                 <!-- Iconos de usuario y carrito -->
                 <div class="iconos-usuario">
-                    <a href="#" class="icono-usuario" aria-label="Ver carrito de compras">
+                    <a href="#" class="icono-usuario" aria-label="Ver carrito">
                         <i class="fas fa-shopping-cart" aria-hidden="true"></i>
                         <span class="texto-icono">Tienda</span>
                     </a>
-                    <a href="#" class="icono-usuario" aria-label="Mi cuenta de usuario">
+                    <a href="#" class="icono-usuario" aria-label="Mi cuenta">
                         <i class="fas fa-user" aria-hidden="true"></i>
                         <span class="texto-icono">Mi cuenta</span>
                     </a>
                 </div>
                 
                 <!-- Menú hamburguesa móvil -->
-                <button class="boton-menu-mobile" id="boton-menu-mobile" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="menu-principal">
+                <button class="boton-menu-mobile" id="boton-menu-mobile" aria-label="Abrir menú" aria-expanded="false">
                     <i class="fas fa-bars" aria-hidden="true"></i>
                 </button>
             </div>
@@ -102,341 +101,335 @@
         <section class="banner-principal" aria-label="Banner promocional">
             <div class="contenedor-banner">
                 <div class="contenido-banner">
-                    <h2 class="titulo-banner">Impresión Metálica HD Personalizada</h2>
+                    <h1 class="titulo-banner">Impresión Metálica HD Personalizada</h1>
                     <p class="texto-banner">Transforma tus personajes favoritos en arte duradero sobre metal</p>
-                    <a href="#anime-popular" class="boton-banner" aria-label="Ver catálogo de productos">Ver Catálogo</a>
+                    <a href="#anime-popular" class="boton-banner">Ver Catálogo</a>
                 </div>
                 <div class="imagen-banner">
-                    <img src="https://i.pinimg.com/736x/02/32/04/0232041682264f808724edc246233114.jpg" alt="Goku vs Freezer - Cuadro de anime en metal con impresión HD" loading="eager" width="600" height="400">
+                    <img src="https://i.pinimg.com/736x/02/32/04/0232041682264f808724edc246233114.jpg" alt="Goku vs Freezer" loading="eager" width="600" height="400">
                 </div>
             </div>
         </section>
 
         <!-- SECCIÓN: PROCESO DE FABRICACIÓN -->
-        <section class="seccion-proceso-fabricacion" id="proceso-fabricacion" aria-labelledby="titulo-proceso">
-            <div class="encabezado-seccion">
-                <h2 class="titulo-seccion" id="titulo-proceso">Así fabricamos tu cuadro</h2>
-                <p class="subtitulo-seccion">Calidad y dedicación en cada paso</p>
-            </div>
-            
-            <div class="proceso-grid">
-                <!-- Paso 1 -->
-                <div class="proceso-paso">
-                    <div class="paso-icono" aria-hidden="true">
-                        <i class="fas fa-file-image"></i>
-                        <span class="paso-numero">1</span>
-                    </div>
-                    <h3>Recibimos tu diseño</h3>
-                    <p>Ya sea de nuestro catálogo o tu imagen personalizada, la preparamos en alta resolución.</p>
-                    <div class="paso-detalle">
-                        <span class="detalle-badge"><i class="fas fa-check"></i> Corrección de color</span>
-                        <span class="detalle-badge"><i class="fas fa-check"></i> Ajuste de tamaño</span>
-                    </div>
+        <section class="seccion-proceso-fabricacion" id="proceso-fabricacion">
+            <div class="contenedor-seccion">
+                <div class="encabezado-seccion">
+                    <h2 class="titulo-seccion">Así fabricamos tu cuadro</h2>
+                    <p class="subtitulo-seccion">Calidad y dedicación en cada paso</p>
                 </div>
                 
-                <!-- Paso 2 -->
-                <div class="proceso-paso">
-                    <div class="paso-icono" aria-hidden="true">
-                        <i class="fas fa-print"></i>
-                        <span class="paso-numero">2</span>
+                <div class="proceso-grid">
+                    <!-- Paso 1 -->
+                    <div class="proceso-paso">
+                        <div class="paso-icono" aria-hidden="true">
+                            <i class="fas fa-file-image"></i>
+                            <span class="paso-numero">1</span>
+                        </div>
+                        <h3>Recibimos tu diseño</h3>
+                        <p>Ya sea de nuestro catálogo o tu imagen personalizada, la preparamos en alta resolución.</p>
+                        <div class="paso-detalle">
+                            <span class="detalle-badge"><i class="fas fa-check"></i> Corrección de color</span>
+                            <span class="detalle-badge"><i class="fas fa-check"></i> Ajuste de tamaño</span>
+                        </div>
                     </div>
-                    <h3>Impresión sublimada</h3>
-                    <p>Imprimimos tu diseño con tintas especiales que se fusionan con el metal.</p>
-                    <div class="paso-detalle">
-                        <span class="detalle-badge"><i class="fas fa-check"></i> 1440 DPI</span>
-                        <span class="detalle-badge"><i class="fas fa-check"></i> Colores vibrantes</span>
+                    
+                    <!-- Paso 2 -->
+                    <div class="proceso-paso">
+                        <div class="paso-icono" aria-hidden="true">
+                            <i class="fas fa-print"></i>
+                            <span class="paso-numero">2</span>
+                        </div>
+                        <h3>Impresión sublimada</h3>
+                        <p>Imprimimos tu diseño con tintas especiales que se fusionan con el metal.</p>
+                        <div class="paso-detalle">
+                            <span class="detalle-badge"><i class="fas fa-check"></i> 1440 DPI</span>
+                            <span class="detalle-badge"><i class="fas fa-check"></i> Colores vibrantes</span>
+                        </div>
                     </div>
-                </div>
-                
-                <!-- Paso 3 -->
-                <div class="proceso-paso">
-                    <div class="paso-icono" aria-hidden="true">
-                        <i class="fas fa-cut"></i>
-                        <span class="paso-numero">3</span>
+                    
+                    <!-- Paso 3 -->
+                    <div class="proceso-paso">
+                        <div class="paso-icono" aria-hidden="true">
+                            <i class="fas fa-cut"></i>
+                            <span class="paso-numero">3</span>
+                        </div>
+                        <h3>Corte y acabado</h3>
+                        <p>Corte láser de precisión y doblez de bordes para un acabado perfecto.</p>
+                        <div class="paso-detalle">
+                            <span class="detalle-badge"><i class="fas fa-check"></i> Bordes pulidos</span>
+                            <span class="detalle-badge"><i class="fas fa-check"></i> Sistema de montaje</span>
+                        </div>
                     </div>
-                    <h3>Corte y acabado</h3>
-                    <p>Corte láser de precisión y doblez de bordes para un acabado perfecto.</p>
-                    <div class="paso-detalle">
-                        <span class="detalle-badge"><i class="fas fa-check"></i> Bordes pulidos</span>
-                        <span class="detalle-badge"><i class="fas fa-check"></i> Sistema de montaje</span>
-                    </div>
-                </div>
-                
-                <!-- Paso 4 -->
-                <div class="proceso-paso">
-                    <div class="paso-icono" aria-hidden="true">
-                        <i class="fas fa-box"></i>
-                        <span class="paso-numero">4</span>
-                    </div>
-                    <h3>Empaque y envío</h3>
-                    <p>Empacamos tu cuadro con protección especial y lo enviamos a tu domicilio.</p>
-                    <div class="paso-detalle">
-                        <span class="detalle-badge"><i class="fas fa-check"></i> Embalaje seguro</span>
-                        <span class="detalle-badge"><i class="fas fa-check"></i> Tracking</span>
+                    
+                    <!-- Paso 4 -->
+                    <div class="proceso-paso">
+                        <div class="paso-icono" aria-hidden="true">
+                            <i class="fas fa-box"></i>
+                            <span class="paso-numero">4</span>
+                        </div>
+                        <h3>Empaque y envío</h3>
+                        <p>Empacamos tu cuadro con protección especial y lo enviamos a tu domicilio.</p>
+                        <div class="paso-detalle">
+                            <span class="detalle-badge"><i class="fas fa-check"></i> Embalaje seguro</span>
+                            <span class="detalle-badge"><i class="fas fa-check"></i> Tracking</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Sección de Anime Popular -->
-        <section class="seccion-popular" id="anime-popular" aria-labelledby="titulo-anime-popular">
+        <section class="seccion-popular" id="anime-popular">
             <div class="contenedor-seccion">
                 <div class="encabezado-seccion">
-                    <h2 class="titulo-seccion" id="titulo-anime-popular">Anime Popular</h2>
+                    <h2 class="titulo-seccion">Anime Popular</h2>
                 </div>
                 <div class="grid-popular" id="grid-popular">
                     <!-- Item 1 -->
-                    <article class="item-popular">
+                    <article class="item-popular" data-id="1">
                         <figure class="contenedor-imagen-popular">
                             <img src="https://i.pinimg.com/736x/15/2f/0f/152f0ffe777a326d4355418b09f612e8.jpg" alt="Goku en Super Saiyan Fase 4 con fondo de nubes - cuadro metálico de Dragon Ball" loading="lazy" class="imagen-producto" data-titulo="Goku Super Saiyan Fase 4" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Goku Super Saiyan Fase 4</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
                     
                     <!-- Item 2 -->
-                    <article class="item-popular">
+                    <article class="item-popular" data-id="2">
                         <figure class="contenedor-imagen-popular">
                             <img src="https://i.pinimg.com/736x/21/0e/4e/210e4e1af522e2e7886bbc44780f31ef.jpg" alt="Sung Jinwoo de Solo Leveling con armadura oscura y sombras - ilustración épica" loading="lazy" class="imagen-producto" data-titulo="Sung Jinwoo - Solo Leveling" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Sung Jinwoo - Solo Leveling</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
                     
                     <!-- Item 3 -->
-                    <article class="item-popular">
+                    <article class="item-popular" data-id="3">
                         <figure class="contenedor-imagen-popular">
                             <img src="https://i.pinimg.com/736x/bc/ff/e5/bcffe58b5b4458df3e06064fb28e44e9.jpg" alt="Sasuke Uchiha activando su Sharingan con fondo rojo - cuadro de Naruto" loading="lazy" class="imagen-producto" data-titulo="Sasuke Uchiha - Sharingan" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Sasuke Uchiha - Sharingan</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
                     
                     <!-- Item 4 -->
-                    <article class="item-popular">
+                    <article class="item-popular" data-id="4">
                         <figure class="contenedor-imagen-popular">
                             <img src="https://i.pinimg.com/736x/0b/8b/35/0b8b356f622e7ffb018680a4475ddef7.jpg" alt="Monkey D. Luffy de One Piece con sombrero de paja y pose de Gear 5" loading="lazy" class="imagen-producto" data-titulo="Monkey D. Luffy - One Piece" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Monkey D. Luffy - One Piece</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
                     
                     <!-- Item 5 -->
-                    <article class="item-popular">
+                    <article class="item-popular" data-id="5">
                         <figure class="contenedor-imagen-popular">
                             <img src="https://i.pinimg.com/736x/5c/fb/71/5cfb717ceba771f405934fa70e329657.jpg" alt="Naruto y Sasuke en su versión adolescente con fondo de Akatsuki - cuadro metálico" loading="lazy" class="imagen-producto" data-titulo="Naruto y Sasuke - Akatsuki" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Naruto y Sasuke - Akatsuki</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
                     
                     <!-- Item 6 -->
-                    <article class="item-popular">
+                    <article class="item-popular" data-id="6">
                         <figure class="contenedor-imagen-popular">
                             <img src="https://i.pinimg.com/736x/04/54/9a/04549a3d1198590034d896b23a764903.jpg" alt="Luffy de One Piece con su sombrero de paja mirando al horizonte - estilo manga" loading="lazy" class="imagen-producto" data-titulo="Luffy - One Piece" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Luffy - One Piece</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
                     
                     <!-- Item 7 -->
-                    <article class="item-popular">
+                    <article class="item-popular" data-id="7">
                         <figure class="contenedor-imagen-popular">
                             <img src="https://i.pinimg.com/736x/37/79/e0/3779e0aac10e44a4157037d2c8505ef4.jpg" alt="Sung Jinwoo como Monarca de las Sombras de Solo Leveling con armadura completa" loading="lazy" class="imagen-producto" data-titulo="Sung Jinwoo - Monarca de las Sombras" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Sung Jinwoo - Monarca de las Sombras</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
                     
                     <!-- Item 8 -->
-                    <article class="item-popular">
+                    <article class="item-popular" data-id="8">
                         <figure class="contenedor-imagen-popular">
                             <img src="https://i.pinimg.com/736x/4d/2f/d4/4d2fd400e8ba5feef8aaeee793b610a0.jpg" alt="Doma Luna Superior 2 de Demon Slayer con su abanico y sonrisa característica" loading="lazy" class="imagen-producto" data-titulo="Doma - Luna Superior 2" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Doma - Luna Superior 2</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
 
-                    <article class="item-popular">
+                    <!-- Item 9 -->
+                    <article class="item-popular" data-id="9">
                         <figure class="contenedor-imagen-popular">
                             <img src="https://i.pinimg.com/736x/99/b0/c9/99b0c9fe131e3df4fd66af3c2397c61b.jpg" alt="Inosuke Hashibira con máscara de jabalí y espadas - Demon Slayer" loading="lazy" class="imagen-producto" data-titulo="Inosuke Hashibira" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Inosuke Hashibira</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
 
-                    <article class="item-popular">
+                    <!-- Item 10 -->
+                    <article class="item-popular" data-id="10">
                         <figure class="contenedor-imagen-popular">
                             <img src="https://i.pinimg.com/736x/cb/66/75/cb66757095973a7a3f75dedac55b80f1.jpg" alt="Inosuke Hashibira con máscara de jabalí y espadas - Demon Slayer" loading="lazy" class="imagen-producto" data-titulo="Inosuke Hashibira" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Inosuke Hashibira</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
 
-                    <article class="item-popular">
+                    <!-- Item 11 -->
+                    <article class="item-popular" data-id="11">
                         <figure class="contenedor-imagen-popular">
                             <img src="https://i.pinimg.com/736x/c6/f8/a7/c6f8a7bdc1dd5fefd837391256f86d7a.jpg" alt="Inosuke Hashibira con máscara de jabalí y espadas - Demon Slayer" loading="lazy" class="imagen-producto" data-titulo="Inosuke Hashibira" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Inosuke Hashibira</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
 
-                    <article class="item-popular">
+                    <!-- Item 12 -->
+                    <article class="item-popular" data-id="12">
                         <figure class="contenedor-imagen-popular">
                             <img src="https://i.pinimg.com/736x/4d/da/3d/4dda3d51e904d106b8a719bee42076cd.jpg" alt="Inosuke Hashibira con máscara de jabalí y espadas - Demon Slayer" loading="lazy" class="imagen-producto" data-titulo="Inosuke Hashibira" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Inosuke Hashibira</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
-                    
                 </div>
                 <div class="contenedor-boton-ver-mas">
-                    <button class="boton-ver-mas" id="boton-expandir-popular" aria-label="Ver más productos de anime popular">Ver más</button>
+                    <button class="boton-ver-mas" id="boton-expandir-popular" data-target="grid-popular" data-expanded="false">Ver más</button>
                 </div>
             </div>
         </section>
 
         <!-- Sección Jujutsu Kaisen -->
-        <section class="seccion-productos" id="seccion-jujutsu" aria-labelledby="titulo-jujutsu">
+        <section class="seccion-productos" id="seccion-jujutsu">
             <div class="contenedor-seccion">
                 <div class="encabezado-seccion">
-                    <h2 class="titulo-seccion" id="titulo-jujutsu">Jujutsu Kaisen</h2>
+                    <h2 class="titulo-seccion">Jujutsu Kaisen</h2>
                 </div>
                 
                 <div class="galeria-productos" id="galeria-jujutsu">
-                    <!-- 8 elementos iniciales -->
-                    <article class="producto-item">
+                    <!-- 8 elementos -->
+                    <article class="producto-item" data-id="101">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/1200x/78/cc/89/78cc89c42e456551c842787c7423cb3a.jpg" alt="Gojo Satoru usando su técnica Vacío Infinito en Jujutsu Kaisen" loading="lazy" class="imagen-producto" data-titulo="Gojo Satoru - Vacío Infinito" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Gojo Satoru - Vacío Infinito</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
                     
-                    <article class="producto-item">
-                        <figure class="contenedor-imagen-popular">
+                    <article class="producto-item" data-id="102">
+                        <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/1200x/b1/19/25/b11925c47eeaca5884262805fe3bf5a6.jpg" alt="Fushiguro Megumi de Jujutsu Kaisen invocando sus diez sombras" loading="lazy" class="imagen-producto" data-titulo="Fushiguro Megumi - Diez Sombras" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Fushiguro Megumi - Diez Sombras</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
 
-                    <article class="producto-item">
-                        <figure class="contenedor-imagen-popular">
+                    <article class="producto-item" data-id="103">
+                        <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/af/dc/64/afdc6478f0fbcb7f2ffbaba110fb7b15.jpg" alt="Yuji Itadori con Sukuna en su interior mostrando marcas malditas" loading="lazy" class="imagen-producto" data-titulo="Itadori y Sukuna" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Itadori y Sukuna</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
 
-                    <article class="producto-item">
-                        <figure class="contenedor-imagen-popular">
+                    <article class="producto-item" data-id="104">
+                        <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/42/a5/99/42a59994cf3b5e2988ded5bcbaab40b7.jpg" alt="Ryoumen Sukuna, el Rey de las Maldiciones de Jujutsu Kaisen" loading="lazy" class="imagen-producto" data-titulo="Sukuna - Rey de las Maldiciones" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Sukuna - Rey de las Maldiciones</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
 
-                    <article class="producto-item">
-                        <figure class="contenedor-imagen-popular">
+                    <article class="producto-item" data-id="105">
+                        <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/8c/18/2c/8c182cc0aade3785ec9e605c6e01f77d.jpg" alt="Gojo Satoru riendo con sus ojos vendados - Jujutsu Kaisen" loading="lazy" class="imagen-producto" data-titulo="Gojo Satoru" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Gojo Satoru</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
 
-                    <article class="producto-item">
-                        <figure class="contenedor-imagen-popular">
+                    <article class="producto-item" data-id="106">
+                        <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/5e/0d/d5/5e0dd5c94ebce6e916bdabb3b84204ed.jpg" alt="Sukuna realizando su expansión de dominio en Jujutsu Kaisen" loading="lazy" class="imagen-producto" data-titulo="Sukuna - Expansión de Dominio" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Sukuna - Expansión de Dominio</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
 
-                    <article class="producto-item">
-                        <figure class="contenedor-imagen-popular">
-                            <img src="" alt="Choso de Jujutsu Kaisen con su técnica de manipulación sanguínea" loading="lazy" class="imagen-producto" data-titulo="Choso - Arte Sanguíneo" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
-                        </figure>
-                        <div class="info-producto">
-                            <h3 class="titulo-producto">Choso - Arte Sanguíneo</h3>
-                            <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
-                        </div>
-                    </article>
-
-                    <article class="producto-item">
-                        <figure class="contenedor-imagen-popular">
+                    <article class="producto-item" data-id="107">
+                        <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/64/e1/74/64e1742998e41bc447387014cf8d72ba.jpg" alt="Gojo Satoru enfrentándose a Sukuna en Jujutsu Kaisen" loading="lazy" class="imagen-producto" data-titulo="Gojo vs Sukuna" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Gojo vs Sukuna</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
                 </div>
                 <div class="contenedor-boton-ver-mas">
-                    <button class="boton-ver-mas" data-target="galeria-jujutsu" aria-label="Ver más productos de Jujutsu Kaisen">Ver más</button>
+                    <button class="boton-ver-mas" data-target="galeria-jujutsu" data-expanded="false">Ver más</button>
                 </div>
             </div>
         </section>
 
         <!-- Sección ANIMETAL - 3 imágenes -->
-        <section class="animetals-grid-section" aria-label="Galería destacada de cuadros de anime">
+        <section class="animetals-grid-section">
             <div class="grid-images-container">
                 <div class="three-images-grid">
                     <div class="image-block left-block">
@@ -461,555 +454,518 @@
         </section>
 
         <!-- Sección Naruto -->
-        <section class="seccion-productos" id="seccion-naruto" aria-labelledby="titulo-naruto">
+        <section class="seccion-productos" id="seccion-naruto">
             <div class="contenedor-seccion">
                 <div class="encabezado-seccion">
-                    <h2 class="titulo-seccion" id="titulo-naruto">Naruto</h2>
+                    <h2 class="titulo-seccion">Naruto</h2>
                 </div>
                 
                 <div class="galeria-productos" id="galeria-naruto">
                     <!-- 8 elementos -->
-                    <article class="producto-item">
+                    <article class="producto-item" data-id="201">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/d8/4e/7c/d84e7c4035da4a67c13a947ee6e8a9b3.jpg" alt="Kakashi Hatake de Naruto con su característico libro y máscara" loading="lazy" class="imagen-producto" data-titulo="Kakashi Hatake" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Kakashi Hatake</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
                     
-                    <article class="producto-item">
+                    <article class="producto-item" data-id="202">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/05/8d/75/058d752862d326e3253cc58f07d776bf.jpg" alt="Itachi Uchiha con capa de Akatsuki y sharingan activado" loading="lazy" class="imagen-producto" data-titulo="Itachi Uchiha" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Itachi Uchiha</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
                     
-                    <article class="producto-item">
+                    <article class="producto-item" data-id="203">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/5e/28/e1/5e28e12f8a86436e4475f4ba7740ad15.jpg" alt="Gaara del Desierto con su armadura de Kazekage y arena" loading="lazy" class="imagen-producto" data-titulo="Gaara del Desierto" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Gaara del Desierto</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
                     
-                    <article class="producto-item">
+                    <article class="producto-item" data-id="204">
                         <figure class="contenedor-imagen-producto">
-                            <img src="https://i.pinimg.com/736x/cb/0d/cd/cb0dcd7dcd663ae3b44b8feaa1a310af.jpg" alt="Pain (Nagato) de Naruto con sus anillos y ojos Rinnegan" loading="lazy" class="imagen-producto" data-titulo="Pain" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
+                            <img src="https://i.pinimg.com/736x/cb/0d/cd/cb0dcd7dcd663ae3b44b8feaa1a310af.jpg" alt="Pain (Nagato) de Naruto con sus anillos y ojos Rinnegan" loading="lazy" class="imagen-producto" data-titulo="Pain (Nagato)" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Pain (Nagato)</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
                     
-                    <article class="producto-item">
+                    <article class="producto-item" data-id="205">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/ca/94/1f/ca941f5ac131c06a6323d2b422870e49.jpg" alt="Naruto Uzumaki en modo sabio con Kurama" loading="lazy" class="imagen-producto" data-titulo="Naruto - Modo Sabio" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Naruto - Modo Sabio</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
                     
-                    <article class="producto-item">
+                    <article class="producto-item" data-id="206">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/fe/a9/91/fea9915a4b466ff3507135c8f5a2002b.jpg" alt="Equipo 7 completo: Naruto, Sasuke, Sakura y Kakashi" loading="lazy" class="imagen-producto" data-titulo="Equipo 7" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Equipo 7</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
                     
-                    <article class="producto-item">
+                    <article class="producto-item" data-id="207">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/ab/6e/35/ab6e3521fb956c195a1a84122c59e243.jpg" alt="Minato Namikaze (Cuarto Hokage) con su capa" loading="lazy" class="imagen-producto" data-titulo="Minato Namikaze" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Minato Namikaze</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
                     
-                    <article class="producto-item">
+                    <article class="producto-item" data-id="208">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/1200x/d9/da/31/d9da317661d342f95226fad1d5f37d2e.jpg" alt="Obito Uchiha con máscara de Akatsuki" loading="lazy" class="imagen-producto" data-titulo="Obito Uchiha" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Obito Uchiha</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
 
-                    <article class="producto-item">
+                    <article class="producto-item" data-id="209">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/1200x/d9/da/31/d9da317661d342f95226fad1d5f37d2e.jpg" alt="Obito Uchiha con máscara de Akatsuki" loading="lazy" class="imagen-producto" data-titulo="Obito Uchiha" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Obito Uchiha</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
 
-                    <article class="producto-item">
+                    <article class="producto-item" data-id="210">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/1200x/d9/da/31/d9da317661d342f95226fad1d5f37d2e.jpg" alt="Obito Uchiha con máscara de Akatsuki" loading="lazy" class="imagen-producto" data-titulo="Obito Uchiha" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Obito Uchiha</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
 
-                    <article class="producto-item">
+                    <article class="producto-item" data-id="211">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/1200x/d9/da/31/d9da317661d342f95226fad1d5f37d2e.jpg" alt="Obito Uchiha con máscara de Akatsuki" loading="lazy" class="imagen-producto" data-titulo="Obito Uchiha" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Obito Uchiha</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
-                    <article class="producto-item">
+
+                    <article class="producto-item" data-id="212">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/1200x/d9/da/31/d9da317661d342f95226fad1d5f37d2e.jpg" alt="Obito Uchiha con máscara de Akatsuki" loading="lazy" class="imagen-producto" data-titulo="Obito Uchiha" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Obito Uchiha</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
-                    <article class="producto-item">
+
+                    <article class="producto-item" data-id="213">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/1200x/d9/da/31/d9da317661d342f95226fad1d5f37d2e.jpg" alt="Obito Uchiha con máscara de Akatsuki" loading="lazy" class="imagen-producto" data-titulo="Obito Uchiha" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Obito Uchiha</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
-                    <article class="producto-item">
+
+                    <article class="producto-item" data-id="214">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/1200x/d9/da/31/d9da317661d342f95226fad1d5f37d2e.jpg" alt="Obito Uchiha con máscara de Akatsuki" loading="lazy" class="imagen-producto" data-titulo="Obito Uchiha" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Obito Uchiha</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
-                    <article class="producto-item">
+
+                    <article class="producto-item" data-id="215">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/1200x/d9/da/31/d9da317661d342f95226fad1d5f37d2e.jpg" alt="Obito Uchiha con máscara de Akatsuki" loading="lazy" class="imagen-producto" data-titulo="Obito Uchiha" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Obito Uchiha</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
-                    <article class="producto-item">
+
+                    <article class="producto-item" data-id="216">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/1200x/d9/da/31/d9da317661d342f95226fad1d5f37d2e.jpg" alt="Obito Uchiha con máscara de Akatsuki" loading="lazy" class="imagen-producto" data-titulo="Obito Uchiha" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Obito Uchiha</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
-                        </div>
-                    </article>
-                    <article class="producto-item">
-                        <figure class="contenedor-imagen-producto">
-                            <img src="https://i.pinimg.com/1200x/d9/da/31/d9da317661d342f95226fad1d5f37d2e.jpg" alt="Obito Uchiha con máscara de Akatsuki" loading="lazy" class="imagen-producto" data-titulo="Obito Uchiha" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
-                        </figure>
-                        <div class="info-producto">
-                            <h3 class="titulo-producto">Obito Uchiha</h3>
-                            <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
-                        </div>
-                    </article>
-                    <article class="producto-item">
-                        <figure class="contenedor-imagen-producto">
-                            <img src="https://i.pinimg.com/1200x/d9/da/31/d9da317661d342f95226fad1d5f37d2e.jpg" alt="Obito Uchiha con máscara de Akatsuki" loading="lazy" class="imagen-producto" data-titulo="Obito Uchiha" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
-                        </figure>
-                        <div class="info-producto">
-                            <h3 class="titulo-producto">Obito Uchiha</h3>
-                            <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
-                        </div>
-                    </article>
-                    <article class="producto-item">
-                        <figure class="contenedor-imagen-producto">
-                            <img src="https://i.pinimg.com/1200x/d9/da/31/d9da317661d342f95226fad1d5f37d2e.jpg" alt="Obito Uchiha con máscara de Akatsuki" loading="lazy" class="imagen-producto" data-titulo="Obito Uchiha" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
-                        </figure>
-                        <div class="info-producto">
-                            <h3 class="titulo-producto">Obito Uchiha</h3>
-                            <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
-                        </div>
-                    </article>
-                    <article class="producto-item">
-                        <figure class="contenedor-imagen-producto">
-                            <img src="https://i.pinimg.com/1200x/d9/da/31/d9da317661d342f95226fad1d5f37d2e.jpg" alt="Obito Uchiha con máscara de Akatsuki" loading="lazy" class="imagen-producto" data-titulo="Obito Uchiha" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
-                        </figure>
-                        <div class="info-producto">
-                            <h3 class="titulo-producto">Obito Uchiha</h3>
-                            <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
                 </div>
                 <div class="contenedor-boton-ver-mas">
-                    <button class="boton-ver-mas" data-target="galeria-naruto" aria-label="Ver más productos de Naruto">Ver más</button>
+                    <button class="boton-ver-mas" data-target="galeria-naruto" data-expanded="false">Ver más</button>
                 </div>
             </div>
         </section>
 
         <!-- Sección Dragon Ball -->
-        <section class="seccion-productos" id="seccion-dragonball" aria-labelledby="titulo-dragonball">
+        <section class="seccion-productos" id="seccion-dragonball">
             <div class="contenedor-seccion">
                 <div class="encabezado-seccion">
-                    <h2 class="titulo-seccion" id="titulo-dragonball">Dragon Ball</h2>
+                    <h2 class="titulo-seccion">Dragon Ball</h2>
                 </div>
                 
                 <div class="galeria-productos" id="galeria-dragonball">
                     <!-- 8 elementos -->
-                    <article class="producto-item">
+                    <article class="producto-item" data-id="301">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/c9/b8/46/c9b8463009a7d867bfe30411b33a719b.jpg" alt="Goku en Ultra Instinct con aura plateada - Dragon Ball Super" loading="lazy" class="imagen-producto" data-titulo="Goku Ultra Instinct" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Goku Ultra Instinct</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
                     
-                    <article class="producto-item">
+                    <article class="producto-item" data-id="302">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/72/53/f1/7253f13e20a4a467fd2567addd9309eb.jpg" alt="Vegeta en Super Saiyan Blue con ataque final flash" loading="lazy" class="imagen-producto" data-titulo="Vegeta Super Saiyan Blue" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Vegeta Super Saiyan Blue</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
                     
-                    <article class="producto-item">
+                    <article class="producto-item" data-id="303">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/41/b8/09/41b80935a11868d8302caacc0903774c.jpg" alt="Broly Legendario en estado de furia - Dragon Ball Super" loading="lazy" class="imagen-producto" data-titulo="Broly Legendario" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Broly Legendario</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
                     
-                    <article class="producto-item">
+                    <article class="producto-item" data-id="304">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/04/5e/37/045e379d99a00d3d13524bee9c02ce22.jpg" alt="Gohan en su forma Beast - Dragon Ball Super" loading="lazy" class="imagen-producto" data-titulo="Gohan Beast" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Gohan Beast</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
                     
-                    <article class="producto-item">
+                    <article class="producto-item" data-id="305">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/c5/17/ad/c517ade4c4054045bf79001280c3187f.jpg" alt="Freezer en su forma dorada - Dragon Ball Super" loading="lazy" class="imagen-producto" data-titulo="Freezer Dorado" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Freezer Dorado</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
                     
-                    <article class="producto-item">
+                    <article class="producto-item" data-id="306">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/1200x/d9/0f/2e/d90f2e9898ae904b4e280083a9f94b25.jpg" alt="Trunks del Futuro con su espada - Dragon Ball Z" loading="lazy" class="imagen-producto" data-titulo="Trunks del Futuro" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Trunks del Futuro</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
                     
-                    <article class="producto-item">
+                    <article class="producto-item" data-id="307">
                         <figure class="contenedor-imagen-producto">
-                            <img src="img/cell-perfecto.webp" alt="Cell en su forma perfecta - Dragon Ball Z" loading="lazy" class="imagen-producto" data-titulo="Cell Perfecto" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
+                            <img src="https://i.pinimg.com/736x/77/95/3b/77953b2d7443e87305b680cf9b8684f0.jpg" alt="Cell en su forma perfecta - Dragon Ball Z" loading="lazy" class="imagen-producto" data-titulo="Cell Perfecto" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Cell Perfecto</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
                     
-                    <article class="producto-item">
+                    <article class="producto-item" data-id="308">
                         <figure class="contenedor-imagen-producto">
-                            <img src="img/gotenks-dragon-ball.webp" alt="Gotenks fusionado - Dragon Ball Z" loading="lazy" class="imagen-producto" data-titulo="Gotenks" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
+                            <img src="https://i.pinimg.com/736x/29/f4/0f/29f40f346822b9f7a40ec2137acb98fb.jpg" alt="Gotenks fusionado - Dragon Ball Z" loading="lazy" class="imagen-producto" data-titulo="Gotenks" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Gotenks</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
                 </div>
                 <div class="contenedor-boton-ver-mas">
-                    <button class="boton-ver-mas" data-target="galeria-dragonball" aria-label="Ver más productos de Dragon Ball">Ver más</button>
+                    <button class="boton-ver-mas" data-target="galeria-dragonball" data-expanded="false">Ver más</button>
                 </div>
             </div>
         </section>
 
         <!-- Sección Demon Slayer -->
-        <section class="seccion-productos" id="seccion-demonslayer" aria-labelledby="titulo-demonslayer">
+        <section class="seccion-productos" id="seccion-demonslayer">
             <div class="contenedor-seccion">
                 <div class="encabezado-seccion">
-                    <h2 class="titulo-seccion" id="titulo-demonslayer">Demon Slayer</h2>
+                    <h2 class="titulo-seccion">Demon Slayer</h2>
                 </div>
                 
                 <div class="galeria-productos" id="galeria-demonslayer">
                     <!-- 8 elementos -->
-                    <article class="producto-item">
+                    <article class="producto-item" data-id="401">
                         <figure class="contenedor-imagen-producto">
-                            <img src="img/tanjiro-kamado-demon-slayer.webp" alt="Tanjiro Kamado con su espada y aretes de sol - Demon Slayer" loading="lazy" class="imagen-producto" data-titulo="Tanjiro Kamado" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
+                            <img src="https://i.pinimg.com/736x/8b/21/73/8b21736cff54039ea90ce242cb1b8b19.jpg" alt="Tanjiro Kamado con su espada y aretes de sol - Demon Slayer" loading="lazy" class="imagen-producto" data-titulo="Tanjiro Kamado" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Tanjiro Kamado</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
                     
-                    <article class="producto-item">
+                    <article class="producto-item" data-id="402">
                         <figure class="contenedor-imagen-producto">
-                            <img src="img/nezuko-kamado-demon-slayer.webp" alt="Nezuko Kamado con su característico bozal y kimono - Demon Slayer" loading="lazy" class="imagen-producto" data-titulo="Nezuko Kamado" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
+                            <img src="https://i.pinimg.com/736x/d6/41/68/d6416851ec176b29aa89bb2151e7b9b7.jpg" alt="Nezuko Kamado con su característico bozal y kimono - Demon Slayer" loading="lazy" class="imagen-producto" data-titulo="Nezuko Kamado" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Nezuko Kamado</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
                     
-                    <article class="producto-item">
+                    <article class="producto-item" data-id="403">
                         <figure class="contenedor-imagen-producto">
-                            <img src="img/zenitsu-agatsuma-demon-slayer.webp" alt="Zenitsu Agatsuma con su espada y postura de sueño - Demon Slayer" loading="lazy" class="imagen-producto" data-titulo="Zenitsu Agatsuma" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
+                            <img src="https://i.pinimg.com/736x/c8/80/79/c880791ccae3cae66ea13f1889f588a6.jpg" alt="Zenitsu Agatsuma con su espada y postura de sueño - Demon Slayer" loading="lazy" class="imagen-producto" data-titulo="Zenitsu Agatsuma" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Zenitsu Agatsuma</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
                     
-                    <article class="producto-item">
+                    <article class="producto-item" data-id="404">
                         <figure class="contenedor-imagen-producto">
-                            <img src="img/inosuke-hashibira-demon-slayer-mascara.webp" alt="Inosuke Hashibira con máscara de jabalí y espadas - Demon Slayer" loading="lazy" class="imagen-producto" data-titulo="Inosuke Hashibira" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
+                            <img src="https://i.pinimg.com/736x/99/b0/c9/99b0c9fe131e3df4fd66af3c2397c61b.jpg" alt="Inosuke Hashibira con máscara de jabalí y espadas - Demon Slayer" loading="lazy" class="imagen-producto" data-titulo="Inosuke Hashibira" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Inosuke Hashibira</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
                     
-                    <article class="producto-item">
+                    <article class="producto-item" data-id="405">
                         <figure class="contenedor-imagen-producto">
-                            <img src="img/rengoku-kyojuro-demon-slayer.webp" alt="Rengoku Kyojuro con su llama inextinguible - Demon Slayer" loading="lazy" class="imagen-producto" data-titulo="Rengoku Kyojuro" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
+                            <img src="https://i.pinimg.com/736x/0d/63/46/0d6346a83cb2d5c2bc02c6d621e09e14.jpg" alt="Rengoku Kyojuro con su llama inextinguible - Demon Slayer" loading="lazy" class="imagen-producto" data-titulo="Rengoku Kyojuro" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Rengoku Kyojuro</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
                     
-                    <article class="producto-item">
+                    <article class="producto-item" data-id="406">
                         <figure class="contenedor-imagen-producto">
-                            <img src="img/shinobu-kocho-demon-slayer.webp" alt="Shinobu Kocho con su espada mariposa - Demon Slayer" loading="lazy" class="imagen-producto" data-titulo="Shinobu Kocho" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
+                            <img src="https://i.pinimg.com/736x/c2/09/b6/c209b6aab00e1c7007dd119ffbdbe1ac.jpg" alt="Shinobu Kocho con su espada mariposa - Demon Slayer" loading="lazy" class="imagen-producto" data-titulo="Shinobu Kocho" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Shinobu Kocho</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
                     
-                    <article class="producto-item">
+                    <article class="producto-item" data-id="407">
                         <figure class="contenedor-imagen-producto">
-                            <img src="img/giyu-tomioka-demon-slayer.webp" alt="Giyu Tomioka con su espada y postura de agua - Demon Slayer" loading="lazy" class="imagen-producto" data-titulo="Giyu Tomioka" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
+                            <img src="https://i.pinimg.com/736x/2b/b0/1d/2bb01db4ac506c76a9f2a27dde7ea129.jpg" alt="Giyu Tomioka con su espada y postura de agua - Demon Slayer" loading="lazy" class="imagen-producto" data-titulo="Giyu Tomioka" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Giyu Tomioka</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
                     
-                    <article class="producto-item">
+                    <article class="producto-item" data-id="408">
                         <figure class="contenedor-imagen-producto">
-                            <img src="img/muzan-kibutsuji-demon-slayer.webp" alt="Muzan Kibutsuji, el Rey Demonio - Demon Slayer" loading="lazy" class="imagen-producto" data-titulo="Muzan Kibutsuji" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
+                            <img src="https://i.pinimg.com/736x/27/f0/f9/27f0f994aa0ad73a80827aafc1640a09.jpg" alt="Muzan Kibutsuji, el Rey Demonio - Demon Slayer" loading="lazy" class="imagen-producto" data-titulo="Muzan Kibutsuji" data-medida="20x22 cm" data-precio="$12.990" width="300" height="200">
                         </figure>
                         <div class="info-producto">
                             <h3 class="titulo-producto">Muzan Kibutsuji</h3>
                             <p class="dimension-producto">Medida: 20x22 cm</p>
-                            <p class="precio-producto" aria-label="Precio: 12.990 pesos chilenos">$12.990 CLP</p>
+                            <p class="precio-producto">$12.990 CLP</p>
                         </div>
                     </article>
                 </div>
                 <div class="contenedor-boton-ver-mas">
-                    <button class="boton-ver-mas" data-target="galeria-demonslayer" aria-label="Ver más productos de Demon Slayer">Ver más</button>
+                    <button class="boton-ver-mas" data-target="galeria-demonslayer" data-expanded="false">Ver más</button>
                 </div>
             </div>
         </section>
 
         <!-- SECCIÓN: EXPLORADOR DE MATERIALES -->
-        <section class="seccion-materiales" aria-labelledby="titulo-materiales">
-            <div class="encabezado-seccion">
-                <h2 class="titulo-seccion" id="titulo-materiales">¿Por qué metal?</h2>
-                <p class="subtitulo-seccion">Compara la calidad del metal vs. otros materiales</p>
-            </div>
-            
-            <div class="comparador-materiales">
-                <!-- Metal -->
-                <div class="material-card" data-material="metal">
-                    <div class="material-icono-grande">
-                        <i class="fas fa-crown"></i>
-                    </div>
-                    <h3>Metal (Tu elección)</h3>
-                    <ul class="material-lista">
-                        <li><i class="fas fa-check-circle"></i> Impermeable</li>
-                        <li><i class="fas fa-check-circle"></i> No se decolora</li>
-                        <li><i class="fas fa-check-circle"></i> Brillo HD</li>
-                        <li><i class="fas fa-check-circle"></i> Ligero y duradero</li>
-                    </ul>
+        <section class="seccion-materiales">
+            <div class="contenedor-seccion">
+                <div class="encabezado-seccion">
+                    <h2 class="titulo-seccion">¿Por qué metal?</h2>
+                    <p class="subtitulo-seccion">Compara la calidad del metal vs. otros materiales</p>
                 </div>
                 
-                <!-- Lienzo -->
-                <div class="material-card">
-                    <div class="material-icono-grande">
-                        <i class="fas fa-paint-brush"></i>
+                <div class="comparador-materiales">
+                    <!-- Metal -->
+                    <div class="material-card" data-material="metal">
+                        <div class="material-icono-grande">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h3>Metal (Tu elección)</h3>
+                        <ul class="material-lista">
+                            <li><i class="fas fa-check-circle"></i> Impermeable</li>
+                            <li><i class="fas fa-check-circle"></i> No se decolora</li>
+                            <li><i class="fas fa-check-circle"></i> Brillo HD</li>
+                            <li><i class="fas fa-check-circle"></i> Ligero y duradero</li>
+                        </ul>
                     </div>
-                    <h3>Lienzo</h3>
-                    <ul class="material-lista">
-                        <li><i class="fas fa-times-circle"></i> Absorbe humedad</li>
-                        <li><i class="fas fa-times-circle"></i> Se decolora</li>
-                        <li><i class="fas fa-times-circle"></i> Textura rugosa</li>
-                        <li><i class="fas fa-times-circle"></i> Se ensucia fácil</li>
-                    </ul>
-                </div>
-                
-                <!-- Papel -->
-                <div class="material-card">
-                    <div class="material-icono-grande">
-                        <i class="fas fa-file-alt"></i>
+                    
+                    <!-- Lienzo -->
+                    <div class="material-card">
+                        <div class="material-icono-grande">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h3>Lienzo</h3>
+                        <ul class="material-lista">
+                            <li><i class="fas fa-times-circle"></i> Absorbe humedad</li>
+                            <li><i class="fas fa-times-circle"></i> Se decolora</li>
+                            <li><i class="fas fa-times-circle"></i> Textura rugosa</li>
+                            <li><i class="fas fa-times-circle"></i> Se ensucia fácil</li>
+                        </ul>
                     </div>
-                    <h3>Papel</h3>
-                    <ul class="material-lista">
-                        <li><i class="fas fa-times-circle"></i> Se arruga</li>
-                        <li><i class="fas fa-times-circle"></i> Muy frágil</li>
-                        <li><i class="fas fa-times-circle"></i> Sin brillo</li>
-                        <li><i class="fas fa-times-circle"></i> Se mancha</li>
-                    </ul>
+                    
+                    <!-- Papel -->
+                    <div class="material-card">
+                        <div class="material-icono-grande">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3>Papel</h3>
+                        <ul class="material-lista">
+                            <li><i class="fas fa-times-circle"></i> Se arruga</li>
+                            <li><i class="fas fa-times-circle"></i> Muy frágil</li>
+                            <li><i class="fas fa-times-circle"></i> Sin brillo</li>
+                            <li><i class="fas fa-times-circle"></i> Se mancha</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Modal para imagen ampliada -->
-    <div class="modal-imagen" id="modal-imagen" role="dialog" aria-modal="true" aria-labelledby="modal-titulo" aria-hidden="true">
+    <!-- Modal para imagen ampliada - CON ID CORREGIDO -->
+    <div class="modal-imagen" id="modal-imagen" role="dialog" aria-modal="true" aria-hidden="true">
         <div class="modal-contenido">
-            <button class="cerrar-modal" aria-label="Cerrar ventana modal">×</button>
+            <button class="cerrar-modal" id="cerrar-modal" aria-label="Cerrar">×</button>
             <div class="modal-imagen-contenedor">
-                <img id="imagen-ampliada" src="" alt="" role="img">
+                <img id="imagen-ampliada" src="" alt="">
             </div>
             <div class="modal-info">
                 <h3 id="modal-titulo">Título del Producto</h3>
                 <p id="modal-medida">Medida: 20x22 cm</p>
                 <p id="modal-precio">Precio: $12.990 CLP</p>
                 <div class="modal-botones">
-                    <a href="categoria2.html" class="boton-ver" id="ver-detalles-link" aria-label="Ver detalles del producto">
-                        <i class="fas fa-eye" aria-hidden="true"></i> Ver Detalles
-                    </a>
-                    <a href="https://wa.me/56982045756?text=¡Hola!%20Quiero%20encargar%20este%20producto:%0A%0A•%20Producto:%20[TITULO]%0A•%20Medida:%20[MEDIDA]%0A•%20Diseño%20seleccionado%20del%20catálogo%0A%0A¿Podrías%20ayudarme%20con%20el%20pedido?" class="boton-whatsapp-modal" target="_blank" id="whatsapp-link" aria-label="Encargar por WhatsApp">
-                        <i class="fab fa-whatsapp" aria-hidden="true"></i> Encargar por WhatsApp
-                    </a>
+                    <a href="categoria2.html" class="boton-ver" id="ver-detalles-link">Ver Detalles</a>
+                    <a href="#" class="boton-whatsapp-modal" id="whatsapp-link" target="_blank">Encargar por WhatsApp</a>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="footer-principal" role="contentinfo">
+    <footer class="footer-principal">
         <div class="contenedor-footer">
             <div class="columna-footer">
                 <h3 class="titulo-footer">ANIMETAL</h3>
                 <p class="texto-footer">Transformamos tus personajes favoritos en arte duradero sobre metal con impresión HD de alta calidad.</p>
                 <div class="redes-sociales">
-                    <a href="#" class="enlace-red-social" aria-label="Síguenos en Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
-                    <a href="#" class="enlace-red-social" aria-label="Síguenos en Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-                    <a href="#" class="enlace-red-social" aria-label="Síguenos en X"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                    <a href="#" class="enlace-red-social" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="enlace-red-social" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="enlace-red-social" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
             
             <div class="columna-footer">
                 <h4 class="titulo-columna">Categorías</h4>
-                <ul class="lista-enlaces" role="list">
-                    <li role="listitem"><a href="#anime-popular">Anime Popular</a></li>
-                    <li role="listitem"><a href="#seccion-jujutsu">Jujutsu Kaisen</a></li>
-                    <li role="listitem"><a href="#seccion-naruto">Naruto</a></li>
-                    <li role="listitem"><a href="#seccion-dragonball">Dragon Ball</a></li>
-                    <li role="listitem"><a href="#seccion-demonslayer">Demon Slayer</a></li>
+                <ul class="lista-enlaces">
+                    <li><a href="#anime-popular">Anime Popular</a></li>
+                    <li><a href="#seccion-jujutsu">Jujutsu Kaisen</a></li>
+                    <li><a href="#seccion-naruto">Naruto</a></li>
+                    <li><a href="#seccion-dragonball">Dragon Ball</a></li>
+                    <li><a href="#seccion-demonslayer">Demon Slayer</a></li>
                 </ul>
             </div>
             
             <div class="columna-footer">
                 <h4 class="titulo-columna">Enlaces útiles</h4>
-                <ul class="lista-enlaces" role="list">
-                    <li role="listitem"><a href="index.html" aria-current="page">Inicio</a></li>
-                    <li role="listitem"><a href="#proceso-fabricacion">Nuestro Proceso</a></li>
-                    <li role="listitem"><a href="#como-comprar">Cómo Comprar</a></li>
-                    <li role="listitem"><a href="#">Preguntas frecuentes</a></li>
-                    <li role="listitem"><a href="#">Contacto</a></li>
+                <ul class="lista-enlaces">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="#proceso-fabricacion">Nuestro Proceso</a></li>
+                    <li><a href="#">Cómo Comprar</a></li>
+                    <li><a href="#">Preguntas frecuentes</a></li>
+                    <li><a href="#">Contacto</a></li>
                 </ul>
             </div>
             
             <div class="columna-footer">
                 <h4 class="titulo-columna">Contacto</h4>
                 <div class="info-contacto">
-                    <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Av. Principal #123, Santiago, Chile</p>
-                    <p><i class="fas fa-phone" aria-hidden="true"></i> <a href="tel:+56982045756">+56 9 8204 5756</a></p>
-                    <p><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:info@animetal.cl">info@animetal.cl</a></p>
-                    <p><i class="fab fa-whatsapp" aria-hidden="true"></i> <a href="https://wa.me/56982045756">WhatsApp: +56 9 8204 5756</a></p>
+                    <p><i class="fas fa-map-marker-alt"></i> Av. Principal #123, Santiago, Chile</p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+56982045756">+56 9 8204 5756</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:info@animetal.cl">info@animetal.cl</a></p>
+                    <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/56982045756">WhatsApp: +56 9 8204 5756</a></p>
                 </div>
             </div>
         </div>
@@ -1019,7 +975,7 @@
         </div>
     </footer>
 
-    <!-- Script al final con defer implícito -->
-    <script src="js/manu.js" defer></script>
+    <!-- Script -->
+    <script src="js/manu.js"></script>
 </body>
 </html>

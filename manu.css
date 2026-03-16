@@ -1,7 +1,7 @@
-/* manu.css - VERSIÓN DEFINITIVA: menú funcional, grid original, imagen HD, sección 3 imágenes compacta en mobile */
+/* manu.css - VERSIÓN FINAL CORREGIDA */
 
 /* =============================================
-   VARIABLES CSS GLOBALES - ORIGINALES
+   VARIABLES CSS GLOBALES
    ============================================= */
 :root {
     --color-primario: #1a1a2e;
@@ -13,6 +13,7 @@
     --color-texto-secundario: #b8b8d1;
     --color-fondo: #0d0d1a;
     --color-borde: #2a2a4a;
+    --color-submenu: #0f0f1f;
     --sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.3);
     --sombra-destacada: 0 8px 24px rgba(233, 69, 96, 0.3);
     --sombra-whatsapp: 0 4px 20px rgba(37, 211, 102, 0.4);
@@ -175,7 +176,7 @@ button {
     background-color: var(--color-primario);
     position: sticky;
     top: 0;
-    z-index: 999;
+    z-index: 10001;
     box-shadow: var(--sombra-suave);
 }
 
@@ -220,6 +221,7 @@ button {
     display: flex;
     gap: 1.5rem;
     align-items: center;
+    z-index: 10000;
 }
 
 .enlace-menu {
@@ -228,6 +230,7 @@ button {
     position: relative;
     transition: var(--transicion-rapida);
     padding: 0.5rem 0;
+    color: var(--color-texto);
 }
 
 .enlace-menu:hover {
@@ -263,11 +266,14 @@ button {
     font-size: 0.95rem;
     font-weight: 500;
     cursor: pointer;
+    padding: 0.5rem 0;
+    border: none;
 }
 
 .flecha-desplegable {
     font-size: 0.8rem;
     transition: transform 0.3s ease;
+    color: var(--color-texto);
 }
 
 .menu-con-desplegable:hover .flecha-desplegable {
@@ -280,13 +286,13 @@ button {
     transform: translateY(0);
 }
 
+/* SUBMENÚ - DESKTOP */
 .submenu {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: var(--color-secundario);
-    min-width: 200px;
-    padding: 1rem 0;
+    background-color: var(--color-submenu);
+    min-width: 220px;
     border-radius: 8px;
     box-shadow: var(--sombra-suave);
     opacity: 0;
@@ -294,20 +300,28 @@ button {
     transform: translateY(10px);
     transition: var(--transicion-rapida);
     z-index: 100;
+    border-left: 3px solid var(--color-destacado);
 }
 
 .submenu li {
-    padding: 0.5rem 1.5rem;
+    padding: 0;
+    margin: 0;
+    width: 100%;
 }
 
 .submenu a {
     display: block;
+    padding: 0.7rem 1.5rem;
+    color: var(--color-texto);
+    font-size: 0.9rem;
     transition: var(--transicion-rapida);
+    white-space: nowrap;
 }
 
 .submenu a:hover {
     color: var(--color-destacado);
-    padding-left: 5px;
+    background-color: rgba(233, 69, 96, 0.1);
+    padding-left: 2rem;
 }
 
 /* ICONOS DE USUARIO */
@@ -324,6 +338,7 @@ button {
     font-weight: 500;
     font-size: 0.9rem;
     transition: var(--transicion-rapida);
+    color: var(--color-texto);
 }
 
 .icono-usuario:hover {
@@ -333,16 +348,16 @@ button {
 /* BOTÓN MENÚ MÓVIL */
 .boton-menu-mobile {
     display: none;
-    background: none;
+    background: rgba(233, 69, 96, 0.1);
     color: var(--color-texto);
     font-size: 1.5rem;
-    z-index: 1002;
+    z-index: 10003;
     width: 44px;
     height: 44px;
     border-radius: 8px;
     align-items: center;
     justify-content: center;
-    background: rgba(233, 69, 96, 0.1);
+    cursor: pointer;
 }
 
 /* =============================================
@@ -355,7 +370,7 @@ button {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
-    z-index: 998;
+    z-index: 9999;
     display: none;
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -364,6 +379,171 @@ button {
 .menu-overlay.activo {
     display: block;
     opacity: 1;
+}
+
+/* =============================================
+   IMÁGENES - POINTER-EVENTS ELIMINADO
+   ============================================= */
+.imagen-producto,
+.grid-image {
+    user-select: none;
+    -webkit-user-drag: none;
+    /* pointer-events: none; ELIMINADO */
+}
+
+/* =============================================
+   MENÚ MÓVIL - VERSIÓN CORREGIDA
+   ============================================= */
+@media (max-width: 768px) {
+    .boton-menu-mobile {
+        display: flex;
+    }
+    
+    .menu-principal {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 85%;
+        max-width: 350px;
+        height: 100vh;
+        background-color: var(--color-primario);
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 80px 0 30px;
+        gap: 0;
+        z-index: 10000;
+        overflow-y: auto;
+        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
+        transition: right 0.3s ease;
+        display: flex;
+        margin: 0;
+    }
+    
+    .menu-principal.activo {
+        right: 0;
+    }
+    
+    .menu-principal > li {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        list-style: none;
+    }
+    
+    .menu-principal > li:last-child {
+        border-bottom: none;
+    }
+    
+    .enlace-menu {
+        display: block;
+        padding: 16px 20px;
+        font-size: 1rem;
+        color: #ffffff;
+        cursor: pointer;
+        text-align: left;
+        font-weight: 500;
+    }
+    
+    /* DESPLEGABLE MÓVIL */
+    .menu-con-desplegable {
+        width: 100%;
+        position: relative;
+    }
+    
+    .enlace-menu-desplegable {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 16px 20px;
+        font-size: 1rem;
+        background: transparent;
+        color: #ffffff;
+        border: none;
+        cursor: pointer;
+        text-align: left;
+        font-weight: 500;
+    }
+    
+    .flecha-desplegable {
+        transition: transform 0.3s ease;
+        font-size: 0.8rem;
+        color: #ffffff;
+    }
+    
+    .menu-con-desplegable.activo .flecha-desplegable {
+        transform: rotate(180deg);
+    }
+    
+    /* =============================================
+       SUBMENÚ MÓVIL - CORREGIDO (CON ENLACES VISIBLES)
+       ============================================= */
+    .submenu {
+        position: relative;
+        background-color: var(--color-submenu);
+        padding: 0;
+        margin: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+        width: 100%;
+        border-left: 4px solid var(--color-destacado);
+        box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.5);
+    }
+    
+    .menu-con-desplegable.activo .submenu {
+        max-height: 400px;
+        padding: 8px 0; /* Este padding da espacio a los enlaces */
+    }
+    
+    .submenu li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        list-style: none;
+    }
+    
+    .submenu li:last-child {
+        border-bottom: none;
+    }
+    
+    .submenu a {
+        display: block;
+        padding: 12px 20px 12px 35px;
+        font-size: 0.95rem;
+        color: #ffffff;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        width: 100%;
+        text-align: left;
+        font-weight: 400;
+        background-color: transparent;
+        position: relative;
+        line-height: 1.4;
+        text-decoration: none;
+    }
+    
+    .submenu a:hover,
+    .submenu a:active {
+        color: var(--color-destacado);
+        background-color: rgba(233, 69, 96, 0.2);
+        padding-left: 40px;
+    }
+    
+    .submenu a::before {
+        content: '▹';
+        position: absolute;
+        left: 15px;
+        color: var(--color-destacado);
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+    .iconos-usuario {
+        display: none;
+    }
 }
 
 /* =============================================
@@ -441,7 +621,7 @@ button {
 }
 
 /* =============================================
-   SECCIÓN ANIME POPULAR - FONDO NEGRO
+   SECCIÓN ANIME POPULAR
    ============================================= */
 .seccion-popular {
     padding: 4rem 0;
@@ -552,7 +732,7 @@ button {
 }
 
 /* =============================================
-   SECCIÓN PRODUCTOS - FONDO NEGRO
+   SECCIÓN PRODUCTOS
    ============================================= */
 .seccion-productos {
     padding: 3rem 0;
@@ -627,7 +807,7 @@ button {
 }
 
 /* =============================================
-   MODAL PARA IMAGEN AMPLIADA - HD PERFECTO
+   MODAL PARA IMAGEN AMPLIADA
    ============================================= */
 .modal-imagen {
     position: fixed;
@@ -635,11 +815,11 @@ button {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.95);
     display: none;
     justify-content: center;
     align-items: center;
-    z-index: 10000;
+    z-index: 20000;
 }
 
 .modal-imagen.mostrar {
@@ -669,10 +849,16 @@ button {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    z-index: 10002;
+    z-index: 20002;
     border-radius: 50%;
     border: 2px solid white;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    transition: var(--transicion-rapida);
+}
+
+.cerrar-modal:hover {
+    transform: scale(1.1);
+    background-color: #ff5773;
 }
 
 #imagen-ampliada {
@@ -682,11 +868,10 @@ button {
     height: auto;
     object-fit: contain;
     display: block;
-    /* SIN NINGÚN FILTRO - IMAGEN PURA */
     filter: none;
     opacity: 1;
-    image-rendering: auto;
-    -webkit-filter: none;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(233, 69, 96, 0.3);
 }
 
 .modal-imagen-contenedor {
@@ -700,44 +885,54 @@ button {
 
 .modal-info {
     position: absolute;
-    bottom: 20px;
+    bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.6);
-    padding: 6px 16px;
-    border-radius: 30px;
-    border: 1px solid rgba(233, 69, 96, 0.5);
-    z-index: 10001;
-    backdrop-filter: blur(2px);
+    background: rgba(26, 26, 46, 0.9);
+    padding: 15px 25px;
+    border-radius: 50px;
+    border: 2px solid var(--color-destacado);
+    z-index: 20001;
+    backdrop-filter: blur(5px);
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
 }
 
 .modal-info h3 {
-    font-size: 0.8rem;
+    font-size: 1.1rem;
     color: white;
-    font-weight: 400;
-    margin-bottom: 2px;
+    font-weight: 600;
+    margin: 0;
 }
 
 .modal-info p {
-    display: none;
+    font-size: 0.95rem;
+    color: #cccccc;
+    margin: 0;
+    display: block;
 }
 
 .modal-botones {
     display: flex;
-    gap: 8px;
+    gap: 10px;
     justify-content: center;
-    margin-top: 4px;
 }
 
-.boton-ver, .boton-whatsapp-modal {
-    padding: 3px 12px;
-    border-radius: 20px;
-    font-size: 0.65rem;
-    font-weight: 500;
-    min-width: 80px;
+.boton-ver,
+.boton-whatsapp-modal {
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    min-width: 120px;
     text-align: center;
     border: none;
     transition: var(--transicion-rapida);
+    cursor: pointer;
 }
 
 .boton-ver {
@@ -750,19 +945,21 @@ button {
     color: white;
 }
 
-.boton-ver:hover, .boton-whatsapp-modal:hover {
+.boton-ver:hover,
+.boton-whatsapp-modal:hover {
     filter: brightness(1.2);
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 /* =============================================
-   SECCIÓN GRID SIMPLE - 3 IMÁGENES (MÁS ANCHA Y COMPACTA EN MOBILE)
+   SECCIÓN GRID SIMPLE - 3 IMÁGENES
    ============================================= */
 .animetals-grid-section {
     width: 100%;
     background-color: var(--color-fondo);
-    padding: 40px 0; /* REDUCIDO de 80px a 40px para menos espacio vertical */
-    margin: 40px 0; /* REDUCIDO de 80px a 40px */
+    padding: 40px 0;
+    margin: 40px 0;
     position: relative;
     overflow: hidden;
 }
@@ -778,12 +975,11 @@ button {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 0;
-    height: 600px; /* Altura fija en desktop */
+    height: 600px;
     position: relative;
     width: 100%;
 }
 
-/* Marco más grande y ancho */
 .three-images-grid::before {
     content: '';
     position: absolute;
@@ -792,12 +988,12 @@ button {
     right: -20px;
     bottom: -20px;
     border: 3px solid transparent;
-    background: linear-gradient(45deg, 
-        var(--color-destacado), 
-        #ff6b9d, 
-        #8a2be2, 
-        #00bfff, 
-        var(--color-destacado)) border-box;
+    background: linear-gradient(45deg,
+            var(--color-destacado),
+            #ff6b9d,
+            #8a2be2,
+            #00bfff,
+            var(--color-destacado)) border-box;
     background-size: 300% 300%;
     border-radius: 25px;
     z-index: -1;
@@ -807,9 +1003,17 @@ button {
 }
 
 @keyframes anime-border {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .image-block {
@@ -862,12 +1066,10 @@ button {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.2),
-        transparent
-    );
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.2),
+            transparent);
     transition: left 0.7s ease;
 }
 
@@ -876,7 +1078,7 @@ button {
 }
 
 /* =============================================
-   SECCIÓN PROCESO DE FABRICACIÓN - ORIGINAL
+   SECCIÓN PROCESO DE FABRICACIÓN
    ============================================= */
 .seccion-proceso-fabricacion {
     padding: 60px 0;
@@ -988,45 +1190,8 @@ button {
     color: #00f3ff;
 }
 
-.video-proceso-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: center;
-    margin: 40px 0 0;
-    padding: 30px;
-    background: rgba(20, 15, 45, 0.5);
-    border-radius: 15px;
-    border: 2px solid rgba(110, 69, 226, 0.3);
-}
-
-.video-texto {
-    text-align: left;
-}
-
-.video-texto h3 {
-    font-size: 1.8rem;
-    margin: 0 0 15px;
-    color: #ff3864;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.video-texto p {
-    color: #d8d8f0;
-    line-height: 1.6;
-}
-
-.video-proceso video {
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    border: 2px solid rgba(0, 243, 255, 0.3);
-}
-
 /* =============================================
-   SECCIÓN EXPLORADOR DE MATERIALES - ORIGINAL
+   SECCIÓN EXPLORADOR DE MATERIALES
    ============================================= */
 .seccion-materiales {
     padding: 60px 0;
@@ -1141,7 +1306,7 @@ button {
 }
 
 /* =============================================
-   FOOTER - ORIGINAL
+   FOOTER
    ============================================= */
 .footer-principal {
     background-color: var(--color-primario);
@@ -1193,6 +1358,7 @@ button {
     background-color: var(--color-secundario);
     border-radius: 50%;
     transition: var(--transicion-rapida);
+    color: var(--color-texto);
 }
 
 .enlace-red-social:hover {
@@ -1232,6 +1398,7 @@ button {
 
 .info-contacto a {
     transition: var(--transicion-rapida);
+    color: var(--color-texto-secundario);
 }
 
 .info-contacto a:hover {
@@ -1249,307 +1416,147 @@ button {
 }
 
 /* =============================================
-   MENÚ MÓVIL - 100% FUNCIONAL
-   ============================================= */
-@media (max-width: 768px) {
-    .boton-menu-mobile {
-        display: flex;
-        cursor: pointer;
-        z-index: 1003;
-    }
-    
-    .menu-principal {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 80%;
-        max-width: 350px;
-        height: 100vh;
-        background-color: var(--color-primario);
-        flex-direction: column;
-        justify-content: flex-start;
-        padding: 80px 20px 30px;
-        gap: 0;
-        z-index: 1002;
-        overflow-y: auto;
-        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
-        transition: right 0.3s ease;
-        display: flex;
-    }
-    
-    .menu-principal.activo {
-        right: 0;
-    }
-    
-    .menu-principal li {
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        list-style: none;
-    }
-    
-    .menu-principal li:last-child {
-        border-bottom: none;
-    }
-    
-    .enlace-menu {
-        display: block;
-        padding: 15px 10px;
-        font-size: 1rem;
-        width: 100%;
-        color: var(--color-texto);
-        cursor: pointer;
-        text-align: left;
-        -webkit-tap-highlight-color: transparent;
-    }
-    
-    .enlace-menu:active {
-        background-color: rgba(233, 69, 96, 0.2);
-    }
-    
-    /* MENÚ DESPLEGABLE - FUNCIONAL */
-    .menu-con-desplegable {
-        position: relative;
-        width: 100%;
-    }
-    
-    .enlace-menu-desplegable {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        padding: 15px 10px;
-        font-size: 1rem;
-        background: transparent;
-        color: var(--color-texto);
-        border: none;
-        cursor: pointer;
-        text-align: left;
-        -webkit-tap-highlight-color: transparent;
-    }
-    
-    .enlace-menu-desplegable:active {
-        background-color: rgba(233, 69, 96, 0.2);
-    }
-    
-    .enlace-menu-desplegable .flecha-desplegable {
-        transition: transform 0.3s ease;
-        font-size: 0.8rem;
-    }
-    
-    .menu-con-desplegable.activo .flecha-desplegable {
-        transform: rotate(180deg);
-    }
-    
-    .submenu {
-        position: relative;
-        background-color: rgba(0, 0, 0, 0.3);
-        padding: 0;
-        margin: 0;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s ease;
-        width: 100%;
-        opacity: 1;
-        visibility: visible;
-        transform: none;
-        box-shadow: none;
-        border-radius: 0;
-    }
-    
-    .menu-con-desplegable.activo .submenu {
-        max-height: 350px;
-        padding: 5px 0 10px 0;
-    }
-    
-    .submenu li {
-        border-bottom: none;
-        padding: 0;
-        margin: 0;
-        width: 100%;
-    }
-    
-    .submenu a {
-        display: block;
-        padding: 10px 10px 10px 25px;
-        font-size: 0.9rem;
-        color: #cccccc;
-        cursor: pointer;
-        transition: all 0.2s ease;
-        width: 100%;
-        text-align: left;
-        -webkit-tap-highlight-color: transparent;
-    }
-    
-    .submenu a:active {
-        color: var(--color-destacado);
-        background-color: rgba(233, 69, 96, 0.1);
-    }
-    
-    .iconos-usuario {
-        display: none;
-    }
-    
-    .menu-overlay {
-        z-index: 1001;
-        cursor: pointer;
-    }
-    
-    .menu-overlay.activo {
-        display: block;
-        opacity: 1;
-    }
-}
-
-/* =============================================
-   RESPONSIVE - TABLETS GRANDES
+   RESPONSIVE GENERAL
    ============================================= */
 @media (max-width: 1200px) {
+
     .grid-popular,
     .galeria-productos {
         grid-template-columns: repeat(4, 1fr);
         gap: 1.2rem;
     }
-    
+
     .item-popular,
     .producto-item {
         height: 400px;
     }
-    
+
     .contenedor-imagen-popular,
     .contenedor-imagen-producto {
         height: 300px;
     }
-    
+
     .three-images-grid {
         height: 500px;
     }
-    
+
     .grid-images-container {
         max-width: 1400px;
         padding: 0 25px;
     }
-    
+
     .contenedor-footer {
         grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
     }
-    
+
     .proceso-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .comparador-materiales {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/* =============================================
-   RESPONSIVE - TABLETS PEQUEÑAS
-   ============================================= */
 @media (max-width: 992px) {
+
     .grid-popular,
     .galeria-productos {
         grid-template-columns: repeat(3, 1fr);
         gap: 1rem;
     }
-    
+
     .item-popular,
     .producto-item {
         height: 380px;
     }
-    
+
     .contenedor-imagen-popular,
     .contenedor-imagen-producto {
         height: 280px;
     }
-    
+
     .titulo-producto {
         font-size: 1.1rem;
     }
-    
+
     .three-images-grid {
-        height: 400px; /* Reducido para tablets */
+        height: 400px;
     }
-    
+
     .grid-images-container {
         max-width: 1200px;
         padding: 0 20px;
     }
 }
 
-/* =============================================
-   RESPONSIVE - MÓVILES GRANDES - CORREGIDO PARA MÁS ALTURA
-   ============================================= */
 @media (max-width: 768px) {
     .contenedor-banner {
         flex-direction: column;
         text-align: center;
         gap: 2rem;
     }
-    
+
     .titulo-banner {
         font-size: 2rem;
     }
-    
+
     .grid-popular,
     .galeria-productos {
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
     }
-    
+
     .item-popular,
     .producto-item {
         height: 340px;
     }
-    
+
     .contenedor-imagen-popular,
     .contenedor-imagen-producto {
         height: 240px;
     }
-    
+
     .titulo-producto {
         font-size: 1rem;
     }
-    
+
     .dimension-producto,
     .precio-producto {
         font-size: 0.9rem;
     }
-    
+
     .info-producto {
         padding: 12px 6px 6px;
     }
-    
-    /* SECCIÓN 3 IMÁGENES - CORREGIDA PARA MOBILE */
+
     .animetals-grid-section {
-        padding: 20px 0; /* Aún más reducido en mobile */
+        padding: 20px 0;
         margin: 20px 0;
     }
-    
+
     .three-images-grid {
-        height: 350px; /* AUMENTADO de 300px a 350px para imágenes más grandes */
+        height: 350px;
     }
-    
+
     .grid-images-container {
         max-width: 100%;
-        padding: 0 10px; /* Reducido padding lateral para más ancho */
+        padding: 0 10px;
     }
-    
+
     .left-block {
         clip-path: polygon(0 0, 75% 0, 100% 100%, 0% 100%);
     }
-    
+
     .middle-block {
         clip-path: polygon(25% 0, 75% 0, 100% 100%, 0% 100%);
     }
-    
+
     .right-block {
         clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
     }
-    
-    /* Marco más compacto en mobile */
+
     .three-images-grid::before {
         top: -10px;
         left: -10px;
@@ -1558,123 +1565,116 @@ button {
         border-width: 2px;
         border-radius: 15px;
     }
-    
+
     .proceso-grid,
     .comparador-materiales {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-    
-    .video-proceso-container {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        padding: 20px;
-    }
-    
-    .video-texto {
-        text-align: center;
-    }
-    
-    .video-texto h3 {
-        justify-content: center;
-        font-size: 1.5rem;
-    }
-    
+
     .contenedor-footer {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
-    
-    #imagen-ampliada {
-        max-height: 85vh;
-        max-width: 98vw;
-    }
-    
+
     .modal-info {
-        bottom: 15px;
-        padding: 5px 12px;
+        bottom: 20px;
+        padding: 12px 20px;
+        flex-direction: column;
+        gap: 10px;
+        width: 90%;
+        border-radius: 30px;
     }
-    
+
     .modal-info h3 {
-        font-size: 0.7rem;
+        font-size: 0.9rem;
+        text-align: center;
     }
-    
-    .boton-ver, .boton-whatsapp-modal {
-        min-width: 70px;
-        padding: 2px 8px;
-        font-size: 0.6rem;
+
+    .modal-info p {
+        font-size: 0.8rem;
+        text-align: center;
+    }
+
+    .modal-botones {
+        width: 100%;
+    }
+
+    .boton-ver,
+    .boton-whatsapp-modal {
+        min-width: 100px;
+        padding: 6px 12px;
+        font-size: 0.7rem;
+        flex: 1;
     }
 }
 
-/* =============================================
-   RESPONSIVE - MÓVILES PEQUEÑOS
-   ============================================= */
 @media (max-width: 480px) {
     .titulo-banner {
         font-size: 1.6rem;
     }
-    
+
     .texto-banner {
         font-size: 1rem;
     }
-    
+
     .imagen-banner img {
         max-height: 300px;
     }
-    
+
     .grid-popular,
     .galeria-productos {
         grid-template-columns: repeat(2, 1fr);
         gap: 0.8rem;
     }
-    
+
     .item-popular,
     .producto-item {
         height: 300px;
     }
-    
+
     .contenedor-imagen-popular,
     .contenedor-imagen-producto {
         height: 200px;
     }
-    
+
     .titulo-producto {
         font-size: 0.95rem;
     }
-    
+
     .dimension-producto,
     .precio-producto {
         font-size: 0.85rem;
     }
-    
+
     .info-producto {
         padding: 8px 4px 4px;
     }
-    
-    /* SECCIÓN 3 IMÁGENES - MÓVILES PEQUEÑOS */
+
     .three-images-grid {
-        height: 280px; /* AUMENTADO de 250px a 280px */
+        height: 280px;
     }
-    
+
     .menu-principal {
-        width: 85%;
+        width: 90%;
     }
-    
+
     .titulo-seccion {
         font-size: 1.4rem;
+    }
+
+    .modal-info {
+        padding: 10px 15px;
+    }
+
+    .modal-info h3 {
+        font-size: 0.8rem;
     }
 }
 
 /* =============================================
    UTILIDADES GENERALES
    ============================================= */
-.imagen-producto,
-.grid-image {
-    user-select: none;
-    -webkit-user-drag: none;
-    pointer-events: none;
-}
-
 * {
     -webkit-tap-highlight-color: transparent;
 }
