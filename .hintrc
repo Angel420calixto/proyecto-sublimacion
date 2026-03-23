@@ -14,7 +14,8 @@
     "axe/structure": [
       "default",
       {
-        "list": "off"
+        "list": "off",
+        "listitem": "off"
       }
     ],
     "compat-api/css": [
@@ -58,7 +59,8 @@
     "axe/text-alternatives": [
       "default",
       {
-        "frame-title": "off"
+        "frame-title": "off",
+        "image-alt": "off"
       }
     ],
     "compat-api/html": [
@@ -75,6 +77,7 @@
       {
         "aria-required-children": "off"
       }
-    ]
+    ],
+    "meta-viewport": "off"
   }
 }

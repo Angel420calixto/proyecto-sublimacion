@@ -550,7 +550,7 @@ button {
    BANNER PRINCIPAL
    ============================================= */
 .banner-principal {
-    background: linear-gradient(135deg, var(--color-primario), var(--color-terciario));
+    background-image: url();
     padding: 4rem 0;
     position: relative;
     overflow: hidden;
