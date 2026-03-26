@@ -3,27 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Futurama | Metal Art Print | SublimArts</title>
-    <meta name="description" content="Cuadro metálico de Futurama con impresión sublimada en aluminio HD. Personaliza tu diseño y elige tamaño. Envíos a todo Chile.">
-    <meta name="keywords" content="futurama, cuadro metal, metal art print, sublimación, cuadros personalizados, arte futurista">
+    <title>Visualizador | Metal Art Print | SublimArts</title>
+    <meta name="description" content="Visualiza y personaliza tu Metal Art Print. Elige tamaño, soporte y cantidad. Envíos a todo Chile.">
+    <meta name="keywords" content="metal art print, cuadro metal, sublimación, visualizador">
     <meta name="author" content="SublimArts">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#1a1a2e">
     
     <!-- Open Graph -->
     <meta property="og:type" content="product">
-    <meta property="og:title" content="Futurama - Metal Art Print | SublimArts">
-    <meta property="og:description" content="Cuadro de Futurama sobre metal con impresión HD. Personaliza tu diseño.">
-    <meta property="og:image" content="https://i.pinimg.com/1200x/c0/e9/e5/c0e9e5200f3f0bf13eb87a425f6d0c14.jpg">
+    <meta property="og:title" content="Metal Art Print | SublimArts">
+    <meta property="og:description" content="Cuadro sobre metal con impresión HD. Personaliza tu diseño.">
+    <meta property="og:image" content="">
     <meta property="og:url" content="">
-    <meta property="product:price:amount" content="24900">
+    <meta property="product:price:amount" content="12990">
     <meta property="product:price:currency" content="CLP">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Futurama - Metal Art Print | SublimArts">
-    <meta name="twitter:description" content="Cuadro de Futurama sobre metal con impresión HD. Personaliza tu diseño.">
-    <meta name="twitter:image" content="https://i.pinimg.com/1200x/c0/e9/e5/c0e9e5200f3f0bf13eb87a425f6d0c14.jpg">
+    <meta name="twitter:title" content="Metal Art Print | SublimArts">
+    <meta name="twitter:description" content="Cuadro sobre metal con impresión HD. Personaliza tu diseño.">
+    <meta name="twitter:image" content="">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="">
@@ -37,711 +37,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
-    <style>
-        /* =============================================
-           ESTILOS SUBLIMARTS - VERSIÓN COMPLETA CORREGIDA
-           ============================================= */
-        :root {
-            --color-primario: #1a1a2e;
-            --color-secundario: #16213e;
-            --color-terciario: #0f3460;
-            --color-destacado: #e94560;
-            --color-whatsapp: #25D366;
-            --color-texto: #ffffff;
-            --color-texto-secundario: #b8b8d1;
-            --color-fondo: #0d0d1a;
-            --color-borde: #2a2a4a;
-            --color-submenu: #0f0f1f;
-            --sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.3);
-            --sombra-destacada: 0 8px 24px rgba(233, 69, 96, 0.3);
-            --sombra-whatsapp: 0 4px 20px rgba(37, 211, 102, 0.4);
-            --transicion-rapida: all 0.3s ease;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--color-fondo);
-            color: var(--color-texto);
-            line-height: 1.5;
-            overflow-x: hidden;
-        }
-
-        /* =============================================
-           HEADER PRINCIPAL
-           ============================================= */
-        .header-principal {
-            background-color: var(--color-primario);
-            position: sticky;
-            top: 0;
-            z-index: 10001;
-            box-shadow: var(--sombra-suave);
-        }
-
-        .navegacion {
-            padding: 1rem 0;
-        }
-
-        .contenedor-navegacion {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            position: relative;
-        }
-
-        .logo-contenedor {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-        }
-
-        .logo {
-            width: 50px;
-            height: 50px;
-            object-fit: cover;
-            background: var(--color-secundario);
-            border-radius: 0;
-        }
-
-        .titulo-logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            background: linear-gradient(90deg, var(--color-destacado), #ff7b9c);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .menu-principal {
-            display: flex;
-            gap: 1.5rem;
-            align-items: center;
-            z-index: 10000;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .menu-principal > li {
-            list-style: none;
-            position: relative;
-        }
-
-        .enlace-menu {
-            font-weight: 500;
-            font-size: 0.95rem;
-            position: relative;
-            transition: var(--transicion-rapida);
-            padding: 0.5rem 0;
-            color: var(--color-texto);
-            text-decoration: none;
-            display: block;
-        }
-
-        .enlace-menu:hover {
-            color: var(--color-destacado);
-        }
-
-        .enlace-menu::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--color-destacado);
-            transition: var(--transicion-rapida);
-        }
-
-        .enlace-menu:hover::after {
-            width: 100%;
-        }
-
-        /* MENÚ DESPLEGABLE CORREGIDO */
-        .menu-con-desplegable {
-            position: relative;
-            cursor: pointer;
-        }
-
-        .enlace-menu-desplegable {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 500;
-            font-size: 0.95rem;
-            color: var(--color-texto);
-            padding: 0.5rem 0;
-            transition: var(--transicion-rapida);
-        }
-
-        .enlace-menu-desplegable:hover {
-            color: var(--color-destacado);
-        }
-
-        .flecha-desplegable {
-            font-size: 0.75rem;
-            transition: transform 0.3s ease;
-        }
-
-        .menu-con-desplegable:hover .flecha-desplegable {
-            transform: rotate(180deg);
-        }
-
-        .submenu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: var(--color-submenu);
-            min-width: 220px;
-            border-radius: 8px;
-            box-shadow: var(--sombra-suave);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(10px);
-            transition: var(--transicion-rapida);
-            z-index: 100;
-            border-left: 3px solid var(--color-destacado);
-            list-style: none;
-            padding: 8px 0;
-            margin: 0;
-        }
-
-        .menu-con-desplegable:hover .submenu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .submenu li {
-            padding: 0;
-            margin: 0;
-            width: 100%;
-        }
-
-        .submenu a {
-            display: block;
-            padding: 10px 20px;
-            color: var(--color-texto);
-            font-size: 0.9rem;
-            transition: var(--transicion-rapida);
-            text-decoration: none;
-        }
-
-        .submenu a:hover {
-            color: var(--color-destacado);
-            background-color: rgba(233, 69, 96, 0.1);
-            padding-left: 25px;
-        }
-
-        .iconos-usuario {
-            display: flex;
-            gap: 1.5rem;
-            align-items: center;
-        }
-
-        .icono-usuario {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: var(--transicion-rapida);
-            color: var(--color-texto);
-            text-decoration: none;
-        }
-
-        .icono-usuario:hover {
-            color: var(--color-destacado);
-        }
-
-        .texto-icono {
-            display: inline-block;
-        }
-
-        .boton-menu-mobile {
-            display: none;
-            background: rgba(233, 69, 96, 0.1);
-            color: var(--color-texto);
-            font-size: 1.5rem;
-            z-index: 10003;
-            width: 44px;
-            height: 44px;
-            border-radius: 8px;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            border: none;
-        }
-
-        /* =============================================
-           MENÚ MÓVIL CORREGIDO
-           ============================================= */
-        @media (max-width: 768px) {
-            .boton-menu-mobile {
-                display: flex;
-            }
-            
-            .texto-icono {
-                display: none;
-            }
-            
-            .iconos-usuario {
-                display: flex;
-                gap: 1rem;
-            }
-            
-            .icono-usuario i {
-                font-size: 1.2rem;
-            }
-            
-            .menu-principal {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 85%;
-                max-width: 350px;
-                height: 100vh;
-                background-color: var(--color-primario);
-                flex-direction: column;
-                justify-content: flex-start;
-                padding: 80px 0 30px;
-                gap: 0;
-                z-index: 10000;
-                overflow-y: auto;
-                box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
-                transition: right 0.3s ease;
-                margin: 0;
-            }
-            
-            .menu-principal.activo {
-                right: 0;
-            }
-            
-            .menu-principal > li {
-                width: 100%;
-                margin: 0;
-                padding: 0;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            }
-            
-            .enlace-menu {
-                display: block;
-                padding: 16px 20px;
-                font-size: 1rem;
-            }
-            
-            .menu-con-desplegable {
-                width: 100%;
-            }
-            
-            .enlace-menu-desplegable {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                width: 100%;
-                padding: 16px 20px;
-                font-size: 1rem;
-                font-weight: 500;
-                color: var(--color-texto);
-                cursor: pointer;
-                background: transparent;
-                border: none;
-                margin: 0;
-            }
-            
-            .submenu {
-                position: relative;
-                background-color: var(--color-submenu);
-                width: 100%;
-                border-left: 4px solid var(--color-destacado);
-                display: none;
-                margin: 0;
-                padding: 0;
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-                box-shadow: none;
-                border-radius: 0;
-            }
-            
-            .menu-con-desplegable.activo .submenu {
-                display: block;
-            }
-            
-            .submenu li {
-                margin: 0;
-                padding: 0;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            }
-            
-            .submenu li:last-child {
-                border-bottom: none;
-            }
-            
-            .submenu a {
-                display: block;
-                padding: 12px 20px 12px 35px;
-                font-size: 0.95rem;
-                color: #ffffff;
-                text-decoration: none;
-                transition: all 0.2s ease;
-                background-color: transparent;
-                position: relative;
-            }
-            
-            .submenu a:hover {
-                color: var(--color-destacado);
-                background-color: rgba(233, 69, 96, 0.2);
-                padding-left: 40px;
-            }
-            
-            .submenu a::before {
-                content: '▹';
-                position: absolute;
-                left: 15px;
-                color: var(--color-destacado);
-                top: 50%;
-                transform: translateY(-50%);
-            }
-        }
-
-        /* =============================================
-           CONTENIDO PRINCIPAL (PRODUCTO)
-           ============================================= */
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 40px 30px;
-        }
-
-        .producto {
-            display: flex;
-            gap: 50px;
-            flex-wrap: wrap;
-            margin-bottom: 50px;
-        }
-
-        .galeria {
-            flex: 1;
-            min-width: 280px;
-            max-width: 450px;
-        }
-
-        .imagen-principal-container {
-            width: 100%;
-        }
-
-        .imagen-principal {
-            width: 100%;
-            height: auto;
-            aspect-ratio: 3 / 4;
-            object-fit: cover;
-            border: 1px solid var(--color-borde);
-            background: var(--color-primario);
-            display: block;
-            border-radius: 0;
-        }
-
-        .miniaturas {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-            flex-wrap: wrap;
-            justify-content: flex-start;
-        }
-
-        .miniatura {
-            width: 70px;
-            height: 70px;
-            cursor: pointer;
-            border: 2px solid transparent;
-            transition: all 0.2s;
-            overflow: hidden;
-            background: var(--color-primario);
-        }
-
-        .miniatura img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            border-radius: 0;
-        }
-
-        .miniatura:hover {
-            border-color: var(--color-destacado);
-            transform: scale(1.02);
-        }
-
-        .info-producto {
-            flex: 1;
-            min-width: 280px;
-        }
-
-        .info-producto h1 {
-            font-size: 2.2rem;
-            margin-bottom: 8px;
-            background: linear-gradient(135deg, var(--color-texto) 30%, var(--color-destacado) 80%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .subtitulo {
-            font-size: 1rem;
-            color: var(--color-texto-secundario);
-            margin-bottom: 15px;
-            letter-spacing: 1px;
-        }
-
-        .precio {
-            font-size: 2rem;
-            color: var(--color-destacado);
-            margin: 20px 0;
-            font-weight: bold;
-        }
-
-        label {
-            display: block;
-            margin-top: 15px;
-            margin-bottom: 5px;
-            font-weight: 500;
-            color: var(--color-texto-secundario);
-        }
-
-        select, input {
-            width: 100%;
-            padding: 12px 15px;
-            margin: 5px 0;
-            background: var(--color-primario);
-            border: 1px solid var(--color-borde);
-            color: var(--color-texto);
-            border-radius: 0;
-            font-size: 14px;
-            cursor: pointer;
-            font-family: inherit;
-        }
-
-        select:focus, input:focus {
-            outline: none;
-            border-color: var(--color-destacado);
-        }
-
-        button {
-            background: var(--color-destacado);
-            border: none;
-            padding: 14px 20px;
-            color: #fff;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            width: 100%;
-            border-radius: 0;
-            transition: all 0.3s;
-            margin-top: 15px;
-            font-family: inherit;
-        }
-
-        button:hover {
-            background: #ff5773;
-            transform: translateY(-2px);
-        }
-
-        .descripcion {
-            margin-top: 50px;
-            padding-top: 30px;
-            border-top: 1px solid var(--color-borde);
-        }
-
-        .descripcion h2 {
-            color: var(--color-destacado);
-            margin-bottom: 15px;
-            font-size: 1.6rem;
-        }
-
-        .descripcion p {
-            color: var(--color-texto-secundario);
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-
-        .descripcion ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .descripcion ul li {
-            margin: 10px 0;
-            color: var(--color-texto-secundario);
-        }
-
-        .descripcion ul li::before {
-            content: "✔ ";
-            color: var(--color-destacado);
-            font-weight: bold;
-            margin-right: 8px;
-        }
-
-        /* SECCIÓN RELACIONADOS */
-        .relacionados {
-            margin-top: 60px;
-        }
-
-        .relacionados h2 {
-            color: var(--color-destacado);
-            margin-bottom: 25px;
-            font-size: 1.6rem;
-        }
-
-        .productos-horizontal {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        .card {
-            background: var(--color-primario);
-            overflow: hidden;
-            text-align: center;
-            border: 1px solid var(--color-borde);
-            transition: all 0.3s;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--color-destacado);
-            box-shadow: 0 8px 20px rgba(233, 69, 96, 0.2);
-        }
-
-        .card-imagen {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            object-fit: cover;
-            display: block;
-            background: var(--color-fondo);
-            border-radius: 0;
-        }
-
-        .card-info {
-            padding: 15px;
-        }
-
-        .card-info p {
-            font-weight: 600;
-            margin-bottom: 5px;
-            color: var(--color-texto);
-        }
-
-        .card-info strong {
-            color: var(--color-destacado);
-            font-size: 1.1rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .productos-horizontal {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .productos-horizontal {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
-            }
-            
-            .container {
-                padding: 25px 20px;
-            }
-            
-            .info-producto h1 {
-                font-size: 1.8rem;
-            }
-            
-            .precio {
-                font-size: 1.6rem;
-            }
-            
-            .miniatura {
-                width: 55px;
-                height: 55px;
-            }
-            
-            .galeria {
-                max-width: 100%;
-            }
-            
-            .producto {
-                gap: 30px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .productos-horizontal {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        /* WHATSAPP FLOTANTE */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background-color: var(--color-whatsapp);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 30px;
-            z-index: 1000;
-            box-shadow: var(--sombra-whatsapp);
-            transition: transform 0.3s;
-            text-decoration: none;
-            animation: pulse 2s infinite;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        /* FOOTER */
-        footer {
-            background: var(--color-primario);
-            color: var(--color-texto-secundario);
-            padding: 30px;
-            margin-top: 50px;
-            text-align: center;
-            border-top: 1px solid var(--color-borde);
-        }
-        
-        /* Clase para ocultar elementos en desktop si es necesario */
-        @media (min-width: 769px) {
-            .mobile-only {
-                display: none;
-            }
-        }
-    </style>
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="css/visualizador.css">
 </head>
 
 <body>
@@ -803,35 +100,21 @@
 
 <div class="container">
 
-    <!-- PRODUCTO PRINCIPAL FUTURAMA -->
+    <!-- PRODUCTO PRINCIPAL -->
     <section class="producto">
         <div class="galeria">
             <div class="imagen-principal-container">
-                <img class="imagen-principal" src="https://i.pinimg.com/1200x/c0/e9/e5/c0e9e5200f3f0bf13eb87a425f6d0c14.jpg" alt="Futurama Metal Art Print - Imagen principal" id="imagen-principal">
+                <img class="imagen-principal" src="" alt="Imagen principal del producto" id="imagen-principal">
             </div>
             <div class="miniaturas" id="miniaturas-container">
-                <div class="miniatura" data-img="https://i.pinimg.com/736x/5e/af/29/5eaf293499a62642eac7e6fc3e815823.jpg">
-                    <img src="https://i.pinimg.com/736x/5e/af/29/5eaf293499a62642eac7e6fc3e815823.jpg" alt="Futurama Metal Art Print - Vista 1">
-                </div>
-                <div class="miniatura" data-img="https://images.unsplash.com/photo-1534447677768-be436bb09401?w=500&h=667&fit=crop">
-                    <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?w=100&h=133&fit=crop" alt="Futurama Metal Art Print - Vista 2">
-                </div>
-                <div class="miniatura" data-img="https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=500&h=667&fit=crop">
-                    <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=100&h=133&fit=crop" alt="Futurama Metal Art Print - Vista 3">
-                </div>
-                <div class="miniatura" data-img="https://images.unsplash.com/photo-1610205296127-02e7366806e4?w=500&h=667&fit=crop">
-                    <img src="https://images.unsplash.com/photo-1610205296127-02e7366806e4?w=100&h=133&fit=crop" alt="Futurama Metal Art Print - Vista 4">
-                </div>
-                <div class="miniatura" data-img="https://images.unsplash.com/photo-1578632767115-351597cf2477?w=500&h=667&fit=crop">
-                    <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?w=100&h=133&fit=crop" alt="Futurama Metal Art Print - Vista 5">
-                </div>
+                <!-- Las miniaturas se generarán dinámicamente con JavaScript -->
             </div>
         </div>
 
         <div class="info-producto">
-            <h1 id="producto-nombre">FUTURAMA</h1>
-            <div class="subtitulo" id="producto-subtitulo">CONQUERS THE UNIVERSE • METAL ART PRINT</div>
-            <p class="precio" id="precio-mostrado">$24.900 CLP</p>
+            <h1 id="producto-nombre">Cargando...</h1>
+            <div class="subtitulo" id="producto-subtitulo">METAL ART PRINT</div>
+            <p class="precio" id="precio-mostrado">$0 CLP</p>
 
             <label for="tamano-select">Tamaño:</label>
             <select id="tamano-select">
@@ -915,14 +198,13 @@
         'use strict';
         
         // =============================================
-        // MENÚ MÓVIL Y DESPLEGABLE CORREGIDO
+        // MENÚ MÓVIL Y DESPLEGABLE
         // =============================================
         
         const botonMenu = document.getElementById('boton-menu-mobile');
         const menuPrincipal = document.getElementById('menu-principal');
         const categoriasDropdown = document.getElementById('categorias-dropdown');
         
-        // Función para cerrar menú
         function cerrarMenu() {
             if (menuPrincipal) {
                 menuPrincipal.classList.remove('activo');
@@ -935,7 +217,6 @@
             }
         }
         
-        // Abrir/cerrar menú móvil
         if (botonMenu && menuPrincipal) {
             botonMenu.addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -948,17 +229,14 @@
             });
         }
         
-        // Cerrar menú al hacer click en enlaces
         document.querySelectorAll('.enlace-menu, .submenu a').forEach(link => {
             link.addEventListener('click', () => {
                 cerrarMenu();
             });
         });
         
-        // Manejo del desplegable en móvil
         if (categoriasDropdown) {
             const enlaceDesplegable = categoriasDropdown.querySelector('.enlace-menu-desplegable');
-            
             if (enlaceDesplegable) {
                 enlaceDesplegable.addEventListener('click', (e) => {
                     if (window.innerWidth <= 768) {
@@ -970,7 +248,6 @@
             }
         }
         
-        // Cerrar menú al hacer click fuera
         document.addEventListener('click', (e) => {
             if (menuPrincipal && menuPrincipal.classList.contains('activo')) {
                 const isClickInside = menuPrincipal.contains(e.target) || botonMenu.contains(e.target);
@@ -981,7 +258,7 @@
         });
         
         // =============================================
-        // FUNCIONALIDAD DE GALERÍA
+        // FUNCIONALIDAD DE GALERÍA CON MINIATURAS DINÁMICAS
         // =============================================
         
         function cambiarImagen(src) {
@@ -991,21 +268,64 @@
             }
         }
         
-        // Configurar miniaturas
-        const miniaturas = document.querySelectorAll('.miniatura');
-        miniaturas.forEach(miniatura => {
-            miniatura.addEventListener('click', () => {
-                const imgSrc = miniatura.getAttribute('data-img');
-                if (imgSrc) {
-                    cambiarImagen(imgSrc);
-                } else {
-                    const imgElement = miniatura.querySelector('img');
-                    if (imgElement) {
-                        cambiarImagen(imgElement.src);
-                    }
-                }
+        // Función para generar miniaturas desde parámetros URL
+        function generarMiniaturasDesdeURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const miniaturasContainer = document.getElementById('miniaturas-container');
+            
+            if (!miniaturasContainer) return;
+            
+            // Limpiar container
+            miniaturasContainer.innerHTML = '';
+            
+            // Obtener URLs de miniaturas desde parámetros
+            const miniatura1 = urlParams.get('miniatura1');
+            const miniatura2 = urlParams.get('miniatura2');
+            const miniatura3 = urlParams.get('miniatura3');
+            const miniatura4 = urlParams.get('miniatura4');
+            const imagenPrincipal = urlParams.get('imagen');
+            
+            // Crear array con todas las miniaturas (la primera es la imagen principal)
+            const miniaturas = [];
+            if (imagenPrincipal) miniaturas.push(imagenPrincipal);
+            if (miniatura1) miniaturas.push(miniatura1);
+            if (miniatura2) miniaturas.push(miniatura2);
+            if (miniatura3) miniaturas.push(miniatura3);
+            if (miniatura4) miniaturas.push(miniatura4);
+            
+            // Si no hay miniaturas, usar imágenes por defecto
+            if (miniaturas.length === 0) {
+                miniaturas.push('https://i.pinimg.com/1200x/c0/e9/e5/c0e9e5200f3f0bf13eb87a425f6d0c14.jpg');
+                miniaturas.push('https://i.pinimg.com/736x/5e/af/29/5eaf293499a62642eac7e6fc3e815823.jpg');
+                miniaturas.push('https://images.unsplash.com/photo-1534447677768-be436bb09401?w=100&h=133&fit=crop');
+                miniaturas.push('https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=100&h=133&fit=crop');
+                miniaturas.push('https://images.unsplash.com/photo-1610205296127-02e7366806e4?w=100&h=133&fit=crop');
+            }
+            
+            // Crear cada miniatura
+            miniaturas.forEach((imgUrl, index) => {
+                const miniaturaDiv = document.createElement('div');
+                miniaturaDiv.className = 'miniatura';
+                if (index === 0) miniaturaDiv.classList.add('activa');
+                miniaturaDiv.setAttribute('data-img', imgUrl);
+                
+                const img = document.createElement('img');
+                img.src = imgUrl;
+                img.alt = `Vista ${index + 1} del producto`;
+                img.loading = 'lazy';
+                
+                miniaturaDiv.appendChild(img);
+                
+                miniaturaDiv.addEventListener('click', () => {
+                    cambiarImagen(imgUrl);
+                    // Actualizar clase activa
+                    document.querySelectorAll('.miniatura').forEach(m => m.classList.remove('activa'));
+                    miniaturaDiv.classList.add('activa');
+                });
+                
+                miniaturasContainer.appendChild(miniaturaDiv);
             });
-        });
+        }
         
         // =============================================
         // FUNCIONALIDAD DE PRODUCTOS RELACIONADOS
@@ -1027,11 +347,9 @@
                 }
             }
             
-            // Scroll suave al producto
             document.querySelector('.producto').scrollIntoView({ behavior: 'smooth' });
         }
         
-        // Configurar cards de productos relacionados
         const cards = document.querySelectorAll('.card');
         cards.forEach(card => {
             card.addEventListener('click', () => {
@@ -1055,10 +373,10 @@
         
         function obtenerPrecioPorTamano() {
             const selectTamano = document.getElementById('tamano-select');
-            if (!selectTamano) return 24900;
+            if (!selectTamano) return 12990;
             const selectedOption = selectTamano.options[selectTamano.selectedIndex];
             const precio = parseInt(selectedOption.getAttribute('data-precio'));
-            return isNaN(precio) ? 24900 : precio;
+            return isNaN(precio) ? 12990 : precio;
         }
         
         function formatearPrecio(precio) {
@@ -1077,17 +395,15 @@
             }
         }
         
-        // Configurar evento de cambio de tamaño
         const tamanoSelect = document.getElementById('tamano-select');
         if (tamanoSelect) {
             tamanoSelect.addEventListener('change', actualizarPrecio);
         }
         
-        // Configurar botón WhatsApp
         const btnWhatsapp = document.getElementById('btn-whatsapp');
         if (btnWhatsapp) {
             btnWhatsapp.addEventListener('click', () => {
-                const titulo = document.getElementById('producto-nombre')?.innerText || 'FUTURAMA';
+                const titulo = document.getElementById('producto-nombre')?.innerText || 'Producto';
                 const subtitulo = document.getElementById('producto-subtitulo')?.innerText || 'METAL ART PRINT';
                 const tamanoSelect = document.getElementById('tamano-select');
                 const tamanoTexto = tamanoSelect ? tamanoSelect.options[tamanoSelect.selectedIndex].text : '30×40 CM';
@@ -1109,7 +425,6 @@
             });
         }
         
-        // Inicializar precio
         actualizarPrecio();
         
         // =============================================
@@ -1118,7 +433,6 @@
         
         function cargarProductoDesdeURL() {
             const urlParams = new URLSearchParams(window.location.search);
-            const productId = urlParams.get('id');
             const productName = urlParams.get('nombre');
             const productPrice = urlParams.get('precio');
             const productImg = urlParams.get('imagen');
@@ -1126,6 +440,7 @@
             if (productName) {
                 const titulo = document.getElementById('producto-nombre');
                 if (titulo) titulo.innerText = decodeURIComponent(productName);
+                document.title = `${decodeURIComponent(productName)} | Metal Art Print | SublimArts`;
             }
             
             if (productPrice) {
@@ -1140,6 +455,9 @@
                 const imgPrincipal = document.getElementById('imagen-principal');
                 if (imgPrincipal) imgPrincipal.src = decodeURIComponent(productImg);
             }
+            
+            // Generar miniaturas desde parámetros (incluye miniatura1, miniatura2, etc.)
+            generarMiniaturasDesdeURL();
         }
         
         cargarProductoDesdeURL();
@@ -1158,7 +476,7 @@
             }, 250);
         });
         
-        console.log('SublimArts - Visualizador cargado correctamente');
+        console.log('SublimArts - Visualizador cargado correctamente con miniaturas dinámicas');
     })();
 </script>
 

@@ -33,6 +33,69 @@
     
     <!-- CSS principal -->
     <link rel="stylesheet" href="manu.css">
+    
+    <style>
+        /* Estilos adicionales para el banner con imagen de fondo */
+        .banner-principal {
+            background-image: url('https://media.canva.com/v2/image-resize/format:PNG/height:800/quality:100/uri:ifs%3A%2F%2FM%2Fb5d65906-777a-441d-94e4-669a443cce39/watermark:F/width:533?csig=AAAAAAAAAAAAAAAAAAAAAD7m-7jSvrVvo-vwyWIw1_tMaIibhbNLA4EYyrHK4CiN&exp=1774510407&osig=AAAAAAAAAAAAAAAAAAAAAGGM0ARg-IWd091Xs0XHQ3tQTd59WiOkXCJME4gfrfqA&signer=media-rpc&x-canva-quality=screen');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            padding: 4rem 0;
+        }
+        
+        .banner-principal::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgb(33, 33, 33) 0%, rgba(7, 7, 7, 0.6) 4 %);
+            z-index: 1;
+        }
+        
+        .banner-principal .contenedor-banner {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .banner-principal .contenido-banner {
+            background: rgba(0,0,0,0.5);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .banner-principal .imagen-banner {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .banner-principal {
+                padding: 2rem 0;
+            }
+        }
+        
+        /* Estilo para el botón Ver Detalles en el modal */
+        .btn-ver-detalle-modal {
+            display: inline-block;
+            background: var(--color-destacado);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-ver-detalle-modal:hover {
+            background: #ff5773;
+            transform: translateY(-2px);
+        }
+    </style>
 </head>
 <body>
     <!-- Botón de WhatsApp fijo -->
@@ -96,16 +159,13 @@
     <div class="menu-overlay" id="menu-overlay" aria-hidden="true"></div>
 
     <main id="contenido-principal">
-        <!-- Banner principal -->
+        <!-- Banner principal con imagen de fondo horizontal -->
         <section class="banner-principal" aria-label="Banner promocional">
             <div class="contenedor-banner">
                 <div class="contenido-banner">
                     <h1 class="titulo-banner">Impresión Metálica HD Personalizada</h1>
                     <p class="texto-banner">Transforma tus personajes favoritos en arte duradero sobre metal</p>
                     <a href="#anime-popular" class="boton-banner">Ver Catálogo</a>
-                </div>
-                <div class="imagen-banner">
-                    <img src="https://i.pinimg.com/736x/02/32/04/0232041682264f808724edc246233114.jpg" alt="Goku vs Freezer" loading="eager" width="600" height="400">
                 </div>
             </div>
         </section>
@@ -181,7 +241,8 @@
                     <h2 class="titulo-seccion">Anime Popular</h2>
                 </div>
                 <div class="grid-popular" id="grid-popular">
-                    <article class="item-popular" data-id="1" data-nombre="Goku Super Saiyan Fase 4" data-precio="12990" data-imagen="https://i.pinimg.com/736x/15/2f/0f/152f0ffe777a326d4355418b09f612e8.jpg">
+                    <!-- Item 1 - Goku Super Saiyan Fase 4 -->
+                    <article class="item-popular" data-id="goku-ssj4" data-nombre="Goku Super Saiyan Fase 4" data-precio="12990" data-imagen="https://i.pinimg.com/736x/12/d0/b6/12d0b615e94075a779f0a73074ba9dac.jpg" data-miniatura1="https://i.pinimg.com/736x/15/2f/0f/152f0ffe777a326d4355418b09f612e8.jpg" data-miniatura2="https://i.pinimg.com/736x/15/2f/0f/152f0ffe777a326d4355418b09f612e8.jpg" data-miniatura3="https://i.pinimg.com/736x/15/2f/0f/152f0ffe777a326d4355418b09f612e8.jpg" data-miniatura4="https://i.pinimg.com/736x/15/2f/0f/152f0ffe777a326d4355418b09f612e8.jpg">
                         <figure class="contenedor-imagen-popular">
                             <img src="https://i.pinimg.com/736x/15/2f/0f/152f0ffe777a326d4355418b09f612e8.jpg" alt="Goku en Super Saiyan Fase 4 con fondo de nubes - cuadro metálico de Dragon Ball" loading="lazy" class="imagen-producto" data-titulo="Goku Super Saiyan Fase 4" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -192,7 +253,8 @@
                         </div>
                     </article>
                     
-                    <article class="item-popular" data-id="2" data-nombre="Sung Jinwoo - Solo Leveling" data-precio="12990" data-imagen="https://i.pinimg.com/736x/21/0e/4e/210e4e1af522e2e7886bbc44780f31ef.jpg">
+                    <!-- Item 2 - Sung Jinwoo - Solo Leveling -->
+                    <article class="item-popular" data-id="sung-jinwoo" data-nombre="Sung Jinwoo - Solo Leveling" data-precio="12990" data-imagen="https://i.pinimg.com/736x/21/0e/4e/210e4e1af522e2e7886bbc44780f31ef.jpg" data-miniatura1="https://i.pinimg.com/736x/21/0e/4e/210e4e1af522e2e7886bbc44780f31ef.jpg" data-miniatura2="https://i.pinimg.com/736x/21/0e/4e/210e4e1af522e2e7886bbc44780f31ef.jpg" data-miniatura3="https://i.pinimg.com/736x/21/0e/4e/210e4e1af522e2e7886bbc44780f31ef.jpg" data-miniatura4="https://i.pinimg.com/736x/21/0e/4e/210e4e1af522e2e7886bbc44780f31ef.jpg">
                         <figure class="contenedor-imagen-popular">
                             <img src="https://i.pinimg.com/736x/21/0e/4e/210e4e1af522e2e7886bbc44780f31ef.jpg" alt="Sung Jinwoo de Solo Leveling con armadura oscura y sombras - ilustración épica" loading="lazy" class="imagen-producto" data-titulo="Sung Jinwoo - Solo Leveling" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -203,7 +265,8 @@
                         </div>
                     </article>
                     
-                    <article class="item-popular" data-id="3" data-nombre="Sasuke Uchiha - Sharingan" data-precio="12990" data-imagen="https://i.pinimg.com/736x/bc/ff/e5/bcffe58b5b4458df3e06064fb28e44e9.jpg">
+                    <!-- Item 3 - Sasuke Uchiha - Sharingan -->
+                    <article class="item-popular" data-id="sasuke" data-nombre="Sasuke Uchiha - Sharingan" data-precio="12990" data-imagen="https://i.pinimg.com/736x/bc/ff/e5/bcffe58b5b4458df3e06064fb28e44e9.jpg" data-miniatura1="https://i.pinimg.com/736x/bc/ff/e5/bcffe58b5b4458df3e06064fb28e44e9.jpg" data-miniatura2="https://i.pinimg.com/736x/bc/ff/e5/bcffe58b5b4458df3e06064fb28e44e9.jpg" data-miniatura3="https://i.pinimg.com/736x/bc/ff/e5/bcffe58b5b4458df3e06064fb28e44e9.jpg" data-miniatura4="https://i.pinimg.com/736x/bc/ff/e5/bcffe58b5b4458df3e06064fb28e44e9.jpg">
                         <figure class="contenedor-imagen-popular">
                             <img src="https://i.pinimg.com/736x/bc/ff/e5/bcffe58b5b4458df3e06064fb28e44e9.jpg" alt="Sasuke Uchiha activando su Sharingan con fondo rojo - cuadro de Naruto" loading="lazy" class="imagen-producto" data-titulo="Sasuke Uchiha - Sharingan" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -214,7 +277,8 @@
                         </div>
                     </article>
                     
-                    <article class="item-popular" data-id="4" data-nombre="Monkey D. Luffy - One Piece" data-precio="12990" data-imagen="https://i.pinimg.com/736x/0b/8b/35/0b8b356f622e7ffb018680a4475ddef7.jpg">
+                    <!-- Item 4 - Monkey D. Luffy - One Piece -->
+                    <article class="item-popular" data-id="luffy" data-nombre="Monkey D. Luffy - One Piece" data-precio="12990" data-imagen="https://i.pinimg.com/736x/0b/8b/35/0b8b356f622e7ffb018680a4475ddef7.jpg" data-miniatura1="https://i.pinimg.com/736x/0b/8b/35/0b8b356f622e7ffb018680a4475ddef7.jpg" data-miniatura2="https://i.pinimg.com/736x/0b/8b/35/0b8b356f622e7ffb018680a4475ddef7.jpg" data-miniatura3="https://i.pinimg.com/736x/0b/8b/35/0b8b356f622e7ffb018680a4475ddef7.jpg" data-miniatura4="https://i.pinimg.com/736x/0b/8b/35/0b8b356f622e7ffb018680a4475ddef7.jpg">
                         <figure class="contenedor-imagen-popular">
                             <img src="https://i.pinimg.com/736x/0b/8b/35/0b8b356f622e7ffb018680a4475ddef7.jpg" alt="Monkey D. Luffy de One Piece con sombrero de paja y pose de Gear 5" loading="lazy" class="imagen-producto" data-titulo="Monkey D. Luffy - One Piece" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -225,7 +289,8 @@
                         </div>
                     </article>
                     
-                    <article class="item-popular" data-id="5" data-nombre="Naruto y Sasuke - Akatsuki" data-precio="12990" data-imagen="https://i.pinimg.com/736x/5c/fb/71/5cfb717ceba771f405934fa70e329657.jpg">
+                    <!-- Item 5 - Naruto y Sasuke - Akatsuki -->
+                    <article class="item-popular" data-id="naruto-sasuke" data-nombre="Naruto y Sasuke - Akatsuki" data-precio="12990" data-imagen="https://i.pinimg.com/736x/5c/fb/71/5cfb717ceba771f405934fa70e329657.jpg" data-miniatura1="https://i.pinimg.com/736x/5c/fb/71/5cfb717ceba771f405934fa70e329657.jpg" data-miniatura2="https://i.pinimg.com/736x/5c/fb/71/5cfb717ceba771f405934fa70e329657.jpg" data-miniatura3="https://i.pinimg.com/736x/5c/fb/71/5cfb717ceba771f405934fa70e329657.jpg" data-miniatura4="https://i.pinimg.com/736x/5c/fb/71/5cfb717ceba771f405934fa70e329657.jpg">
                         <figure class="contenedor-imagen-popular">
                             <img src="https://i.pinimg.com/736x/5c/fb/71/5cfb717ceba771f405934fa70e329657.jpg" alt="Naruto y Sasuke en su versión adolescente con fondo de Akatsuki - cuadro metálico" loading="lazy" class="imagen-producto" data-titulo="Naruto y Sasuke - Akatsuki" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -236,7 +301,8 @@
                         </div>
                     </article>
                     
-                    <article class="item-popular" data-id="6" data-nombre="Luffy - One Piece" data-precio="12990" data-imagen="https://i.pinimg.com/736x/04/54/9a/04549a3d1198590034d896b23a764903.jpg">
+                    <!-- Item 6 - Luffy - One Piece -->
+                    <article class="item-popular" data-id="luffy2" data-nombre="Luffy - One Piece" data-precio="12990" data-imagen="https://i.pinimg.com/736x/04/54/9a/04549a3d1198590034d896b23a764903.jpg" data-miniatura1="https://i.pinimg.com/736x/04/54/9a/04549a3d1198590034d896b23a764903.jpg" data-miniatura2="https://i.pinimg.com/736x/04/54/9a/04549a3d1198590034d896b23a764903.jpg" data-miniatura3="https://i.pinimg.com/736x/04/54/9a/04549a3d1198590034d896b23a764903.jpg" data-miniatura4="https://i.pinimg.com/736x/04/54/9a/04549a3d1198590034d896b23a764903.jpg">
                         <figure class="contenedor-imagen-popular">
                             <img src="https://i.pinimg.com/736x/04/54/9a/04549a3d1198590034d896b23a764903.jpg" alt="Luffy de One Piece con su sombrero de paja mirando al horizonte - estilo manga" loading="lazy" class="imagen-producto" data-titulo="Luffy - One Piece" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -247,7 +313,8 @@
                         </div>
                     </article>
                     
-                    <article class="item-popular" data-id="7" data-nombre="Sung Jinwoo - Monarca de las Sombras" data-precio="12990" data-imagen="https://i.pinimg.com/736x/37/79/e0/3779e0aac10e44a4157037d2c8505ef4.jpg">
+                    <!-- Item 7 - Sung Jinwoo - Monarca de las Sombras -->
+                    <article class="item-popular" data-id="jinwoo-sombras" data-nombre="Sung Jinwoo - Monarca de las Sombras" data-precio="12990" data-imagen="https://i.pinimg.com/736x/37/79/e0/3779e0aac10e44a4157037d2c8505ef4.jpg" data-miniatura1="https://i.pinimg.com/736x/37/79/e0/3779e0aac10e44a4157037d2c8505ef4.jpg" data-miniatura2="https://i.pinimg.com/736x/37/79/e0/3779e0aac10e44a4157037d2c8505ef4.jpg" data-miniatura3="https://i.pinimg.com/736x/37/79/e0/3779e0aac10e44a4157037d2c8505ef4.jpg" data-miniatura4="https://i.pinimg.com/736x/37/79/e0/3779e0aac10e44a4157037d2c8505ef4.jpg">
                         <figure class="contenedor-imagen-popular">
                             <img src="https://i.pinimg.com/736x/37/79/e0/3779e0aac10e44a4157037d2c8505ef4.jpg" alt="Sung Jinwoo como Monarca de las Sombras de Solo Leveling con armadura completa" loading="lazy" class="imagen-producto" data-titulo="Sung Jinwoo - Monarca de las Sombras" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -258,7 +325,8 @@
                         </div>
                     </article>
                     
-                    <article class="item-popular" data-id="8" data-nombre="Doma - Luna Superior 2" data-precio="12990" data-imagen="https://i.pinimg.com/736x/4d/2f/d4/4d2fd400e8ba5feef8aaeee793b610a0.jpg">
+                    <!-- Item 8 - Doma - Luna Superior 2 -->
+                    <article class="item-popular" data-id="doma" data-nombre="Doma - Luna Superior 2" data-precio="12990" data-imagen="https://i.pinimg.com/736x/4d/2f/d4/4d2fd400e8ba5feef8aaeee793b610a0.jpg" data-miniatura1="https://i.pinimg.com/736x/4d/2f/d4/4d2fd400e8ba5feef8aaeee793b610a0.jpg" data-miniatura2="https://i.pinimg.com/736x/4d/2f/d4/4d2fd400e8ba5feef8aaeee793b610a0.jpg" data-miniatura3="https://i.pinimg.com/736x/4d/2f/d4/4d2fd400e8ba5feef8aaeee793b610a0.jpg" data-miniatura4="https://i.pinimg.com/736x/4d/2f/d4/4d2fd400e8ba5feef8aaeee793b610a0.jpg">
                         <figure class="contenedor-imagen-popular">
                             <img src="https://i.pinimg.com/736x/4d/2f/d4/4d2fd400e8ba5feef8aaeee793b610a0.jpg" alt="Doma Luna Superior 2 de Demon Slayer con su abanico y sonrisa característica" loading="lazy" class="imagen-producto" data-titulo="Doma - Luna Superior 2" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -269,7 +337,8 @@
                         </div>
                     </article>
 
-                    <article class="item-popular" data-id="9" data-nombre="Inosuke Hashibira" data-precio="12990" data-imagen="https://i.pinimg.com/736x/99/b0/c9/99b0c9fe131e3df4fd66af3c2397c61b.jpg">
+                    <!-- Item 9 - Inosuke Hashibira -->
+                    <article class="item-popular" data-id="inosuke1" data-nombre="Inosuke Hashibira" data-precio="12990" data-imagen="https://i.pinimg.com/736x/99/b0/c9/99b0c9fe131e3df4fd66af3c2397c61b.jpg" data-miniatura1="https://i.pinimg.com/736x/99/b0/c9/99b0c9fe131e3df4fd66af3c2397c61b.jpg" data-miniatura2="https://i.pinimg.com/736x/99/b0/c9/99b0c9fe131e3df4fd66af3c2397c61b.jpg" data-miniatura3="https://i.pinimg.com/736x/99/b0/c9/99b0c9fe131e3df4fd66af3c2397c61b.jpg" data-miniatura4="https://i.pinimg.com/736x/99/b0/c9/99b0c9fe131e3df4fd66af3c2397c61b.jpg">
                         <figure class="contenedor-imagen-popular">
                             <img src="https://i.pinimg.com/736x/99/b0/c9/99b0c9fe131e3df4fd66af3c2397c61b.jpg" alt="Inosuke Hashibira con máscara de jabalí y espadas - Demon Slayer" loading="lazy" class="imagen-producto" data-titulo="Inosuke Hashibira" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -280,7 +349,8 @@
                         </div>
                     </article>
 
-                    <article class="item-popular" data-id="10" data-nombre="Inosuke Hashibira" data-precio="12990" data-imagen="https://i.pinimg.com/736x/cb/66/75/cb66757095973a7a3f75dedac55b80f1.jpg">
+                    <!-- Item 10 - Inosuke Hashibira 2 -->
+                    <article class="item-popular" data-id="inosuke2" data-nombre="Inosuke Hashibira" data-precio="12990" data-imagen="https://i.pinimg.com/736x/cb/66/75/cb66757095973a7a3f75dedac55b80f1.jpg" data-miniatura1="https://i.pinimg.com/736x/cb/66/75/cb66757095973a7a3f75dedac55b80f1.jpg" data-miniatura2="https://i.pinimg.com/736x/cb/66/75/cb66757095973a7a3f75dedac55b80f1.jpg" data-miniatura3="https://i.pinimg.com/736x/cb/66/75/cb66757095973a7a3f75dedac55b80f1.jpg" data-miniatura4="https://i.pinimg.com/736x/cb/66/75/cb66757095973a7a3f75dedac55b80f1.jpg">
                         <figure class="contenedor-imagen-popular">
                             <img src="https://i.pinimg.com/736x/cb/66/75/cb66757095973a7a3f75dedac55b80f1.jpg" alt="Inosuke Hashibira con máscara de jabalí y espadas - Demon Slayer" loading="lazy" class="imagen-producto" data-titulo="Inosuke Hashibira" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -291,7 +361,8 @@
                         </div>
                     </article>
 
-                    <article class="item-popular" data-id="11" data-nombre="Inosuke Hashibira" data-precio="12990" data-imagen="https://i.pinimg.com/736x/c6/f8/a7/c6f8a7bdc1dd5fefd837391256f86d7a.jpg">
+                    <!-- Item 11 - Inosuke Hashibira 3 -->
+                    <article class="item-popular" data-id="inosuke3" data-nombre="Inosuke Hashibira" data-precio="12990" data-imagen="https://i.pinimg.com/736x/c6/f8/a7/c6f8a7bdc1dd5fefd837391256f86d7a.jpg" data-miniatura1="https://i.pinimg.com/736x/c6/f8/a7/c6f8a7bdc1dd5fefd837391256f86d7a.jpg" data-miniatura2="https://i.pinimg.com/736x/c6/f8/a7/c6f8a7bdc1dd5fefd837391256f86d7a.jpg" data-miniatura3="https://i.pinimg.com/736x/c6/f8/a7/c6f8a7bdc1dd5fefd837391256f86d7a.jpg" data-miniatura4="https://i.pinimg.com/736x/c6/f8/a7/c6f8a7bdc1dd5fefd837391256f86d7a.jpg">
                         <figure class="contenedor-imagen-popular">
                             <img src="https://i.pinimg.com/736x/c6/f8/a7/c6f8a7bdc1dd5fefd837391256f86d7a.jpg" alt="Inosuke Hashibira con máscara de jabalí y espadas - Demon Slayer" loading="lazy" class="imagen-producto" data-titulo="Inosuke Hashibira" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -302,7 +373,8 @@
                         </div>
                     </article>
 
-                    <article class="item-popular" data-id="12" data-nombre="Inosuke Hashibira" data-precio="12990" data-imagen="https://i.pinimg.com/736x/4d/da/3d/4dda3d51e904d106b8a719bee42076cd.jpg">
+                    <!-- Item 12 - Inosuke Hashibira 4 -->
+                    <article class="item-popular" data-id="inosuke4" data-nombre="Inosuke Hashibira" data-precio="12990" data-imagen="https://i.pinimg.com/736x/4d/da/3d/4dda3d51e904d106b8a719bee42076cd.jpg" data-miniatura1="https://i.pinimg.com/736x/4d/da/3d/4dda3d51e904d106b8a719bee42076cd.jpg" data-miniatura2="https://i.pinimg.com/736x/4d/da/3d/4dda3d51e904d106b8a719bee42076cd.jpg" data-miniatura3="https://i.pinimg.com/736x/4d/da/3d/4dda3d51e904d106b8a719bee42076cd.jpg" data-miniatura4="https://i.pinimg.com/736x/4d/da/3d/4dda3d51e904d106b8a719bee42076cd.jpg">
                         <figure class="contenedor-imagen-popular">
                             <img src="https://i.pinimg.com/736x/4d/da/3d/4dda3d51e904d106b8a719bee42076cd.jpg" alt="Inosuke Hashibira con máscara de jabalí y espadas - Demon Slayer" loading="lazy" class="imagen-producto" data-titulo="Inosuke Hashibira" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -327,7 +399,7 @@
                 </div>
                 
                 <div class="galeria-productos" id="galeria-jujutsu">
-                    <article class="producto-item" data-id="101" data-nombre="Gojo Satoru - Vacío Infinito" data-precio="12990" data-imagen="https://i.pinimg.com/1200x/78/cc/89/78cc89c42e456551c842787c7423cb3a.jpg">
+                    <article class="producto-item" data-id="gojo" data-nombre="Gojo Satoru - Vacío Infinito" data-precio="12990" data-imagen="https://i.pinimg.com/1200x/78/cc/89/78cc89c42e456551c842787c7423cb3a.jpg" data-miniatura1="https://i.pinimg.com/1200x/78/cc/89/78cc89c42e456551c842787c7423cb3a.jpg" data-miniatura2="https://i.pinimg.com/1200x/78/cc/89/78cc89c42e456551c842787c7423cb3a.jpg" data-miniatura3="https://i.pinimg.com/1200x/78/cc/89/78cc89c42e456551c842787c7423cb3a.jpg" data-miniatura4="https://i.pinimg.com/1200x/78/cc/89/78cc89c42e456551c842787c7423cb3a.jpg">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/1200x/78/cc/89/78cc89c42e456551c842787c7423cb3a.jpg" alt="Gojo Satoru usando su técnica Vacío Infinito en Jujutsu Kaisen" loading="lazy" class="imagen-producto" data-titulo="Gojo Satoru - Vacío Infinito" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -338,7 +410,7 @@
                         </div>
                     </article>
                     
-                    <article class="producto-item" data-id="102" data-nombre="Fushiguro Megumi - Diez Sombras" data-precio="12990" data-imagen="https://i.pinimg.com/1200x/b1/19/25/b11925c47eeaca5884262805fe3bf5a6.jpg">
+                    <article class="producto-item" data-id="megumi" data-nombre="Fushiguro Megumi - Diez Sombras" data-precio="12990" data-imagen="https://i.pinimg.com/1200x/b1/19/25/b11925c47eeaca5884262805fe3bf5a6.jpg" data-miniatura1="https://i.pinimg.com/1200x/b1/19/25/b11925c47eeaca5884262805fe3bf5a6.jpg" data-miniatura2="https://i.pinimg.com/1200x/b1/19/25/b11925c47eeaca5884262805fe3bf5a6.jpg" data-miniatura3="https://i.pinimg.com/1200x/b1/19/25/b11925c47eeaca5884262805fe3bf5a6.jpg" data-miniatura4="https://i.pinimg.com/1200x/b1/19/25/b11925c47eeaca5884262805fe3bf5a6.jpg">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/1200x/b1/19/25/b11925c47eeaca5884262805fe3bf5a6.jpg" alt="Fushiguro Megumi de Jujutsu Kaisen invocando sus diez sombras" loading="lazy" class="imagen-producto" data-titulo="Fushiguro Megumi - Diez Sombras" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -349,7 +421,7 @@
                         </div>
                     </article>
 
-                    <article class="producto-item" data-id="103" data-nombre="Itadori y Sukuna" data-precio="12990" data-imagen="https://i.pinimg.com/736x/af/dc/64/afdc6478f0fbcb7f2ffbaba110fb7b15.jpg">
+                    <article class="producto-item" data-id="itadori" data-nombre="Itadori y Sukuna" data-precio="12990" data-imagen="https://i.pinimg.com/736x/af/dc/64/afdc6478f0fbcb7f2ffbaba110fb7b15.jpg" data-miniatura1="https://i.pinimg.com/736x/af/dc/64/afdc6478f0fbcb7f2ffbaba110fb7b15.jpg" data-miniatura2="https://i.pinimg.com/736x/af/dc/64/afdc6478f0fbcb7f2ffbaba110fb7b15.jpg" data-miniatura3="https://i.pinimg.com/736x/af/dc/64/afdc6478f0fbcb7f2ffbaba110fb7b15.jpg" data-miniatura4="https://i.pinimg.com/736x/af/dc/64/afdc6478f0fbcb7f2ffbaba110fb7b15.jpg">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/af/dc/64/afdc6478f0fbcb7f2ffbaba110fb7b15.jpg" alt="Yuji Itadori con Sukuna en su interior mostrando marcas malditas" loading="lazy" class="imagen-producto" data-titulo="Itadori y Sukuna" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -360,7 +432,7 @@
                         </div>
                     </article>
 
-                    <article class="producto-item" data-id="104" data-nombre="Sukuna - Rey de las Maldiciones" data-precio="12990" data-imagen="https://i.pinimg.com/736x/42/a5/99/42a59994cf3b5e2988ded5bcbaab40b7.jpg">
+                    <article class="producto-item" data-id="sukuna" data-nombre="Sukuna - Rey de las Maldiciones" data-precio="12990" data-imagen="https://i.pinimg.com/736x/42/a5/99/42a59994cf3b5e2988ded5bcbaab40b7.jpg" data-miniatura1="https://i.pinimg.com/736x/42/a5/99/42a59994cf3b5e2988ded5bcbaab40b7.jpg" data-miniatura2="https://i.pinimg.com/736x/42/a5/99/42a59994cf3b5e2988ded5bcbaab40b7.jpg" data-miniatura3="https://i.pinimg.com/736x/42/a5/99/42a59994cf3b5e2988ded5bcbaab40b7.jpg" data-miniatura4="https://i.pinimg.com/736x/42/a5/99/42a59994cf3b5e2988ded5bcbaab40b7.jpg">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/42/a5/99/42a59994cf3b5e2988ded5bcbaab40b7.jpg" alt="Ryoumen Sukuna, el Rey de las Maldiciones de Jujutsu Kaisen" loading="lazy" class="imagen-producto" data-titulo="Sukuna - Rey de las Maldiciones" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -371,7 +443,7 @@
                         </div>
                     </article>
 
-                    <article class="producto-item" data-id="105" data-nombre="Gojo Satoru" data-precio="12990" data-imagen="https://i.pinimg.com/736x/8c/18/2c/8c182cc0aade3785ec9e605c6e01f77d.jpg">
+                    <article class="producto-item" data-id="gojo2" data-nombre="Gojo Satoru" data-precio="12990" data-imagen="https://i.pinimg.com/736x/8c/18/2c/8c182cc0aade3785ec9e605c6e01f77d.jpg" data-miniatura1="https://i.pinimg.com/736x/8c/18/2c/8c182cc0aade3785ec9e605c6e01f77d.jpg" data-miniatura2="https://i.pinimg.com/736x/8c/18/2c/8c182cc0aade3785ec9e605c6e01f77d.jpg" data-miniatura3="https://i.pinimg.com/736x/8c/18/2c/8c182cc0aade3785ec9e605c6e01f77d.jpg" data-miniatura4="https://i.pinimg.com/736x/8c/18/2c/8c182cc0aade3785ec9e605c6e01f77d.jpg">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/8c/18/2c/8c182cc0aade3785ec9e605c6e01f77d.jpg" alt="Gojo Satoru riendo con sus ojos vendados - Jujutsu Kaisen" loading="lazy" class="imagen-producto" data-titulo="Gojo Satoru" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -382,7 +454,7 @@
                         </div>
                     </article>
 
-                    <article class="producto-item" data-id="106" data-nombre="Sukuna - Expansión de Dominio" data-precio="12990" data-imagen="https://i.pinimg.com/736x/5e/0d/d5/5e0dd5c94ebce6e916bdabb3b84204ed.jpg">
+                    <article class="producto-item" data-id="sukuna2" data-nombre="Sukuna - Expansión de Dominio" data-precio="12990" data-imagen="https://i.pinimg.com/736x/5e/0d/d5/5e0dd5c94ebce6e916bdabb3b84204ed.jpg" data-miniatura1="https://i.pinimg.com/736x/5e/0d/d5/5e0dd5c94ebce6e916bdabb3b84204ed.jpg" data-miniatura2="https://i.pinimg.com/736x/5e/0d/d5/5e0dd5c94ebce6e916bdabb3b84204ed.jpg" data-miniatura3="https://i.pinimg.com/736x/5e/0d/d5/5e0dd5c94ebce6e916bdabb3b84204ed.jpg" data-miniatura4="https://i.pinimg.com/736x/5e/0d/d5/5e0dd5c94ebce6e916bdabb3b84204ed.jpg">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/5e/0d/d5/5e0dd5c94ebce6e916bdabb3b84204ed.jpg" alt="Sukuna realizando su expansión de dominio en Jujutsu Kaisen" loading="lazy" class="imagen-producto" data-titulo="Sukuna - Expansión de Dominio" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -393,7 +465,7 @@
                         </div>
                     </article>
 
-                    <article class="producto-item" data-id="107" data-nombre="Gojo vs Sukuna" data-precio="12990" data-imagen="https://i.pinimg.com/736x/64/e1/74/64e1742998e41bc447387014cf8d72ba.jpg">
+                    <article class="producto-item" data-id="gojo-vs-sukuna" data-nombre="Gojo vs Sukuna" data-precio="12990" data-imagen="https://i.pinimg.com/736x/64/e1/74/64e1742998e41bc447387014cf8d72ba.jpg" data-miniatura1="https://i.pinimg.com/736x/64/e1/74/64e1742998e41bc447387014cf8d72ba.jpg" data-miniatura2="https://i.pinimg.com/736x/64/e1/74/64e1742998e41bc447387014cf8d72ba.jpg" data-miniatura3="https://i.pinimg.com/736x/64/e1/74/64e1742998e41bc447387014cf8d72ba.jpg" data-miniatura4="https://i.pinimg.com/736x/64/e1/74/64e1742998e41bc447387014cf8d72ba.jpg">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/64/e1/74/64e1742998e41bc447387014cf8d72ba.jpg" alt="Gojo Satoru enfrentándose a Sukuna en Jujutsu Kaisen" loading="lazy" class="imagen-producto" data-titulo="Gojo vs Sukuna" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -443,7 +515,7 @@
                 </div>
                 
                 <div class="galeria-productos" id="galeria-naruto">
-                    <article class="producto-item" data-id="201" data-nombre="Kakashi Hatake" data-precio="12990" data-imagen="https://i.pinimg.com/736x/d8/4e/7c/d84e7c4035da4a67c13a947ee6e8a9b3.jpg">
+                    <article class="producto-item" data-id="kakashi" data-nombre="Kakashi Hatake" data-precio="12990" data-imagen="https://i.pinimg.com/736x/d8/4e/7c/d84e7c4035da4a67c13a947ee6e8a9b3.jpg" data-miniatura1="https://i.pinimg.com/736x/d8/4e/7c/d84e7c4035da4a67c13a947ee6e8a9b3.jpg" data-miniatura2="https://i.pinimg.com/736x/d8/4e/7c/d84e7c4035da4a67c13a947ee6e8a9b3.jpg" data-miniatura3="https://i.pinimg.com/736x/d8/4e/7c/d84e7c4035da4a67c13a947ee6e8a9b3.jpg" data-miniatura4="https://i.pinimg.com/736x/d8/4e/7c/d84e7c4035da4a67c13a947ee6e8a9b3.jpg">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/d8/4e/7c/d84e7c4035da4a67c13a947ee6e8a9b3.jpg" alt="Kakashi Hatake de Naruto con su característico libro y máscara" loading="lazy" class="imagen-producto" data-titulo="Kakashi Hatake" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -454,7 +526,7 @@
                         </div>
                     </article>
                     
-                    <article class="producto-item" data-id="202" data-nombre="Itachi Uchiha" data-precio="12990" data-imagen="https://i.pinimg.com/736x/05/8d/75/058d752862d326e3253cc58f07d776bf.jpg">
+                    <article class="producto-item" data-id="itachi" data-nombre="Itachi Uchiha" data-precio="12990" data-imagen="https://i.pinimg.com/736x/05/8d/75/058d752862d326e3253cc58f07d776bf.jpg" data-miniatura1="https://i.pinimg.com/736x/05/8d/75/058d752862d326e3253cc58f07d776bf.jpg" data-miniatura2="https://i.pinimg.com/736x/05/8d/75/058d752862d326e3253cc58f07d776bf.jpg" data-miniatura3="https://i.pinimg.com/736x/05/8d/75/058d752862d326e3253cc58f07d776bf.jpg" data-miniatura4="https://i.pinimg.com/736x/05/8d/75/058d752862d326e3253cc58f07d776bf.jpg">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/05/8d/75/058d752862d326e3253cc58f07d776bf.jpg" alt="Itachi Uchiha con capa de Akatsuki y sharingan activado" loading="lazy" class="imagen-producto" data-titulo="Itachi Uchiha" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -465,7 +537,7 @@
                         </div>
                     </article>
                     
-                    <article class="producto-item" data-id="203" data-nombre="Gaara del Desierto" data-precio="12990" data-imagen="https://i.pinimg.com/736x/5e/28/e1/5e28e12f8a86436e4475f4ba7740ad15.jpg">
+                    <article class="producto-item" data-id="gaara" data-nombre="Gaara del Desierto" data-precio="12990" data-imagen="https://i.pinimg.com/736x/5e/28/e1/5e28e12f8a86436e4475f4ba7740ad15.jpg" data-miniatura1="https://i.pinimg.com/736x/5e/28/e1/5e28e12f8a86436e4475f4ba7740ad15.jpg" data-miniatura2="https://i.pinimg.com/736x/5e/28/e1/5e28e12f8a86436e4475f4ba7740ad15.jpg" data-miniatura3="https://i.pinimg.com/736x/5e/28/e1/5e28e12f8a86436e4475f4ba7740ad15.jpg" data-miniatura4="https://i.pinimg.com/736x/5e/28/e1/5e28e12f8a86436e4475f4ba7740ad15.jpg">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/5e/28/e1/5e28e12f8a86436e4475f4ba7740ad15.jpg" alt="Gaara del Desierto con su armadura de Kazekage y arena" loading="lazy" class="imagen-producto" data-titulo="Gaara del Desierto" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -476,7 +548,7 @@
                         </div>
                     </article>
                     
-                    <article class="producto-item" data-id="204" data-nombre="Pain (Nagato)" data-precio="12990" data-imagen="https://i.pinimg.com/736x/cb/0d/cd/cb0dcd7dcd663ae3b44b8feaa1a310af.jpg">
+                    <article class="producto-item" data-id="pain" data-nombre="Pain (Nagato)" data-precio="12990" data-imagen="https://i.pinimg.com/736x/cb/0d/cd/cb0dcd7dcd663ae3b44b8feaa1a310af.jpg" data-miniatura1="https://i.pinimg.com/736x/cb/0d/cd/cb0dcd7dcd663ae3b44b8feaa1a310af.jpg" data-miniatura2="https://i.pinimg.com/736x/cb/0d/cd/cb0dcd7dcd663ae3b44b8feaa1a310af.jpg" data-miniatura3="https://i.pinimg.com/736x/cb/0d/cd/cb0dcd7dcd663ae3b44b8feaa1a310af.jpg" data-miniatura4="https://i.pinimg.com/736x/cb/0d/cd/cb0dcd7dcd663ae3b44b8feaa1a310af.jpg">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/cb/0d/cd/cb0dcd7dcd663ae3b44b8feaa1a310af.jpg" alt="Pain (Nagato) de Naruto con sus anillos y ojos Rinnegan" loading="lazy" class="imagen-producto" data-titulo="Pain (Nagato)" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -487,7 +559,7 @@
                         </div>
                     </article>
                     
-                    <article class="producto-item" data-id="205" data-nombre="Naruto - Modo Sabio" data-precio="12990" data-imagen="https://i.pinimg.com/736x/ca/94/1f/ca941f5ac131c06a6323d2b422870e49.jpg">
+                    <article class="producto-item" data-id="naruto-sabio" data-nombre="Naruto - Modo Sabio" data-precio="12990" data-imagen="https://i.pinimg.com/736x/ca/94/1f/ca941f5ac131c06a6323d2b422870e49.jpg" data-miniatura1="https://i.pinimg.com/736x/ca/94/1f/ca941f5ac131c06a6323d2b422870e49.jpg" data-miniatura2="https://i.pinimg.com/736x/ca/94/1f/ca941f5ac131c06a6323d2b422870e49.jpg" data-miniatura3="https://i.pinimg.com/736x/ca/94/1f/ca941f5ac131c06a6323d2b422870e49.jpg" data-miniatura4="https://i.pinimg.com/736x/ca/94/1f/ca941f5ac131c06a6323d2b422870e49.jpg">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/ca/94/1f/ca941f5ac131c06a6323d2b422870e49.jpg" alt="Naruto Uzumaki en modo sabio con Kurama" loading="lazy" class="imagen-producto" data-titulo="Naruto - Modo Sabio" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -498,7 +570,7 @@
                         </div>
                     </article>
                     
-                    <article class="producto-item" data-id="206" data-nombre="Equipo 7" data-precio="12990" data-imagen="https://i.pinimg.com/736x/fe/a9/91/fea9915a4b466ff3507135c8f5a2002b.jpg">
+                    <article class="producto-item" data-id="equipo7" data-nombre="Equipo 7" data-precio="12990" data-imagen="https://i.pinimg.com/736x/fe/a9/91/fea9915a4b466ff3507135c8f5a2002b.jpg" data-miniatura1="https://i.pinimg.com/736x/fe/a9/91/fea9915a4b466ff3507135c8f5a2002b.jpg" data-miniatura2="https://i.pinimg.com/736x/fe/a9/91/fea9915a4b466ff3507135c8f5a2002b.jpg" data-miniatura3="https://i.pinimg.com/736x/fe/a9/91/fea9915a4b466ff3507135c8f5a2002b.jpg" data-miniatura4="https://i.pinimg.com/736x/fe/a9/91/fea9915a4b466ff3507135c8f5a2002b.jpg">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/fe/a9/91/fea9915a4b466ff3507135c8f5a2002b.jpg" alt="Equipo 7 completo: Naruto, Sasuke, Sakura y Kakashi" loading="lazy" class="imagen-producto" data-titulo="Equipo 7" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -509,7 +581,7 @@
                         </div>
                     </article>
                     
-                    <article class="producto-item" data-id="207" data-nombre="Minato Namikaze" data-precio="12990" data-imagen="https://i.pinimg.com/736x/ab/6e/35/ab6e3521fb956c195a1a84122c59e243.jpg">
+                    <article class="producto-item" data-id="minato" data-nombre="Minato Namikaze" data-precio="12990" data-imagen="https://i.pinimg.com/736x/ab/6e/35/ab6e3521fb956c195a1a84122c59e243.jpg" data-miniatura1="https://i.pinimg.com/736x/ab/6e/35/ab6e3521fb956c195a1a84122c59e243.jpg" data-miniatura2="https://i.pinimg.com/736x/ab/6e/35/ab6e3521fb956c195a1a84122c59e243.jpg" data-miniatura3="https://i.pinimg.com/736x/ab/6e/35/ab6e3521fb956c195a1a84122c59e243.jpg" data-miniatura4="https://i.pinimg.com/736x/ab/6e/35/ab6e3521fb956c195a1a84122c59e243.jpg">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/ab/6e/35/ab6e3521fb956c195a1a84122c59e243.jpg" alt="Minato Namikaze (Cuarto Hokage) con su capa" loading="lazy" class="imagen-producto" data-titulo="Minato Namikaze" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -520,7 +592,7 @@
                         </div>
                     </article>
                     
-                    <article class="producto-item" data-id="208" data-nombre="Obito Uchiha" data-precio="12990" data-imagen="https://i.pinimg.com/1200x/d9/da/31/d9da317661d342f95226fad1d5f37d2e.jpg">
+                    <article class="producto-item" data-id="obito" data-nombre="Obito Uchiha" data-precio="12990" data-imagen="https://i.pinimg.com/1200x/d9/da/31/d9da317661d342f95226fad1d5f37d2e.jpg" data-miniatura1="https://i.pinimg.com/1200x/d9/da/31/d9da317661d342f95226fad1d5f37d2e.jpg" data-miniatura2="https://i.pinimg.com/1200x/d9/da/31/d9da317661d342f95226fad1d5f37d2e.jpg" data-miniatura3="https://i.pinimg.com/1200x/d9/da/31/d9da317661d342f95226fad1d5f37d2e.jpg" data-miniatura4="https://i.pinimg.com/1200x/d9/da/31/d9da317661d342f95226fad1d5f37d2e.jpg">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/1200x/d9/da/31/d9da317661d342f95226fad1d5f37d2e.jpg" alt="Obito Uchiha con máscara de Akatsuki" loading="lazy" class="imagen-producto" data-titulo="Obito Uchiha" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -545,7 +617,7 @@
                 </div>
                 
                 <div class="galeria-productos" id="galeria-dragonball">
-                    <article class="producto-item" data-id="301" data-nombre="Goku Ultra Instinct" data-precio="12990" data-imagen="https://i.pinimg.com/736x/c9/b8/46/c9b8463009a7d867bfe30411b33a719b.jpg">
+                    <article class="producto-item" data-id="goku-ui" data-nombre="Goku Ultra Instinct" data-precio="12990" data-imagen="https://i.pinimg.com/736x/c9/b8/46/c9b8463009a7d867bfe30411b33a719b.jpg" data-miniatura1="https://i.pinimg.com/736x/c9/b8/46/c9b8463009a7d867bfe30411b33a719b.jpg" data-miniatura2="https://i.pinimg.com/736x/c9/b8/46/c9b8463009a7d867bfe30411b33a719b.jpg" data-miniatura3="https://i.pinimg.com/736x/c9/b8/46/c9b8463009a7d867bfe30411b33a719b.jpg" data-miniatura4="https://i.pinimg.com/736x/c9/b8/46/c9b8463009a7d867bfe30411b33a719b.jpg">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/c9/b8/46/c9b8463009a7d867bfe30411b33a719b.jpg" alt="Goku en Ultra Instinct con aura plateada - Dragon Ball Super" loading="lazy" class="imagen-producto" data-titulo="Goku Ultra Instinct" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -556,7 +628,7 @@
                         </div>
                     </article>
                     
-                    <article class="producto-item" data-id="302" data-nombre="Vegeta Super Saiyan Blue" data-precio="12990" data-imagen="https://i.pinimg.com/736x/72/53/f1/7253f13e20a4a467fd2567addd9309eb.jpg">
+                    <article class="producto-item" data-id="vegeta" data-nombre="Vegeta Super Saiyan Blue" data-precio="12990" data-imagen="https://i.pinimg.com/736x/72/53/f1/7253f13e20a4a467fd2567addd9309eb.jpg" data-miniatura1="https://i.pinimg.com/736x/72/53/f1/7253f13e20a4a467fd2567addd9309eb.jpg" data-miniatura2="https://i.pinimg.com/736x/72/53/f1/7253f13e20a4a467fd2567addd9309eb.jpg" data-miniatura3="https://i.pinimg.com/736x/72/53/f1/7253f13e20a4a467fd2567addd9309eb.jpg" data-miniatura4="https://i.pinimg.com/736x/72/53/f1/7253f13e20a4a467fd2567addd9309eb.jpg">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/72/53/f1/7253f13e20a4a467fd2567addd9309eb.jpg" alt="Vegeta en Super Saiyan Blue con ataque final flash" loading="lazy" class="imagen-producto" data-titulo="Vegeta Super Saiyan Blue" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -567,7 +639,7 @@
                         </div>
                     </article>
                     
-                    <article class="producto-item" data-id="303" data-nombre="Broly Legendario" data-precio="12990" data-imagen="https://i.pinimg.com/736x/41/b8/09/41b80935a11868d8302caacc0903774c.jpg">
+                    <article class="producto-item" data-id="broly" data-nombre="Broly Legendario" data-precio="12990" data-imagen="https://i.pinimg.com/736x/41/b8/09/41b80935a11868d8302caacc0903774c.jpg" data-miniatura1="https://i.pinimg.com/736x/41/b8/09/41b80935a11868d8302caacc0903774c.jpg" data-miniatura2="https://i.pinimg.com/736x/41/b8/09/41b80935a11868d8302caacc0903774c.jpg" data-miniatura3="https://i.pinimg.com/736x/41/b8/09/41b80935a11868d8302caacc0903774c.jpg" data-miniatura4="https://i.pinimg.com/736x/41/b8/09/41b80935a11868d8302caacc0903774c.jpg">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/41/b8/09/41b80935a11868d8302caacc0903774c.jpg" alt="Broly Legendario en estado de furia - Dragon Ball Super" loading="lazy" class="imagen-producto" data-titulo="Broly Legendario" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -578,7 +650,7 @@
                         </div>
                     </article>
                     
-                    <article class="producto-item" data-id="304" data-nombre="Gohan Beast" data-precio="12990" data-imagen="https://i.pinimg.com/736x/04/5e/37/045e379d99a00d3d13524bee9c02ce22.jpg">
+                    <article class="producto-item" data-id="gohan" data-nombre="Gohan Beast" data-precio="12990" data-imagen="https://i.pinimg.com/736x/04/5e/37/045e379d99a00d3d13524bee9c02ce22.jpg" data-miniatura1="https://i.pinimg.com/736x/04/5e/37/045e379d99a00d3d13524bee9c02ce22.jpg" data-miniatura2="https://i.pinimg.com/736x/04/5e/37/045e379d99a00d3d13524bee9c02ce22.jpg" data-miniatura3="https://i.pinimg.com/736x/04/5e/37/045e379d99a00d3d13524bee9c02ce22.jpg" data-miniatura4="https://i.pinimg.com/736x/04/5e/37/045e379d99a00d3d13524bee9c02ce22.jpg">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/04/5e/37/045e379d99a00d3d13524bee9c02ce22.jpg" alt="Gohan en su forma Beast - Dragon Ball Super" loading="lazy" class="imagen-producto" data-titulo="Gohan Beast" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -589,7 +661,7 @@
                         </div>
                     </article>
                     
-                    <article class="producto-item" data-id="305" data-nombre="Freezer Dorado" data-precio="12990" data-imagen="https://i.pinimg.com/736x/c5/17/ad/c517ade4c4054045bf79001280c3187f.jpg">
+                    <article class="producto-item" data-id="freezer" data-nombre="Freezer Dorado" data-precio="12990" data-imagen="https://i.pinimg.com/736x/c5/17/ad/c517ade4c4054045bf79001280c3187f.jpg" data-miniatura1="https://i.pinimg.com/736x/c5/17/ad/c517ade4c4054045bf79001280c3187f.jpg" data-miniatura2="https://i.pinimg.com/736x/c5/17/ad/c517ade4c4054045bf79001280c3187f.jpg" data-miniatura3="https://i.pinimg.com/736x/c5/17/ad/c517ade4c4054045bf79001280c3187f.jpg" data-miniatura4="https://i.pinimg.com/736x/c5/17/ad/c517ade4c4054045bf79001280c3187f.jpg">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/c5/17/ad/c517ade4c4054045bf79001280c3187f.jpg" alt="Freezer en su forma dorada - Dragon Ball Super" loading="lazy" class="imagen-producto" data-titulo="Freezer Dorado" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -600,7 +672,7 @@
                         </div>
                     </article>
                     
-                    <article class="producto-item" data-id="306" data-nombre="Trunks del Futuro" data-precio="12990" data-imagen="https://i.pinimg.com/1200x/d9/0f/2e/d90f2e9898ae904b4e280083a9f94b25.jpg">
+                    <article class="producto-item" data-id="trunks" data-nombre="Trunks del Futuro" data-precio="12990" data-imagen="https://i.pinimg.com/1200x/d9/0f/2e/d90f2e9898ae904b4e280083a9f94b25.jpg" data-miniatura1="https://i.pinimg.com/1200x/d9/0f/2e/d90f2e9898ae904b4e280083a9f94b25.jpg" data-miniatura2="https://i.pinimg.com/1200x/d9/0f/2e/d90f2e9898ae904b4e280083a9f94b25.jpg" data-miniatura3="https://i.pinimg.com/1200x/d9/0f/2e/d90f2e9898ae904b4e280083a9f94b25.jpg" data-miniatura4="https://i.pinimg.com/1200x/d9/0f/2e/d90f2e9898ae904b4e280083a9f94b25.jpg">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/1200x/d9/0f/2e/d90f2e9898ae904b4e280083a9f94b25.jpg" alt="Trunks del Futuro con su espada - Dragon Ball Z" loading="lazy" class="imagen-producto" data-titulo="Trunks del Futuro" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -611,7 +683,7 @@
                         </div>
                     </article>
                     
-                    <article class="producto-item" data-id="307" data-nombre="Cell Perfecto" data-precio="12990" data-imagen="https://i.pinimg.com/736x/77/95/3b/77953b2d7443e87305b680cf9b8684f0.jpg">
+                    <article class="producto-item" data-id="cell" data-nombre="Cell Perfecto" data-precio="12990" data-imagen="https://i.pinimg.com/736x/77/95/3b/77953b2d7443e87305b680cf9b8684f0.jpg" data-miniatura1="https://i.pinimg.com/736x/77/95/3b/77953b2d7443e87305b680cf9b8684f0.jpg" data-miniatura2="https://i.pinimg.com/736x/77/95/3b/77953b2d7443e87305b680cf9b8684f0.jpg" data-miniatura3="https://i.pinimg.com/736x/77/95/3b/77953b2d7443e87305b680cf9b8684f0.jpg" data-miniatura4="https://i.pinimg.com/736x/77/95/3b/77953b2d7443e87305b680cf9b8684f0.jpg">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/77/95/3b/77953b2d7443e87305b680cf9b8684f0.jpg" alt="Cell en su forma perfecta - Dragon Ball Z" loading="lazy" class="imagen-producto" data-titulo="Cell Perfecto" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -622,7 +694,7 @@
                         </div>
                     </article>
                     
-                    <article class="producto-item" data-id="308" data-nombre="Gotenks" data-precio="12990" data-imagen="https://i.pinimg.com/736x/29/f4/0f/29f40f346822b9f7a40ec2137acb98fb.jpg">
+                    <article class="producto-item" data-id="gotenks" data-nombre="Gotenks" data-precio="12990" data-imagen="https://i.pinimg.com/736x/29/f4/0f/29f40f346822b9f7a40ec2137acb98fb.jpg" data-miniatura1="https://i.pinimg.com/736x/29/f4/0f/29f40f346822b9f7a40ec2137acb98fb.jpg" data-miniatura2="https://i.pinimg.com/736x/29/f4/0f/29f40f346822b9f7a40ec2137acb98fb.jpg" data-miniatura3="https://i.pinimg.com/736x/29/f4/0f/29f40f346822b9f7a40ec2137acb98fb.jpg" data-miniatura4="https://i.pinimg.com/736x/29/f4/0f/29f40f346822b9f7a40ec2137acb98fb.jpg">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/29/f4/0f/29f40f346822b9f7a40ec2137acb98fb.jpg" alt="Gotenks fusionado - Dragon Ball Z" loading="lazy" class="imagen-producto" data-titulo="Gotenks" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -647,7 +719,7 @@
                 </div>
                 
                 <div class="galeria-productos" id="galeria-demonslayer">
-                    <article class="producto-item" data-id="401" data-nombre="Tanjiro Kamado" data-precio="12990" data-imagen="https://i.pinimg.com/736x/8b/21/73/8b21736cff54039ea90ce242cb1b8b19.jpg">
+                    <article class="producto-item" data-id="tanjiro" data-nombre="Tanjiro Kamado" data-precio="12990" data-imagen="https://i.pinimg.com/736x/8b/21/73/8b21736cff54039ea90ce242cb1b8b19.jpg" data-miniatura1="https://i.pinimg.com/736x/8b/21/73/8b21736cff54039ea90ce242cb1b8b19.jpg" data-miniatura2="https://i.pinimg.com/736x/8b/21/73/8b21736cff54039ea90ce242cb1b8b19.jpg" data-miniatura3="https://i.pinimg.com/736x/8b/21/73/8b21736cff54039ea90ce242cb1b8b19.jpg" data-miniatura4="https://i.pinimg.com/736x/8b/21/73/8b21736cff54039ea90ce242cb1b8b19.jpg">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/8b/21/73/8b21736cff54039ea90ce242cb1b8b19.jpg" alt="Tanjiro Kamado con su espada y aretes de sol - Demon Slayer" loading="lazy" class="imagen-producto" data-titulo="Tanjiro Kamado" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -658,7 +730,7 @@
                         </div>
                     </article>
                     
-                    <article class="producto-item" data-id="402" data-nombre="Nezuko Kamado" data-precio="12990" data-imagen="https://i.pinimg.com/736x/d6/41/68/d6416851ec176b29aa89bb2151e7b9b7.jpg">
+                    <article class="producto-item" data-id="nezuko" data-nombre="Nezuko Kamado" data-precio="12990" data-imagen="https://i.pinimg.com/736x/d6/41/68/d6416851ec176b29aa89bb2151e7b9b7.jpg" data-miniatura1="https://i.pinimg.com/736x/d6/41/68/d6416851ec176b29aa89bb2151e7b9b7.jpg" data-miniatura2="https://i.pinimg.com/736x/d6/41/68/d6416851ec176b29aa89bb2151e7b9b7.jpg" data-miniatura3="https://i.pinimg.com/736x/d6/41/68/d6416851ec176b29aa89bb2151e7b9b7.jpg" data-miniatura4="https://i.pinimg.com/736x/d6/41/68/d6416851ec176b29aa89bb2151e7b9b7.jpg">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/d6/41/68/d6416851ec176b29aa89bb2151e7b9b7.jpg" alt="Nezuko Kamado con su característico bozal y kimono - Demon Slayer" loading="lazy" class="imagen-producto" data-titulo="Nezuko Kamado" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -669,7 +741,7 @@
                         </div>
                     </article>
                     
-                    <article class="producto-item" data-id="403" data-nombre="Zenitsu Agatsuma" data-precio="12990" data-imagen="https://i.pinimg.com/736x/c8/80/79/c880791ccae3cae66ea13f1889f588a6.jpg">
+                    <article class="producto-item" data-id="zenitsu" data-nombre="Zenitsu Agatsuma" data-precio="12990" data-imagen="https://i.pinimg.com/736x/c8/80/79/c880791ccae3cae66ea13f1889f588a6.jpg" data-miniatura1="https://i.pinimg.com/736x/c8/80/79/c880791ccae3cae66ea13f1889f588a6.jpg" data-miniatura2="https://i.pinimg.com/736x/c8/80/79/c880791ccae3cae66ea13f1889f588a6.jpg" data-miniatura3="https://i.pinimg.com/736x/c8/80/79/c880791ccae3cae66ea13f1889f588a6.jpg" data-miniatura4="https://i.pinimg.com/736x/c8/80/79/c880791ccae3cae66ea13f1889f588a6.jpg">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/c8/80/79/c880791ccae3cae66ea13f1889f588a6.jpg" alt="Zenitsu Agatsuma con su espada y postura de sueño - Demon Slayer" loading="lazy" class="imagen-producto" data-titulo="Zenitsu Agatsuma" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -680,7 +752,7 @@
                         </div>
                     </article>
                     
-                    <article class="producto-item" data-id="404" data-nombre="Inosuke Hashibira" data-precio="12990" data-imagen="https://i.pinimg.com/736x/99/b0/c9/99b0c9fe131e3df4fd66af3c2397c61b.jpg">
+                    <article class="producto-item" data-id="inosuke" data-nombre="Inosuke Hashibira" data-precio="12990" data-imagen="https://i.pinimg.com/736x/99/b0/c9/99b0c9fe131e3df4fd66af3c2397c61b.jpg" data-miniatura1="https://i.pinimg.com/736x/99/b0/c9/99b0c9fe131e3df4fd66af3c2397c61b.jpg" data-miniatura2="https://i.pinimg.com/736x/99/b0/c9/99b0c9fe131e3df4fd66af3c2397c61b.jpg" data-miniatura3="https://i.pinimg.com/736x/99/b0/c9/99b0c9fe131e3df4fd66af3c2397c61b.jpg" data-miniatura4="https://i.pinimg.com/736x/99/b0/c9/99b0c9fe131e3df4fd66af3c2397c61b.jpg">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/99/b0/c9/99b0c9fe131e3df4fd66af3c2397c61b.jpg" alt="Inosuke Hashibira con máscara de jabalí y espadas - Demon Slayer" loading="lazy" class="imagen-producto" data-titulo="Inosuke Hashibira" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -691,7 +763,7 @@
                         </div>
                     </article>
                     
-                    <article class="producto-item" data-id="405" data-nombre="Rengoku Kyojuro" data-precio="12990" data-imagen="https://i.pinimg.com/736x/0d/63/46/0d6346a83cb2d5c2bc02c6d621e09e14.jpg">
+                    <article class="producto-item" data-id="rengoku" data-nombre="Rengoku Kyojuro" data-precio="12990" data-imagen="https://i.pinimg.com/736x/0d/63/46/0d6346a83cb2d5c2bc02c6d621e09e14.jpg" data-miniatura1="https://i.pinimg.com/736x/0d/63/46/0d6346a83cb2d5c2bc02c6d621e09e14.jpg" data-miniatura2="https://i.pinimg.com/736x/0d/63/46/0d6346a83cb2d5c2bc02c6d621e09e14.jpg" data-miniatura3="https://i.pinimg.com/736x/0d/63/46/0d6346a83cb2d5c2bc02c6d621e09e14.jpg" data-miniatura4="https://i.pinimg.com/736x/0d/63/46/0d6346a83cb2d5c2bc02c6d621e09e14.jpg">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/0d/63/46/0d6346a83cb2d5c2bc02c6d621e09e14.jpg" alt="Rengoku Kyojuro con su llama inextinguible - Demon Slayer" loading="lazy" class="imagen-producto" data-titulo="Rengoku Kyojuro" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -702,7 +774,7 @@
                         </div>
                     </article>
                     
-                    <article class="producto-item" data-id="406" data-nombre="Shinobu Kocho" data-precio="12990" data-imagen="https://i.pinimg.com/736x/c2/09/b6/c209b6aab00e1c7007dd119ffbdbe1ac.jpg">
+                    <article class="producto-item" data-id="shinobu" data-nombre="Shinobu Kocho" data-precio="12990" data-imagen="https://i.pinimg.com/736x/c2/09/b6/c209b6aab00e1c7007dd119ffbdbe1ac.jpg" data-miniatura1="https://i.pinimg.com/736x/c2/09/b6/c209b6aab00e1c7007dd119ffbdbe1ac.jpg" data-miniatura2="https://i.pinimg.com/736x/c2/09/b6/c209b6aab00e1c7007dd119ffbdbe1ac.jpg" data-miniatura3="https://i.pinimg.com/736x/c2/09/b6/c209b6aab00e1c7007dd119ffbdbe1ac.jpg" data-miniatura4="https://i.pinimg.com/736x/c2/09/b6/c209b6aab00e1c7007dd119ffbdbe1ac.jpg">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/c2/09/b6/c209b6aab00e1c7007dd119ffbdbe1ac.jpg" alt="Shinobu Kocho con su espada mariposa - Demon Slayer" loading="lazy" class="imagen-producto" data-titulo="Shinobu Kocho" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -713,7 +785,7 @@
                         </div>
                     </article>
                     
-                    <article class="producto-item" data-id="407" data-nombre="Giyu Tomioka" data-precio="12990" data-imagen="https://i.pinimg.com/736x/2b/b0/1d/2bb01db4ac506c76a9f2a27dde7ea129.jpg">
+                    <article class="producto-item" data-id="giyu" data-nombre="Giyu Tomioka" data-precio="12990" data-imagen="https://i.pinimg.com/736x/2b/b0/1d/2bb01db4ac506c76a9f2a27dde7ea129.jpg" data-miniatura1="https://i.pinimg.com/736x/2b/b0/1d/2bb01db4ac506c76a9f2a27dde7ea129.jpg" data-miniatura2="https://i.pinimg.com/736x/2b/b0/1d/2bb01db4ac506c76a9f2a27dde7ea129.jpg" data-miniatura3="https://i.pinimg.com/736x/2b/b0/1d/2bb01db4ac506c76a9f2a27dde7ea129.jpg" data-miniatura4="https://i.pinimg.com/736x/2b/b0/1d/2bb01db4ac506c76a9f2a27dde7ea129.jpg">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/2b/b0/1d/2bb01db4ac506c76a9f2a27dde7ea129.jpg" alt="Giyu Tomioka con su espada y postura de agua - Demon Slayer" loading="lazy" class="imagen-producto" data-titulo="Giyu Tomioka" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -724,7 +796,7 @@
                         </div>
                     </article>
                     
-                    <article class="producto-item" data-id="408" data-nombre="Muzan Kibutsuji" data-precio="12990" data-imagen="https://i.pinimg.com/736x/27/f0/f9/27f0f994aa0ad73a80827aafc1640a09.jpg">
+                    <article class="producto-item" data-id="muzan" data-nombre="Muzan Kibutsuji" data-precio="12990" data-imagen="https://i.pinimg.com/736x/27/f0/f9/27f0f994aa0ad73a80827aafc1640a09.jpg" data-miniatura1="https://i.pinimg.com/736x/27/f0/f9/27f0f994aa0ad73a80827aafc1640a09.jpg" data-miniatura2="https://i.pinimg.com/736x/27/f0/f9/27f0f994aa0ad73a80827aafc1640a09.jpg" data-miniatura3="https://i.pinimg.com/736x/27/f0/f9/27f0f994aa0ad73a80827aafc1640a09.jpg" data-miniatura4="https://i.pinimg.com/736x/27/f0/f9/27f0f994aa0ad73a80827aafc1640a09.jpg">
                         <figure class="contenedor-imagen-producto">
                             <img src="https://i.pinimg.com/736x/27/f0/f9/27f0f994aa0ad73a80827aafc1640a09.jpg" alt="Muzan Kibutsuji, el Rey Demonio - Demon Slayer" loading="lazy" class="imagen-producto" data-titulo="Muzan Kibutsuji" data-medida="20x22 cm" data-precio="12990" width="300" height="200">
                         </figure>
@@ -872,15 +944,24 @@
             // Obtener el modal y elementos
             const modal = document.getElementById('modal-imagen');
             const verDetallesLink = document.getElementById('ver-detalles-link');
-            const modalTitulo = document.getElementById('modal-titulo');
-            const modalMedida = document.getElementById('modal-medida');
-            const modalPrecio = document.getElementById('modal-precio');
             
             // Variable para almacenar los datos del producto actual
             let productoActual = null;
             
-            // Modificar el evento de apertura del modal (desde manu.js)
-            // Sobrescribimos la funcionalidad para capturar los datos del producto
+            // Función para construir la URL con miniaturas
+            function construirURLVisualizacion(producto) {
+                let url = `visualizacion.html?nombre=${encodeURIComponent(producto.nombre)}&precio=${producto.precio}&imagen=${encodeURIComponent(producto.imagen)}`;
+                
+                // Agregar miniaturas si existen
+                if (producto.miniatura1) url += `&miniatura1=${encodeURIComponent(producto.miniatura1)}`;
+                if (producto.miniatura2) url += `&miniatura2=${encodeURIComponent(producto.miniatura2)}`;
+                if (producto.miniatura3) url += `&miniatura3=${encodeURIComponent(producto.miniatura3)}`;
+                if (producto.miniatura4) url += `&miniatura4=${encodeURIComponent(producto.miniatura4)}`;
+                
+                return url;
+            }
+            
+            // Observar cuando el modal se abre
             const observer = new MutationObserver(function(mutations) {
                 if (modal.classList.contains('mostrar')) {
                     const img = document.getElementById('imagen-ampliada');
@@ -893,7 +974,11 @@
                                 productoActual = {
                                     nombre: producto.getAttribute('data-nombre') || imgProducto.getAttribute('data-titulo') || 'Producto',
                                     precio: producto.getAttribute('data-precio') || '12990',
-                                    imagen: img.src
+                                    imagen: img.src,
+                                    miniatura1: producto.getAttribute('data-miniatura1'),
+                                    miniatura2: producto.getAttribute('data-miniatura2'),
+                                    miniatura3: producto.getAttribute('data-miniatura3'),
+                                    miniatura4: producto.getAttribute('data-miniatura4')
                                 };
                                 break;
                             }
@@ -910,7 +995,7 @@
                         
                         // Actualizar enlace del modal
                         if (verDetallesLink) {
-                            verDetallesLink.href = `visualizacion.html?nombre=${encodeURIComponent(productoActual.nombre)}&precio=${productoActual.precio}&imagen=${encodeURIComponent(productoActual.imagen)}`;
+                            verDetallesLink.href = construirURLVisualizacion(productoActual);
                         }
                     }
                 }

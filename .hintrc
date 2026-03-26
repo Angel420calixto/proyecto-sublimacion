@@ -68,7 +68,8 @@
       {
         "ignore": [
           "video[controlslist]",
-          "video[playsinline]"
+          "video[playsinline]",
+          "meta[name=theme-color]"
         ]
       }
     ],
