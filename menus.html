@@ -2,1018 +2,718 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mundo de Fantasía Animal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>SublimArts - Cuadros en Aluminio HD | Anime & Gamer Style</title>
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="real.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prata&family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* =============================================
+           VARIABLES CSS GLOBALES
+           ============================================= */
+        :root {
+            --color-primario: #1a1a2e;
+            --color-secundario: #16213e;
+            --color-terciario: #0f3460;
+            --color-destacado: #e94560;
+            --color-whatsapp: #25D366;
+            --color-texto: #ffffff;
+            --color-texto-secundario: #b8b8d1;
+            --color-fondo: #0d0d1a;
+            --color-borde: #2a2a4a;
+            --color-submenu: #0f0f1f;
+            --sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.3);
+            --sombra-destacada: 0 8px 24px rgba(233, 69, 96, 0.3);
+            --sombra-whatsapp: 0 4px 20px rgba(37, 211, 102, 0.4);
+            --transicion-rapida: all 0.3s ease;
+            --transicion-media: all 0.5s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--color-fondo);
+            color: var(--color-texto);
+            line-height: 1.5;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        body.menu-abierto {
+            overflow: hidden;
+        }
+
+        /* BOTÓN WHATSAPP */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--color-whatsapp);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            z-index: 1000;
+            box-shadow: var(--sombra-whatsapp);
+            transition: var(--transicion-rapida);
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
+
+        /* UTILIDADES */
+        .contenedor-seccion {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        .titulo-seccion {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--color-texto);
+            position: relative;
+            text-align: center;
+            width: 100%;
+        }
+
+        .titulo-seccion::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--color-destacado);
+            border-radius: 3px;
+        }
+
+        .subtitulo-seccion {
+            text-align: center;
+            color: var(--color-texto-secundario);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+            width: 100%;
+        }
+
+        /* HEADER Y NAVEGACIÓN */
+        .header-principal {
+            background-color: var(--color-primario);
+            position: sticky;
+            top: 0;
+            z-index: 10001;
+            box-shadow: var(--sombra-suave);
+        }
+
+        .navegacion { padding: 1rem 0; }
+        .contenedor-navegacion {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-contenedor { display: flex; align-items: center; gap: 10px; }
+        .logo { width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--color-destacado), #ff7b9c); display: flex; align-items: center; justify-content: center; font-size: 28px; }
+        .titulo-logo { font-size: 1.5rem; font-weight: 800; background: linear-gradient(90deg, var(--color-destacado), #ff7b9c); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+        .menu-principal { display: flex; gap: 1.5rem; align-items: center; z-index: 10000; }
+        .enlace-menu { font-weight: 500; font-size: 0.95rem; position: relative; transition: var(--transicion-rapida); padding: 0.5rem 0; color: var(--color-texto); }
+        .enlace-menu:hover { color: var(--color-destacado); }
+        .enlace-menu::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: var(--color-destacado); transition: var(--transicion-rapida); }
+        .enlace-menu:hover::after { width: 100%; }
+
+        .menu-con-desplegable { position: relative; }
+        .enlace-menu-desplegable { display: flex; align-items: center; gap: 5px; background: none; color: var(--color-texto); font-size: 0.95rem; font-weight: 500; cursor: pointer; padding: 0.5rem 0; border: none; }
+        .flecha-desplegable { font-size: 0.8rem; transition: transform 0.3s ease; }
+        .menu-con-desplegable:hover .flecha-desplegable { transform: rotate(180deg); }
+        .menu-con-desplegable:hover .submenu { opacity: 1; visibility: visible; transform: translateY(0); }
+
+        .submenu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--color-submenu);
+            min-width: 220px;
+            border-radius: 8px;
+            box-shadow: var(--sombra-suave);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transicion-rapida);
+            z-index: 100;
+            border-left: 3px solid var(--color-destacado);
+        }
+        .submenu a { display: block; padding: 0.7rem 1.5rem; color: var(--color-texto); font-size: 0.9rem; transition: var(--transicion-rapida); white-space: nowrap; }
+        .submenu a:hover { color: var(--color-destacado); background-color: rgba(233, 69, 96, 0.1); padding-left: 2rem; }
+
+        .iconos-usuario { display: flex; gap: 1.5rem; align-items: center; }
+        .icono-usuario { display: flex; align-items: center; gap: 5px; font-weight: 500; font-size: 0.9rem; transition: var(--transicion-rapida); color: var(--color-texto); }
+        .icono-usuario:hover { color: var(--color-destacado); }
+
+        .boton-menu-mobile { display: none; background: rgba(233, 69, 96, 0.1); color: var(--color-texto); font-size: 1.5rem; width: 44px; height: 44px; border-radius: 8px; align-items: center; justify-content: center; cursor: pointer; }
+        .menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); z-index: 9999; display: none; opacity: 0; transition: opacity 0.3s ease; }
+        .menu-overlay.activo { display: block; opacity: 1; }
+
+        /* MENÚ MÓVIL */
+        @media (max-width: 768px) {
+            .boton-menu-mobile { display: flex; }
+            .menu-principal {
+                position: fixed; top: 0; right: -100%; width: 85%; max-width: 350px; height: 100vh;
+                background-color: var(--color-primario); flex-direction: column; justify-content: flex-start;
+                padding: 80px 0 30px; gap: 0; z-index: 10000; overflow-y: auto;
+                box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5); transition: right 0.3s ease;
+            }
+            .menu-principal.activo { right: 0; }
+            .menu-principal > li { width: 100%; border-bottom: 1px solid rgba(255,255,255,0.1); }
+            .enlace-menu { display: block; padding: 16px 20px; font-size: 1rem; }
+            .menu-con-desplegable { width: 100%; }
+            .enlace-menu-desplegable { display: flex; justify-content: space-between; padding: 16px 20px; }
+            .submenu { position: relative; max-height: 0; overflow: hidden; transition: max-height 0.4s ease; width: 100%; border-left: 4px solid var(--color-destacado); }
+            .menu-con-desplegable.activo .submenu { max-height: 400px; padding: 8px 0; }
+            .submenu a { padding: 12px 20px 12px 35px; }
+            .iconos-usuario { display: none; }
+        }
+
+        /* BANNER PRINCIPAL */
+        .banner-principal {
+            padding: 4rem 0;
+            position: relative;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+        }
+        .contenedor-banner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+        }
+        .contenido-banner { flex: 1; max-width: 600px; }
+        .titulo-banner { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.2; }
+        .texto-banner { font-size: 1.1rem; color: var(--color-texto-secundario); margin-bottom: 2rem; line-height: 1.6; }
+        .boton-banner { display: inline-block; background-color: var(--color-destacado); color: white; padding: 0.8rem 2rem; border-radius: 30px; font-weight: 600; transition: var(--transicion-rapida); }
+        .boton-banner:hover { background-color: #ff5773; transform: translateY(-3px); box-shadow: var(--sombra-destacada); }
+        .imagen-banner { flex: 1; display: flex; justify-content: center; }
+        .imagen-banner img { max-width: 100%; max-height: 500px; border-radius: 12px; box-shadow: var(--sombra-suave); }
+
+        /* =============================================
+           SECCIÓN DINÁMICA: ¿QUÉ SON LOS CUADROS DE ALUMINIO?
+           ============================================= */
+        .seccion-info {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #0d0d1a 0%, #1a1a2e 100%);
+        }
+        .info-grid {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+        .info-grid.reverse { flex-direction: row-reverse; }
+        .info-contenido { flex: 1; min-width: 280px; }
+        .info-contenido h3 { font-size: 1.8rem; margin-bottom: 20px; color: var(--color-destacado); }
+        .info-contenido p { font-size: 1.1rem; line-height: 1.6; color: var(--color-texto-secundario); margin-bottom: 20px; }
+        .info-lista { list-style: none; margin-top: 20px; }
+        .info-lista li { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+        .info-lista li i { color: var(--color-destacado); font-size: 1.2rem; }
+        .info-imagen { flex: 1; min-width: 280px; border-radius: 20px; overflow: hidden; border: 2px solid rgba(233,69,96,0.3); transition: var(--transicion-media); }
+        .info-imagen:hover { transform: scale(1.02); border-color: var(--color-destacado); box-shadow: 0 0 30px rgba(233,69,96,0.3); }
+        .info-imagen img { width: 100%; height: auto; display: block; }
+
+        /* =============================================
+           SECCIÓN BENEFICIOS
+           ============================================= */
+        .seccion-beneficios {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+        }
+        .beneficios-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .beneficio-item {
+            background: rgba(20, 15, 45, 0.4);
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            border: 1px solid rgba(233, 69, 96, 0.2);
+            transition: all 0.3s ease;
+        }
+        .beneficio-item:hover {
+            border-color: var(--color-destacado);
+            transform: translateX(10px);
+            background: rgba(233, 69, 96, 0.05);
+        }
+        .beneficio-icono {
+            font-size: 2.5rem;
+            min-width: 60px;
+            text-align: center;
+            background: linear-gradient(135deg, #00f3ff, #ff3864);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .beneficio-texto h4 { font-size: 1.3rem; margin-bottom: 10px; color: var(--color-destacado); }
+        .beneficio-texto p { color: var(--color-texto-secundario); line-height: 1.5; }
+
+        /* =============================================
+           SECCIÓN CATEGORÍAS
+           ============================================= */
+        .seccion-categorias {
+            padding: 80px 0;
+            background-color: #000000;
+        }
+        .categorias-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 1.5rem;
+            margin-top: 40px;
+        }
+        .categoria-card {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            overflow: hidden;
+            background: rgba(20, 15, 45, 0.3);
+            border: 1px solid rgba(233, 69, 96, 0.3);
+        }
+        .categoria-card:hover { transform: translateY(-8px); border-color: var(--color-destacado); box-shadow: 0 10px 25px rgba(233, 69, 96, 0.2); }
+        .categoria-imagen { width: 100%; height: 250px; overflow: hidden; }
+        .categoria-imagen img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .categoria-card:hover .categoria-imagen img { transform: scale(1.08); }
+        .categoria-card h3 { text-align: center; padding: 1rem; font-size: 1.1rem; font-weight: 600; }
+
+        /* =============================================
+           SECCIÓN VIDEOS EXPLICATIVOS
+           ============================================= */
+        .seccion-videos {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+        }
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .video-card {
+            background: rgba(20, 15, 45, 0.5);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid rgba(110, 69, 226, 0.3);
+            transition: all 0.3s ease;
+        }
+        .video-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--color-destacado);
+            box-shadow: 0 15px 30px rgba(233, 69, 96, 0.3);
+        }
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            background: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .video-info { padding: 20px; }
+        .video-info h3 { font-size: 1.2rem; margin-bottom: 10px; color: #00f3ff; }
+        .video-info p { color: var(--color-texto-secundario); font-size: 0.9rem; }
+
+        /* =============================================
+           SECCIÓN CUADRO EN TU MURO
+           ============================================= */
+        .seccion-muro {
+            padding: 80px 0;
+            background: #000000;
+        }
+        .muro-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .muro-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(233, 69, 96, 0.3);
+        }
+        .muro-item:hover {
+            transform: translateY(-10px);
+            border-color: var(--color-destacado);
+            box-shadow: 0 15px 30px rgba(233, 69, 96, 0.3);
+        }
+        .muro-item img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .muro-item:hover img { transform: scale(1.05); }
+        .muro-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            padding: 20px;
+            text-align: center;
+        }
+        .muro-overlay p { color: white; font-weight: 600; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+
+        /* =============================================
+           RESPONSIVE MÓVIL - SIN BARRAS DE SCROLL VISIBLES
+           ============================================= */
+        @media (max-width: 768px) {
+            /* Banner */
+            .contenedor-banner {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+            .titulo-banner { font-size: 2rem; }
+
+            /* Sección info (imagen + texto) se apila */
+            .info-grid, .info-grid.reverse {
+                flex-direction: column;
+            }
+
+            /* =============================================
+               CATEGORÍAS: 2 COLUMNAS, SIN SCROLL (GRID NORMAL)
+               ============================================= */
+            .categorias-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+                overflow-x: visible;
+            }
+            .categoria-imagen { height: 200px; }
+            .categoria-card h3 { font-size: 0.95rem; padding: 0.8rem; }
+
+            /* =============================================
+               BENEFICIOS: SCROLL HORIZONTAL SIN BARRA VISIBLE
+               ============================================= */
+            .beneficios-grid {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                gap: 20px;
+                padding-bottom: 20px;
+                margin-top: 40px;
+                scroll-behavior: smooth;
+                -webkit-overflow-scrolling: touch;
+                /* Ocultar barra de scroll */
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+            .beneficios-grid::-webkit-scrollbar {
+                display: none;
+            }
+            .beneficio-item {
+                flex: 0 0 85%;
+                scroll-snap-align: start;
+                min-width: 280px;
+            }
+
+            /* =============================================
+               VIDEOS: SCROLL HORIZONTAL SIN BARRA VISIBLE
+               ============================================= */
+            .videos-grid {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                gap: 20px;
+                padding-bottom: 20px;
+                margin-top: 40px;
+                scroll-behavior: smooth;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+            .videos-grid::-webkit-scrollbar {
+                display: none;
+            }
+            .video-card {
+                flex: 0 0 85%;
+                scroll-snap-align: start;
+                min-width: 300px;
+            }
+
+            /* =============================================
+               MURO: SCROLL HORIZONTAL SIN BARRA VISIBLE - 1 IMAGEN = PANTALLA COMPLETA
+               ============================================= */
+            .muro-grid {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                gap: 0;
+                padding: 0;
+                margin-top: 40px;
+                scroll-behavior: smooth;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+            .muro-grid::-webkit-scrollbar {
+                display: none;
+            }
+            .muro-item {
+                flex: 0 0 100%;
+                scroll-snap-align: start;
+                min-width: 100%;
+                border-radius: 0;
+                margin: 0;
+            }
+            .muro-item img {
+                height: 500px;
+                width: 100%;
+                object-fit: cover;
+            }
+            .muro-overlay {
+                bottom: 20px;
+                left: 20px;
+                right: 20px;
+                border-radius: 15px;
+                background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .categoria-imagen { height: 160px; }
+            .categoria-card h3 { font-size: 0.85rem; padding: 0.6rem; }
+            .muro-item img { height: 450px; }
+            .titulo-seccion { font-size: 1.4rem; }
+            .beneficio-item { flex: 0 0 90%; }
+            .video-card { flex: 0 0 90%; }
+        }
+
+        /* FOOTER */
+        .footer-principal {
+            background-color: var(--color-primario);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--color-borde);
+        }
+        .contenedor-footer {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+        }
+        .titulo-footer { font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem; background: linear-gradient(90deg, var(--color-destacado), #ff7b9c); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .texto-footer { color: var(--color-texto-secundario); margin-bottom: 1.5rem; line-height: 1.6; }
+        .redes-sociales { display: flex; gap: 1rem; }
+        .enlace-red-social { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; background-color: var(--color-secundario); border-radius: 50%; transition: var(--transicion-rapida); }
+        .enlace-red-social:hover { background-color: var(--color-destacado); transform: translateY(-3px); }
+        .titulo-columna { font-size: 1.2rem; font-weight: 700; margin-bottom: 1.5rem; }
+        .lista-enlaces li { margin-bottom: 0.8rem; }
+        .lista-enlaces a { color: var(--color-texto-secundario); transition: var(--transicion-rapida); }
+        .lista-enlaces a:hover { color: var(--color-destacado); padding-left: 5px; }
+        .info-contacto p { display: flex; align-items: center; gap: 10px; color: var(--color-texto-secundario); margin-bottom: 1rem; }
+        .info-contacto a:hover { color: var(--color-destacado); }
+        .pie-footer { max-width: 1400px; margin: 3rem auto 0; padding: 1.5rem 20px 0; border-top: 1px solid var(--color-borde); text-align: center; color: var(--color-texto-secundario); font-size: 0.9rem; }
+
+        @media (max-width: 768px) {
+            .contenedor-footer { grid-template-columns: 1fr; gap: 2rem; }
+        }
+    </style>
 </head>
 <body>
-     <!-- Encabezado -->
-    <header class="encabezado">
-        <nav class="navegacion-principal">
-            <a href="#" class="logo-link">
-                <img src="img/logo.jpg" alt="Logo Fantasía Animal" class="logo">
-                <span class="logo-text">MetalArts</span>
-            </a>
-            <button class="boton-encabezado">
-                <i class="fas fa-bars"></i>
-            </button>
-            <ul class="enlaces">
-                <li><a href="index.html" class="enlace-navegacion">Inicio</a></li>
-                <li><a href="menu.html" class="enlace-navegacion">Galería</a></li>
-                <li><a href="visualizacion.html" class="enlace-navegacion">Categorías</a></li>
-                <li><a href="#" class="enlace-navegacion">Personalizar</a></li>
-                <li><a href="#" class="enlace-navegacion">Contacto</a></li>
-            </ul>
-            <div class="iconos-usuario-mobile">
-                <a href="#" class="icono-usuario-mobile">
-                    <i class="fas fa-shopping-cart"></i>
-                </a>
-                <a href="#" class="icono-usuario-mobile">
-                    <i class="fas fa-user"></i>
-                </a>
-            </div>
-        </nav>
-        <div class="galeria-container">
-        <!-- Barra lateral de categorías -->
-        
-        
-        <!-- Sección del carrusel -->
-        <div class="carrusel-seccion">
-                <h2 class="titulo-seccion">Bienvenidos a MetalArts</h2>
-            
-            <div class="contenedor-carrusel-3d">
-                <div class="carrusel-3d" data-carousel-id="main">
-                    <!-- Item 1 -->
-                    <div class="item-carrusel activo" data-item-index="0">
-                        <a href="categoria-anime.html" class="carrusel-link">
-                            <img src="img/broly.webp" alt="Animal realista 1">
-                            <div class="contenido-carrusel">
-                                <h3>Goku Fases</h3>
-                                <p></p>
-                            </div>
-                        </a>
-                    </div>
-                    
-                    <!-- Item 2 -->
-                    <div class="item-carrusel" data-item-index="1">
-                        <a href="categoria-anime.html" class="carrusel-link">
-                            <img src="img/vegeta6.webp" alt="Animal realista 2">
-                            <div class="contenido-carrusel">
-                                <h3>Veggeta Majin</h3>
-                                <p></p>
-                            </div>
-                        </a>
-                    </div>
-                    
-                    <!-- Item 3 -->
-                    <div class="item-carrusel" data-item-index="2">
-                        <a href="categoria-anime.html" class="carrusel-link">
-                            <img src="img/satoru3.avif" alt="Animal realista 3">
-                            <div class="contenido-carrusel">
-                                <h3>Goku Veggito</h3>
-                                <p></p>
-                            </div>
-                        </a>
-                    </div>
-                    
-                    <!-- Item 4 -->
-                    <div class="item-carrusel" data-item-index="3">
-                        <a href="categoria-anime.html" class="carrusel-link">
-                            <img src="img/goku3.webp" alt="Animal realista 4">
-                            <div class="contenido-carrusel">
-                                <h3>Veggeta vs Majin</h3>
-                                <p></p>
-                            </div>
-                        </a>
-                    </div>
-                    
-                    <!-- Item 5 -->
-                    <div class="item-carrusel" data-item-index="4">
-                        <a href="categoria-anime.html" class="carrusel-link">
-                            <img src="img/gohan1.webp" alt="Animal realista 5">
-                        </a>
-                    </div>
-                    
-                    <!-- Aquí se pueden agregar más items dinámicamente -->
+
+    <a href="https://wa.me/56912345678?text=Hola%20SublimArts,%20quiero%20más%20información" class="whatsapp-button" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+    <header class="header-principal">
+        <div class="navegacion">
+            <div class="contenedor-navegacion">
+                <div class="logo-contenedor">
+                    <div class="logo">🎨</div>
+                    <div class="titulo-logo">SublimArts</div>
                 </div>
-            </div>
-            
-            <div class="controles-carrusel">
-                <button class="btn-control" id="btn-prev">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                
-                <div class="indicadores">
-                    <span class="indicador activo" data-indicator="0"></span>
-                    <span class="indicador" data-indicator="1"></span>
-                    <span class="indicador" data-indicator="2"></span>
-                    <span class="indicador" data-indicator="3"></span>
-                    <span class="indicador" data-indicator="4"></span>
+                <ul class="menu-principal" id="menuPrincipal">
+                    <li><a href="#inicio" class="enlace-menu">Inicio</a></li>
+                    <li><a href="#categorias" class="enlace-menu">Categorías</a></li>
+                    <li class="menu-con-desplegable">
+                        <button class="enlace-menu-desplegable">Productos <i class="fas fa-chevron-down flecha-desplegable"></i></button>
+                        <ul class="submenu"><li><a href="tematicas.html">Temáticos</a></li><li><a href="retratos.html">Retratos</a></li><li><a href="paisajes.html">Paisajes</a></li><li><a href="abstracto.html">Abstracto</a></li></ul>
+                    </li>
+                    <li><a href="#videos" class="enlace-menu">Videos</a></li>
+                    <li><a href="#contacto" class="enlace-menu">Contacto</a></li>
+                </ul>
+                <div class="iconos-usuario">
+                    <a href="#" class="icono-usuario"><i class="fas fa-heart"></i></a>
+                    <a href="#" class="icono-usuario"><i class="fas fa-shopping-cart"></i></a>
+                    <a href="#" class="icono-usuario"><i class="fas fa-user"></i></a>
                 </div>
-                
-                <button class="btn-control" id="btn-next">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
+                <button class="boton-menu-mobile" id="botonMenuMobile"><i class="fas fa-bars"></i></button>
             </div>
         </div>
-    </div>
     </header>
+    <div class="menu-overlay" id="menuOverlay"></div>
 
-    <main class="menu">
-
-        <section class="videos-carrusel">
-    <div class="container-videos">
-        <div class="encabezado-videos">
-            <h2 class="titulo-videos">Procesos MetalArts</h2>
-            <p class="subtitulo-videos">Conoce nuestro proceso creativo y los resultados finales</p>
-        </div>
-        
-        <!-- Carrusel horizontal para desktop -->
-        <div class="carrusel-horizontal-desktop">
-            <div class="contenedor-carrusel">
-                <div class="carrusel-track" data-carousel-id="videos-desktop">
-                    <!-- Video 1 -->
-                    <div class="carrusel-slide" data-video-id="1">
-                        <div class="video-item">
-                            <div class="video-thumbnail-carrusel">
-                                <video src="https://www.youtube.com/shorts/0q1zUZTf1Jk?feature=share" playsinline="" controls="" controlslist="nodownload" oncontextmenu="return false;" preload="metadata" loop="" muted="" autoplay=""></video>
-                                <div class="play-indicator">
-                                    <i class="fas fa-play"></i>
-                                </div>
-                                <div class="video-duracion-badge">0:45</div>
-                            </div>
-                            <div class="video-info-carrusel">
-                                <h3>Amazing Anime Metal Artwork</h3>
-                                <p>Arte en metal de Dragon Ball</p>
-                                <span class="video-fecha-carrusel">Nov 2023</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Video 2 -->
-                    <div class="carrusel-slide" data-video-id="2">
-                        <div class="video-item">
-                            <div class="video-thumbnail-carrusel">
-                                <img src="https://img.youtube.com/vi/0e3GPea1h6w/hqdefault.jpg" 
-                                     alt="Instalación LED" class="thumbnail-carrusel">
-                                <div class="play-indicator">
-                                    <i class="fas fa-play"></i>
-                                </div>
-                                <div class="video-duracion-badge">1:30</div>
-                            </div>
-                            <div class="video-info-carrusel">
-                                <h3>Proceso Sublimación</h3>
-                                <p>Cómo creamos arte en metal</p>
-                                <span class="video-fecha-carrusel">Oct 2023</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Video 3 -->
-                    <div class="carrusel-slide" data-video-id="3">
-                        <div class="video-item">
-                            <div class="video-thumbnail-carrusel">
-                                <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" 
-                                     alt="Colección Anime" class="thumbnail-carrusel">
-                                <div class="play-indicator">
-                                    <i class="fas fa-play"></i>
-                                </div>
-                                <div class="video-duracion-badge">4:15</div>
-                            </div>
-                            <div class="video-info-carrusel">
-                                <h3>Colección Anime</h3>
-                                <p>Personajes anime transformados en arte metal</p>
-                                <span class="video-fecha-carrusel">Dic 2023</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Video 4 -->
-                    <div class="carrusel-slide" data-video-id="4">
-                        <div class="video-item">
-                            <div class="video-thumbnail-carrusel">
-                            <iframe width="951" height="535" src="" title="Amazing Anime Metal artwork #art #metal #dragonball #metaleks #anime #viral #art #goku" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                                <div class="play-indicator">
-                                    <i class="fas fa-play"></i>
-                                </div>
-                                <div class="video-duracion-badge">5:20</div>
-                            </div>
-                            <div class="video-info-carrusel">
-                                <h3>Testimonios Clientes</h3>
-                                <p>Lo que dicen nuestros clientes satisfechos</p>
-                                <span class="video-fecha-carrusel">Ene 2024</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Video 5 -->
-                    <div class="carrusel-slide" data-video-id="5">
-                        <div class="video-item">
-                            <div class="video-thumbnail-carrusel">
-                                <img src="https://img.youtube.com/vi/LDU_Txk06tM/hqdefault.jpg" 
-                                     alt="Diseño Personalizado" class="thumbnail-carrusel">
-                                <div class="play-indicator">
-                                    <i class="fas fa-play"></i>
-                                </div>
-                                <div class="video-duracion-badge">3:10</div>
-                            </div>
-                            <div class="video-info-carrusel">
-                                <h3>Diseño Personalizado</h3>
-                                <p>Creamos cuadros únicos según tus ideas</p>
-                                <span class="video-fecha-carrusel">Feb 2024</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Video 6 -->
-                    <div class="carrusel-slide" data-video-id="6">
-                        <div class="video-item">
-                            <div class="video-thumbnail-carrusel">
-                                <img src="https://img.youtube.com/vi/5yx6BWlEVcY/hqdefault.jpg" 
-                                     alt="Materiales de Calidad" class="thumbnail-carrusel">
-                                <div class="play-indicator">
-                                    <i class="fas fa-play"></i>
-                                </div>
-                                <div class="video-duracion-badge">2:45</div>
-                            </div>
-                            <div class="video-info-carrusel">
-                                <h3>Materiales Premium</h3>
-                                <p>Usamos solo materiales de la más alta calidad</p>
-                                <span class="video-fecha-carrusel">Mar 2024</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Aquí se pueden agregar más videos dinámicamente -->
-                </div>
+    <!-- BANNER -->
+    <section class="banner-principal" id="inicio">
+        <div class="contenedor-banner">
+            <div class="contenido-banner">
+                <h1 class="titulo-banner">Cuadros en Aluminio <span style="color:#e94560">HD</span></h1>
+                <p class="texto-banner">Calidad de museo, colores vibrantes y durabilidad eterna. Transforma tus imágenes en obras de arte que durarán toda la vida.</p>
+                <a href="#categorias" class="boton-banner">Explorar Colección <i class="fas fa-arrow-right"></i></a>
             </div>
-            
-            <!-- Controles del carrusel -->
-            <button class="carrusel-btn prev-btn" data-carousel-prev="videos-desktop">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <button class="carrusel-btn next-btn" data-carousel-next="videos-desktop">
-                <i class="fas fa-chevron-right"></i>
-            </button>
-            
-            <!-- Indicadores de posición -->
-            <div class="carrusel-indicadores">
-                <div class="indicador active" data-indicator="0"></div>
-                <div class="indicador" data-indicator="1"></div>
-                <div class="indicador" data-indicator="2"></div>
-            </div>
-        </div>
-        
-        <!-- Carrusel horizontal para móvil -->
-        <div class="carrusel-horizontal-mobile">
-            <div class="contenedor-carrusel-mobile">
-                <div class="carrusel-track-mobile" data-carousel-id="videos-mobile">
-                    <!-- Miniaturas de videos para móvil -->
-                    <div class="carrusel-slide-mobile" data-video-id="1">
-                        <div class="video-miniatura-mobile">
-                            <img src="https://img.youtube.com/vi/qwgbuq9XvEg/hqdefault.jpg" 
-                                 alt="Proceso de sublimación" class="miniatura-img">
-                            <div class="play-indicator-mobile">
-                                <i class="fas fa-play"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="carrusel-slide-mobile" data-video-id="2">
-                        <div class="video-miniatura-mobile">
-                            <img src="https://img.youtube.com/vi/0e3GPea1h6w/hqdefault.jpg" 
-                                 alt="Instalación LED" class="miniatura-img">
-                            <div class="play-indicator-mobile">
-                                <i class="fas fa-play"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="carrusel-slide-mobile" data-video-id="3">
-                        <div class="video-miniatura-mobile">
-                            <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" 
-                                 alt="Colección Anime" class="miniatura-img">
-                            <div class="play-indicator-mobile">
-                                <i class="fas fa-play"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="carrusel-slide-mobile" data-video-id="4">
-                        <div class="video-miniatura-mobile">
-                            <img src="https://img.youtube.com/vi/jfKfPfyJRdk/hqdefault.jpg" 
-                                 alt="Testimonios" class="miniatura-img">
-                            <div class="play-indicator-mobile">
-                                <i class="fas fa-play"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="carrusel-slide-mobile" data-video-id="5">
-                        <div class="video-miniatura-mobile">
-                            <img src="https://img.youtube.com/vi/LDU_Txk06tM/hqdefault.jpg" 
-                                 alt="Diseño Personalizado" class="miniatura-img">
-                            <div class="play-indicator-mobile">
-                                <i class="fas fa-play"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="carrusel-slide-mobile" data-video-id="6">
-                        <div class="video-miniatura-mobile">
-                            <img src="https://img.youtube.com/vi/5yx6BWlEVcY/hqdefault.jpg" 
-                                 alt="Materiales de Calidad" class="miniatura-img">
-                            <div class="play-indicator-mobile">
-                                <i class="fas fa-play"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Aquí se pueden agregar más miniaturas dinámicamente -->
-                </div>
-            </div>
-            
-            <!-- Controles del carrusel móvil -->
-            <button class="carrusel-btn-mobile prev-btn-mobile" data-carousel-prev="videos-mobile">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <button class="carrusel-btn-mobile next-btn-mobile" data-carousel-next="videos-mobile">
-                <i class="fas fa-chevron-right"></i>
-            </button>
-        </div>
-        
-        <!-- Modal para reproducir videos -->
-        <div class="video-modal" id="videoModal">
-            <div class="modal-content">
-                <button class="close-modal">&times;</button>
-                <div class="video-wrapper">
-                    <iframe id="youtubePlayer" width="100%" height="100%" 
-                            src="" frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                    </iframe>
-                </div>
-                <div class="video-details">
-                    <h3 id="videoTitle"></h3>
-                    <p id="videoDescription"></p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-            <!-- Sección Galería -->
-   <section class="galeria">
-        <h2 class="titulo-galeria">Anime</h2>
-        
-        <div class="categorias-slider">
-            <!-- Categoría 1 -->
-            <div class="categoria-slider" data-categoria="anime">
-                <h3 class="titulo-categoria">Jujutsu Kaisen</h3>
-                <div class="circular-3d-container">
-                    <div class="circular-3d-wrapper" data-carousel-id="anime">
-                        <a href="categoria-anime.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/2a03e9218636696162f68604ef780f06_420x.jpeg" alt="Animal realista 1">
-                            </div>
-                        </a>
-                        <a href="categoria-anime.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/34f47381c7e5766648a9b8c053dce075_420x.jpeg" alt="Animal realista 2">
-                            </div>
-                        </a>
-                        <a href="categoria-anime.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/2d000d50cc5f97b7d8cbfcc7a6ada116_420x.jpeg" alt="Animal realista 3">
-                            </div>
-                        </a>
-                        <a href="categoria-anime.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/7f8ba9afeb80d3c76728236a24d3da15_420x.jpeg" alt="Animal realista 4">
-                            </div>
-                        </a>
-                        <a href="categoria-anime.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/68798f5f6f297f9e42922479456eb245_420x.jpeg" alt="Animal realista 5">
-                            </div>
-                        </a>
-                        <!-- Aquí se pueden agregar más slides dinámicamente -->
-                    </div>
-                </div>
-                <div class="gallery-controls">
-                    <button class="gallery-btn prev-btn" data-carousel-prev="anime">←</button>
-                    <button class="gallery-btn next-btn" data-carousel-next="anime">→</button>
-                </div>
-            </div>
-            
-            <!-- Categoría 2 -->
-            <div class="categoria-slider" data-categoria="games">
-                <h3 class="titulo-categoria">Drangon Ball Z</h3>
-                <div class="circular-3d-container">
-                    <div class="circular-3d-wrapper" data-carousel-id="games">
-                        <a href="categoria-games.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/broly1.webp" alt="Criatura fantástica 1">
-                            </div>
-                        </a>
-                        <a href="categoria-games.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/gohan.webp" alt="Criatura fantástica 2">
-                            </div>
-                        </a>
-                        <a href="categoria-games.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/goku.webp" alt="Criatura fantástica 3">
-                            </div>
-                        </a>
-                        <a href="categoria-games.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/goku2.webp" alt="Criatura fantástica 4">
-                            </div>
-                        </a>
-                        <a href="categoria-games.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/vegeta5.webp" alt="Criatura fantástica 5">
-                            </div>
-                        </a>
-                        <!-- Aquí se pueden agregar más slides dinámicamente -->
-                    </div>
-                </div>
-                <div class="gallery-controls">
-                    <button class="gallery-btn prev-btn" data-carousel-prev="games">←</button>
-                    <button class="gallery-btn next-btn" data-carousel-next="games">→</button>
-                </div>
-            </div>
-            
-            <!-- Categoría 3 -->
-            <div class="categoria-slider" data-categoria="retratos">
-                <h3 class="titulo-categoria">Naruto</h3>
-                <div class="circular-3d-container">
-                    <div class="circular-3d-wrapper" data-carousel-id="retratos">
-                        <a href="categoria-retratos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/cf1051c4ace2ed06309464452973bf04_420x.jpeg" alt="Animal antropomórfico 1">
-                            </div>
-                        </a>
-                        <a href="categoria-retratos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/f9402035bed8b97bc4e47b8a93028ed5_420x.jpeg" alt="Animal antropomórfico 2">
-                            </div>
-                        </a>
-                        <a href="categoria-retratos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/3786b10c6f829933f5075372ade5fd0c_420x.jpeg" alt="Animal antropomórfico 3">
-                            </div>
-                        </a>
-                        <a href="categoria-retratos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/ca7d9f8a1c0cfc2da3d009d6246653a4_420x.jpeg" alt="Animal antropomórfico 4">
-                            </div>
-                        </a>
-                        <a href="categoria-retratos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/60a48578874df0a83f4820dea46c6ead_420x.jpeg" alt="Animal antropomórfico 5">
-                            </div>
-                        </a>
-                         <a href="categoria-retratos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/60a48578874df0a83f4820dea46c6ead_420x.jpeg" alt="Animal antropomórfico 6">
-                            </div>
-                        </a>
-                         <a href="categoria-retratos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/60a48578874df0a83f4820dea46c6ead_420x.jpeg" alt="Animal antropomórfico 7">
-                            </div>
-                        </a>
-                        <!-- Aquí se pueden agregar más slides dinámicamente -->
-                    </div>
-                </div>
-                <div class="gallery-controls">
-                    <button class="gallery-btn prev-btn" data-carousel-prev="retratos">←</button>
-                    <button class="gallery-btn next-btn" data-carousel-next="retratos">→</button>
-                </div>
-            </div>
-            
-            <!-- Categoría 4 -->
-            <div class="categoria-slider" data-categoria="animales">
-                <h3 class="titulo-categoria">Solo Leveling</h3>
-                <div class="circular-3d-container">
-                    <div class="circular-3d-wrapper" data-carousel-id="animales">
-                        <a href="categoria-animales.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima8.webp" alt="Animal antropomórfico 1">
-                            </div>
-                        </a>
-                        <a href="categoria-animales.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima.webp" alt="Animal antropomórfico 2">
-                            </div>
-                        </a>
-                        <a href="categoria-animales.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima16.webp" alt="Animal antropomórfico 3">
-                            </div>
-                        </a>
-                        <a href="categoria-animales.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima11.jpg" alt="Animal antropomórfico 4">
-                            </div>
-                        </a>
-                        <a href="categoria-animales.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima6.jpg" alt="Animal antropomórfico 5">
-                            </div>
-                        </a>
-                        <!-- Aquí se pueden agregar más slides dinámicamente -->
-                    </div>
-                </div>
-                <div class="gallery-controls">
-                    <button class="gallery-btn prev-btn" data-carousel-prev="animales">←</button>
-                    <button class="gallery-btn next-btn" data-carousel-next="animales">→</button>
-                </div>
-            </div>
-            
-            <!-- Aquí se pueden agregar más categorías dinámicamente -->
+            <div class="imagen-banner"><img src="https://i.pinimg.com/736x/86/9b/c6/869bc6927e07c2910f0017eb31973b69.jpg" alt="Cuadro Aluminio"></div>
         </div>
     </section>
-     <section class="galeria">        
-        <div class="categorias-slider">
-            <!-- Categoría 1 -->
-            <div class="categoria-slider" data-categoria="anime">
-                <h3 class="titulo-categoria">Jujutsu Kaisen</h3>
-                <div class="circular-3d-container">
-                    <div class="circular-3d-wrapper" data-carousel-id="anime">
-                        <a href="categoria-anime.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/2a03e9218636696162f68604ef780f06_420x.jpeg" alt="Animal realista 1">
-                            </div>
-                        </a>
-                        <a href="categoria-anime.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/34f47381c7e5766648a9b8c053dce075_420x.jpeg" alt="Animal realista 2">
-                            </div>
-                        </a>
-                        <a href="categoria-anime.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/2d000d50cc5f97b7d8cbfcc7a6ada116_420x.jpeg" alt="Animal realista 3">
-                            </div>
-                        </a>
-                        <a href="categoria-anime.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/7f8ba9afeb80d3c76728236a24d3da15_420x.jpeg" alt="Animal realista 4">
-                            </div>
-                        </a>
-                        <a href="categoria-anime.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/68798f5f6f297f9e42922479456eb245_420x.jpeg" alt="Animal realista 5">
-                            </div>
-                        </a>
-                        <!-- Aquí se pueden agregar más slides dinámicamente -->
-                    </div>
-                </div>
-                <div class="gallery-controls">
-                    <button class="gallery-btn prev-btn" data-carousel-prev="anime">←</button>
-                    <button class="gallery-btn next-btn" data-carousel-next="anime">→</button>
-                </div>
-            </div>
-            
-            <!-- Categoría 2 -->
-            <div class="categoria-slider" data-categoria="games">
-                <h3 class="titulo-categoria">Drangon Ball Z</h3>
-                <div class="circular-3d-container">
-                    <div class="circular-3d-wrapper" data-carousel-id="games">
-                        <a href="categoria-games.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/broly1.webp" alt="Criatura fantástica 1">
-                            </div>
-                        </a>
-                        <a href="categoria-games.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/gohan.webp" alt="Criatura fantástica 2">
-                            </div>
-                        </a>
-                        <a href="categoria-games.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/goku.webp" alt="Criatura fantástica 3">
-                            </div>
-                        </a>
-                        <a href="categoria-games.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/goku2.webp" alt="Criatura fantástica 4">
-                            </div>
-                        </a>
-                        <a href="categoria-games.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/vegeta5.webp" alt="Criatura fantástica 5">
-                            </div>
-                        </a>
-                        <!-- Aquí se pueden agregar más slides dinámicamente -->
-                    </div>
-                </div>
-                <div class="gallery-controls">
-                    <button class="gallery-btn prev-btn" data-carousel-prev="games">←</button>
-                    <button class="gallery-btn next-btn" data-carousel-next="games">→</button>
-                </div>
-            </div>
-            
-            <!-- Categoría 3 -->
-            <div class="categoria-slider" data-categoria="retratos">
-                <h3 class="titulo-categoria">Naruto</h3>
-                <div class="circular-3d-container">
-                    <div class="circular-3d-wrapper" data-carousel-id="retratos">
-                        <a href="categoria-retratos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/cf1051c4ace2ed06309464452973bf04_420x.jpeg" alt="Animal antropomórfico 1">
-                            </div>
-                        </a>
-                        <a href="categoria-retratos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/f9402035bed8b97bc4e47b8a93028ed5_420x.jpeg" alt="Animal antropomórfico 2">
-                            </div>
-                        </a>
-                        <a href="categoria-retratos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/3786b10c6f829933f5075372ade5fd0c_420x.jpeg" alt="Animal antropomórfico 3">
-                            </div>
-                        </a>
-                        <a href="categoria-retratos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/ca7d9f8a1c0cfc2da3d009d6246653a4_420x.jpeg" alt="Animal antropomórfico 4">
-                            </div>
-                        </a>
-                        <a href="categoria-retratos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/60a48578874df0a83f4820dea46c6ead_420x.jpeg" alt="Animal antropomórfico 5">
-                            </div>
-                        </a>
-                         <a href="categoria-retratos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/60a48578874df0a83f4820dea46c6ead_420x.jpeg" alt="Animal antropomórfico 6">
-                            </div>
-                        </a>
-                         <a href="categoria-retratos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="https://img.fantaskycdn.com/60a48578874df0a83f4820dea46c6ead_420x.jpeg" alt="Animal antropomórfico 7">
-                            </div>
-                        </a>
-                        <!-- Aquí se pueden agregar más slides dinámicamente -->
-                    </div>
-                </div>
-                <div class="gallery-controls">
-                    <button class="gallery-btn prev-btn" data-carousel-prev="retratos">←</button>
-                    <button class="gallery-btn next-btn" data-carousel-next="retratos">→</button>
-                </div>
-            </div>
-            
-            <!-- Categoría 4 -->
-            <div class="categoria-slider" data-categoria="animales">
-                <h3 class="titulo-categoria">Solo Leveling</h3>
-                <div class="circular-3d-container">
-                    <div class="circular-3d-wrapper" data-carousel-id="animales">
-                        <a href="categoria-animales.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima8.webp" alt="Animal antropomórfico 1">
-                            </div>
-                        </a>
-                        <a href="categoria-animales.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima.webp" alt="Animal antropomórfico 2">
-                            </div>
-                        </a>
-                        <a href="categoria-animales.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima16.webp" alt="Animal antropomórfico 3">
-                            </div>
-                        </a>
-                        <a href="categoria-animales.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima11.jpg" alt="Animal antropomórfico 4">
-                            </div>
-                        </a>
-                        <a href="categoria-animales.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima6.jpg" alt="Animal antropomórfico 5">
-                            </div>
-                        </a>
-                        <!-- Aquí se pueden agregar más slides dinámicamente -->
-                    </div>
-                </div>
-                <div class="gallery-controls">
-                    <button class="gallery-btn prev-btn" data-carousel-prev="animales">←</button>
-                    <button class="gallery-btn next-btn" data-carousel-next="animales">→</button>
-                </div>
-            </div>
-            
-            <!-- Aquí se pueden agregar más categorías dinámicamente -->
-        </div>
-    </section>
-    
-    <section class="proceso-fabricacion">
-        <div class="contenedor-proceso">
-            <!-- Encabezado -->
-            <div class="encabezado-seccion">
-                <h2 class="titulo-principal">ENCUADRE</h2>
-                <p class="subtitulo">Cuadros Artísticos en Metal HD</p>
-            </div>
 
-            <!-- Contenido principal - Estilo horizontal -->
-            <div class="contenido-horizontal">
-                <!-- Columna izquierda: Imagen y texto -->
-                <div class="columna-izquierda">
-                    <div class="imagen-contenedor">
-                        <img src="sololevelimng.webp" 
-                             alt="Materiales para cuadros en metal" class="imagen-destacada">
-                    </div>
-                    <div class="texto-descripcion">
-                        <p>La combinación de colores vibrantes y diseños acalmadores transforma tu espacio en un escenario de creatividad sin igual.</p>
-                        <p>Estas piezas de arte modernas e innovadoras fusionan la esencia del arte pop, anime, game y cómic, dando vida a creaciones que desafían los límites de la imaginación.</p>
-                    </div>
+    <!-- SECCIÓN DINÁMICA: ¿QUÉ SON LOS CUADROS DE ALUMINIO? -->
+    <section class="seccion-info">
+        <div class="contenedor-seccion">
+            <div class="info-grid">
+                <div class="info-contenido">
+                    <h3>✨ ¿Qué son los cuadros de aluminio?</h3>
+                    <p>Los cuadros de aluminio son una técnica de impresión de última generación donde la tinta se sublima directamente sobre una plancha de aluminio de alta calidad. El resultado es una obra de arte con colores vibrantes, nitidez Full HD y una durabilidad que supera cualquier otro material.</p>
+                    <ul class="info-lista">
+                        <li><i class="fas fa-check-circle"></i> Colores más brillantes que el papel o lienzo</li>
+                        <li><i class="fas fa-check-circle"></i> Resistente a rayos UV, humedad y arañazos</li>
+                        <li><i class="fas fa-check-circle"></i> No se deforma ni decolora con el tiempo</li>
+                        <li><i class="fas fa-check-circle"></i> Fácil limpieza: solo un paño húmedo</li>
+                    </ul>
                 </div>
-
-                <!-- Columna derecha: Texto y video -->
-                <div class="columna-derecha">
-                    <div class="texto-destacado">
-                        <p>Cada obra es más que un simple cuadro: es una experiencia luminosa, gracias a la incorporación de luces LED que realzan la intensidad de cada detalle.</p>
-                    </div>
-                    <div class="video-contenedor">
-                        <video controls poster="sublima14.jpg" class="video-encuadre">
-                            <source src="https://video.aliexpress-media.com/play/u/ae_sg_item/2215376750286/p/1/e/6/t/10301/1100128527114.mp4" type="video/mp4">
-                            <source src="https://video.aliexpress-media.com/play/u/ae_sg_item/2215376750286/p/1/e/6/t/10301/1100128527114.mp4?from=chrome&definition=h265" type="video/mp4">
-                            Tu navegador no soporta el elemento de video.
-                        </video>
-                        <div class="video-controls-overlay">
-                            <button class="video-play-btn">
-                                <i class="fas fa-play"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Añadir el botón Ver Galería -->
-            <div class="contenedor-boton">
-                <a href="menu.html/seccion-popular" class="boton-gallery">Ver Galería</a>
+                <div class="info-imagen"><img src="img/autos y motos/ChatGPT Image 8 abr 2026, 10_47_30 p.m..png" alt="Cuadro aluminio calidad"></div>
             </div>
         </div>
     </section>
-    
-    <!-- Sección Galería repetida -->
-    <section class="galeria" data-section-id="galeria-2">
-        <h2 class="titulo-galeria">Categorías</h2>
-        
-        <div class="categorias-slider">
-            <!-- Categoría 1 -->
-            <div class="categoria-slider" data-categoria="anime-2">
-                <h3 class="titulo-categoria">Anime</h3>
-                <div class="circular-3d-container">
-                    <div class="circular-3d-wrapper" data-carousel-id="anime-2">
-                        <a href="categoria-anime.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima12.jpg" alt="Animal realista 1">
-                            </div>
-                        </a>
-                        <a href="categoria-anime.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima11.jpg" alt="Animal realista 2">
-                            </div>
-                        </a>
-                        <a href="categoria-anime.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima10.webp" alt="Animal realista 3">
-                            </div>
-                        </a>
-                        <a href="categoria-anime.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima1.webp" alt="Animal realista 4">
-                            </div>
-                        </a>
-                        <a href="categoria-anime.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima.webp" alt="Animal realista 5">
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="gallery-controls">
-                    <button class="gallery-btn prev-btn" data-carousel-prev="anime-2">←</button>
-                    <button class="gallery-btn next-btn" data-carousel-next="anime-2">→</button>
-                </div>
+
+    <!-- SECCIÓN BENEFICIOS -->
+    <section class="seccion-beneficios">
+        <div class="contenedor-seccion">
+            <h2 class="titulo-seccion">Beneficios exclusivos</h2>
+            <p class="subtitulo-seccion">¿Por qué elegir SublimArts?</p>
+            <div class="beneficios-grid">
+                <div class="beneficio-item"><div class="beneficio-icono"><i class="fas fa-gem"></i></div><div class="beneficio-texto"><h4>Calidad de museo</h4><p>Impresión directa sobre aluminio con tintas de alta gama.</p></div></div>
+                <div class="beneficio-item"><div class="beneficio-icono"><i class="fas fa-sync-alt"></i></div><div class="beneficio-texto"><h4>No se deforma</h4><p>A diferencia del lienzo, el aluminio mantiene su forma perfecta.</p></div></div>
+                <div class="beneficio-item"><div class="beneficio-icono"><i class="fas fa-water"></i></div><div class="beneficio-texto"><h4>Resistente a la humedad</h4><p>Ideal para baños, cocinas o exteriores cubiertos.</p></div></div>
+                <div class="beneficio-item"><div class="beneficio-icono"><i class="fas fa-feather-alt"></i></div><div class="beneficio-texto"><h4>Ultraligero</h4><p>Fácil de colgar, no necesita marco pesado.</p></div></div>
             </div>
-            
-            <!-- Categoría 2 -->
-            <div class="categoria-slider" data-categoria="games-2">
-                <h3 class="titulo-categoria">Games</h3>
-                <div class="circular-3d-container">
-                    <div class="circular-3d-wrapper" data-carousel-id="games-2">
-                        <a href="categoria-games.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima13.jpg" alt="Criatura fantástica 1">
-                            </div>
-                        </a>
-                        <a href="categoria-games.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima15.webp" alt="Criatura fantástica 2">
-                            </div>
-                        </a>
-                        <a href="categoria-games.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima16.webp" alt="Criatura fantástica 3">
-                            </div>
-                        </a>
-                        <a href="categoria-games.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima3.webp" alt="Criatura fantástica 4">
-                            </div>
-                        </a>
-                        <a href="categoria-games.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima4.webp" alt="Criatura fantástica 5">
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="gallery-controls">
-                    <button class="gallery-btn prev-btn" data-carousel-prev="games-2">←</button>
-                    <button class="gallery-btn next-btn" data-carousel-next="games-2">→</button>
-                </div>
-            </div>
-            
-            <!-- Categoría 3 -->
-            <div class="categoria-slider" data-categoria="retratos-2">
-                <h3 class="titulo-categoria">Retratos</h3>
-                <div class="circular-3d-container">
-                    <div class="circular-3d-wrapper" data-carousel-id="retratos-2">
-                        <a href="categoria-retratos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima8.webp" alt="Animal antropomórfico 1">
-                            </div>
-                        </a>
-                        <a href="categoria-retratos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima.webp" alt="Animal antropomórfico 2">
-                            </div>
-                        </a>
-                        <a href="categoria-retratos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima16.webp" alt="Animal antropomórfico 3">
-                            </div>
-                        </a>
-                        <a href="categoria-retratos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima11.jpg" alt="Animal antropomórfico 4">
-                            </div>
-                        </a>
-                        <a href="categoria-retratos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima6.jpg" alt="Animal antropomórfico 5">
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="gallery-controls">
-                    <button class="gallery-btn prev-btn" data-carousel-prev="retratos-2">←</button>
-                    <button class="gallery-btn next-btn" data-carousel-next="retratos-2">→</button>
-                </div>
-            </div>
-            
-            <!-- Categoría 4 -->
-            <div class="categoria-slider" data-categoria="animales-fantasticos">
-                <h3 class="titulo-categoria">Animales Fantásticos</h3>
-                <div class="circular-3d-container">
-                    <div class="circular-3d-wrapper" data-carousel-id="animales-fantasticos">
-                        <a href="categoria-animales-fantasticos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima8.webp" alt="Animal antropomórfico 1">
-                            </div>
-                        </a>
-                        <a href="categoria-animales-fantasticos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima.webp" alt="Animal antropomórfico 2">
-                            </div>
-                        </a>
-                        <a href="categoria-animales-fantasticos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima16.webp" alt="Animal antropomórfico 3">
-                            </div>
-                        </a>
-                        <a href="categoria-animales-fantasticos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima11.jpg" alt="Animal antropomórfico 4">
-                            </div>
-                        </a>
-                        <a href="categoria-animales-fantasticos.html" class="circular-slide-link">
-                            <div class="circular-slide">
-                                <img src="img/sublima6.jpg" alt="Animal antropomórfico 5">
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="gallery-controls">
-                    <button class="gallery-btn prev-btn" data-carousel-prev="animales-fantasticos">←</button>
-                    <button class="gallery-btn next-btn" data-carousel-next="animales-fantasticos">→</button>
-                </div>
-            </div>
-            
-            <!-- Aquí se pueden agregar más categorías dinámicamente -->
         </div>
     </section>
-    
-    <section class="metal-features">
-        <div class="container">
-            <h2 class="section-title">Nuestros cuadros en metal</h2>
-            
-            <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Durabilidad</h3>
-                    <p>El metal es un material duradero, resistente a la decoloración, la corrosión y los daños causados por la luz solar. Los cuadros sublimados en metal tienden a durar más tiempo en comparación con otros materiales.</p>
+
+    <!-- SECCIÓN CATEGORÍAS -->
+    <section class="seccion-categorias" id="categorias">
+        <div class="contenedor-seccion">
+            <h2 class="titulo-seccion">Explora por categorías</h2>
+            <p class="subtitulo-seccion">Haz clic en cualquier imagen para ver todos los cuadros de esa categoría</p>
+            <div class="categorias-grid">
+                <div class="categoria-card" data-url="tematicas.html"><div class="categoria-imagen"><img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Temáticos"></div><h3>Temáticos</h3></div>
+                <div class="categoria-card" data-url="retratos.html"><div class="categoria-imagen"><img src="https://images.unsplash.com/photo-1542909168-82c3c7b6c5a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Retratos"></div><h3>Retratos</h3></div>
+                <div class="categoria-card" data-url="paisajes.html"><div class="categoria-imagen"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Paisajes"></div><h3>Paisajes</h3></div>
+                <div class="categoria-card" data-url="abstracto.html"><div class="categoria-imagen"><img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Abstracto"></div><h3>Abstracto</h3></div>
+                <div class="categoria-card" data-url="animales.html"><div class="categoria-imagen"><img src="https://images.unsplash.com/photo-1560743641-3914f2c45636?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Animales"></div><h3>Animales</h3></div>
+                <div class="categoria-card" data-url="ciudades.html"><div class="categoria-imagen"><img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ciudades"></div><h3>Ciudades</h3></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN VIDEOS EXPLICATIVOS -->
+    <section class="seccion-videos" id="videos">
+        <div class="contenedor-seccion">
+            <h2 class="titulo-seccion">📹 Mira cómo se hacen</h2>
+            <p class="subtitulo-seccion">Descubre el proceso de sublimación y la calidad de nuestros cuadros</p>
+            <div class="videos-grid">
+                <div class="video-card">
+                    <div class="video-container"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0" title="Proceso de sublimación" allowfullscreen></iframe></div>
+                    <div class="video-info"><h3>✨ Proceso de sublimación paso a paso</h3><p>Conoce cómo transformamos tus imágenes en obras de arte sobre aluminio.</p></div>
                 </div>
-                
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-tint-slash"></i>
-                    </div>
-                    <h3>Fácil limpieza</h3>
-                    <p>Los cuadros sublimados en metal son fáciles de limpieza. Basta con un paño suave y húmedo para quitar el polvo o las manchas leves.</p>
+                <div class="video-card">
+                    <div class="video-container"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0" title="Calidad Full HD" allowfullscreen></iframe></div>
+                    <div class="video-info"><h3>🎨 Calidad Full HD y colores vibrantes</h3><p>Comparativa entre impresión tradicional y sublimación en aluminio.</p></div>
                 </div>
-                
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h3>Calidad de imagen</h3>
-                    <p>La sublimación en metal ofrece una alta calidad de imagen. La técnica permite una reproducción nítida y detallada de fotografías, ilustraciones o diseños, con colores vibrantes y vivos.</p>
+                <div class="video-card">
+                    <div class="video-container"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0" title="Instalación" allowfullscreen></iframe></div>
+                    <div class="video-info"><h3>🖼️ Cómo colgar tu cuadro de aluminio</h3><p>Consejos de instalación y cuidado de tu obra.</p></div>
                 </div>
             </div>
         </div>
     </section>
-    
-</main>
 
-<footer class="anime-footer">
-    <div class="footer-content">
-        <div class="footer-section">
-            <h3>Cuadros Sublimados</h3>
-            <p>Transformamos tus momentos especiales en arte duradero sobre metal.</p>
-            <div class="social-icons">
-                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+    <!-- SECCIÓN CUADRO EN TU MURO -->
+    <section class="seccion-muro">
+        <div class="contenedor-seccion">
+            <h2 class="titulo-seccion">Un cuadro de aluminio en tu hogar</h2>
+            <p class="subtitulo-seccion">✨ Acabado mate premium · Marco flotante incluido · Brillo y nitidez incomparables</p>
+            <div class="muro-grid">
+                <div class="muro-item"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Sala"><div class="muro-overlay"><p><i class="fas fa-home"></i> Sala de Estar</p></div></div>
+                <div class="muro-item"><img src="https://images.unsplash.com/photo-1616486338812-3badae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Oficina"><div class="muro-overlay"><p><i class="fas fa-briefcase"></i> Oficina</p></div></div>
+                <div class="muro-item"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Dormitorio"><div class="muro-overlay"><p><i class="fas fa-bed"></i> Dormitorio</p></div></div>
             </div>
         </div>
-        
-        <div class="footer-section">
-            <h4>Enlaces Rápidos</h4>
-            <ul>
-                <li><a href="#"><i class="fas fa-chevron-right"></i> Inicio</a></li>
-                <li><a href="#"><i class="fas fa-chevron-right"></i> Galería</a></li>
-                <li><a href="#"><i class="fas fa-chevron-right"></i> Precios</a></li>
-                <li><a href="#"><i class="fas fa-chevron-right"></i> Contacto</a></li>
-            </ul>
-        </div>
-        
-        <div class="footer-section">
-            <h4>Contacto</h4>
-            <div class="contact-info">
-                <p><i class="fas fa-map-marker-alt"></i> Av. Principal #123, Ciudad</p>
-                <p><i class="fas fa-phone"></i> +1 234 567 890</p>
-                <p><i class="fas fa-envelope"></i> info@cuadrosmetal.com</p>
-            </div>
-        </div>
-        
-        <div class="footer-section">
-            <h4>Newsletter</h4>
-            <p>Suscríbete para recibir promociones exclusivas.</p>
-            <form class="newsletter-form">
-                <input type="email" placeholder="Tu correo electrónico" required>
-                <button type="submit">Suscribirse <i class="fas fa-paper-plane"></i></button>
-            </form>
-        </div>
-    </div>
-    
-    <div class="footer-bottom">
-        <p>&copy; 2023 Cuadros Sublimados en Metal. Todos los derechos reservados.</p>
-    </div>
-    
-    <div class="footer-particles">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-    </div>
-</footer>
+    </section>
 
-<script src="js/porsia.js"></script>
-<script src="js/dynamic-images.js"></script>
+    <!-- FOOTER -->
+    <footer class="footer-principal" id="contacto">
+        <div class="contenedor-footer">
+            <div class="columna-footer"><div class="titulo-footer">SublimArts</div><p class="texto-footer">Cuadros en aluminio de alta calidad, con tecnología de sublimación que garantiza colores vibrantes y durabilidad eterna.</p><div class="redes-sociales"><a href="#" class="enlace-red-social"><i class="fab fa-instagram"></i></a><a href="#" class="enlace-red-social"><i class="fab fa-facebook-f"></i></a><a href="#" class="enlace-red-social"><i class="fab fa-tiktok"></i></a></div></div>
+            <div class="columna-footer"><h3 class="titulo-columna">Enlaces rápidos</h3><ul class="lista-enlaces"><li><a href="#inicio">Inicio</a></li><li><a href="#categorias">Categorías</a></li><li><a href="#videos">Videos</a></li><li><a href="#">Política de privacidad</a></li></ul></div>
+            <div class="columna-footer"><h3 class="titulo-columna">Categorías</h3><ul class="lista-enlaces"><li><a href="tematicas.html">Temáticos</a></li><li><a href="retratos.html">Retratos</a></li><li><a href="paisajes.html">Paisajes</a></li><li><a href="abstracto.html">Abstracto</a></li></ul></div>
+            <div class="columna-footer"><h3 class="titulo-columna">Contacto</h3><div class="info-contacto"><p><i class="fas fa-envelope"></i> contacto@sublimarts.com</p><p><i class="fas fa-phone"></i> +56 9 1234 5678</p><p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/56912345678">+56 9 1234 5678</a></p></div></div>
+        </div>
+        <div class="pie-footer"><p>&copy; 2025 SublimArts - Cuadros en Aluminio HD | Calidad que perdura</p></div>
+    </footer>
 
+    <script>
+        const botonMenu = document.getElementById('botonMenuMobile');
+        const menuPrincipal = document.getElementById('menuPrincipal');
+        const menuOverlay = document.getElementById('menuOverlay');
+        function toggleMenu() { menuPrincipal.classList.toggle('activo'); menuOverlay.classList.toggle('activo'); document.body.classList.toggle('menu-abierto'); }
+        botonMenu.addEventListener('click', toggleMenu);
+        menuOverlay.addEventListener('click', toggleMenu);
+        document.querySelectorAll('.menu-con-desplegable .enlace-menu-desplegable').forEach(btn => { btn.addEventListener('click', (e) => { if(window.innerWidth <= 768){ e.preventDefault(); btn.closest('.menu-con-desplegable').classList.toggle('activo'); } }); });
+        document.querySelectorAll('.categoria-card').forEach(card => { card.addEventListener('click', function() { const url = this.getAttribute('data-url'); if(url) window.location.href = url; }); });
+        document.querySelectorAll('.enlace-menu, .submenu a').forEach(link => { link.addEventListener('click', () => { if(window.innerWidth <= 768) toggleMenu(); }); });
+    </script>
 </body>
 </html>
