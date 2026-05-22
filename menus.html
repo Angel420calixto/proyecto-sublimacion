@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
     <title>SublimArts - Cuadros en Aluminio HD | Anime & Gamer Style</title>
+
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
     <style>
         /* =============================================
            VARIABLES CSS GLOBALES
@@ -53,7 +55,12 @@
             overflow: hidden;
         }
 
-        /* BOTÓN WHATSAPP */
+        /* =============================================
+           BOTÓN WHATSAPP
+           FIX: animation-play-state: paused en hover
+           evita conflicto entre la animación pulse
+           y el transform del hover.
+           ============================================= */
         .whatsapp-button {
             position: fixed;
             bottom: 30px;
@@ -71,23 +78,32 @@
             box-shadow: var(--sombra-whatsapp);
             transition: var(--transicion-rapida);
             animation: pulse 2s infinite;
+            text-decoration: none;
         }
 
+        /* FIX: pausa animación durante hover para evitar
+           conflicto de transform entre pulse y scale */
         .whatsapp-button:hover {
             transform: scale(1.1);
+            animation-play-state: paused;
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            0%   { transform: scale(1); }
+            50%  { transform: scale(1.05); }
             100% { transform: scale(1); }
         }
 
+        /* =============================================
+           BASE
+           ============================================= */
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
         button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
 
-        /* UTILIDADES */
+        /* =============================================
+           UTILIDADES
+           ============================================= */
         .contenedor-seccion {
             max-width: 1400px;
             margin: 0 auto;
@@ -125,7 +141,35 @@
             width: 100%;
         }
 
-        /* HEADER Y NAVEGACIÓN */
+        /* =============================================
+           SCROLL HINT MOBILE
+           Indicador visual de scroll horizontal.
+           Solo visible en móvil (se activa vía media query).
+           ============================================= */
+        .scroll-hint {
+            display: none; /* Oculto en desktop; se muestra en mobile vía media query */
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 14px;
+            color: var(--color-texto-secundario);
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        .scroll-hint i {
+            color: var(--color-destacado);
+            animation: desliza 1.5s ease-in-out infinite;
+        }
+
+        @keyframes desliza {
+            0%, 100% { transform: translateX(0); }
+            50%       { transform: translateX(6px); }
+        }
+
+        /* =============================================
+           HEADER Y NAVEGACIÓN
+           ============================================= */
         .header-principal {
             background-color: var(--color-primario);
             position: sticky;
@@ -135,6 +179,7 @@
         }
 
         .navegacion { padding: 1rem 0; }
+
         .contenedor-navegacion {
             max-width: 1400px;
             margin: 0 auto;
@@ -144,22 +189,89 @@
             justify-content: space-between;
         }
 
+        /* Logo */
         .logo-contenedor { display: flex; align-items: center; gap: 10px; }
-        .logo { width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--color-destacado), #ff7b9c); display: flex; align-items: center; justify-content: center; font-size: 28px; }
-        .titulo-logo { font-size: 1.5rem; font-weight: 800; background: linear-gradient(90deg, var(--color-destacado), #ff7b9c); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-destacado), #ff7b9c);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            flex-shrink: 0;
+        }
+        .titulo-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--color-destacado), #ff7b9c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
 
-        .menu-principal { display: flex; gap: 1.5rem; align-items: center; z-index: 10000; }
-        .enlace-menu { font-weight: 500; font-size: 0.95rem; position: relative; transition: var(--transicion-rapida); padding: 0.5rem 0; color: var(--color-texto); }
+        /* Menú principal */
+        .menu-principal {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            z-index: 10000;
+        }
+
+        .enlace-menu {
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: var(--transicion-rapida);
+            padding: 0.5rem 0;
+            color: var(--color-texto);
+        }
         .enlace-menu:hover { color: var(--color-destacado); }
-        .enlace-menu::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: var(--color-destacado); transition: var(--transicion-rapida); }
+        .enlace-menu::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-destacado);
+            transition: var(--transicion-rapida);
+        }
         .enlace-menu:hover::after { width: 100%; }
 
+        /* Submenú desplegable */
         .menu-con-desplegable { position: relative; }
-        .enlace-menu-desplegable { display: flex; align-items: center; gap: 5px; background: none; color: var(--color-texto); font-size: 0.95rem; font-weight: 500; cursor: pointer; padding: 0.5rem 0; border: none; }
-        .flecha-desplegable { font-size: 0.8rem; transition: transform 0.3s ease; }
-        .menu-con-desplegable:hover .flecha-desplegable { transform: rotate(180deg); }
-        .menu-con-desplegable:hover .submenu { opacity: 1; visibility: visible; transform: translateY(0); }
 
+        .enlace-menu-desplegable {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background: none;
+            color: var(--color-texto);
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            padding: 0.5rem 0;
+            border: none;
+        }
+
+        .flecha-desplegable {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        /* Desktop: abrir submenú por hover */
+        .menu-con-desplegable:hover .flecha-desplegable {
+            transform: rotate(180deg);
+        }
+        .menu-con-desplegable:hover .submenu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* Submenú base (desktop) */
         .submenu {
             position: absolute;
             top: 100%;
@@ -175,38 +287,74 @@
             z-index: 100;
             border-left: 3px solid var(--color-destacado);
         }
-        .submenu a { display: block; padding: 0.7rem 1.5rem; color: var(--color-texto); font-size: 0.9rem; transition: var(--transicion-rapida); white-space: nowrap; }
-        .submenu a:hover { color: var(--color-destacado); background-color: rgba(233, 69, 96, 0.1); padding-left: 2rem; }
 
-        .iconos-usuario { display: flex; gap: 1.5rem; align-items: center; }
-        .icono-usuario { display: flex; align-items: center; gap: 5px; font-weight: 500; font-size: 0.9rem; transition: var(--transicion-rapida); color: var(--color-texto); }
-        .icono-usuario:hover { color: var(--color-destacado); }
-
-        .boton-menu-mobile { display: none; background: rgba(233, 69, 96, 0.1); color: var(--color-texto); font-size: 1.5rem; width: 44px; height: 44px; border-radius: 8px; align-items: center; justify-content: center; cursor: pointer; }
-        .menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); z-index: 9999; display: none; opacity: 0; transition: opacity 0.3s ease; }
-        .menu-overlay.activo { display: block; opacity: 1; }
-
-        /* MENÚ MÓVIL */
-        @media (max-width: 768px) {
-            .boton-menu-mobile { display: flex; }
-            .menu-principal {
-                position: fixed; top: 0; right: -100%; width: 85%; max-width: 350px; height: 100vh;
-                background-color: var(--color-primario); flex-direction: column; justify-content: flex-start;
-                padding: 80px 0 30px; gap: 0; z-index: 10000; overflow-y: auto;
-                box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5); transition: right 0.3s ease;
-            }
-            .menu-principal.activo { right: 0; }
-            .menu-principal > li { width: 100%; border-bottom: 1px solid rgba(255,255,255,0.1); }
-            .enlace-menu { display: block; padding: 16px 20px; font-size: 1rem; }
-            .menu-con-desplegable { width: 100%; }
-            .enlace-menu-desplegable { display: flex; justify-content: space-between; padding: 16px 20px; }
-            .submenu { position: relative; max-height: 0; overflow: hidden; transition: max-height 0.4s ease; width: 100%; border-left: 4px solid var(--color-destacado); }
-            .menu-con-desplegable.activo .submenu { max-height: 400px; padding: 8px 0; }
-            .submenu a { padding: 12px 20px 12px 35px; }
-            .iconos-usuario { display: none; }
+        .submenu a {
+            display: block;
+            padding: 0.7rem 1.5rem;
+            color: var(--color-texto);
+            font-size: 0.9rem;
+            transition: var(--transicion-rapida);
+            white-space: nowrap;
+        }
+        .submenu a:hover {
+            color: var(--color-destacado);
+            background-color: rgba(233, 69, 96, 0.1);
+            padding-left: 2rem;
         }
 
-        /* BANNER PRINCIPAL */
+        /* Iconos usuario */
+        .iconos-usuario {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        .icono-usuario {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: var(--transicion-rapida);
+            color: var(--color-texto);
+        }
+        .icono-usuario:hover { color: var(--color-destacado); }
+
+        /* Botón hamburguesa */
+        .boton-menu-mobile {
+            display: none; /* Visible solo en mobile vía media query */
+            background: rgba(233, 69, 96, 0.1);
+            color: var(--color-texto);
+            font-size: 1.5rem;
+            width: 44px;
+            height: 44px;
+            border-radius: 8px;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            /* Tamaño mínimo recomendado para touch targets: 44x44px ✓ */
+        }
+
+        /* Overlay del menú mobile */
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 9999;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .menu-overlay.activo {
+            display: block;
+            opacity: 1;
+        }
+
+        /* =============================================
+           BANNER PRINCIPAL
+           ============================================= */
         .banner-principal {
             padding: 4rem 0;
             position: relative;
@@ -222,15 +370,44 @@
             gap: 3rem;
         }
         .contenido-banner { flex: 1; max-width: 600px; }
-        .titulo-banner { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.2; }
-        .texto-banner { font-size: 1.1rem; color: var(--color-texto-secundario); margin-bottom: 2rem; line-height: 1.6; }
-        .boton-banner { display: inline-block; background-color: var(--color-destacado); color: white; padding: 0.8rem 2rem; border-radius: 30px; font-weight: 600; transition: var(--transicion-rapida); }
-        .boton-banner:hover { background-color: #ff5773; transform: translateY(-3px); box-shadow: var(--sombra-destacada); }
+        .titulo-banner {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        .texto-banner {
+            font-size: 1.1rem;
+            color: var(--color-texto-secundario);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        .boton-banner {
+            display: inline-block;
+            background-color: var(--color-destacado);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transicion-rapida);
+        }
+        .boton-banner:hover {
+            background-color: #ff5773;
+            transform: translateY(-3px);
+            box-shadow: var(--sombra-destacada);
+        }
         .imagen-banner { flex: 1; display: flex; justify-content: center; }
-        .imagen-banner img { max-width: 100%; max-height: 500px; border-radius: 12px; box-shadow: var(--sombra-suave); }
+        .imagen-banner img {
+            max-width: 100%;
+            max-height: 500px;
+            border-radius: 12px;
+            box-shadow: var(--sombra-suave);
+            /* FIX: height auto garantiza que no se distorsione */
+            height: auto;
+        }
 
         /* =============================================
-           SECCIÓN DINÁMICA: ¿QUÉ SON LOS CUADROS DE ALUMINIO?
+           SECCIÓN INFO
            ============================================= */
         .seccion-info {
             padding: 80px 0;
@@ -244,14 +421,43 @@
         }
         .info-grid.reverse { flex-direction: row-reverse; }
         .info-contenido { flex: 1; min-width: 280px; }
-        .info-contenido h3 { font-size: 1.8rem; margin-bottom: 20px; color: var(--color-destacado); }
-        .info-contenido p { font-size: 1.1rem; line-height: 1.6; color: var(--color-texto-secundario); margin-bottom: 20px; }
+        .info-contenido h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--color-destacado);
+        }
+        .info-contenido p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--color-texto-secundario);
+            margin-bottom: 20px;
+        }
         .info-lista { list-style: none; margin-top: 20px; }
-        .info-lista li { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+        .info-lista li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
         .info-lista li i { color: var(--color-destacado); font-size: 1.2rem; }
-        .info-imagen { flex: 1; min-width: 280px; border-radius: 20px; overflow: hidden; border: 2px solid rgba(233,69,96,0.3); transition: var(--transicion-media); }
-        .info-imagen:hover { transform: scale(1.02); border-color: var(--color-destacado); box-shadow: 0 0 30px rgba(233,69,96,0.3); }
-        .info-imagen img { width: 100%; height: auto; display: block; }
+        .info-imagen {
+            flex: 1;
+            min-width: 280px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid rgba(233,69,96,0.3);
+            transition: var(--transicion-media);
+        }
+        .info-imagen:hover {
+            transform: scale(1.02);
+            border-color: var(--color-destacado);
+            box-shadow: 0 0 30px rgba(233,69,96,0.3);
+        }
+        .info-imagen img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
 
         /* =============================================
            SECCIÓN BENEFICIOS
@@ -260,9 +466,10 @@
             padding: 80px 0;
             background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
         }
+        /* FIX: desktop usa 4 columnas para los 4 beneficios */
         .beneficios-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 30px;
             margin-top: 40px;
         }
@@ -290,11 +497,20 @@
             background-clip: text;
             color: transparent;
         }
-        .beneficio-texto h4 { font-size: 1.3rem; margin-bottom: 10px; color: var(--color-destacado); }
-        .beneficio-texto p { color: var(--color-texto-secundario); line-height: 1.5; }
+        .beneficio-texto h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--color-destacado);
+        }
+        .beneficio-texto p {
+            color: var(--color-texto-secundario);
+            line-height: 1.5;
+        }
 
         /* =============================================
            SECCIÓN CATEGORÍAS
+           FIX SEO: .categoria-card ahora es <a href>
+           en lugar de <div data-url>
            ============================================= */
         .seccion-categorias {
             padding: 80px 0;
@@ -313,15 +529,42 @@
             overflow: hidden;
             background: rgba(20, 15, 45, 0.3);
             border: 1px solid rgba(233, 69, 96, 0.3);
+            /* FIX SEO: como es un <a>, reset de estilos de enlace */
+            display: block;
+            color: var(--color-texto);
+            text-decoration: none;
         }
-        .categoria-card:hover { transform: translateY(-8px); border-color: var(--color-destacado); box-shadow: 0 10px 25px rgba(233, 69, 96, 0.2); }
-        .categoria-imagen { width: 100%; height: 250px; overflow: hidden; }
-        .categoria-imagen img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .categoria-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--color-destacado);
+            box-shadow: 0 10px 25px rgba(233, 69, 96, 0.2);
+        }
+        .categoria-imagen {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+        }
+        .categoria-imagen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            display: block;
+        }
         .categoria-card:hover .categoria-imagen img { transform: scale(1.08); }
-        .categoria-card h3 { text-align: center; padding: 1rem; font-size: 1.1rem; font-weight: 600; }
+        .categoria-card h3 {
+            text-align: center;
+            padding: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
 
         /* =============================================
-           SECCIÓN VIDEOS EXPLICATIVOS
+           SECCIÓN VIDEOS
+           VIDEO FACADE PATTERN:
+           Muestra thumbnail en lugar del iframe.
+           El iframe se carga SOLO cuando el usuario
+           hace click → mejora LCP, FCP y TTI.
            ============================================= */
         .seccion-videos {
             padding: 80px 0;
@@ -345,6 +588,8 @@
             border-color: var(--color-destacado);
             box-shadow: 0 15px 30px rgba(233, 69, 96, 0.3);
         }
+
+        /* Contenedor de video con ratio 16:9 */
         .video-container {
             position: relative;
             width: 100%;
@@ -359,9 +604,70 @@
             height: 100%;
             border: none;
         }
+
+        /* FACADE: thumbnail que reemplaza al iframe */
+        .video-facade {
+            cursor: pointer;
+        }
+        .video-facade img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Botón play sobre el thumbnail */
+        .video-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 64px;
+            height: 64px;
+            background: rgba(233, 69, 96, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 22px;
+            z-index: 2;
+            transition: all 0.3s ease;
+            /* Offset de 2px para centrar visualmente el ícono play */
+            padding-left: 4px;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        .video-facade:hover .video-play-btn {
+            background: var(--color-destacado);
+            transform: translate(-50%, -50%) scale(1.12);
+            box-shadow: 0 0 25px rgba(233, 69, 96, 0.6);
+        }
+
+        /* Gradiente oscuro bajo el thumbnail para legibilidad del título */
+        .video-facade::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40%;
+            background: linear-gradient(transparent, rgba(0,0,0,0.6));
+            pointer-events: none;
+        }
+
         .video-info { padding: 20px; }
-        .video-info h3 { font-size: 1.2rem; margin-bottom: 10px; color: #00f3ff; }
-        .video-info p { color: var(--color-texto-secundario); font-size: 0.9rem; }
+        .video-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #00f3ff;
+        }
+        .video-info p {
+            color: var(--color-texto-secundario);
+            font-size: 0.9rem;
+        }
 
         /* =============================================
            SECCIÓN CUADRO EN TU MURO
@@ -394,6 +700,7 @@
             height: 350px;
             object-fit: cover;
             transition: transform 0.5s ease;
+            display: block;
         }
         .muro-item:hover img { transform: scale(1.05); }
         .muro-overlay {
@@ -405,135 +712,15 @@
             padding: 20px;
             text-align: center;
         }
-        .muro-overlay p { color: white; font-weight: 600; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+        .muro-overlay p {
+            color: white;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
 
         /* =============================================
-           RESPONSIVE MÓVIL - SIN BARRAS DE SCROLL VISIBLES
+           FOOTER
            ============================================= */
-        @media (max-width: 768px) {
-            /* Banner */
-            .contenedor-banner {
-                flex-direction: column;
-                text-align: center;
-                gap: 2rem;
-            }
-            .titulo-banner { font-size: 2rem; }
-
-            /* Sección info (imagen + texto) se apila */
-            .info-grid, .info-grid.reverse {
-                flex-direction: column;
-            }
-
-            /* =============================================
-               CATEGORÍAS: 2 COLUMNAS, SIN SCROLL (GRID NORMAL)
-               ============================================= */
-            .categorias-grid {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
-                overflow-x: visible;
-            }
-            .categoria-imagen { height: 200px; }
-            .categoria-card h3 { font-size: 0.95rem; padding: 0.8rem; }
-
-            /* =============================================
-               BENEFICIOS: SCROLL HORIZONTAL SIN BARRA VISIBLE
-               ============================================= */
-            .beneficios-grid {
-                display: flex;
-                overflow-x: auto;
-                scroll-snap-type: x mandatory;
-                gap: 20px;
-                padding-bottom: 20px;
-                margin-top: 40px;
-                scroll-behavior: smooth;
-                -webkit-overflow-scrolling: touch;
-                /* Ocultar barra de scroll */
-                scrollbar-width: none;
-                -ms-overflow-style: none;
-            }
-            .beneficios-grid::-webkit-scrollbar {
-                display: none;
-            }
-            .beneficio-item {
-                flex: 0 0 85%;
-                scroll-snap-align: start;
-                min-width: 280px;
-            }
-
-            /* =============================================
-               VIDEOS: SCROLL HORIZONTAL SIN BARRA VISIBLE
-               ============================================= */
-            .videos-grid {
-                display: flex;
-                overflow-x: auto;
-                scroll-snap-type: x mandatory;
-                gap: 20px;
-                padding-bottom: 20px;
-                margin-top: 40px;
-                scroll-behavior: smooth;
-                -webkit-overflow-scrolling: touch;
-                scrollbar-width: none;
-                -ms-overflow-style: none;
-            }
-            .videos-grid::-webkit-scrollbar {
-                display: none;
-            }
-            .video-card {
-                flex: 0 0 85%;
-                scroll-snap-align: start;
-                min-width: 300px;
-            }
-
-            /* =============================================
-               MURO: SCROLL HORIZONTAL SIN BARRA VISIBLE - 1 IMAGEN = PANTALLA COMPLETA
-               ============================================= */
-            .muro-grid {
-                display: flex;
-                overflow-x: auto;
-                scroll-snap-type: x mandatory;
-                gap: 0;
-                padding: 0;
-                margin-top: 40px;
-                scroll-behavior: smooth;
-                -webkit-overflow-scrolling: touch;
-                scrollbar-width: none;
-                -ms-overflow-style: none;
-            }
-            .muro-grid::-webkit-scrollbar {
-                display: none;
-            }
-            .muro-item {
-                flex: 0 0 100%;
-                scroll-snap-align: start;
-                min-width: 100%;
-                border-radius: 0;
-                margin: 0;
-            }
-            .muro-item img {
-                height: 500px;
-                width: 100%;
-                object-fit: cover;
-            }
-            .muro-overlay {
-                bottom: 20px;
-                left: 20px;
-                right: 20px;
-                border-radius: 15px;
-                background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
-            }
-        }
-
-        @media (max-width: 480px) {
-            .categoria-imagen { height: 160px; }
-            .categoria-card h3 { font-size: 0.85rem; padding: 0.6rem; }
-            .muro-item img { height: 450px; }
-            .titulo-seccion { font-size: 1.4rem; }
-            .beneficio-item { flex: 0 0 90%; }
-            .video-card { flex: 0 0 90%; }
-        }
-
-        /* FOOTER */
         .footer-principal {
             background-color: var(--color-primario);
             padding: 4rem 0 2rem;
@@ -547,69 +734,429 @@
             grid-template-columns: repeat(4, 1fr);
             gap: 3rem;
         }
-        .titulo-footer { font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem; background: linear-gradient(90deg, var(--color-destacado), #ff7b9c); -webkit-background-clip: text; background-clip: text; color: transparent; }
-        .texto-footer { color: var(--color-texto-secundario); margin-bottom: 1.5rem; line-height: 1.6; }
+        .titulo-footer {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--color-destacado), #ff7b9c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .texto-footer {
+            color: var(--color-texto-secundario);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
         .redes-sociales { display: flex; gap: 1rem; }
-        .enlace-red-social { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; background-color: var(--color-secundario); border-radius: 50%; transition: var(--transicion-rapida); }
-        .enlace-red-social:hover { background-color: var(--color-destacado); transform: translateY(-3px); }
-        .titulo-columna { font-size: 1.2rem; font-weight: 700; margin-bottom: 1.5rem; }
+        .enlace-red-social {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--color-secundario);
+            border-radius: 50%;
+            transition: var(--transicion-rapida);
+        }
+        .enlace-red-social:hover {
+            background-color: var(--color-destacado);
+            transform: translateY(-3px);
+        }
+        .titulo-columna {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
         .lista-enlaces li { margin-bottom: 0.8rem; }
-        .lista-enlaces a { color: var(--color-texto-secundario); transition: var(--transicion-rapida); }
-        .lista-enlaces a:hover { color: var(--color-destacado); padding-left: 5px; }
-        .info-contacto p { display: flex; align-items: center; gap: 10px; color: var(--color-texto-secundario); margin-bottom: 1rem; }
+        .lista-enlaces a {
+            color: var(--color-texto-secundario);
+            transition: var(--transicion-rapida);
+        }
+        .lista-enlaces a:hover {
+            color: var(--color-destacado);
+            padding-left: 5px;
+        }
+        .info-contacto p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--color-texto-secundario);
+            margin-bottom: 1rem;
+        }
         .info-contacto a:hover { color: var(--color-destacado); }
-        .pie-footer { max-width: 1400px; margin: 3rem auto 0; padding: 1.5rem 20px 0; border-top: 1px solid var(--color-borde); text-align: center; color: var(--color-texto-secundario); font-size: 0.9rem; }
+        .pie-footer {
+            max-width: 1400px;
+            margin: 3rem auto 0;
+            padding: 1.5rem 20px 0;
+            border-top: 1px solid var(--color-borde);
+            text-align: center;
+            color: var(--color-texto-secundario);
+            font-size: 0.9rem;
+        }
 
+        /* =============================================
+           MEDIA QUERIES
+           ============================================= */
+
+        /* -----------------------------------------------
+           TABLET: 769px - 1024px
+           FIX: Zona muerta que no tenía breakpoint propio.
+           Footer con 4 cols → overflow en tablet.
+           Categorías con 6 cols → muy estrechas.
+           ----------------------------------------------- */
+        @media (min-width: 769px) and (max-width: 1024px) {
+
+            /* Beneficios: 2 columnas en tablet */
+            .beneficios-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            /* Categorías: 3 columnas en tablet (en lugar de 6) */
+            .categorias-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            /* Footer: 2x2 en tablet */
+            .contenedor-footer {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            /* Muro: 2 columnas en tablet */
+            .muro-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            /* Banner: reduce tamaño de título */
+            .titulo-banner { font-size: 2rem; }
+        }
+
+        /* -----------------------------------------------
+           MOBILE: max-width 768px
+           ----------------------------------------------- */
         @media (max-width: 768px) {
-            .contenedor-footer { grid-template-columns: 1fr; gap: 2rem; }
+
+            /* Mostrar botón hamburguesa */
+            .boton-menu-mobile { display: flex; }
+
+            /* ----------
+               MENÚ MOBILE
+               ---------- */
+            .menu-principal {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 85%;
+                max-width: 350px;
+                height: 100vh;
+                background-color: var(--color-primario);
+                flex-direction: column;
+                justify-content: flex-start;
+                padding: 80px 0 30px;
+                gap: 0;
+                z-index: 10000;
+                overflow-y: auto;
+                box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
+                transition: right 0.3s ease;
+            }
+            .menu-principal.activo { right: 0; }
+            .menu-principal > li {
+                width: 100%;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+            .enlace-menu {
+                display: block;
+                padding: 16px 20px;
+                font-size: 1rem;
+            }
+            .menu-con-desplegable { width: 100%; }
+            .enlace-menu-desplegable {
+                display: flex;
+                justify-content: space-between;
+                padding: 16px 20px;
+                width: 100%;
+            }
+
+            /* FIX CRÍTICO #1: La flecha rota al activar clase .activo en mobile.
+               Antes solo rotaba con :hover (que no existe en touch). */
+            .menu-con-desplegable.activo .flecha-desplegable {
+                transform: rotate(180deg);
+            }
+
+            /* FIX CRÍTICO #2: El submenú heredaba opacity:0; visibility:hidden
+               del CSS desktop y nunca se mostraba en mobile.
+               Se fuerza la visibilidad y se transiciona por max-height. */
+            .submenu {
+                position: relative;
+                top: auto;
+                left: auto;
+                max-height: 0;
+                overflow: hidden;
+                opacity: 1;           /* ANULA desktop opacity:0 */
+                visibility: visible;  /* ANULA desktop visibility:hidden */
+                transform: none;      /* ANULA desktop translateY */
+                transition: max-height 0.4s ease;
+                width: 100%;
+                min-width: unset;
+                border-radius: 0;
+                border-left: 4px solid var(--color-destacado);
+                box-shadow: none;
+            }
+            .menu-con-desplegable.activo .submenu {
+                max-height: 400px;
+                padding: 8px 0;
+            }
+            .submenu a {
+                padding: 12px 20px 12px 35px;
+                white-space: normal;
+            }
+
+            /* Ocultar iconos de usuario en mobile */
+            .iconos-usuario { display: none; }
+
+            /* Banner */
+            .contenedor-banner {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+            .titulo-banner { font-size: 2rem; }
+            .imagen-banner img {
+                max-height: 300px;
+            }
+
+            /* Info */
+            .info-grid,
+            .info-grid.reverse {
+                flex-direction: column;
+            }
+
+            /* Beneficios: scroll horizontal sin barra */
+            .beneficios-grid {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                gap: 20px;
+                padding-bottom: 20px;
+                margin-top: 40px;
+                scroll-behavior: smooth;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+            .beneficios-grid::-webkit-scrollbar { display: none; }
+            .beneficio-item {
+                flex: 0 0 85%;
+                scroll-snap-align: start;
+                min-width: 280px;
+                /* FIX: hover translateX innecesario en mobile */
+                transform: none !important;
+            }
+
+            /* Categorías: 2 columnas, sin scroll */
+            .categorias-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+                overflow-x: visible;
+            }
+            .categoria-imagen { height: 200px; }
+            .categoria-card h3 {
+                font-size: 0.95rem;
+                padding: 0.8rem;
+            }
+
+            /* Videos: scroll horizontal sin barra */
+            .videos-grid {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                gap: 20px;
+                padding-bottom: 20px;
+                margin-top: 40px;
+                scroll-behavior: smooth;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+            .videos-grid::-webkit-scrollbar { display: none; }
+            .video-card {
+                flex: 0 0 85%;
+                scroll-snap-align: start;
+                min-width: 300px;
+            }
+
+            /* Muro: una imagen por pantalla, scroll horizontal */
+            .muro-grid {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                gap: 0;
+                padding: 0;
+                margin-top: 40px;
+                scroll-behavior: smooth;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+            .muro-grid::-webkit-scrollbar { display: none; }
+            .muro-item {
+                flex: 0 0 100%;
+                scroll-snap-align: start;
+                min-width: 100%;
+                border-radius: 0;
+                margin: 0;
+                /* FIX: desactiva hover translateY en mobile */
+                transform: none !important;
+            }
+            .muro-item img {
+                height: 500px;
+                width: 100%;
+                object-fit: cover;
+            }
+            .muro-overlay {
+                bottom: 20px;
+                left: 20px;
+                right: 20px;
+                border-radius: 15px;
+                background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+            }
+
+            /* Mostrar scroll hints en mobile */
+            .scroll-hint { display: flex; }
+
+            /* Footer: 1 columna en mobile */
+            .contenedor-footer {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* -----------------------------------------------
+           MOBILE PEQUEÑO: max-width 480px
+           ----------------------------------------------- */
+        @media (max-width: 480px) {
+            .categoria-imagen { height: 160px; }
+            .categoria-card h3 { font-size: 0.85rem; padding: 0.6rem; }
+            .muro-item img { height: 450px; }
+            .titulo-seccion { font-size: 1.4rem; }
+            .beneficio-item { flex: 0 0 90%; }
+            .video-card { flex: 0 0 90%; }
+            .titulo-banner { font-size: 1.6rem; }
+            .boton-banner { font-size: 0.9rem; padding: 0.7rem 1.5rem; }
         }
     </style>
 </head>
 <body>
 
-    <a href="https://wa.me/56912345678?text=Hola%20SublimArts,%20quiero%20más%20información" class="whatsapp-button" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <!-- BOTÓN WHATSAPP -->
+    <a href="https://wa.me/56912345678?text=Hola%20SublimArts,%20quiero%20más%20información"
+       class="whatsapp-button"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
+    <!-- =============================================
+         HEADER
+         ============================================= -->
     <header class="header-principal">
         <div class="navegacion">
             <div class="contenedor-navegacion">
+
+                <!-- Logo -->
                 <div class="logo-contenedor">
-                    <div class="logo">🎨</div>
+                    <div class="logo" aria-hidden="true">🎨</div>
                     <div class="titulo-logo">SublimArts</div>
                 </div>
-                <ul class="menu-principal" id="menuPrincipal">
+
+                <!-- Menú principal -->
+                <ul class="menu-principal" id="menuPrincipal" role="navigation" aria-label="Menú principal">
                     <li><a href="index.html" class="enlace-menu">Inicio</a></li>
                     <li><a href="#categorias" class="enlace-menu">Categorías</a></li>
                     <li class="menu-con-desplegable">
-                        <button class="enlace-menu-desplegable">Productos <i class="fas fa-chevron-down flecha-desplegable"></i></button>
-                        <ul class="submenu"><li><a href="tematicas.html">Temáticos</a></li><li><a href="retratos.html">Retratos</a></li><li><a href="paisajes.html">Paisajes</a></li><li><a href="abstracto.html">Abstracto</a></li></ul>
+                        <!-- FIX: aria-expanded se actualiza vía JS -->
+                        <button class="enlace-menu-desplegable"
+                                aria-haspopup="true"
+                                aria-expanded="false">
+                            Productos
+                            <i class="fas fa-chevron-down flecha-desplegable" aria-hidden="true"></i>
+                        </button>
+                        <ul class="submenu" role="menu">
+                            <li role="none"><a href="tematicas.html" role="menuitem">Temáticos</a></li>
+                            <li role="none"><a href="retratos.html" role="menuitem">Retratos</a></li>
+                            <li role="none"><a href="paisajes.html" role="menuitem">Paisajes</a></li>
+                            <li role="none"><a href="abstracto.html" role="menuitem">Abstracto</a></li>
+                        </ul>
                     </li>
                     <li><a href="#videos" class="enlace-menu">Videos</a></li>
                     <li><a href="#contacto" class="enlace-menu">Contacto</a></li>
                 </ul>
+
+                <!-- Iconos usuario -->
                 <div class="iconos-usuario">
-                    <a href="#" class="icono-usuario"><i class="fas fa-heart"></i></a>
-                    <a href="#" class="icono-usuario"><i class="fas fa-shopping-cart"></i></a>
-                    <a href="#" class="icono-usuario"><i class="fas fa-user"></i></a>
+                    <a href="#" class="icono-usuario" aria-label="Lista de deseos">
+                        <i class="fas fa-heart" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="icono-usuario" aria-label="Carrito de compras">
+                        <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="icono-usuario" aria-label="Mi cuenta">
+                        <i class="fas fa-user" aria-hidden="true"></i>
+                    </a>
                 </div>
-                <button class="boton-menu-mobile" id="botonMenuMobile"><i class="fas fa-bars"></i></button>
+
+                <!-- Botón hamburguesa -->
+                <button class="boton-menu-mobile"
+                        id="botonMenuMobile"
+                        aria-label="Abrir menú"
+                        aria-expanded="false"
+                        aria-controls="menuPrincipal">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                </button>
+
             </div>
         </div>
     </header>
-    <div class="menu-overlay" id="menuOverlay"></div>
 
-    <!-- BANNER -->
+    <!-- Overlay del menú -->
+    <div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
+
+
+    <!-- =============================================
+         BANNER PRINCIPAL
+         ============================================= -->
     <section class="banner-principal" id="inicio">
         <div class="contenedor-banner">
             <div class="contenido-banner">
-                <h1 class="titulo-banner">Cuadros en Aluminio <span style="color:#e94560">HD</span></h1>
-                <p class="texto-banner">Calidad de museo, colores vibrantes y durabilidad eterna. Transforma tus imágenes en obras de arte que durarán toda la vida.</p>
-                <a href="#categorias" class="boton-banner">Explorar Colección <i class="fas fa-arrow-right"></i></a>
+                <h1 class="titulo-banner">
+                    Cuadros en Aluminio <span style="color:#e94560">HD</span>
+                </h1>
+                <p class="texto-banner">
+                    Calidad de museo, colores vibrantes y durabilidad eterna.
+                    Transforma tus imágenes en obras de arte que durarán toda la vida.
+                </p>
+                <a href="#categorias" class="boton-banner">
+                    Explorar Colección <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                </a>
             </div>
-            <div class="imagen-banner"><img src="https://i.pinimg.com/736x/86/9b/c6/869bc6927e07c2910f0017eb31973b69.jpg" alt="Cuadro Aluminio"></div>
+            <div class="imagen-banner">
+                <!-- FIX: loading="lazy" en imágenes fuera del viewport inicial.
+                     El banner está above-the-fold → NO lazy (correcto dejarlo eager) -->
+                <img src="https://i.pinimg.com/736x/86/9b/c6/869bc6927e07c2910f0017eb31973b69.jpg"
+                     alt="Cuadro en aluminio HD de SublimArts"
+                     width="600"
+                     height="500">
+            </div>
         </div>
     </section>
 
-    <!-- SECCIÓN DINÁMICA: ¿QUÉ SON LOS CUADROS DE ALUMINIO? -->
+
+    <!-- =============================================
+         SECCIÓN INFO
+         ============================================= -->
     <section class="seccion-info">
         <div class="contenedor-seccion">
             <div class="info-grid">
@@ -617,103 +1164,497 @@
                     <h3>✨ ¿Qué son los cuadros de aluminio?</h3>
                     <p>Los cuadros de aluminio son una técnica de impresión de última generación donde la tinta se sublima directamente sobre una plancha de aluminio de alta calidad. El resultado es una obra de arte con colores vibrantes, nitidez Full HD y una durabilidad que supera cualquier otro material.</p>
                     <ul class="info-lista">
-                        <li><i class="fas fa-check-circle"></i> Colores más brillantes que el papel o lienzo</li>
-                        <li><i class="fas fa-check-circle"></i> Resistente a rayos UV, humedad y arañazos</li>
-                        <li><i class="fas fa-check-circle"></i> No se deforma ni decolora con el tiempo</li>
-                        <li><i class="fas fa-check-circle"></i> Fácil limpieza: solo un paño húmedo</li>
+                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Colores más brillantes que el papel o lienzo</li>
+                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Resistente a rayos UV, humedad y arañazos</li>
+                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> No se deforma ni decolora con el tiempo</li>
+                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Fácil limpieza: solo un paño húmedo</li>
                     </ul>
                 </div>
-                <div class="info-imagen"><img src="img/autos y motos/ChatGPT Image 8 abr 2026, 10_47_30 p.m..png" alt="Cuadro aluminio calidad"></div>
+                <div class="info-imagen">
+                    <!-- NOTA: ruta con espacios → considera URL-encoding o renombrar archivo -->
+                    <img src="img/autos%20y%20motos/ChatGPT%20Image%208%20abr%202026%2C%2010_47_30%20p.m..png"
+                         alt="Detalle de calidad de cuadro en aluminio"
+                         loading="lazy"
+                         width="600"
+                         height="450">
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN BENEFICIOS -->
+
+    <!-- =============================================
+         SECCIÓN BENEFICIOS
+         ============================================= -->
     <section class="seccion-beneficios">
         <div class="contenedor-seccion">
             <h2 class="titulo-seccion">Beneficios exclusivos</h2>
             <p class="subtitulo-seccion">¿Por qué elegir SublimArts?</p>
             <div class="beneficios-grid">
-                <div class="beneficio-item"><div class="beneficio-icono"><i class="fas fa-gem"></i></div><div class="beneficio-texto"><h4>Calidad de museo</h4><p>Impresión directa sobre aluminio con tintas de alta gama.</p></div></div>
-                <div class="beneficio-item"><div class="beneficio-icono"><i class="fas fa-sync-alt"></i></div><div class="beneficio-texto"><h4>No se deforma</h4><p>A diferencia del lienzo, el aluminio mantiene su forma perfecta.</p></div></div>
-                <div class="beneficio-item"><div class="beneficio-icono"><i class="fas fa-water"></i></div><div class="beneficio-texto"><h4>Resistente a la humedad</h4><p>Ideal para baños, cocinas o exteriores cubiertos.</p></div></div>
-                <div class="beneficio-item"><div class="beneficio-icono"><i class="fas fa-feather-alt"></i></div><div class="beneficio-texto"><h4>Ultraligero</h4><p>Fácil de colgar, no necesita marco pesado.</p></div></div>
+                <div class="beneficio-item">
+                    <div class="beneficio-icono" aria-hidden="true"><i class="fas fa-gem"></i></div>
+                    <div class="beneficio-texto">
+                        <h4>Calidad de museo</h4>
+                        <p>Impresión directa sobre aluminio con tintas de alta gama.</p>
+                    </div>
+                </div>
+                <div class="beneficio-item">
+                    <div class="beneficio-icono" aria-hidden="true"><i class="fas fa-sync-alt"></i></div>
+                    <div class="beneficio-texto">
+                        <h4>No se deforma</h4>
+                        <p>A diferencia del lienzo, el aluminio mantiene su forma perfecta.</p>
+                    </div>
+                </div>
+                <div class="beneficio-item">
+                    <div class="beneficio-icono" aria-hidden="true"><i class="fas fa-water"></i></div>
+                    <div class="beneficio-texto">
+                        <h4>Resistente a la humedad</h4>
+                        <p>Ideal para baños, cocinas o exteriores cubiertos.</p>
+                    </div>
+                </div>
+                <div class="beneficio-item">
+                    <div class="beneficio-icono" aria-hidden="true"><i class="fas fa-feather-alt"></i></div>
+                    <div class="beneficio-texto">
+                        <h4>Ultraligero</h4>
+                        <p>Fácil de colgar, no necesita marco pesado.</p>
+                    </div>
+                </div>
             </div>
+            <!-- FIX UX: indicador visual de scroll horizontal en mobile -->
+            <p class="scroll-hint" aria-hidden="true">
+                <i class="fas fa-hand-point-right"></i> Desliza para ver más
+            </p>
         </div>
     </section>
 
-    <!-- SECCIÓN CATEGORÍAS -->
+
+    <!-- =============================================
+         SECCIÓN CATEGORÍAS
+         FIX SEO: <div data-url> → <a href> con mismas clases
+         Mantiene data-url para compatibilidad con JS existente.
+         ============================================= -->
     <section class="seccion-categorias" id="categorias">
         <div class="contenedor-seccion">
             <h2 class="titulo-seccion">Explora por categorías</h2>
             <p class="subtitulo-seccion">Haz clic en cualquier imagen para ver todos los cuadros de esa categoría</p>
             <div class="categorias-grid">
-                <div class="categoria-card" data-url="tematicas.html"><div class="categoria-imagen"><img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Temáticos"></div><h3>Temáticos</h3></div>
-                <div class="categoria-card" data-url="retratos.html"><div class="categoria-imagen"><img src="https://images.unsplash.com/photo-1542909168-82c3c7b6c5a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Retratos"></div><h3>Retratos</h3></div>
-                <div class="categoria-card" data-url="paisajes.html"><div class="categoria-imagen"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Paisajes"></div><h3>Paisajes</h3></div>
-                <div class="categoria-card" data-url="abstracto.html"><div class="categoria-imagen"><img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Abstracto"></div><h3>Abstracto</h3></div>
-                <div class="categoria-card" data-url="animales.html"><div class="categoria-imagen"><img src="https://images.unsplash.com/photo-1560743641-3914f2c45636?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Animales"></div><h3>Animales</h3></div>
-                <div class="categoria-card" data-url="ciudades.html"><div class="categoria-imagen"><img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ciudades"></div><h3>Ciudades</h3></div>
+
+                <a href="tematicas.html" class="categoria-card" data-url="tematicas.html">
+                    <div class="categoria-imagen">
+                        <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                             alt="Cuadros temáticos"
+                             loading="lazy"
+                             width="800"
+                             height="600">
+                    </div>
+                    <h3>Temáticos</h3>
+                </a>
+
+                <a href="retratos.html" class="categoria-card" data-url="retratos.html">
+                    <div class="categoria-imagen">
+                        <img src="https://images.unsplash.com/photo-1542909168-82c3c7b6c5a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                             alt="Retratos personalizados"
+                             loading="lazy"
+                             width="800"
+                             height="600">
+                    </div>
+                    <h3>Retratos</h3>
+                </a>
+
+                <a href="paisajes.html" class="categoria-card" data-url="paisajes.html">
+                    <div class="categoria-imagen">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                             alt="Cuadros de paisajes"
+                             loading="lazy"
+                             width="800"
+                             height="600">
+                    </div>
+                    <h3>Paisajes</h3>
+                </a>
+
+                <a href="abstracto.html" class="categoria-card" data-url="abstracto.html">
+                    <div class="categoria-imagen">
+                        <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                             alt="Arte abstracto"
+                             loading="lazy"
+                             width="800"
+                             height="600">
+                    </div>
+                    <h3>Abstracto</h3>
+                </a>
+
+                <a href="animales.html" class="categoria-card" data-url="animales.html">
+                    <div class="categoria-imagen">
+                        <img src="https://images.unsplash.com/photo-1560743641-3914f2c45636?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                             alt="Cuadros de animales"
+                             loading="lazy"
+                             width="800"
+                             height="600">
+                    </div>
+                    <h3>Animales</h3>
+                </a>
+
+                <a href="ciudades.html" class="categoria-card" data-url="ciudades.html">
+                    <div class="categoria-imagen">
+                        <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                             alt="Cuadros de ciudades"
+                             loading="lazy"
+                             width="800"
+                             height="600">
+                    </div>
+                    <h3>Ciudades</h3>
+                </a>
+
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN VIDEOS EXPLICATIVOS -->
+
+    <!-- =============================================
+         SECCIÓN VIDEOS
+         VIDEO FACADE PATTERN:
+         El thumbnail se muestra inmediatamente.
+         El iframe se inyecta al hacer click → no
+         bloquea el render inicial de la página.
+         ============================================= -->
     <section class="seccion-videos" id="videos">
         <div class="contenedor-seccion">
             <h2 class="titulo-seccion">📹 Mira cómo se hacen</h2>
             <p class="subtitulo-seccion">Descubre el proceso de sublimación y la calidad de nuestros cuadros</p>
             <div class="videos-grid">
+
                 <div class="video-card">
-                    <div class="video-container"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0" title="Proceso de sublimación" allowfullscreen></iframe></div>
-                    <div class="video-info"><h3>✨ Proceso de sublimación paso a paso</h3><p>Conoce cómo transformamos tus imágenes en obras de arte sobre aluminio.</p></div>
+                    <!-- data-video-id: ID de YouTube para construir src al hacer click -->
+                    <div class="video-container video-facade" data-video-id="dQw4w9WgXcQ" role="button" tabindex="0" aria-label="Reproducir: Proceso de sublimación paso a paso">
+                        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg"
+                             alt="Proceso de sublimación"
+                             loading="lazy"
+                             width="480"
+                             height="270">
+                        <button class="video-play-btn" aria-label="Reproducir video" tabindex="-1">
+                            <i class="fas fa-play" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="video-info">
+                        <h3>✨ Proceso de sublimación paso a paso</h3>
+                        <p>Conoce cómo transformamos tus imágenes en obras de arte sobre aluminio.</p>
+                    </div>
                 </div>
+
                 <div class="video-card">
-                    <div class="video-container"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0" title="Calidad Full HD" allowfullscreen></iframe></div>
-                    <div class="video-info"><h3>🎨 Calidad Full HD y colores vibrantes</h3><p>Comparativa entre impresión tradicional y sublimación en aluminio.</p></div>
+                    <div class="video-container video-facade" data-video-id="dQw4w9WgXcQ" role="button" tabindex="0" aria-label="Reproducir: Calidad Full HD y colores vibrantes">
+                        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg"
+                             alt="Calidad Full HD"
+                             loading="lazy"
+                             width="480"
+                             height="270">
+                        <button class="video-play-btn" aria-label="Reproducir video" tabindex="-1">
+                            <i class="fas fa-play" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="video-info">
+                        <h3>🎨 Calidad Full HD y colores vibrantes</h3>
+                        <p>Comparativa entre impresión tradicional y sublimación en aluminio.</p>
+                    </div>
                 </div>
+
                 <div class="video-card">
-                    <div class="video-container"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0" title="Instalación" allowfullscreen></iframe></div>
-                    <div class="video-info"><h3>🖼️ Cómo colgar tu cuadro de aluminio</h3><p>Consejos de instalación y cuidado de tu obra.</p></div>
+                    <div class="video-container video-facade" data-video-id="dQw4w9WgXcQ" role="button" tabindex="0" aria-label="Reproducir: Cómo colgar tu cuadro de aluminio">
+                        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg"
+                             alt="Instalación del cuadro"
+                             loading="lazy"
+                             width="480"
+                             height="270">
+                        <button class="video-play-btn" aria-label="Reproducir video" tabindex="-1">
+                            <i class="fas fa-play" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="video-info">
+                        <h3>🖼️ Cómo colgar tu cuadro de aluminio</h3>
+                        <p>Consejos de instalación y cuidado de tu obra.</p>
+                    </div>
                 </div>
+
             </div>
+            <!-- Scroll hint mobile -->
+            <p class="scroll-hint" aria-hidden="true">
+                <i class="fas fa-hand-point-right"></i> Desliza para ver más
+            </p>
         </div>
     </section>
 
-    <!-- SECCIÓN CUADRO EN TU MURO -->
+
+    <!-- =============================================
+         SECCIÓN CUADRO EN TU MURO
+         ============================================= -->
     <section class="seccion-muro">
         <div class="contenedor-seccion">
             <h2 class="titulo-seccion">Un cuadro de aluminio en tu hogar</h2>
             <p class="subtitulo-seccion">✨ Acabado mate premium · Marco flotante incluido · Brillo y nitidez incomparables</p>
             <div class="muro-grid">
-                <div class="muro-item"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Sala"><div class="muro-overlay"><p><i class="fas fa-home"></i> Sala de Estar</p></div></div>
-                <div class="muro-item"><img src="https://images.unsplash.com/photo-1616486338812-3badae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Oficina"><div class="muro-overlay"><p><i class="fas fa-briefcase"></i> Oficina</p></div></div>
-                <div class="muro-item"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Dormitorio"><div class="muro-overlay"><p><i class="fas fa-bed"></i> Dormitorio</p></div></div>
+
+                <div class="muro-item">
+                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                         alt="Cuadro de aluminio en sala de estar"
+                         loading="lazy"
+                         width="1000"
+                         height="667">
+                    <div class="muro-overlay">
+                        <p><i class="fas fa-home" aria-hidden="true"></i> Sala de Estar</p>
+                    </div>
+                </div>
+
+                <div class="muro-item">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3badae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                         alt="Cuadro de aluminio en oficina"
+                         loading="lazy"
+                         width="1000"
+                         height="667">
+                    <div class="muro-overlay">
+                        <p><i class="fas fa-briefcase" aria-hidden="true"></i> Oficina</p>
+                    </div>
+                </div>
+
+                <div class="muro-item">
+                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                         alt="Cuadro de aluminio en dormitorio"
+                         loading="lazy"
+                         width="1000"
+                         height="667">
+                    <div class="muro-overlay">
+                        <p><i class="fas fa-bed" aria-hidden="true"></i> Dormitorio</p>
+                    </div>
+                </div>
+
             </div>
+            <!-- Scroll hint mobile -->
+            <p class="scroll-hint" aria-hidden="true">
+                <i class="fas fa-hand-point-right"></i> Desliza para ver más
+            </p>
         </div>
     </section>
 
-    <!-- FOOTER -->
+
+    <!-- =============================================
+         FOOTER
+         ============================================= -->
     <footer class="footer-principal" id="contacto">
         <div class="contenedor-footer">
-            <div class="columna-footer"><div class="titulo-footer">SublimArts</div><p class="texto-footer">Cuadros en aluminio de alta calidad, con tecnología de sublimación que garantiza colores vibrantes y durabilidad eterna.</p><div class="redes-sociales"><a href="#" class="enlace-red-social"><i class="fab fa-instagram"></i></a><a href="#" class="enlace-red-social"><i class="fab fa-facebook-f"></i></a><a href="#" class="enlace-red-social"><i class="fab fa-tiktok"></i></a></div></div>
-            <div class="columna-footer"><h3 class="titulo-columna">Enlaces rápidos</h3><ul class="lista-enlaces"><li><a href="#inicio">Inicio</a></li><li><a href="#categorias">Categorías</a></li><li><a href="#videos">Videos</a></li><li><a href="#">Política de privacidad</a></li></ul></div>
-            <div class="columna-footer"><h3 class="titulo-columna">Categorías</h3><ul class="lista-enlaces"><li><a href="tematicas.html">Temáticos</a></li><li><a href="retratos.html">Retratos</a></li><li><a href="paisajes.html">Paisajes</a></li><li><a href="abstracto.html">Abstracto</a></li></ul></div>
-            <div class="columna-footer"><h3 class="titulo-columna">Contacto</h3><div class="info-contacto"><p><i class="fas fa-envelope"></i> contacto@sublimarts.com</p><p><i class="fas fa-phone"></i> +56 9 1234 5678</p><p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/56912345678">+56 9 1234 5678</a></p></div></div>
+
+            <div class="columna-footer">
+                <div class="titulo-footer">SublimArts</div>
+                <p class="texto-footer">
+                    Cuadros en aluminio de alta calidad, con tecnología de sublimación
+                    que garantiza colores vibrantes y durabilidad eterna.
+                </p>
+                <div class="redes-sociales">
+                    <a href="#" class="enlace-red-social" aria-label="Instagram">
+                        <i class="fab fa-instagram" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="enlace-red-social" aria-label="Facebook">
+                        <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="enlace-red-social" aria-label="TikTok">
+                        <i class="fab fa-tiktok" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="columna-footer">
+                <h3 class="titulo-columna">Enlaces rápidos</h3>
+                <ul class="lista-enlaces">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#categorias">Categorías</a></li>
+                    <li><a href="#videos">Videos</a></li>
+                    <li><a href="#">Política de privacidad</a></li>
+                </ul>
+            </div>
+
+            <div class="columna-footer">
+                <h3 class="titulo-columna">Categorías</h3>
+                <ul class="lista-enlaces">
+                    <li><a href="tematicas.html">Temáticos</a></li>
+                    <li><a href="retratos.html">Retratos</a></li>
+                    <li><a href="paisajes.html">Paisajes</a></li>
+                    <li><a href="abstracto.html">Abstracto</a></li>
+                </ul>
+            </div>
+
+            <div class="columna-footer">
+                <h3 class="titulo-columna">Contacto</h3>
+                <div class="info-contacto">
+                    <p><i class="fas fa-envelope" aria-hidden="true"></i> contacto@sublimarts.com</p>
+                    <p><i class="fas fa-phone" aria-hidden="true"></i> +56 9 1234 5678</p>
+                    <p>
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                        <a href="https://wa.me/56912345678" rel="noopener noreferrer">+56 9 1234 5678</a>
+                    </p>
+                </div>
+            </div>
+
         </div>
-        <div class="pie-footer"><p>&copy; 2025 SublimArts - Cuadros en Aluminio HD | Calidad que perdura</p></div>
+        <div class="pie-footer">
+            <p>&copy; 2025 SublimArts - Cuadros en Aluminio HD | Calidad que perdura</p>
+        </div>
     </footer>
 
+
+    <!-- =============================================
+         JAVASCRIPT
+         ============================================= -->
     <script>
-        const botonMenu = document.getElementById('botonMenuMobile');
+        /* ================================================
+           MENÚ MOBILE
+           ================================================ */
+        const botonMenu    = document.getElementById('botonMenuMobile');
         const menuPrincipal = document.getElementById('menuPrincipal');
-        const menuOverlay = document.getElementById('menuOverlay');
-        function toggleMenu() { menuPrincipal.classList.toggle('activo'); menuOverlay.classList.toggle('activo'); document.body.classList.toggle('menu-abierto'); }
-        botonMenu.addEventListener('click', toggleMenu);
-        menuOverlay.addEventListener('click', toggleMenu);
-        document.querySelectorAll('.menu-con-desplegable .enlace-menu-desplegable').forEach(btn => { btn.addEventListener('click', (e) => { if(window.innerWidth <= 768){ e.preventDefault(); btn.closest('.menu-con-desplegable').classList.toggle('activo'); } }); });
-        document.querySelectorAll('.categoria-card').forEach(card => { card.addEventListener('click', function() { const url = this.getAttribute('data-url'); if(url) window.location.href = url; }); });
-        document.querySelectorAll('.enlace-menu, .submenu a').forEach(link => { link.addEventListener('click', () => { if(window.innerWidth <= 768) toggleMenu(); }); });
+        const menuOverlay  = document.getElementById('menuOverlay');
+
+        /**
+         * Abre/cierra el menú lateral mobile.
+         * Actualiza aria-expanded en el botón hamburguesa.
+         */
+        function toggleMenu(forzarCerrar = false) {
+            const estaAbierto = menuPrincipal.classList.contains('activo');
+            const nuevaEstado = forzarCerrar ? false : !estaAbierto;
+
+            menuPrincipal.classList.toggle('activo', nuevaEstado);
+            menuOverlay.classList.toggle('activo', nuevaEstado);
+            document.body.classList.toggle('menu-abierto', nuevaEstado);
+
+            // Actualizar aria-expanded en el botón hamburguesa
+            botonMenu.setAttribute('aria-expanded', nuevaEstado.toString());
+            menuOverlay.setAttribute('aria-hidden', (!nuevaEstado).toString());
+
+            // Cambiar ícono hamburguesa ↔ X
+            const icono = botonMenu.querySelector('i');
+            if (icono) {
+                icono.className = nuevaEstado ? 'fas fa-times' : 'fas fa-bars';
+            }
+        }
+
+        botonMenu.addEventListener('click', () => toggleMenu());
+        menuOverlay.addEventListener('click', () => toggleMenu(true));
+
+        // FIX UX: cerrar menú con tecla ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && menuPrincipal.classList.contains('activo')) {
+                toggleMenu(true);
+                botonMenu.focus(); // Devolver foco al botón hamburguesa
+            }
+        });
+
+
+        /* ================================================
+           SUBMENÚS DESPLEGABLES (MOBILE)
+           FIX: cierra otros submenús al abrir uno nuevo.
+           FIX: actualiza aria-expanded en el botón.
+           ================================================ */
+        document.querySelectorAll('.menu-con-desplegable .enlace-menu-desplegable')
+            .forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        e.stopPropagation();
+
+                        const itemPadre = btn.closest('.menu-con-desplegable');
+                        const estaAbierto = itemPadre.classList.contains('activo');
+
+                        // FIX: cierra todos los demás submenús abiertos
+                        document.querySelectorAll('.menu-con-desplegable.activo').forEach(item => {
+                            if (item !== itemPadre) {
+                                item.classList.remove('activo');
+                                const otroBtnSubmenu = item.querySelector('.enlace-menu-desplegable');
+                                if (otroBtnSubmenu) {
+                                    otroBtnSubmenu.setAttribute('aria-expanded', 'false');
+                                }
+                            }
+                        });
+
+                        // Toggle del submenú actual
+                        itemPadre.classList.toggle('activo', !estaAbierto);
+                        btn.setAttribute('aria-expanded', (!estaAbierto).toString());
+                    }
+                });
+            });
+
+
+        /* ================================================
+           CATEGORÍAS: navegación JS (compatibilidad)
+           Las cards ahora son <a href> pero se mantiene
+           el listener original para no romper funcionalidad.
+           ================================================ */
+        document.querySelectorAll('.categoria-card').forEach(card => {
+            card.addEventListener('click', function (e) {
+                // Solo activar JS nav si el tag no es <a> (retrocompatibilidad)
+                if (this.tagName !== 'A') {
+                    const url = this.getAttribute('data-url');
+                    if (url) window.location.href = url;
+                }
+            });
+        });
+
+
+        /* ================================================
+           CIERRE DE MENÚ AL NAVEGAR (mobile)
+           ================================================ */
+        document.querySelectorAll('.enlace-menu, .submenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    toggleMenu(true);
+                }
+            });
+        });
+
+
+        /* ================================================
+           VIDEO FACADE PATTERN
+           Al hacer click en el thumbnail se inyecta el iframe
+           de YouTube con autoplay=1.
+           Evita cargar 3 iframes pesados al iniciar la página.
+           ================================================ */
+        document.querySelectorAll('.video-facade').forEach(facade => {
+
+            // Activar por click
+            facade.addEventListener('click', function () {
+                cargarVideo(this);
+            });
+
+            // Activar por teclado (Enter / Space) — accesibilidad
+            facade.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    cargarVideo(this);
+                }
+            });
+        });
+
+        /**
+         * Reemplaza el facade (thumbnail + botón play) con
+         * un iframe real de YouTube con autoplay.
+         * @param {HTMLElement} facadeEl - El contenedor .video-facade
+         */
+        function cargarVideo(facadeEl) {
+            const videoId = facadeEl.dataset.videoId;
+            if (!videoId) return;
+
+            const iframe = document.createElement('iframe');
+            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+            iframe.title = facadeEl.getAttribute('aria-label') || 'Video de YouTube';
+            iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+            iframe.allowFullscreen = true;
+
+            // Limpiar contenido del facade e insertar iframe
+            facadeEl.innerHTML = '';
+            facadeEl.appendChild(iframe);
+
+            // Quitar atributos interactivos ya que el iframe toma el control
+            facadeEl.removeAttribute('role');
+            facadeEl.removeAttribute('tabindex');
+            facadeEl.style.cursor = 'default';
+            facadeEl.classList.remove('video-facade');
+        }
     </script>
+
 </body>
 </html>
