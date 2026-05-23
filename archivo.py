@@ -7,3 +7,5 @@ if(respuesta == "si" and respuesta2 == "si" and respuesta3 == "si" and respuesta
     print("felicidades aprobaste el curso")
 else :
     print("lo sentimos no aprobaste el curso")
+    
+    
