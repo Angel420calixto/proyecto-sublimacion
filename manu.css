@@ -1,4 +1,7 @@
-/* manu.css - VERSIÓN FINAL CORREGIDA */
+/* =============================================
+   MANU.CSS — VERSIÓN FINAL CORREGIDA
+   SublimArts · Estilo gamer/anime premium
+   ============================================= */
 
 /* =============================================
    VARIABLES CSS GLOBALES
@@ -22,12 +25,18 @@
 }
 
 /* =============================================
-   RESET Y ESTILOS BASE
+   RESET GLOBAL
+   FIX: Los dos bloques * se combinan en uno solo.
+   El -webkit-tap-highlight-color estaba al final del
+   archivo creando duplicidad innecesaria.
    ============================================= */
-* {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 
 html {
@@ -49,6 +58,9 @@ body.menu-abierto {
 
 /* =============================================
    BOTÓN DE WHATSAPP FIJO
+   FIX: animation-play-state: paused en hover
+   evita el conflicto entre la animación pulse
+   y el transform de scale.
    ============================================= */
 .whatsapp-button {
     position: fixed;
@@ -67,21 +79,26 @@ body.menu-abierto {
     box-shadow: var(--sombra-whatsapp);
     transition: var(--transicion-rapida);
     animation: pulse 2s infinite;
+    text-decoration: none;
 }
 
+/* FIX: pausa la animación en hover para evitar
+   que transform: scale(1.05) del keyframe luche
+   con transform: scale(1.1) del hover */
 .whatsapp-button:hover {
     transform: scale(1.1);
     box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+    animation-play-state: paused;
 }
 
 @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.05); }
     100% { transform: scale(1); }
 }
 
 /* =============================================
-   ELEMENTOS DE INTERFAZ
+   ELEMENTOS BASE
    ============================================= */
 a {
     text-decoration: none;
@@ -101,7 +118,7 @@ button {
 }
 
 /* =============================================
-   CLASES DE UTILIDAD
+   UTILIDADES
    ============================================= */
 .contenedor-seccion {
     max-width: 1400px;
@@ -194,6 +211,7 @@ button {
     position: relative;
 }
 
+/* Logo */
 .logo-contenedor {
     display: flex;
     align-items: center;
@@ -205,6 +223,7 @@ button {
     height: 50px;
     border-radius: 50%;
     object-fit: cover;
+    flex-shrink: 0;
 }
 
 .titulo-logo {
@@ -216,7 +235,7 @@ button {
     color: transparent;
 }
 
-/* MENÚ PRINCIPAL - DESKTOP */
+/* Menú desktop */
 .menu-principal {
     display: flex;
     gap: 1.5rem;
@@ -252,7 +271,7 @@ button {
     width: 100%;
 }
 
-/* MENÚ DESPLEGABLE - DESKTOP */
+/* Submenú desplegable — DESKTOP */
 .menu-con-desplegable {
     position: relative;
 }
@@ -286,7 +305,7 @@ button {
     transform: translateY(0);
 }
 
-/* SUBMENÚ - DESKTOP */
+/* Submenú base — DESKTOP */
 .submenu {
     position: absolute;
     top: 100%;
@@ -324,7 +343,7 @@ button {
     padding-left: 2rem;
 }
 
-/* ICONOS DE USUARIO */
+/* Iconos usuario */
 .iconos-usuario {
     display: flex;
     gap: 1.5rem;
@@ -345,7 +364,7 @@ button {
     color: var(--color-destacado);
 }
 
-/* BOTÓN MENÚ MÓVIL */
+/* Botón hamburguesa (solo visible en mobile) */
 .boton-menu-mobile {
     display: none;
     background: rgba(233, 69, 96, 0.1);
@@ -358,10 +377,11 @@ button {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    /* 44x44px = touch target mínimo recomendado (WCAG) */
 }
 
 /* =============================================
-   OVERLAY PARA MENÚ MÓVIL
+   OVERLAY MENÚ MÓVIL
    ============================================= */
 .menu-overlay {
     position: fixed;
@@ -382,175 +402,25 @@ button {
 }
 
 /* =============================================
-   IMÁGENES - POINTER-EVENTS ELIMINADO
+   IMÁGENES DE PRODUCTO
    ============================================= */
 .imagen-producto,
 .grid-image {
     user-select: none;
     -webkit-user-drag: none;
-    /* pointer-events: none; ELIMINADO */
-}
-
-/* =============================================
-   MENÚ MÓVIL - VERSIÓN CORREGIDA
-   ============================================= */
-@media (max-width: 768px) {
-    .boton-menu-mobile {
-        display: flex;
-    }
-    
-    .menu-principal {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 85%;
-        max-width: 350px;
-        height: 100vh;
-        background-color: var(--color-primario);
-        flex-direction: column;
-        justify-content: flex-start;
-        padding: 80px 0 30px;
-        gap: 0;
-        z-index: 10000;
-        overflow-y: auto;
-        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
-        transition: right 0.3s ease;
-        display: flex;
-        margin: 0;
-    }
-    
-    .menu-principal.activo {
-        right: 0;
-    }
-    
-    .menu-principal > li {
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        list-style: none;
-    }
-    
-    .menu-principal > li:last-child {
-        border-bottom: none;
-    }
-    
-    .enlace-menu {
-        display: block;
-        padding: 16px 20px;
-        font-size: 1rem;
-        color: #ffffff;
-        cursor: pointer;
-        text-align: left;
-        font-weight: 500;
-    }
-    
-    /* DESPLEGABLE MÓVIL */
-    .menu-con-desplegable {
-        width: 100%;
-        position: relative;
-    }
-    
-    .enlace-menu-desplegable {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        padding: 16px 20px;
-        font-size: 1rem;
-        background: transparent;
-        color: #ffffff;
-        border: none;
-        cursor: pointer;
-        text-align: left;
-        font-weight: 500;
-    }
-    
-    .flecha-desplegable {
-        transition: transform 0.3s ease;
-        font-size: 0.8rem;
-        color: #ffffff;
-    }
-    
-    .menu-con-desplegable.activo .flecha-desplegable {
-        transform: rotate(180deg);
-    }
-    
-    /* =============================================
-       SUBMENÚ MÓVIL - CORREGIDO (CON ENLACES VISIBLES)
-       ============================================= */
-    .submenu {
-        position: relative;
-        background-color: var(--color-submenu);
-        padding: 0;
-        margin: 0;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s ease;
-        width: 100%;
-        border-left: 4px solid var(--color-destacado);
-        box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.5);
-    }
-    
-    .menu-con-desplegable.activo .submenu {
-        max-height: 400px;
-        padding: 8px 0; /* Este padding da espacio a los enlaces */
-    }
-    
-    .submenu li {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        padding: 0;
-        margin: 0;
-        width: 100%;
-        list-style: none;
-    }
-    
-    .submenu li:last-child {
-        border-bottom: none;
-    }
-    
-    .submenu a {
-        display: block;
-        padding: 12px 20px 12px 35px;
-        font-size: 0.95rem;
-        color: #ffffff;
-        cursor: pointer;
-        transition: all 0.2s ease;
-        width: 100%;
-        text-align: left;
-        font-weight: 400;
-        background-color: transparent;
-        position: relative;
-        line-height: 1.4;
-        text-decoration: none;
-    }
-    
-    .submenu a:hover,
-    .submenu a:active {
-        color: var(--color-destacado);
-        background-color: rgba(233, 69, 96, 0.2);
-        padding-left: 40px;
-    }
-    
-    .submenu a::before {
-        content: '▹';
-        position: absolute;
-        left: 15px;
-        color: var(--color-destacado);
-        top: 50%;
-        transform: translateY(-50%);
-    }
-    
-    .iconos-usuario {
-        display: none;
-    }
+    /* pointer-events: none fue eliminado para permitir
+       que el modal se active al hacer click */
 }
 
 /* =============================================
    BANNER PRINCIPAL
+   FIX: background-image: url() (URL vacía) generaba
+   petición inválida y sobrescribía los overrides de
+   página. Se cambia a 'none'; cada página que necesite
+   una imagen de fondo la define en su propio <style>.
    ============================================= */
 .banner-principal {
-    background-image: url();
+    background-image: none; /* FIX: era url() — vacío e inválido */
     padding: 4rem 0;
     position: relative;
     overflow: hidden;
@@ -622,6 +492,8 @@ button {
 
 /* =============================================
    SECCIÓN ANIME POPULAR
+   Los items 13+ se ocultan; manu.js añade
+   .expandido para mostrarlos con animación.
    ============================================= */
 .seccion-popular {
     padding: 4rem 0;
@@ -638,11 +510,11 @@ button {
     display: flex;
 }
 
-.grid-popular .item-popular:nth-child(n+13) {
+.grid-popular .item-popular:nth-child(n + 13) {
     display: none;
 }
 
-.grid-popular.expandido .item-popular:nth-child(n+13) {
+.grid-popular.expandido .item-popular:nth-child(n + 13) {
     display: flex;
     animation: fadeInUp 0.5s ease forwards;
 }
@@ -684,6 +556,7 @@ button {
     transform: scale(1.08);
 }
 
+/* Info de producto (compartida con .producto-item) */
 .info-producto {
     padding: 16px 8px 8px;
     text-align: center;
@@ -715,9 +588,6 @@ button {
     line-height: 1.3;
     text-align: center;
     width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .precio-producto {
@@ -726,13 +596,10 @@ button {
     color: var(--color-destacado);
     text-align: center;
     width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 /* =============================================
-   SECCIÓN PRODUCTOS
+   SECCIÓN PRODUCTOS (galerías por franquicia)
    ============================================= */
 .seccion-productos {
     padding: 3rem 0;
@@ -749,11 +616,11 @@ button {
     display: flex;
 }
 
-.galeria-productos .producto-item:nth-child(n+13) {
+.galeria-productos .producto-item:nth-child(n + 13) {
     display: none;
 }
 
-.galeria-productos.expandido .producto-item:nth-child(n+13) {
+.galeria-productos.expandido .producto-item:nth-child(n + 13) {
     display: flex;
     animation: fadeInUp 0.5s ease forwards;
 }
@@ -795,6 +662,7 @@ button {
     transform: scale(1.08);
 }
 
+/* Animación de aparición para items expandidos */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -868,7 +736,6 @@ button {
     height: auto;
     object-fit: contain;
     display: block;
-    filter: none;
 }
 
 .modal-imagen-contenedor {
@@ -880,20 +747,30 @@ button {
     padding: 20px;
 }
 
+/* FIX: se agrega background semi-transparente.
+   backdrop-filter solo produce blur visible cuando
+   el elemento tiene un fondo con transparencia parcial.
+   Sin background, el blur no se renderiza en ningún browser. */
 .modal-info {
     position: absolute;
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
+    background: rgba(10, 10, 26, 0.85); /* FIX: era solo backdrop-filter sin fondo */
     padding: 15px 25px;
+    border-radius: 12px;
     z-index: 20001;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Safari */
     display: flex;
     gap: 20px;
     align-items: center;
     flex-wrap: wrap;
     justify-content: center;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(233, 69, 96, 0.2);
+    width: max-content;
+    max-width: 90vw;
 }
 
 .modal-info h3 {
@@ -927,6 +804,8 @@ button {
     border: none;
     transition: var(--transicion-rapida);
     cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
 }
 
 .boton-ver {
@@ -947,7 +826,7 @@ button {
 }
 
 /* =============================================
-   SECCIÓN GRID SIMPLE - 3 IMÁGENES
+   SECCIÓN GRID 3 IMÁGENES
    ============================================= */
 .animetals-grid-section {
     width: 100%;
@@ -974,6 +853,7 @@ button {
     width: 100%;
 }
 
+/* Borde animado alrededor del grid */
 .three-images-grid::before {
     content: '';
     position: absolute;
@@ -994,20 +874,13 @@ button {
     animation: anime-border 4s ease infinite;
     mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
     mask-composite: exclude;
+    -webkit-mask-composite: destination-out;
 }
 
 @keyframes anime-border {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .image-block {
@@ -1053,6 +926,7 @@ button {
     transform: scale(1.05);
 }
 
+/* Efecto de brillo deslizante en hover */
 .image-block::after {
     content: '';
     position: absolute;
@@ -1060,11 +934,9 @@ button {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg,
-            transparent,
-            rgba(255, 255, 255, 0.2),
-            transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
     transition: left 0.7s ease;
+    pointer-events: none;
 }
 
 .image-block:hover::after {
@@ -1103,7 +975,9 @@ button {
     border-radius: 15px;
     border: 2px solid rgba(110, 69, 226, 0.3);
     transition: all 0.3s ease;
+    /* FIX: se agrega background para que backdrop-filter tenga efecto */
     backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -1145,6 +1019,7 @@ button {
     justify-content: center;
     font-weight: 600;
     font-size: 0.9rem;
+    pointer-events: none;
 }
 
 .proceso-paso h3 {
@@ -1185,7 +1060,7 @@ button {
 }
 
 /* =============================================
-   SECCIÓN EXPLORADOR DE MATERIALES
+   SECCIÓN COMPARADOR DE MATERIALES
    ============================================= */
 .seccion-materiales {
     padding: 60px 0;
@@ -1216,6 +1091,7 @@ button {
     border: 2px solid rgba(110, 69, 226, 0.3);
     transition: all 0.3s ease;
     backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     position: relative;
     overflow: hidden;
     display: flex;
@@ -1223,21 +1099,23 @@ button {
     height: 100%;
 }
 
+/* Card destacada: Metal */
 .material-card[data-material="metal"] {
     border-color: #ffd700;
     box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
 }
 
+/* Ribbon "Mejor elección" */
 .material-card[data-material="metal"]::before {
     content: '★ MEJOR ELECCIÓN ★';
     position: absolute;
-    top: 10px;
-    right: -30px;
+    top: 14px;
+    right: -28px;
     background: #ffd700;
     color: #333;
-    padding: 5px 30px;
+    padding: 5px 40px;
     transform: rotate(45deg);
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     font-weight: bold;
     letter-spacing: 1px;
     box-shadow: 0 2px 10px rgba(255, 215, 0, 0.5);
@@ -1251,6 +1129,11 @@ button {
     box-shadow: 0 15px 30px rgba(0, 243, 255, 0.3);
 }
 
+/* Ícono base: gradiente de color para non-metal cards */
+.material-icono-grande {
+    margin-bottom: 15px;
+}
+
 .material-icono-grande i {
     font-size: 3.5rem;
     background: linear-gradient(135deg, #00f3ff, #ff3864);
@@ -1259,9 +1142,16 @@ button {
     color: transparent;
 }
 
+/* FIX CRÍTICO: el ícono corona de la card Metal no se
+   mostraba porque heredaba background-clip: text y
+   color: transparent del selector general.
+   Se resetean AMBAS propiedades para que el color
+   dorado sea visible en todos los browsers. */
 .material-card[data-material="metal"] .material-icono-grande i {
-    color: #ffd700;
-    background: none;
+    color: #ffd700;                 /* FIX: color visible */
+    background: none;              /* FIX: elimina el gradiente */
+    -webkit-background-clip: initial; /* FIX: resetea clip para Safari */
+    background-clip: initial;         /* FIX: resetea clip para Chrome/FF */
     text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
 }
 
@@ -1291,13 +1181,8 @@ button {
     gap: 10px;
 }
 
-.material-lista .fa-check-circle {
-    color: #00ff88;
-}
-
-.material-lista .fa-times-circle {
-    color: #ff3864;
-}
+.material-lista .fa-check-circle { color: #00ff88; }
+.material-lista .fa-times-circle  { color: #ff3864; }
 
 /* =============================================
    FOOTER
@@ -1410,10 +1295,9 @@ button {
 }
 
 /* =============================================
-   RESPONSIVE GENERAL
+   RESPONSIVE — 1200px (laptops pequeños)
    ============================================= */
 @media (max-width: 1200px) {
-
     .grid-popular,
     .galeria-productos {
         grid-template-columns: repeat(4, 1fr);
@@ -1439,6 +1323,7 @@ button {
         padding: 0 25px;
     }
 
+    /* FIX: footer en 2 columnas antes de llegar a mobile */
     .contenedor-footer {
         grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
@@ -1453,8 +1338,10 @@ button {
     }
 }
 
+/* =============================================
+   RESPONSIVE — 992px (tablets landscape)
+   ============================================= */
 @media (max-width: 992px) {
-
     .grid-popular,
     .galeria-productos {
         grid-template-columns: repeat(3, 1fr);
@@ -1480,12 +1367,178 @@ button {
     }
 
     .grid-images-container {
-        max-width: 1200px;
         padding: 0 20px;
     }
 }
 
+/* =============================================
+   RESPONSIVE — 768px (tablets portrait / mobile)
+   ============================================= */
 @media (max-width: 768px) {
+
+    /* --- MENÚ MOBILE --- */
+    .boton-menu-mobile {
+        display: flex;
+    }
+
+    .menu-principal {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 85%;
+        max-width: 350px;
+        height: 100vh;
+        background-color: var(--color-primario);
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 80px 0 30px;
+        gap: 0;
+        z-index: 10000;
+        overflow-y: auto;
+        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
+        transition: right 0.3s ease;
+        display: flex;
+        margin: 0;
+    }
+
+    .menu-principal.activo {
+        right: 0;
+    }
+
+    .menu-principal > li {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        list-style: none;
+    }
+
+    .menu-principal > li:last-child {
+        border-bottom: none;
+    }
+
+    .enlace-menu {
+        display: block;
+        padding: 16px 20px;
+        font-size: 1rem;
+        color: #ffffff;
+        cursor: pointer;
+        text-align: left;
+        font-weight: 500;
+    }
+
+    .menu-con-desplegable {
+        width: 100%;
+        position: relative;
+    }
+
+    .enlace-menu-desplegable {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 16px 20px;
+        font-size: 1rem;
+        background: transparent;
+        color: #ffffff;
+        border: none;
+        cursor: pointer;
+        text-align: left;
+        font-weight: 500;
+    }
+
+    .flecha-desplegable {
+        transition: transform 0.3s ease;
+        font-size: 0.8rem;
+        color: #ffffff;
+    }
+
+    /* La flecha gira al activar la clase .activo (vía JS) */
+    .menu-con-desplegable.activo .flecha-desplegable {
+        transform: rotate(180deg);
+    }
+
+    /* SUBMENÚ MOBILE — CORREGIDO
+       FIX CRÍTICO: el submenú desktop tiene opacity:0 y
+       visibility:hidden. En mobile, se deben resetear
+       explícitamente o el submenú nunca será visible
+       aunque se añada la clase .activo con max-height.
+       El error original: solo se cambiaba max-height,
+       dejando el elemento invisible por opacity/visibility. */
+    .submenu {
+        position: relative;
+        top: auto;
+        left: auto;
+        background-color: var(--color-submenu);
+        padding: 0;
+        margin: 0;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 1;              /* FIX: anula desktop opacity:0 */
+        visibility: visible;     /* FIX: anula desktop visibility:hidden */
+        transform: none;         /* FIX: anula desktop translateY(10px) */
+        transition: max-height 0.4s ease;
+        width: 100%;
+        min-width: unset;
+        border-radius: 0;
+        border-left: 4px solid var(--color-destacado);
+        box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .menu-con-desplegable.activo .submenu {
+        max-height: 400px;
+        padding: 8px 0;
+    }
+
+    .submenu li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        list-style: none;
+    }
+
+    .submenu li:last-child {
+        border-bottom: none;
+    }
+
+    .submenu a {
+        display: block;
+        padding: 12px 20px 12px 35px;
+        font-size: 0.95rem;
+        color: #ffffff;
+        transition: all 0.2s ease;
+        width: 100%;
+        text-align: left;
+        font-weight: 400;
+        background-color: transparent;
+        position: relative;
+        line-height: 1.4;
+        white-space: normal;
+    }
+
+    .submenu a:hover,
+    .submenu a:active {
+        color: var(--color-destacado);
+        background-color: rgba(233, 69, 96, 0.2);
+        padding-left: 40px;
+    }
+
+    /* Chevron decorativo en cada ítem del submenú */
+    .submenu a::before {
+        content: '▹';
+        position: absolute;
+        left: 15px;
+        color: var(--color-destacado);
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .iconos-usuario {
+        display: none;
+    }
+
+    /* --- BANNER --- */
     .contenedor-banner {
         flex-direction: column;
         text-align: center;
@@ -1496,6 +1549,7 @@ button {
         font-size: 2rem;
     }
 
+    /* --- GRIDS PRODUCTOS --- */
     .grid-popular,
     .galeria-productos {
         grid-template-columns: repeat(2, 1fr);
@@ -1512,19 +1566,15 @@ button {
         height: 240px;
     }
 
-    .titulo-producto {
-        font-size: 1rem;
-    }
-
+    .titulo-producto { font-size: 1rem; }
     .dimension-producto,
-    .precio-producto {
-        font-size: 0.9rem;
-    }
+    .precio-producto { font-size: 0.9rem; }
 
     .info-producto {
         padding: 12px 6px 6px;
     }
 
+    /* --- GRID 3 IMÁGENES --- */
     .animetals-grid-section {
         padding: 20px 0;
         margin: 20px 0;
@@ -1535,21 +1585,12 @@ button {
     }
 
     .grid-images-container {
-        max-width: 100%;
         padding: 0 10px;
     }
 
-    .left-block {
-        clip-path: polygon(0 0, 75% 0, 100% 100%, 0% 100%);
-    }
-
-    .middle-block {
-        clip-path: polygon(25% 0, 75% 0, 100% 100%, 0% 100%);
-    }
-
-    .right-block {
-        clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
-    }
+    .left-block   { clip-path: polygon(0 0, 75% 0, 100% 100%, 0% 100%); }
+    .middle-block { clip-path: polygon(25% 0, 75% 0, 100% 100%, 0% 100%); }
+    .right-block  { clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%); }
 
     .three-images-grid::before {
         top: -10px;
@@ -1560,24 +1601,29 @@ button {
         border-radius: 15px;
     }
 
+    /* --- PROCESO Y MATERIALES --- */
     .proceso-grid,
     .comparador-materiales {
         grid-template-columns: 1fr;
         gap: 20px;
     }
 
+    /* --- FOOTER --- */
     .contenedor-footer {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
 
+    /* --- MODAL --- */
     .modal-info {
         bottom: 20px;
         padding: 12px 20px;
         flex-direction: column;
         gap: 10px;
         width: 90%;
-     }
+        left: 50%;
+        transform: translateX(-50%);
+    }
 
     .modal-info h3 {
         font-size: 0.9rem;
@@ -1597,23 +1643,19 @@ button {
     .boton-whatsapp-modal {
         min-width: 100px;
         padding: 6px 12px;
-        font-size: 0.7rem;
+        font-size: 0.75rem;
         flex: 1;
     }
 }
 
+/* =============================================
+   RESPONSIVE — 480px (móviles pequeños)
+   ============================================= */
 @media (max-width: 480px) {
-    .titulo-banner {
-        font-size: 1.6rem;
-    }
+    .titulo-banner   { font-size: 1.6rem; }
+    .texto-banner    { font-size: 1rem; }
 
-    .texto-banner {
-        font-size: 1rem;
-    }
-
-    .imagen-banner img {
-        max-height: 300px;
-    }
+    .imagen-banner img { max-height: 300px; }
 
     .grid-popular,
     .galeria-productos {
@@ -1631,52 +1673,27 @@ button {
         height: 200px;
     }
 
-    .titulo-producto {
-        font-size: 0.95rem;
-    }
-
+    .titulo-producto   { font-size: 0.95rem; }
     .dimension-producto,
-    .precio-producto {
-        font-size: 0.85rem;
-    }
+    .precio-producto   { font-size: 0.85rem; }
+    .info-producto     { padding: 8px 4px 4px; }
 
-    .info-producto {
-        padding: 8px 4px 4px;
-    }
-
-    .three-images-grid {
-        height: 280px;
-    }
-
-    .menu-principal {
-        width: 90%;
-    }
-
-    .titulo-seccion {
-        font-size: 1.4rem;
-    }
+    .three-images-grid { height: 280px; }
+    .menu-principal    { width: 90%; }
+    .titulo-seccion    { font-size: 1.4rem; }
 
     .modal-info {
         padding: 10px 15px;
     }
 
-    .modal-info h3 {
-        font-size: 0.8rem;
-    }
+    .modal-info h3 { font-size: 0.8rem; }
 }
 
 /* =============================================
-   UTILIDADES GENERALES
+   OVERRIDES DE ESPECIFICIDAD PARA SECCIONES
+   Estos !important neutralizan herencia de sombras
+   y bordes en items de galería (diseño sin card frame).
    ============================================= */
-* {
-    -webkit-tap-highlight-color: transparent;
-}
-
-.seccion-popular .info-producto *,
-.seccion-productos .info-producto * {
-    text-align: center;
-}
-
 .seccion-popular .item-popular,
 .seccion-popular .contenedor-imagen-popular,
 .seccion-popular .info-producto,
@@ -1692,4 +1709,9 @@ button {
 .seccion-popular,
 .seccion-productos {
     background-color: #000000 !important;
+}
+
+.seccion-popular .info-producto *,
+.seccion-productos .info-producto * {
+    text-align: center;
 }

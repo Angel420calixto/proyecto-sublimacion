@@ -14,7 +14,7 @@
     <meta property="og:type" content="product">
     <meta property="og:title" content="Metal Art Print | SublimArts">
     <meta property="og:description" content="Cuadro sobre metal con impresión HD. Personaliza tu diseño.">
-    <meta property="og:image" content="">
+    <meta property="og:image" content="https://i.pinimg.com/1200x/c0/e9/e5/c0e9e5200f3f0bf13eb87a425f6d0c14.jpg">
     <meta property="og:url" content="">
     <meta property="product:price:amount" content="12990">
     <meta property="product:price:currency" content="CLP">
@@ -23,10 +23,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Metal Art Print | SublimArts">
     <meta name="twitter:description" content="Cuadro sobre metal con impresión HD. Personaliza tu diseño.">
-    <meta name="twitter:image" content="">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="">
+    <meta name="twitter:image" content="https://i.pinimg.com/1200x/c0/e9/e5/c0e9e5200f3f0bf13eb87a425f6d0c14.jpg">
     
     <!-- Preconnect para mejorar rendimiento -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,8 +34,710 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
-    <!-- CSS principal -->
-    <link rel="stylesheet" href="css/visualizador.css">
+    <style>
+        /* =============================================
+           ESTILOS SUBLIMARTS - VERSIÓN COMPLETA CORREGIDA
+           ============================================= */
+        :root {
+            --color-primario: #1a1a2e;
+            --color-secundario: #16213e;
+            --color-terciario: #0f3460;
+            --color-destacado: #e94560;
+            --color-whatsapp: #25D366;
+            --color-texto: #ffffff;
+            --color-texto-secundario: #b8b8d1;
+            --color-fondo: #0d0d1a;
+            --color-borde: #2a2a4a;
+            --color-submenu: #0f0f1f;
+            --sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.3);
+            --sombra-destacada: 0 8px 24px rgba(233, 69, 96, 0.3);
+            --sombra-whatsapp: 0 4px 20px rgba(37, 211, 102, 0.4);
+            --transicion-rapida: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--color-fondo);
+            color: var(--color-texto);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        /* =============================================
+           HEADER PRINCIPAL
+           ============================================= */
+        .header-principal {
+            background-color: var(--color-primario);
+            position: sticky;
+            top: 0;
+            z-index: 10001;
+            box-shadow: var(--sombra-suave);
+        }
+
+        .navegacion {
+            padding: 1rem 0;
+        }
+
+        .contenedor-navegacion {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .logo-contenedor {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            background: var(--color-secundario);
+        }
+
+        .titulo-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--color-destacado), #ff7b9c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .menu-principal {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            z-index: 10000;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu-principal>li {
+            list-style: none;
+            position: relative;
+        }
+
+        .enlace-menu {
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: var(--transicion-rapida);
+            padding: 0.5rem 0;
+            color: var(--color-texto);
+            text-decoration: none;
+            display: block;
+        }
+
+        .enlace-menu:hover {
+            color: var(--color-destacado);
+        }
+
+        .enlace-menu::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-destacado);
+            transition: var(--transicion-rapida);
+        }
+
+        .enlace-menu:hover::after {
+            width: 100%;
+        }
+
+        /* MENÚ DESPLEGABLE CORREGIDO */
+        .menu-con-desplegable {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .enlace-menu-desplegable {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: var(--color-texto);
+            padding: 0.5rem 0;
+            transition: var(--transicion-rapida);
+        }
+
+        .enlace-menu-desplegable:hover {
+            color: var(--color-destacado);
+        }
+
+        .flecha-desplegable {
+            font-size: 0.75rem;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-con-desplegable:hover .flecha-desplegable {
+            transform: rotate(180deg);
+        }
+
+        .submenu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--color-submenu);
+            min-width: 220px;
+            border-radius: 8px;
+            box-shadow: var(--sombra-suave);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transicion-rapida);
+            z-index: 100;
+            border-left: 3px solid var(--color-destacado);
+            list-style: none;
+            padding: 8px 0;
+            margin: 0;
+        }
+
+        .menu-con-desplegable:hover .submenu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .submenu li {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+
+        .submenu a {
+            display: block;
+            padding: 10px 20px;
+            color: var(--color-texto);
+            font-size: 0.9rem;
+            transition: var(--transicion-rapida);
+            text-decoration: none;
+        }
+
+        .submenu a:hover {
+            color: var(--color-destacado);
+            background-color: rgba(233, 69, 96, 0.1);
+            padding-left: 25px;
+        }
+
+        .iconos-usuario {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .icono-usuario {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: var(--transicion-rapida);
+            color: var(--color-texto);
+            text-decoration: none;
+        }
+
+        .icono-usuario:hover {
+            color: var(--color-destacado);
+        }
+
+        .texto-icono {
+            display: inline-block;
+        }
+
+        .boton-menu-mobile {
+            display: none;
+            background: rgba(233, 69, 96, 0.1);
+            color: var(--color-texto);
+            font-size: 1.5rem;
+            z-index: 10003;
+            width: 44px;
+            height: 44px;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+        }
+
+        /* =============================================
+           MENÚ MÓVIL CORREGIDO
+           ============================================= */
+        @media (max-width: 768px) {
+            .boton-menu-mobile {
+                display: flex;
+            }
+
+            .texto-icono {
+                display: none;
+            }
+
+            .iconos-usuario {
+                display: flex;
+                gap: 1rem;
+            }
+
+            .icono-usuario i {
+                font-size: 1.2rem;
+            }
+
+            .menu-principal {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 85%;
+                max-width: 350px;
+                height: 100vh;
+                background-color: var(--color-primario);
+                flex-direction: column;
+                justify-content: flex-start;
+                padding: 80px 0 30px;
+                gap: 0;
+                z-index: 10000;
+                overflow-y: auto;
+                box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
+                transition: right 0.3s ease;
+                margin: 0;
+            }
+
+            .menu-principal.activo {
+                right: 0;
+            }
+
+            .menu-principal>li {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .enlace-menu {
+                display: block;
+                padding: 16px 20px;
+                font-size: 1rem;
+            }
+
+            .menu-con-desplegable {
+                width: 100%;
+            }
+
+            .enlace-menu-desplegable {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                padding: 16px 20px;
+                font-size: 1rem;
+                font-weight: 500;
+                color: var(--color-texto);
+                cursor: pointer;
+                background: transparent;
+                border: none;
+                margin: 0;
+            }
+
+            .submenu {
+                position: relative;
+                background-color: var(--color-submenu);
+                width: 100%;
+                border-left: 4px solid var(--color-destacado);
+                display: none;
+                margin: 0;
+                padding: 0;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                border-radius: 0;
+            }
+
+            .menu-con-desplegable.activo .submenu {
+                display: block;
+            }
+
+            .submenu li {
+                margin: 0;
+                padding: 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .submenu li:last-child {
+                border-bottom: none;
+            }
+
+            .submenu a {
+                display: block;
+                padding: 12px 20px 12px 35px;
+                font-size: 0.95rem;
+                color: #ffffff;
+                text-decoration: none;
+                transition: all 0.2s ease;
+                background-color: transparent;
+                position: relative;
+            }
+
+            .submenu a:hover {
+                color: var(--color-destacado);
+                background-color: rgba(233, 69, 96, 0.2);
+                padding-left: 40px;
+            }
+
+            .submenu a::before {
+                content: '▹';
+                position: absolute;
+                left: 15px;
+                color: var(--color-destacado);
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+
+        /* =============================================
+           CONTENIDO PRINCIPAL (PRODUCTO)
+           ============================================= */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 40px 30px;
+        }
+
+        .producto {
+            display: flex;
+            gap: 50px;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+
+        .galeria {
+            flex: 1;
+            min-width: 280px;
+            max-width: 450px;
+        }
+
+        .imagen-principal-container {
+            width: 100%;
+        }
+
+        .imagen-principal {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+            border: 1px solid var(--color-borde);
+            background: var(--color-primario);
+            display: block;
+        }
+
+        .miniaturas {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+
+        .miniatura {
+            width: 70px;
+            height: 70px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.2s;
+            overflow: hidden;
+            background: var(--color-primario);
+        }
+
+        .miniatura img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .miniatura:hover {
+            border-color: var(--color-destacado);
+            transform: scale(1.02);
+        }
+
+        .miniatura.activa {
+            border-color: var(--color-destacado);
+        }
+
+        .info-producto {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .info-producto h1 {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--color-texto) 30%, var(--color-destacado) 80%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .subtitulo {
+            font-size: 1rem;
+            color: var(--color-texto-secundario);
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .precio {
+            font-size: 2rem;
+            color: var(--color-destacado);
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: var(--color-texto-secundario);
+        }
+
+        select,
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            margin: 5px 0;
+            background: var(--color-primario);
+            border: 1px solid var(--color-borde);
+            color: var(--color-texto);
+            font-size: 14px;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        select:focus,
+        input:focus {
+            outline: none;
+            border-color: var(--color-destacado);
+        }
+
+        button {
+            background: var(--color-destacado);
+            border: none;
+            padding: 14px 20px;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+            margin-top: 15px;
+            font-family: inherit;
+        }
+
+        button:hover {
+            background: #ff5773;
+            transform: translateY(-2px);
+        }
+
+        .descripcion {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid var(--color-borde);
+        }
+
+        .descripcion h2 {
+            color: var(--color-destacado);
+            margin-bottom: 15px;
+            font-size: 1.6rem;
+        }
+
+        .descripcion p {
+            color: var(--color-texto-secundario);
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .descripcion ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .descripcion ul li {
+            margin: 10px 0;
+            color: var(--color-texto-secundario);
+        }
+
+        .descripcion ul li::before {
+            content: "✔ ";
+            color: var(--color-destacado);
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        /* SECCIÓN RELACIONADOS */
+        .relacionados {
+            margin-top: 60px;
+        }
+
+        .relacionados h2 {
+            color: var(--color-destacado);
+            margin-bottom: 25px;
+            font-size: 1.6rem;
+        }
+
+        .productos-horizontal {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--color-primario);
+            overflow: hidden;
+            text-align: center;
+            border: 1px solid var(--color-borde);
+            transition: all 0.3s;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-destacado);
+            box-shadow: 0 8px 20px rgba(233, 69, 96, 0.2);
+        }
+
+        .card-imagen {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            display: block;
+            background: var(--color-fondo);
+        }
+
+        .card-info {
+            padding: 15px;
+        }
+
+        .card-info p {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--color-texto);
+        }
+
+        .card-info strong {
+            color: var(--color-destacado);
+            font-size: 1.1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .productos-horizontal {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .productos-horizontal {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .container {
+                padding: 25px 20px;
+            }
+
+            .info-producto h1 {
+                font-size: 1.8rem;
+            }
+
+            .precio {
+                font-size: 1.6rem;
+            }
+
+            .miniatura {
+                width: 55px;
+                height: 55px;
+            }
+
+            .galeria {
+                max-width: 100%;
+            }
+
+            .producto {
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .productos-horizontal {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* WHATSAPP FLOTANTE */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--color-whatsapp);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 30px;
+            z-index: 1000;
+            box-shadow: var(--sombra-whatsapp);
+            transition: transform 0.3s;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--color-primario);
+            color: var(--color-texto-secundario);
+            padding: 30px;
+            margin-top: 50px;
+            text-align: center;
+            border-top: 1px solid var(--color-borde);
+        }
+    </style>
 </head>
 
 <body>
@@ -49,8 +748,8 @@
 </a>
 
 <!-- HEADER CORREGIDO -->
-<header class="header-principal">
-    <nav class="navegacion" aria-label="Menú principal">
+<header class="header-principal" role="banner">
+    <nav class="navegacion" aria-label="Menú principal" role="navigation">
         <div class="contenedor-navegacion">
             <!-- Logo -->
             <div class="logo-contenedor">
@@ -104,7 +803,7 @@
     <section class="producto">
         <div class="galeria">
             <div class="imagen-principal-container">
-                <img class="imagen-principal" src="" alt="Imagen principal del producto" id="imagen-principal">
+                <img class="imagen-principal" src="https://i.pinimg.com/1200x/c0/e9/e5/c0e9e5200f3f0bf13eb87a425f6d0c14.jpg" alt="Imagen principal del producto" id="imagen-principal" width="450" height="600" loading="eager">
             </div>
             <div class="miniaturas" id="miniaturas-container">
                 <!-- Las miniaturas se generarán dinámicamente con JavaScript -->
@@ -112,15 +811,15 @@
         </div>
 
         <div class="info-producto">
-            <h1 id="producto-nombre">Cargando...</h1>
-            <div class="subtitulo" id="producto-subtitulo">METAL ART PRINT</div>
-            <p class="precio" id="precio-mostrado">$0 CLP</p>
+            <h1 id="producto-nombre">Metal Art Print Premium</h1>
+            <div class="subtitulo" id="producto-subtitulo">METAL ART PRINT • EDICIÓN LIMITADA</div>
+            <p class="precio" id="precio-mostrado">$12.990 CLP</p>
 
             <label for="tamano-select">Tamaño:</label>
             <select id="tamano-select">
-                <option value="20x30" data-precio="10000">30×40 CM</option>
-                <option value="30x40" data-precio="17000">40×60 CM (+$15.000)</option>
-                <option value="40x60" data-precio="30000">60×80 CM (+$30.000)</option>
+                <option value="20x30" data-precio="12990">30×40 CM</option>
+                <option value="30x40" data-precio="27990">40×60 CM (+$15.000)</option>
+                <option value="40x60" data-precio="42990">60×80 CM (+$30.000)</option>
             </select>
 
             <label for="soporte-select">Tipo de soporte:</label>
@@ -131,9 +830,9 @@
             </select>
 
             <label for="cantidad-input">Cantidad:</label>
-            <input type="number" id="cantidad-input" value="1" min="1">
+            <input type="number" id="cantidad-input" value="1" min="1" max="99" step="1">
 
-            <button id="btn-whatsapp">AGREGAR AL CARRO</button>
+            <button id="btn-whatsapp" aria-label="Agregar al carrito y contactar por WhatsApp">AGREGAR AL CARRO</button>
         </div>
     </section>
 
@@ -157,28 +856,28 @@
         <h2>También te puede interesar</h2>
         <div class="productos-horizontal" id="productos-relacionados">
             <div class="card" data-nombre="Dragon Ball Z" data-precio="24900">
-                <img class="card-imagen" src="https://images.unsplash.com/photo-1578632767115-351597cf2477?w=400&h=400&fit=crop" alt="Dragon Ball Z Metal Art Print" loading="lazy">
+                <img class="card-imagen" src="https://images.unsplash.com/photo-1578632767115-351597cf2477?w=400&h=400&fit=crop" alt="Dragon Ball Z Metal Art Print" loading="lazy" width="400" height="400">
                 <div class="card-info">
                     <p>Dragon Ball Z</p>
                     <strong>$24.900 CLP</strong>
                 </div>
             </div>
             <div class="card" data-nombre="Naruto Shippuden" data-precio="24900">
-                <img class="card-imagen" src="https://images.unsplash.com/photo-1534447677768-be436bb09401?w=400&h=400&fit=crop" alt="Naruto Shippuden Metal Art Print" loading="lazy">
+                <img class="card-imagen" src="https://images.unsplash.com/photo-1534447677768-be436bb09401?w=400&h=400&fit=crop" alt="Naruto Shippuden Metal Art Print" loading="lazy" width="400" height="400">
                 <div class="card-info">
                     <p>Naruto Shippuden</p>
                     <strong>$24.900 CLP</strong>
                 </div>
             </div>
             <div class="card" data-nombre="One Piece" data-precio="29900">
-                <img class="card-imagen" src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=400&h=400&fit=crop" alt="One Piece Metal Art Print" loading="lazy">
+                <img class="card-imagen" src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=400&h=400&fit=crop" alt="One Piece Metal Art Print" loading="lazy" width="400" height="400">
                 <div class="card-info">
                     <p>One Piece</p>
                     <strong>$29.900 CLP</strong>
                 </div>
             </div>
             <div class="card" data-nombre="Attack on Titan" data-precio="24900">
-                <img class="card-imagen" src="https://images.unsplash.com/photo-1610205296127-02e7366806e4?w=400&h=400&fit=crop" alt="Attack on Titan Metal Art Print" loading="lazy">
+                <img class="card-imagen" src="https://images.unsplash.com/photo-1610205296127-02e7366806e4?w=400&h=400&fit=crop" alt="Attack on Titan Metal Art Print" loading="lazy" width="400" height="400">
                 <div class="card-info">
                     <p>Attack on Titan</p>
                     <strong>$24.900 CLP</strong>
@@ -198,7 +897,7 @@
         'use strict';
         
         // =============================================
-        // MENÚ MÓVIL Y DESPLEGABLE
+        // MENÚ MÓVIL Y DESPLEGABLE (CORREGIDO)
         // =============================================
         
         const botonMenu = document.getElementById('boton-menu-mobile');
@@ -229,7 +928,9 @@
             });
         }
         
-        document.querySelectorAll('.enlace-menu, .submenu a').forEach(link => {
+        // Cerrar menú al hacer click en cualquier enlace del menú o submenu
+        const allMenuLinks = document.querySelectorAll('.enlace-menu, .submenu a');
+        allMenuLinks.forEach(link => {
             link.addEventListener('click', () => {
                 cerrarMenu();
             });
@@ -248,9 +949,10 @@
             }
         }
         
+        // Cerrar menú al hacer click fuera (solo en móvil)
         document.addEventListener('click', (e) => {
             if (menuPrincipal && menuPrincipal.classList.contains('activo')) {
-                const isClickInside = menuPrincipal.contains(e.target) || botonMenu.contains(e.target);
+                const isClickInside = menuPrincipal.contains(e.target) || (botonMenu && botonMenu.contains(e.target));
                 if (!isClickInside) {
                     cerrarMenu();
                 }
@@ -268,41 +970,29 @@
             }
         }
         
-        // Función para generar miniaturas desde parámetros URL
+        // Función para generar miniaturas desde parámetros URL o usar defaults
         function generarMiniaturasDesdeURL() {
             const urlParams = new URLSearchParams(window.location.search);
             const miniaturasContainer = document.getElementById('miniaturas-container');
             
             if (!miniaturasContainer) return;
             
-            // Limpiar container
             miniaturasContainer.innerHTML = '';
             
-            // Obtener URLs de miniaturas desde parámetros
-            const miniatura1 = urlParams.get('miniatura1');
-            const miniatura2 = urlParams.get('miniatura2');
-            const miniatura3 = urlParams.get('miniatura3');
-            const miniatura4 = urlParams.get('miniatura4');
-            const imagenPrincipal = urlParams.get('imagen');
+            // Obtener URLs desde parámetros
+            const imagenPrincipal = urlParams.get('imagen') || 'https://i.pinimg.com/1200x/c0/e9/e5/c0e9e5200f3f0bf13eb87a425f6d0c14.jpg';
+            const miniatura1 = urlParams.get('miniatura1') || 'https://i.pinimg.com/736x/5e/af/29/5eaf293499a62642eac7e6fc3e815823.jpg';
+            const miniatura2 = urlParams.get('miniatura2') || 'https://images.unsplash.com/photo-1534447677768-be436bb09401?w=100&h=133&fit=crop';
+            const miniatura3 = urlParams.get('miniatura3') || 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=100&h=133&fit=crop';
+            const miniatura4 = urlParams.get('miniatura4') || 'https://images.unsplash.com/photo-1610205296127-02e7366806e4?w=100&h=133&fit=crop';
             
-            // Crear array con todas las miniaturas (la primera es la imagen principal)
-            const miniaturas = [];
-            if (imagenPrincipal) miniaturas.push(imagenPrincipal);
-            if (miniatura1) miniaturas.push(miniatura1);
-            if (miniatura2) miniaturas.push(miniatura2);
-            if (miniatura3) miniaturas.push(miniatura3);
-            if (miniatura4) miniaturas.push(miniatura4);
+            const miniaturas = [imagenPrincipal, miniatura1, miniatura2, miniatura3, miniatura4];
             
-            // Si no hay miniaturas, usar imágenes por defecto
-            if (miniaturas.length === 0) {
-                miniaturas.push('https://i.pinimg.com/1200x/c0/e9/e5/c0e9e5200f3f0bf13eb87a425f6d0c14.jpg');
-                miniaturas.push('https://i.pinimg.com/736x/5e/af/29/5eaf293499a62642eac7e6fc3e815823.jpg');
-                miniaturas.push('https://images.unsplash.com/photo-1534447677768-be436bb09401?w=100&h=133&fit=crop');
-                miniaturas.push('https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=100&h=133&fit=crop');
-                miniaturas.push('https://images.unsplash.com/photo-1610205296127-02e7366806e4?w=100&h=133&fit=crop');
-            }
+            // Actualizar imagen principal
+            const imgPrincipal = document.getElementById('imagen-principal');
+            if (imgPrincipal) imgPrincipal.src = imagenPrincipal;
             
-            // Crear cada miniatura
+            // Crear miniaturas
             miniaturas.forEach((imgUrl, index) => {
                 const miniaturaDiv = document.createElement('div');
                 miniaturaDiv.className = 'miniatura';
@@ -313,17 +1003,97 @@
                 img.src = imgUrl;
                 img.alt = `Vista ${index + 1} del producto`;
                 img.loading = 'lazy';
+                img.width = 70;
+                img.height = 70;
                 
                 miniaturaDiv.appendChild(img);
                 
                 miniaturaDiv.addEventListener('click', () => {
                     cambiarImagen(imgUrl);
-                    // Actualizar clase activa
                     document.querySelectorAll('.miniatura').forEach(m => m.classList.remove('activa'));
                     miniaturaDiv.classList.add('activa');
                 });
                 
                 miniaturasContainer.appendChild(miniaturaDiv);
+            });
+        }
+        
+        // =============================================
+        // FUNCIONALIDAD DE PRECIOS Y CANTIDAD
+        // =============================================
+        
+        const tamanoSelect = document.getElementById('tamano-select');
+        const cantidadInput = document.getElementById('cantidad-input');
+        const precioMostrado = document.getElementById('precio-mostrado');
+        
+        function obtenerPrecioBase() {
+            if (!tamanoSelect) return 12990;
+            const selectedOption = tamanoSelect.options[tamanoSelect.selectedIndex];
+            const precio = parseInt(selectedOption.getAttribute('data-precio'));
+            return isNaN(precio) ? 12990 : precio;
+        }
+        
+        function obtenerCantidad() {
+            if (!cantidadInput) return 1;
+            let cantidad = parseInt(cantidadInput.value);
+            if (isNaN(cantidad) || cantidad < 1) cantidad = 1;
+            if (cantidad > 99) cantidad = 99;
+            return cantidad;
+        }
+        
+        function formatearPrecio(precio) {
+            return new Intl.NumberFormat('es-CL', { 
+                style: 'currency', 
+                currency: 'CLP', 
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            }).format(precio);
+        }
+        
+        function actualizarPrecioMostrado() {
+            if (precioMostrado) {
+                const total = obtenerPrecioBase() * obtenerCantidad();
+                precioMostrado.textContent = formatearPrecio(total);
+            }
+        }
+        
+        if (tamanoSelect) {
+            tamanoSelect.addEventListener('change', actualizarPrecioMostrado);
+        }
+        
+        if (cantidadInput) {
+            cantidadInput.addEventListener('input', () => {
+                let val = parseInt(cantidadInput.value);
+                if (isNaN(val) || val < 1) cantidadInput.value = 1;
+                if (val > 99) cantidadInput.value = 99;
+                actualizarPrecioMostrado();
+            });
+        }
+        
+        // =============================================
+        // FUNCIONALIDAD WHATSAPP
+        // =============================================
+        
+        const btnWhatsapp = document.getElementById('btn-whatsapp');
+        if (btnWhatsapp) {
+            btnWhatsapp.addEventListener('click', () => {
+                const titulo = document.getElementById('producto-nombre')?.innerText || 'Metal Art Print';
+                const subtitulo = document.getElementById('producto-subtitulo')?.innerText || 'METAL ART PRINT';
+                const tamanoTexto = tamanoSelect ? tamanoSelect.options[tamanoSelect.selectedIndex].text : '30×40 CM';
+                const soporte = document.getElementById('soporte-select')?.value || 'Soporte magnético';
+                const cantidad = obtenerCantidad();
+                const total = obtenerPrecioBase() * cantidad;
+                
+                const mensaje = `¡Hola! Me interesa encargar el siguiente Metal Art Print:%0A%0A` +
+                    `🖼️ *Producto:* ${titulo}%0A` +
+                    `✨ *Serie:* ${subtitulo}%0A` +
+                    `📏 *Tamaño:* ${tamanoTexto}%0A` +
+                    `🖌️ *Soporte:* ${soporte}%0A` +
+                    `🔢 *Cantidad:* ${cantidad}%0A` +
+                    `💰 *Total:* ${formatearPrecio(total)}%0A%0A` +
+                    `Quedo atento a su respuesta. ¡Gracias!`;
+                
+                window.open(`https://wa.me/56982045756?text=${mensaje}`, '_blank');
             });
         }
         
@@ -334,18 +1104,12 @@
         function seleccionarProducto(nombre, precio) {
             const titulo = document.getElementById('producto-nombre');
             const subtituloElem = document.getElementById('producto-subtitulo');
-            const precioElem = document.getElementById('precio-mostrado');
             
             if (titulo) titulo.innerText = nombre;
             if (subtituloElem) subtituloElem.innerText = 'METAL ART PRINT • EDICIÓN ESPECIAL';
-            if (precioElem && precio) {
-                const precioNum = parseInt(precio);
-                if (!isNaN(precioNum)) {
-                    precioElem.innerText = formatearPrecio(precioNum);
-                } else {
-                    precioElem.innerText = precio;
-                }
-            }
+            
+            // Actualizar precio mostrado
+            actualizarPrecioMostrado();
             
             document.querySelector('.producto').scrollIntoView({ behavior: 'smooth' });
         }
@@ -362,70 +1126,10 @@
                 } else if (precioTexto) {
                     seleccionarProducto(nombre, precioTexto);
                 } else {
-                    seleccionarProducto(nombre, '$24.900 CLP');
+                    seleccionarProducto(nombre, '24900');
                 }
             });
         });
-        
-        // =============================================
-        // FUNCIONALIDAD DE PRECIOS Y WHATSAPP
-        // =============================================
-        
-        function obtenerPrecioPorTamano() {
-            const selectTamano = document.getElementById('tamano-select');
-            if (!selectTamano) return 12990;
-            const selectedOption = selectTamano.options[selectTamano.selectedIndex];
-            const precio = parseInt(selectedOption.getAttribute('data-precio'));
-            return isNaN(precio) ? 12990 : precio;
-        }
-        
-        function formatearPrecio(precio) {
-            return new Intl.NumberFormat('es-CL', { 
-                style: 'currency', 
-                currency: 'CLP', 
-                minimumFractionDigits: 0,
-                maximumFractionDigits: 0
-            }).format(precio);
-        }
-        
-        function actualizarPrecio() {
-            const precioElem = document.getElementById('precio-mostrado');
-            if (precioElem) {
-                precioElem.textContent = formatearPrecio(obtenerPrecioPorTamano());
-            }
-        }
-        
-        const tamanoSelect = document.getElementById('tamano-select');
-        if (tamanoSelect) {
-            tamanoSelect.addEventListener('change', actualizarPrecio);
-        }
-        
-        const btnWhatsapp = document.getElementById('btn-whatsapp');
-        if (btnWhatsapp) {
-            btnWhatsapp.addEventListener('click', () => {
-                const titulo = document.getElementById('producto-nombre')?.innerText || 'Producto';
-                const subtitulo = document.getElementById('producto-subtitulo')?.innerText || 'METAL ART PRINT';
-                const tamanoSelect = document.getElementById('tamano-select');
-                const tamanoTexto = tamanoSelect ? tamanoSelect.options[tamanoSelect.selectedIndex].text : '30×40 CM';
-                const soporte = document.getElementById('soporte-select')?.value || 'Soporte magnético';
-                const cantidadInput = document.getElementById('cantidad-input');
-                const cantidad = cantidadInput ? parseInt(cantidadInput.value) || 1 : 1;
-                const total = obtenerPrecioPorTamano() * cantidad;
-                
-                const mensaje = `¡Hola! Me interesa encargar el siguiente Metal Art Print:%0A%0A` +
-                    `🖼️ *Producto:* ${titulo}%0A` +
-                    `✨ *Serie:* ${subtitulo}%0A` +
-                    `📏 *Tamaño:* ${tamanoTexto}%0A` +
-                    `🖌️ *Soporte:* ${soporte}%0A` +
-                    `🔢 *Cantidad:* ${cantidad}%0A` +
-                    `💰 *Total:* ${formatearPrecio(total)}%0A%0A` +
-                    `Quedo atento a su respuesta. ¡Gracias!`;
-                
-                window.open(`https://wa.me/56982045756?text=${mensaje}`, '_blank');
-            });
-        }
-        
-        actualizarPrecio();
         
         // =============================================
         // PARÁMETROS URL PARA PRODUCTOS DINÁMICOS
@@ -435,7 +1139,6 @@
             const urlParams = new URLSearchParams(window.location.search);
             const productName = urlParams.get('nombre');
             const productPrice = urlParams.get('precio');
-            const productImg = urlParams.get('imagen');
             
             if (productName) {
                 const titulo = document.getElementById('producto-nombre');
@@ -444,23 +1147,22 @@
             }
             
             if (productPrice) {
-                const precioElem = document.getElementById('precio-mostrado');
                 const precioNum = parseInt(productPrice);
-                if (precioElem && !isNaN(precioNum)) {
-                    precioElem.innerText = formatearPrecio(precioNum);
+                if (!isNaN(precioNum)) {
+                    // Actualizar el data-precio del tamaño seleccionado? Mejor mantener precio base
+                    const selectedOption = tamanoSelect?.options[tamanoSelect.selectedIndex];
+                    if (selectedOption) {
+                        selectedOption.setAttribute('data-precio', precioNum.toString());
+                    }
+                    actualizarPrecioMostrado();
                 }
             }
             
-            if (productImg) {
-                const imgPrincipal = document.getElementById('imagen-principal');
-                if (imgPrincipal) imgPrincipal.src = decodeURIComponent(productImg);
-            }
-            
-            // Generar miniaturas desde parámetros (incluye miniatura1, miniatura2, etc.)
             generarMiniaturasDesdeURL();
         }
         
         cargarProductoDesdeURL();
+        actualizarPrecioMostrado();
         
         // =============================================
         // MANEJO DE REDIMENSIÓN DE VENTANA
@@ -473,10 +1175,13 @@
                 if (window.innerWidth > 768 && categoriasDropdown) {
                     categoriasDropdown.classList.remove('activo');
                 }
+                if (window.innerWidth > 768 && menuPrincipal) {
+                    menuPrincipal.classList.remove('activo');
+                }
             }, 250);
         });
         
-        console.log('SublimArts - Visualizador cargado correctamente con miniaturas dinámicas');
+        console.log('SublimArts - Visualizador cargado correctamente con todas las optimizaciones');
     })();
 </script>
 
