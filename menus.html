@@ -525,11 +525,8 @@
         .categoria-card {
             cursor: pointer;
             transition: all 0.3s ease;
-            border-radius: 12px;
             overflow: hidden;
             background: rgba(20, 15, 45, 0.3);
-            border: 1px solid rgba(233, 69, 96, 0.3);
-            /* FIX SEO: como es un <a>, reset de estilos de enlace */
             display: block;
             color: var(--color-texto);
             text-decoration: none;
@@ -574,18 +571,14 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
-            margin-top: 40px;
         }
         .video-card {
             background: rgba(20, 15, 45, 0.5);
-            border-radius: 20px;
             overflow: hidden;
-            border: 2px solid rgba(110, 69, 226, 0.3);
             transition: all 0.3s ease;
         }
         .video-card:hover {
             transform: translateY(-10px);
-            border-color: var(--color-destacado);
             box-shadow: 0 15px 30px rgba(233, 69, 96, 0.3);
         }
 
@@ -628,7 +621,6 @@
             width: 64px;
             height: 64px;
             background: rgba(233, 69, 96, 0.9);
-            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -638,7 +630,6 @@
             transition: all 0.3s ease;
             /* Offset de 2px para centrar visualmente el ícono play */
             padding-left: 4px;
-            border: 2px solid rgba(255,255,255,0.3);
         }
         .video-facade:hover .video-play-btn {
             background: var(--color-destacado);
@@ -680,19 +671,15 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
-            margin-top: 40px;
         }
         .muro-item {
             position: relative;
-            border-radius: 20px;
             overflow: hidden;
             cursor: pointer;
             transition: all 0.3s ease;
-            border: 2px solid rgba(233, 69, 96, 0.3);
         }
         .muro-item:hover {
             transform: translateY(-10px);
-            border-color: var(--color-destacado);
             box-shadow: 0 15px 30px rgba(233, 69, 96, 0.3);
         }
         .muro-item img {
@@ -1046,6 +1033,242 @@
             .titulo-banner { font-size: 1.6rem; }
             .boton-banner { font-size: 0.9rem; padding: 0.7rem 1.5rem; }
         }
+
+
+        /* =============================================
+           CORRECCIONES SENIOR SUBLIMARTS
+           Objetivo: mantener identidad visual, evitar recortes,
+           mejorar video iframe, mobile UX y estabilidad visual.
+           ============================================= */
+        img,
+        iframe {
+            max-width: 100%;
+        }
+
+        /* Evita que el header tape secciones al navegar por anclas */
+        section[id],
+        footer[id] {
+            scroll-margin-top: 92px;
+        }
+
+        /* Imágenes completas dentro de sus tarjetas: sin recortes */
+        .categoria-imagen,
+        .muro-item,
+        .info-imagen,
+        .imagen-banner {
+            background: radial-gradient(circle at center, rgba(233, 69, 96, 0.08), rgba(5, 5, 12, 0.95));
+        }
+
+        .categoria-imagen img,
+        .muro-item img,
+        .info-imagen img,
+        .imagen-banner img {
+            object-fit: contain !important;
+            object-position: center !important;
+        }
+
+        .categoria-imagen {
+            padding: 10px;
+        }
+
+        .muro-item img {
+            padding: 12px;
+        }
+
+        /* Videos robustos: todos mantienen el mismo contenedor 16:9.
+           Importante: no usar .video-vertical aquí, porque deforma las cards. */
+        .video-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            padding-bottom: 0 !important;
+            height: auto;
+            background: #000;
+            overflow: hidden;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+        }
+
+        .video-container img,
+        .video-facade img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover !important;
+            object-position: center;
+            background: #000;
+            display: block;
+        }
+
+        /* Estados de foco visibles: importante para UX real */
+        .enlace-menu:focus-visible,
+        .enlace-menu-desplegable:focus-visible,
+        .boton-menu-mobile:focus-visible,
+        .boton-banner:focus-visible,
+        .categoria-card:focus-visible,
+        .video-facade:focus-visible,
+        .whatsapp-button:focus-visible {
+            outline: 2px solid var(--color-destacado);
+            outline-offset: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .contenedor-navegacion,
+            .contenedor-seccion,
+            .contenedor-banner,
+            .contenedor-footer {
+                padding-inline: 16px;
+            }
+
+            .titulo-logo {
+                font-size: 1.25rem;
+            }
+
+            .logo {
+                width: 44px;
+                height: 44px;
+                font-size: 24px;
+            }
+
+            .categoria-imagen {
+                height: 190px;
+                padding: 8px;
+            }
+
+            .muro-item img {
+                height: 420px;
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .whatsapp-button {
+                right: 18px;
+                bottom: 18px;
+                width: 56px;
+                height: 56px;
+            }
+
+            .categoria-imagen {
+                height: 155px;
+            }
+
+            .muro-item img {
+                height: 380px;
+            }
+        }
+
+
+        /* =============================================
+           AJUSTE VISUAL V2: IMÁGENES MÁS GRANDES SIN RECORTE
+           Mantiene object-fit: contain, pero aumenta el área útil
+           de cada imagen dentro de su contenedor.
+           ============================================= */
+        .categoria-imagen {
+            height: 285px !important;
+            padding: 3px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            background: radial-gradient(circle at center, rgba(233, 69, 96, 0.10), rgba(6, 6, 15, 0.96));
+        }
+
+        .categoria-imagen img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: contain !important;
+            object-position: center !important;
+            transform: scale(1.08);
+            transform-origin: center;
+        }
+
+        .categoria-card:hover .categoria-imagen img {
+            transform: scale(1.13);
+        }
+
+        .info-imagen {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            padding: 4px !important;
+        }
+
+        .info-imagen img {
+            width: 100% !important;
+            height: auto !important;
+            object-fit: contain !important;
+            transform: scale(1.04);
+            transform-origin: center;
+        }
+
+        .imagen-banner img {
+            width: 100% !important;
+            max-height: 540px !important;
+            object-fit: contain !important;
+            transform: scale(1.04);
+            transform-origin: center;
+        }
+
+        .muro-item {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            background: radial-gradient(circle at center, rgba(233, 69, 96, 0.10), rgba(6, 6, 15, 0.96));
+        }
+
+        .muro-item img {
+            width: 100% !important;
+            height: 430px !important;
+            object-fit: contain !important;
+            object-position: center !important;
+            padding: 4px !important;
+            transform: scale(1.06);
+            transform-origin: center;
+        }
+
+        .muro-item:hover img {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .categoria-imagen {
+                height: 225px !important;
+                padding: 2px !important;
+            }
+
+            .categoria-imagen img {
+                transform: scale(1.08);
+            }
+
+            .muro-item img {
+                height: 390px !important;
+                padding: 3px !important;
+                transform: scale(1.05);
+            }
+
+            .imagen-banner img {
+                max-height: 330px !important;
+                transform: scale(1.03);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .categoria-imagen {
+                height: 185px !important;
+            }
+
+            .muro-item img {
+                height: 355px !important;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -1230,8 +1453,6 @@
 
     <!-- =============================================
          SECCIÓN CATEGORÍAS
-         FIX SEO: <div data-url> → <a href> con mismas clases
-         Mantiene data-url para compatibilidad con JS existente.
          ============================================= -->
     <section class="seccion-categorias" id="categorias">
         <div class="contenedor-seccion">
@@ -1239,59 +1460,125 @@
             <p class="subtitulo-seccion">Haz clic en cualquier imagen para ver todos los cuadros de esa categoría</p>
             <div class="categorias-grid">
 
-                <a href="tematicas.html" class="categoria-card" data-url="tematicas.html">
+                <a href="index.html#anime-popular" class="categoria-card" data-url="tematicas.html">
                     <div class="categoria-imagen">
-                        <img src="https://i.pinimg.com/736x/47/0e/2d/470e2dd857aab681dc697c7a2cf31ad7.jpg"
+                        <img src="https://i.pinimg.com/736x/8f/3c/77/8f3c77f32b4a948e7fe6f04c96a6cf3f.jpg"
                              alt="Cuadros temáticos"
                              loading="lazy"
                              width="800"
                              height="600">
                     </div>
-                    <h3>Temáticos</h3>
+                    <h3>Anime </h3>
                 </a>
 
                 <a href="retratos.html" class="categoria-card" data-url="retratos.html">
                     <div class="categoria-imagen">
-                        <img src="https://i.pinimg.com/webp/736x/89/ec/44/89ec44c1c573f9323b992dafed319d0a.webp"
+                        <img src="https://i.pinimg.com/736x/b8/6b/fc/b86bfc8cbfa40c7afd9827fd2abfea9e.jpg"
                              alt="Retratos personalizados"
                              loading="lazy"
                              width="800"
                              height="600">
                     </div>
-                    <h3>Retratos</h3>
+                    <h3>Autos y Motos</h3>
                 </a>
 
                 <a href="paisajes.html" class="categoria-card" data-url="paisajes.html">
                     <div class="categoria-imagen">
-                        <img src="https://i.pinimg.com/1200x/ab/5f/4a/ab5f4ac390914b099a3fcb8a7e84814e.jpg"
+                        <img src="https://i.pinimg.com/736x/b8/a0/aa/b8a0aaa387d28ca0d0b6edd9dda6ca9b.jpg"
                              alt="Cuadros de paisajes"
                              loading="lazy"
                              width="800"
                              height="600">
                     </div>
-                    <h3>Paisajes</h3>
+                    <h3>Paisajes y Religion</h3>
                 </a>
 
                 <a href="abstracto.html" class="categoria-card" data-url="abstracto.html">
                     <div class="categoria-imagen">
-                        <img src="https://i.pinimg.com/736x/7b/d5/e5/7bd5e52b7e9980245a0bc26abab881c0.jpg"
+                        <img src="https://i.pinimg.com/736x/04/6a/a5/046aa53da9ce9f35835c65fee520f68b.jpg"
                              alt="Arte abstracto"
                              loading="lazy"
                              width="800"
                              height="600">
                     </div>
-                    <h3>Abstracto</h3>
+                    <h3>Deportes</h3>
                 </a>
 
                 <a href="animales.html" class="categoria-card" data-url="animales.html">
                     <div class="categoria-imagen">
-                        <img src="https://i.pinimg.com/736x/cb/9b/07/cb9b07ac623d8298de09359e9ab642a2.jpg"
+                        <img src="https://i.pinimg.com/1200x/d8/df/11/d8df1112437e89c83165c2d675b9d8c5.jpg"
                              alt="Cuadros de animales"
                              loading="lazy"
                              width="800"
                              height="600">
                     </div>
                     <h3>Animales</h3>
+                </a>
+
+                <a href="ciudades.html" class="categoria-card" data-url="ciudades.html">
+                    <div class="categoria-imagen">
+                        <img src="https://i.pinimg.com/1200x/28/82/8c/28828cba6f634d91322d9986e2f198dd.jpg"
+                             alt="Cuadros de ciudades"
+                             loading="lazy"
+                             width="800"
+                             height="600">
+                    </div>
+                    <h3>Peliculas y Series</h3>
+                </a>
+                
+                <a href="index.html#anime-popular" class="categoria-card" data-url="tematicas.html">
+                    <div class="categoria-imagen">
+                        <img src="https://i.pinimg.com/1200x/3f/24/26/3f242682439a8d1e23f316d84d76efff.jpg"
+                             alt="Cuadros temáticos"
+                             loading="lazy"
+                             width="800"
+                             height="600">
+                    </div>
+                    <h3>Gamer</h3>
+                </a>
+
+                <a href="retratos.html" class="categoria-card" data-url="retratos.html">
+                    <div class="categoria-imagen">
+                        <img src="https://i.pinimg.com/736x/b8/6b/fc/b86bfc8cbfa40c7afd9827fd2abfea9e.jpg"
+                             alt="Retratos personalizados"
+                             loading="lazy"
+                             width="800"
+                             height="600">
+                    </div>
+                    <h3>Retratos Personalizados</h3>
+                </a>
+
+                <a href="paisajes.html" class="categoria-card" data-url="paisajes.html">
+                    <div class="categoria-imagen">
+                        <img src="https://i.pinimg.com/1200x/40/1f/ed/401fedd3c70d5da786e7ca358b6a7092.jpg"
+                             alt="Cuadros de paisajes"
+                             loading="lazy"
+                             width="800"
+                             height="600">
+                    </div>
+                    <h3>Motos</h3>
+                </a>
+
+                <a href="abstracto.html" class="categoria-card" data-url="abstracto.html">
+                    <div class="categoria-imagen">
+                        <img src="https://i.pinimg.com/736x/79/76/3f/79763f84c8476a5ac0aae0946a660f3d.jpg"
+                             alt="Arte abstracto"
+                             loading="lazy"
+                             width="800"
+                             height="600">
+                    </div>
+                    <h3>Ciudades</h3>
+                </a>
+
+                <a href="animales.html" class="categoria-card" data-url="animales.html">
+                    <div class="categoria-imagen">
+                        <img src="https://i.pinimg.com/1200x/e4/f6/2c/e4f62ce0dcd5652d870cd8007b2b6e43.jpg"
+                             alt="Cuadros de animales"
+                             loading="lazy"
+                             width="800"
+                             height="600">
+                    </div>
+                    <h3>Religion</h3>
                 </a>
 
                 <a href="ciudades.html" class="categoria-card" data-url="ciudades.html">
@@ -1304,14 +1591,16 @@
                     </div>
                     <h3>Ciudades</h3>
                 </a>
-
+                 
             </div>
         </div>
     </section>
-
-
+    
+    
     <!-- =============================================
          SECCIÓN VIDEOS
+         FIX: todos los videos usan el mismo contenedor 16:9.
+         Para YouTube normal o Shorts se usa SOLO el ID en data-video-id.
          ============================================= -->
     <section class="seccion-videos" id="videos">
         <div class="contenedor-seccion">
@@ -1320,10 +1609,13 @@
             <div class="videos-grid">
 
                 <div class="video-card">
-                    <!-- data-video-id: ID de YouTube para construir src al hacer click -->
-                    <div class="video-container video-facade" data-video-id="dQw4w9WgXcQ" role="button" tabindex="0" aria-label="Reproducir: Proceso de sublimación paso a paso">
-                        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg"
-                             alt="Proceso de sublimación"
+                    <div class="video-container video-facade"
+                         data-video-id="za5xoOvhcgs"
+                         role="button"
+                         tabindex="0"
+                         aria-label="Reproducir: Proceso de sublimación paso a paso">
+                        <img src="https://img.youtube.com/vi/za5xoOvhcgs/hqdefault.jpg"
+                             alt="Proceso de sublimación paso a paso"
                              loading="lazy"
                              width="480"
                              height="270">
@@ -1338,9 +1630,14 @@
                 </div>
 
                 <div class="video-card">
-                    <div class="video-container video-facade" data-video-id="dQw4w9WgXcQ" role="button" tabindex="0" aria-label="Reproducir: Calidad Full HD y colores vibrantes">
-                        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg"
-                             alt="Calidad Full HD"
+                    <!-- URL original: https://www.youtube.com/shorts/c67wuFWtKGc?feature=share -->
+                    <div class="video-container video-facade"
+                         data-video-id="c67wuFWtKGc"
+                         role="button"
+                         tabindex="0"
+                         aria-label="Reproducir: Calidad Full HD y colores vibrantes">
+                        <img src="https://img.youtube.com/vi/c67wuFWtKGc/hqdefault.jpg"
+                             alt="Calidad Full HD y colores vibrantes"
                              loading="lazy"
                              width="480"
                              height="270">
@@ -1355,9 +1652,14 @@
                 </div>
 
                 <div class="video-card">
-                    <div class="video-container video-facade" data-video-id="dQw4w9WgXcQ" role="button" tabindex="0" aria-label="Reproducir: Cómo colgar tu cuadro de aluminio">
-                        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg"
-                             alt="Instalación del cuadro"
+                    <!-- URL original: https://www.youtube.com/shorts/MknCdM0E1Pw?feature=share -->
+                    <div class="video-container video-facade"
+                         data-video-id="MknCdM0E1Pw"
+                         role="button"
+                         tabindex="0"
+                         aria-label="Reproducir: Cómo colgar tu cuadro de aluminio">
+                        <img src="https://img.youtube.com/vi/MknCdM0E1Pw/hqdefault.jpg"
+                             alt="Cómo colgar tu cuadro de aluminio"
                              loading="lazy"
                              width="480"
                              height="270">
@@ -1372,7 +1674,6 @@
                 </div>
 
             </div>
-            <!-- Scroll hint mobile -->
             <p class="scroll-hint" aria-hidden="true">
                 <i class="fas fa-hand-point-right"></i> Desliza para ver más
             </p>
@@ -1635,9 +1936,10 @@
             if (!videoId) return;
 
             const iframe = document.createElement('iframe');
-            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&playsinline=1`;
             iframe.title = facadeEl.getAttribute('aria-label') || 'Video de YouTube';
-            iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+            iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+            iframe.referrerPolicy = 'strict-origin-when-cross-origin';
             iframe.allowFullscreen = true;
 
             // Limpiar contenido del facade e insertar iframe
