@@ -2,604 +2,1957 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <!-- FIX: viewport-fit=cover para iPhone con notch -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>SublimArts - Cuadros en Aluminio HD | Anime & Gamer Style</title>
 
-    <!-- FIX SEO: título y meta corregidos (ANIMETAL → SublimArts) -->
-    <title>SublimArts - Cuadros de Anime sobre Metal | Impresión HD Personalizada</title>
-    <meta name="description" content="Cuadros de anime sobre metal con impresión HD. Personalizamos tu personaje favorito de Dragon Ball, Naruto, Jujutsu Kaisen, Demon Slayer y más. Envíos a todo Chile.">
-    <meta name="keywords" content="cuadros anime, cuadros metal, impresión metálica, posters anime, decoración otaku, cuadros personalizados, dragon ball, naruto, jujutsu kaisen">
-    <meta name="author" content="SublimArts">
-    <meta name="robots" content="index, follow">
-    <!-- FIX SEO CRÍTICO: canonical apuntaba a animetal.cl -->
-    <link rel="canonical" href="https://www.sublimarts.cl/menus.html">
-
-    <!-- Open Graph — FIX: nombre de marca corregido -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.sublimarts.cl/menus.html">
-    <meta property="og:title" content="SublimArts - Cuadros de Anime sobre Metal">
-    <meta property="og:description" content="Transforma tus personajes favoritos en arte duradero sobre metal. Impresión HD personalizada.">
-    <meta property="og:image" content="https://www.sublimarts.cl/img/logo.jpg">
-
-    <!-- Twitter Card — FIX -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.sublimarts.cl/menus.html">
-    <meta property="twitter:title" content="SublimArts - Cuadros de Anime sobre Metal">
-    <meta property="twitter:description" content="Transforma tus personajes favoritos en arte duradero sobre metal. Impresión HD personalizada.">
-    <meta property="twitter:image" content="https://www.sublimarts.cl/img/logo.jpg">
-
-    <!-- Preconexiones -->
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- CSS principal externo (manu.css corregido) -->
-    <link rel="stylesheet" href="manu.css">
 
     <style>
-        /* ── BANNER CON IMAGEN DE FONDO ─────────────────────── */
-        .banner-principal {
-            background-image: url('https://media.canva.com/v2/image-resize/format:PNG/height:800/quality:100/uri:ifs%3A%2F%2FM%2Fb5d65906-777a-441d-94e4-669a443cce39/watermark:F/width:533?csig=AAAAAAAAAAAAAAAAAAAAAD7m-7jSvrVvo-vwyWIw1_tMaIibhbNLA4EYyrHK4CiN&exp=1774510407&osig=AAAAAAAAAAAAAAAAAAAAAGGM0ARg-IWd091Xs0XHQ3tQTd59WiOkXCJME4gfrfqA&signer=media-rpc&x-canva-quality=screen');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+        /* =============================================
+           VARIABLES CSS GLOBALES
+           ============================================= */
+        :root {
+            --color-primario: #1a1a2e;
+            --color-secundario: #16213e;
+            --color-terciario: #0f3460;
+            --color-destacado: #e94560;
+            --color-whatsapp: #25D366;
+            --color-texto: #ffffff;
+            --color-texto-secundario: #b8b8d1;
+            --color-fondo: #0d0d1a;
+            --color-borde: #2a2a4a;
+            --color-submenu: #0f0f1f;
+            --sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.3);
+            --sombra-destacada: 0 8px 24px rgba(233, 69, 96, 0.3);
+            --sombra-whatsapp: 0 4px 20px rgba(37, 211, 102, 0.4);
+            --transicion-rapida: all 0.3s ease;
+            --transicion-media: all 0.5s ease;
         }
 
-        /* FIX: "4 %" → "40%" — el espacio entre el número y
-           el signo % es CSS inválido; el navegador ignoraba
-           el stop y el gradiente no se aplicaba. */
-        .banner-principal::before {
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--color-fondo);
+            color: var(--color-texto);
+            line-height: 1.5;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        body.menu-abierto {
+            overflow: hidden;
+        }
+
+        /* =============================================
+           BOTÓN WHATSAPP
+           FIX: animation-play-state: paused en hover
+           evita conflicto entre la animación pulse
+           y el transform del hover.
+           ============================================= */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--color-whatsapp);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            z-index: 1000;
+            box-shadow: var(--sombra-whatsapp);
+            transition: var(--transicion-rapida);
+            animation: pulse 2s infinite;
+            text-decoration: none;
+        }
+
+        /* FIX: pausa animación durante hover para evitar
+           conflicto de transform entre pulse y scale */
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+            animation-play-state: paused;
+        }
+
+        @keyframes pulse {
+            0%   { transform: scale(1); }
+            50%  { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* =============================================
+           BASE
+           ============================================= */
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
+
+        /* =============================================
+           UTILIDADES
+           ============================================= */
+        .contenedor-seccion {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        .titulo-seccion {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--color-texto);
+            position: relative;
+            text-align: center;
+            width: 100%;
+        }
+
+        .titulo-seccion::after {
             content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--color-destacado);
+            border-radius: 3px;
+        }
+
+        .subtitulo-seccion {
+            text-align: center;
+            color: var(--color-texto-secundario);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+            width: 100%;
+        }
+
+        /* =============================================
+           SCROLL HINT MOBILE
+           Indicador visual de scroll horizontal.
+           Solo visible en móvil (se activa vía media query).
+           ============================================= */
+        .scroll-hint {
+            display: none; /* Oculto en desktop; se muestra en mobile vía media query */
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 14px;
+            color: var(--color-texto-secundario);
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        .scroll-hint i {
+            color: var(--color-destacado);
+            animation: desliza 1.5s ease-in-out infinite;
+        }
+
+        @keyframes desliza {
+            0%, 100% { transform: translateX(0); }
+            50%       { transform: translateX(6px); }
+        }
+
+        /* =============================================
+           HEADER Y NAVEGACIÓN
+           ============================================= */
+        .header-principal {
+            background-color: var(--color-primario);
+            position: sticky;
+            top: 0;
+            z-index: 10001;
+            box-shadow: var(--sombra-suave);
+        }
+
+        .navegacion { padding: 1rem 0; }
+
+        .contenedor-navegacion {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Logo */
+        .logo-contenedor { display: flex; align-items: center; gap: 10px; }
+        .logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-destacado), #ff7b9c);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            flex-shrink: 0;
+        }
+        .titulo-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--color-destacado), #ff7b9c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Menú principal */
+        .menu-principal {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            z-index: 10000;
+        }
+
+        .enlace-menu {
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: var(--transicion-rapida);
+            padding: 0.5rem 0;
+            color: var(--color-texto);
+        }
+        .enlace-menu:hover { color: var(--color-destacado); }
+        .enlace-menu::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-destacado);
+            transition: var(--transicion-rapida);
+        }
+        .enlace-menu:hover::after { width: 100%; }
+
+        /* Submenú desplegable */
+        .menu-con-desplegable { position: relative; }
+
+        .enlace-menu-desplegable {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background: none;
+            color: var(--color-texto);
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            padding: 0.5rem 0;
+            border: none;
+        }
+
+        .flecha-desplegable {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        /* Desktop: abrir submenú por hover */
+        .menu-con-desplegable:hover .flecha-desplegable {
+            transform: rotate(180deg);
+        }
+        .menu-con-desplegable:hover .submenu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* Submenú base (desktop) */
+        .submenu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--color-submenu);
+            min-width: 220px;
+            border-radius: 8px;
+            box-shadow: var(--sombra-suave);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transicion-rapida);
+            z-index: 100;
+            border-left: 3px solid var(--color-destacado);
+        }
+
+        .submenu a {
+            display: block;
+            padding: 0.7rem 1.5rem;
+            color: var(--color-texto);
+            font-size: 0.9rem;
+            transition: var(--transicion-rapida);
+            white-space: nowrap;
+        }
+        .submenu a:hover {
+            color: var(--color-destacado);
+            background-color: rgba(233, 69, 96, 0.1);
+            padding-left: 2rem;
+        }
+
+        /* Iconos usuario */
+        .iconos-usuario {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        .icono-usuario {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: var(--transicion-rapida);
+            color: var(--color-texto);
+        }
+        .icono-usuario:hover { color: var(--color-destacado); }
+
+        /* Botón hamburguesa */
+        .boton-menu-mobile {
+            display: none; /* Visible solo en mobile vía media query */
+            background: rgba(233, 69, 96, 0.1);
+            color: var(--color-texto);
+            font-size: 1.5rem;
+            width: 44px;
+            height: 44px;
+            border-radius: 8px;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            /* Tamaño mínimo recomendado para touch targets: 44x44px ✓ */
+        }
+
+        /* Overlay del menú mobile */
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 9999;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .menu-overlay.activo {
+            display: block;
+            opacity: 1;
+        }
+
+        /* =============================================
+           BANNER PRINCIPAL
+           ============================================= */
+        .banner-principal {
+            background-image: url('ChatGPT Image 11 mar 2026, 02_12_48 a.m..png');
+            padding: 4rem 0;
+            position: relative;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+        }
+        .contenedor-banner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+        }
+        .contenido-banner { flex: 1; max-width: 600px; }
+        .titulo-banner {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        .texto-banner {
+            font-size: 1.1rem;
+            color: var(--color-texto-secundario);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        .boton-banner {
+            display: inline-block;
+            background-color: var(--color-destacado);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transicion-rapida);
+        }
+        .boton-banner:hover {
+            background-color: #ff5773;
+            transform: translateY(-3px);
+            box-shadow: var(--sombra-destacada);
+        }
+        .imagen-banner { flex: 1; display: flex; justify-content: center; }
+        .imagen-banner img {
+            max-width: 100%;
+            max-height: 500px;
+            border-radius: 12px;
+            box-shadow: var(--sombra-suave);
+            /* FIX: height auto garantiza que no se distorsione */
+            height: auto;
+        }
+
+        /* =============================================
+           SECCIÓN INFO
+           ============================================= */
+        .seccion-info {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #0d0d1a 0%, #1a1a2e 100%);
+        }
+        .info-grid {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+        .info-grid.reverse { flex-direction: row-reverse; }
+        .info-contenido { flex: 1; min-width: 280px; }
+        .info-contenido h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--color-destacado);
+        }
+        .info-contenido p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--color-texto-secundario);
+            margin-bottom: 20px;
+        }
+        .info-lista { list-style: none; margin-top: 20px; }
+        .info-lista li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .info-lista li i { color: var(--color-destacado); font-size: 1.2rem; }
+        .info-imagen {
+            flex: 1;
+            min-width: 280px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid rgba(233,69,96,0.3);
+            transition: var(--transicion-media);
+        }
+        .info-imagen:hover {
+            transform: scale(1.02);
+            border-color: var(--color-destacado);
+            box-shadow: 0 0 30px rgba(233,69,96,0.3);
+        }
+        .info-imagen img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* =============================================
+           SECCIÓN BENEFICIOS
+           ============================================= */
+        .seccion-beneficios {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+        }
+        /* FIX: desktop usa 4 columnas para los 4 beneficios */
+        .beneficios-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .beneficio-item {
+            background: rgba(20, 15, 45, 0.4);
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            border: 1px solid rgba(233, 69, 96, 0.2);
+            transition: all 0.3s ease;
+        }
+        .beneficio-item:hover {
+            border-color: var(--color-destacado);
+            transform: translateX(10px);
+            background: rgba(233, 69, 96, 0.05);
+        }
+        .beneficio-icono {
+            font-size: 2.5rem;
+            min-width: 60px;
+            text-align: center;
+            background: linear-gradient(135deg, #00f3ff, #ff3864);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .beneficio-texto h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--color-destacado);
+        }
+        .beneficio-texto p {
+            color: var(--color-texto-secundario);
+            line-height: 1.5;
+        }
+
+        /* =============================================
+           SECCIÓN CATEGORÍAS
+           FIX SEO: .categoria-card ahora es <a href>
+           en lugar de <div data-url>
+           ============================================= */
+        .seccion-categorias {
+            padding: 80px 0;
+            background-color: #000000;
+        }
+        .categorias-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 1.5rem;
+            margin-top: 40px;
+        }
+        .categoria-card {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            background: rgba(20, 15, 45, 0.3);
+            display: block;
+            color: var(--color-texto);
+            text-decoration: none;
+        }
+        .categoria-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--color-destacado);
+            box-shadow: 0 10px 25px rgba(233, 69, 96, 0.2);
+        }
+        .categoria-imagen {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+        }
+        .categoria-imagen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            display: block;
+        }
+        .categoria-card:hover .categoria-imagen img { transform: scale(1.08); }
+        .categoria-card h3 {
+            text-align: center;
+            padding: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* =============================================
+           SECCIÓN VIDEOS
+           VIDEO FACADE PATTERN:
+           Muestra thumbnail en lugar del iframe.
+           El iframe se carga SOLO cuando el usuario
+           hace click → mejora LCP, FCP y TTI.
+           ============================================= */
+        .seccion-videos {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+        }
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        .video-card {
+            background: rgba(20, 15, 45, 0.5);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .video-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(233, 69, 96, 0.3);
+        }
+
+        /* Contenedor de video con ratio 16:9 */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            background: #000;
+        }
+        .video-container iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgb(33, 33, 33) 0%, rgba(7, 7, 7, 0.6) 40%);
-            z-index: 1;
+            border: none;
         }
 
-        .banner-principal .contenido-banner {
-            background: rgba(0, 0, 0, 0.5);
+        /* FACADE: thumbnail que reemplaza al iframe */
+        .video-facade {
+            cursor: pointer;
+        }
+        .video-facade img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Botón play sobre el thumbnail */
+        .video-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 64px;
+            height: 64px;
+            background: rgba(233, 69, 96, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 22px;
+            z-index: 2;
+            transition: all 0.3s ease;
+            /* Offset de 2px para centrar visualmente el ícono play */
+            padding-left: 4px;
+        }
+        .video-facade:hover .video-play-btn {
+            background: var(--color-destacado);
+            transform: translate(-50%, -50%) scale(1.12);
+            box-shadow: 0 0 25px rgba(233, 69, 96, 0.6);
+        }
+
+        /* Gradiente oscuro bajo el thumbnail para legibilidad del título */
+        .video-facade::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40%;
+            background: linear-gradient(transparent, rgba(0,0,0,0.6));
+            pointer-events: none;
+        }
+
+        .video-info { padding: 20px; }
+        .video-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #00f3ff;
+        }
+        .video-info p {
+            color: var(--color-texto-secundario);
+            font-size: 0.9rem;
+        }
+
+        /* =============================================
+           SECCIÓN CUADRO EN TU MURO
+           ============================================= */
+        .seccion-muro {
+            padding: 80px 0;
+            background: #000000;
+        }
+        .muro-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .muro-item {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .muro-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(233, 69, 96, 0.3);
+        }
+        .muro-item img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            display: block;
+        }
+        .muro-item:hover img { transform: scale(1.05); }
+        .muro-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
             padding: 20px;
-            border-radius: 15px;
-            -webkit-backdrop-filter: blur(5px);
-            backdrop-filter: blur(5px); /* Safari */
+            text-align: center;
+        }
+        .muro-overlay p {
+            color: white;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
-        /* Ocultar imagen del banner (diseño de fondo puro) */
-        .banner-principal .imagen-banner {
-            display: none;
+        /* =============================================
+           FOOTER
+           ============================================= */
+        .footer-principal {
+            background-color: var(--color-primario);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--color-borde);
+        }
+        .contenedor-footer {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+        }
+        .titulo-footer {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--color-destacado), #ff7b9c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .texto-footer {
+            color: var(--color-texto-secundario);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        .redes-sociales { display: flex; gap: 1rem; }
+        .enlace-red-social {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--color-secundario);
+            border-radius: 50%;
+            transition: var(--transicion-rapida);
+        }
+        .enlace-red-social:hover {
+            background-color: var(--color-destacado);
+            transform: translateY(-3px);
+        }
+        .titulo-columna {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        .lista-enlaces li { margin-bottom: 0.8rem; }
+        .lista-enlaces a {
+            color: var(--color-texto-secundario);
+            transition: var(--transicion-rapida);
+        }
+        .lista-enlaces a:hover {
+            color: var(--color-destacado);
+            padding-left: 5px;
+        }
+        .info-contacto p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--color-texto-secundario);
+            margin-bottom: 1rem;
+        }
+        .info-contacto a:hover { color: var(--color-destacado); }
+        .pie-footer {
+            max-width: 1400px;
+            margin: 3rem auto 0;
+            padding: 1.5rem 20px 0;
+            border-top: 1px solid var(--color-borde);
+            text-align: center;
+            color: var(--color-texto-secundario);
+            font-size: 0.9rem;
         }
 
+        /* =============================================
+           MEDIA QUERIES
+           ============================================= */
+
+        /* -----------------------------------------------
+           TABLET: 769px - 1024px
+           FIX: Zona muerta que no tenía breakpoint propio.
+           Footer con 4 cols → overflow en tablet.
+           Categorías con 6 cols → muy estrechas.
+           ----------------------------------------------- */
+        @media (min-width: 769px) and (max-width: 1024px) {
+
+            /* Beneficios: 2 columnas en tablet */
+            .beneficios-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            /* Categorías: 3 columnas en tablet (en lugar de 6) */
+            .categorias-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            /* Footer: 2x2 en tablet */
+            .contenedor-footer {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            /* Muro: 2 columnas en tablet */
+            .muro-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            /* Banner: reduce tamaño de título */
+            .titulo-banner { font-size: 2rem; }
+        }
+
+        /* -----------------------------------------------
+           MOBILE: max-width 768px
+           ----------------------------------------------- */
         @media (max-width: 768px) {
-            .banner-principal {
-                padding: 2rem 0;
+
+            /* Mostrar botón hamburguesa */
+            .boton-menu-mobile { display: flex; }
+
+            /* ----------
+               MENÚ MOBILE
+               ---------- */
+            .menu-principal {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 85%;
+                max-width: 350px;
+                height: 100vh;
+                background-color: var(--color-primario);
+                flex-direction: column;
+                justify-content: flex-start;
+                padding: 80px 0 30px;
+                gap: 0;
+                z-index: 10000;
+                overflow-y: auto;
+                box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
+                transition: right 0.3s ease;
+            }
+            .menu-principal.activo { right: 0; }
+            .menu-principal > li {
+                width: 100%;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+            .enlace-menu {
+                display: block;
+                padding: 16px 20px;
+                font-size: 1rem;
+            }
+            .menu-con-desplegable { width: 100%; }
+            .enlace-menu-desplegable {
+                display: flex;
+                justify-content: space-between;
+                padding: 16px 20px;
+                width: 100%;
+            }
+
+            /* FIX CRÍTICO #1: La flecha rota al activar clase .activo en mobile.
+               Antes solo rotaba con :hover (que no existe en touch). */
+            .menu-con-desplegable.activo .flecha-desplegable {
+                transform: rotate(180deg);
+            }
+
+            /* FIX CRÍTICO #2: El submenú heredaba opacity:0; visibility:hidden
+               del CSS desktop y nunca se mostraba en mobile.
+               Se fuerza la visibilidad y se transiciona por max-height. */
+            .submenu {
+                position: relative;
+                top: auto;
+                left: auto;
+                max-height: 0;
+                overflow: hidden;
+                opacity: 1;           /* ANULA desktop opacity:0 */
+                visibility: visible;  /* ANULA desktop visibility:hidden */
+                transform: none;      /* ANULA desktop translateY */
+                transition: max-height 0.4s ease;
+                width: 100%;
+                min-width: unset;
+                border-radius: 0;
+                border-left: 4px solid var(--color-destacado);
+                box-shadow: none;
+            }
+            .menu-con-desplegable.activo .submenu {
+                max-height: 400px;
+                padding: 8px 0;
+            }
+            .submenu a {
+                padding: 12px 20px 12px 35px;
+                white-space: normal;
+            }
+
+            /* Ocultar iconos de usuario en mobile */
+            .iconos-usuario { display: none; }
+
+            /* Banner */
+            .contenedor-banner {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+            .titulo-banner { font-size: 2rem; }
+            .imagen-banner img {
+                max-height: 300px;
+            }
+
+            /* Info */
+            .info-grid,
+            .info-grid.reverse {
+                flex-direction: column;
+            }
+
+            /* Beneficios: scroll horizontal sin barra */
+            .beneficios-grid {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                gap: 20px;
+                padding-bottom: 20px;
+                margin-top: 40px;
+                scroll-behavior: smooth;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+            .beneficios-grid::-webkit-scrollbar { display: none; }
+            .beneficio-item {
+                flex: 0 0 85%;
+                scroll-snap-align: start;
+                min-width: 280px;
+                /* FIX: hover translateX innecesario en mobile */
+                transform: none !important;
+            }
+
+            /* Categorías: 2 columnas, sin scroll */
+            .categorias-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+                overflow-x: visible;
+            }
+            .categoria-imagen { height: 200px; }
+            .categoria-card h3 {
+                font-size: 0.95rem;
+                padding: 0.8rem;
+            }
+
+            /* Videos: scroll horizontal sin barra */
+            .videos-grid {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                gap: 20px;
+                padding-bottom: 20px;
+                margin-top: 40px;
+                scroll-behavior: smooth;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+            .videos-grid::-webkit-scrollbar { display: none; }
+            .video-card {
+                flex: 0 0 85%;
+                scroll-snap-align: start;
+                min-width: 300px;
+            }
+
+            /* Muro: una imagen por pantalla, scroll horizontal */
+            .muro-grid {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                gap: 0;
+                padding: 0;
+                margin-top: 40px;
+                scroll-behavior: smooth;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+            .muro-grid::-webkit-scrollbar { display: none; }
+            .muro-item {
+                flex: 0 0 100%;
+                scroll-snap-align: start;
+                min-width: 100%;
+                border-radius: 0;
+                margin: 0;
+                /* FIX: desactiva hover translateY en mobile */
+                transform: none !important;
+            }
+            .muro-item img {
+                height: 500px;
+                width: 100%;
+                object-fit: cover;
+            }
+            .muro-overlay {
+                bottom: 20px;
+                left: 20px;
+                right: 20px;
+                border-radius: 15px;
+                background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+            }
+
+            /* Mostrar scroll hints en mobile */
+            .scroll-hint { display: flex; }
+
+            /* Footer: 1 columna en mobile */
+            .contenedor-footer {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
         }
 
-        /* ── BOTÓN VER DETALLE EN MODAL ──────────────────────── */
-        .btn-ver-detalle-modal {
-            display: inline-block;
-            background: var(--color-destacado);
-            color: white;
-            padding: 6px 14px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
+        /* -----------------------------------------------
+           MOBILE PEQUEÑO: max-width 480px
+           ----------------------------------------------- */
+        @media (max-width: 480px) {
+            .categoria-imagen { height: 160px; }
+            .categoria-card h3 { font-size: 0.85rem; padding: 0.6rem; }
+            .muro-item img { height: 450px; }
+            .titulo-seccion { font-size: 1.4rem; }
+            .beneficio-item { flex: 0 0 90%; }
+            .video-card { flex: 0 0 90%; }
+            .titulo-banner { font-size: 1.6rem; }
+            .boton-banner { font-size: 0.9rem; padding: 0.7rem 1.5rem; }
         }
 
-        /* FIX: era background: #ff577300 (alpha=0 = transparente).
-           El botón desaparecía visualmente en hover. */
-        .btn-ver-detalle-modal:hover {
-            background: #ff5773;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(233, 69, 96, 0.4);
+
+        /* =============================================
+           CORRECCIONES SENIOR SUBLIMARTS
+           Objetivo: mantener identidad visual, evitar recortes,
+           mejorar video iframe, mobile UX y estabilidad visual.
+           ============================================= */
+        img,
+        iframe {
+            max-width: 100%;
         }
+
+        /* Evita que el header tape secciones al navegar por anclas */
+        section[id],
+        footer[id] {
+            scroll-margin-top: 92px;
+        }
+
+        /* Imágenes completas dentro de sus tarjetas: sin recortes */
+        .categoria-imagen,
+        .muro-item,
+        .info-imagen,
+        .imagen-banner {
+            background: radial-gradient(circle at center, rgba(233, 69, 96, 0.08), rgba(5, 5, 12, 0.95));
+        }
+
+        .categoria-imagen img,
+        .muro-item img,
+        .info-imagen img,
+        .imagen-banner img {
+            object-fit: contain !important;
+            object-position: center !important;
+        }
+
+        .categoria-imagen {
+            padding: 10px;
+        }
+
+        .muro-item img {
+            padding: 12px;
+        }
+
+        /* Videos robustos: todos mantienen el mismo contenedor 16:9.
+           Importante: no usar .video-vertical aquí, porque deforma las cards. */
+        .video-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            padding-bottom: 0 !important;
+            height: auto;
+            background: #000;
+            overflow: hidden;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+        }
+
+        .video-container img,
+        .video-facade img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover !important;
+            object-position: center;
+            background: #000;
+            display: block;
+        }
+
+        /* Estados de foco visibles: importante para UX real */
+        .enlace-menu:focus-visible,
+        .enlace-menu-desplegable:focus-visible,
+        .boton-menu-mobile:focus-visible,
+        .boton-banner:focus-visible,
+        .categoria-card:focus-visible,
+        .video-facade:focus-visible,
+        .whatsapp-button:focus-visible {
+            outline: 2px solid var(--color-destacado);
+            outline-offset: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .contenedor-navegacion,
+            .contenedor-seccion,
+            .contenedor-banner,
+            .contenedor-footer {
+                padding-inline: 16px;
+            }
+
+            .titulo-logo {
+                font-size: 1.25rem;
+            }
+
+            .logo {
+                width: 44px;
+                height: 44px;
+                font-size: 24px;
+            }
+
+            .categoria-imagen {
+                height: 190px;
+                padding: 8px;
+            }
+
+            .muro-item img {
+                height: 420px;
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .whatsapp-button {
+                right: 18px;
+                bottom: 18px;
+                width: 56px;
+                height: 56px;
+            }
+
+            .categoria-imagen {
+                height: 155px;
+            }
+
+            .muro-item img {
+                height: 380px;
+            }
+        }
+
+
+        /* =============================================
+           AJUSTE VISUAL V2: IMÁGENES MÁS GRANDES SIN RECORTE
+           Mantiene object-fit: contain, pero aumenta el área útil
+           de cada imagen dentro de su contenedor.
+           ============================================= */
+        .categoria-imagen {
+            height: 285px !important;
+            padding: 3px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            background: radial-gradient(circle at center, rgba(233, 69, 96, 0.10), rgba(6, 6, 15, 0.96));
+        }
+
+        .categoria-imagen img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: contain !important;
+            object-position: center !important;
+            transform: scale(1.08);
+            transform-origin: center;
+        }
+
+        .categoria-card:hover .categoria-imagen img {
+            transform: scale(1.13);
+        }
+
+        .info-imagen {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            padding: 4px !important;
+        }
+
+        .info-imagen img {
+            width: 100% !important;
+            height: auto !important;
+            object-fit: contain !important;
+            transform: scale(1.04);
+            transform-origin: center;
+        }
+
+        .imagen-banner img {
+            width: 100% !important;
+            max-height: 540px !important;
+            object-fit: contain !important;
+            transform: scale(1.04);
+            transform-origin: center;
+        }
+
+        .muro-item {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            background: radial-gradient(circle at center, rgba(233, 69, 96, 0.10), rgba(6, 6, 15, 0.96));
+        }
+
+        .muro-item img {
+            width: 100% !important;
+            height: 430px !important;
+            object-fit: contain !important;
+            object-position: center !important;
+            padding: 4px !important;
+            transform: scale(1.06);
+            transform-origin: center;
+        }
+
+        .muro-item:hover img {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .categoria-imagen {
+                height: 225px !important;
+                padding: 2px !important;
+            }
+
+            .categoria-imagen img {
+                transform: scale(1.08);
+            }
+
+            .muro-item img {
+                height: 390px !important;
+                padding: 3px !important;
+                transform: scale(1.05);
+            }
+
+            .imagen-banner img {
+                max-height: 330px !important;
+                transform: scale(1.03);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .categoria-imagen {
+                height: 185px !important;
+            }
+
+            .muro-item img {
+                height: 355px !important;
+            }
+        }
+
     </style>
 </head>
 <body>
 
-    <!-- Botón WhatsApp fijo -->
-    <a href="https://wa.me/56982045756"
+    <!-- BOTÓN WHATSAPP -->
+    <a href="https://wa.me/56912345678?text=Hola%20SublimArts,%20quiero%20más%20información"
        class="whatsapp-button"
        target="_blank"
        rel="noopener noreferrer"
        aria-label="Contactar por WhatsApp">
-        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- HEADER -->
+    <!-- =============================================
+         HEADER
+         ============================================= -->
     <header class="header-principal">
-        <nav class="navegacion" aria-label="Menú principal">
+        <div class="navegacion">
             <div class="contenedor-navegacion">
 
-                <!-- Logo
-                     FIX: ruta con espacios → URL-encoded.
-                     RECOMENDACIÓN: renombrar el archivo a logo.png -->
+                <!-- Logo -->
                 <div class="logo-contenedor">
-                    <img src="ChatGPT%20Image%2011%20mar%202026%2C%2002_12_48%20a.m..png"
-                         alt="SublimArts - Logo"
-                         class="logo"
-                         width="50"
-                         height="50"
-                         loading="eager"
-                         onerror="this.style.display='none'">
-                    <span class="titulo-logo">SublimArts</span>
+                    <div class="logo" aria-hidden="true">🎨</div>
+                    <div class="titulo-logo">SublimArts</div>
                 </div>
 
                 <!-- Menú principal -->
-                <ul class="menu-principal" id="menu-principal">
-                    <li><a href="menus.html" class="enlace-menu" aria-current="page">Inicio</a></li>
-
-                    <li class="menu-con-desplegable" id="categorias-dropdown">
+                <ul class="menu-principal" id="menuPrincipal" role="navigation" aria-label="Menú principal">
+                    <li><a href="index.html" class="enlace-menu">Inicio</a></li>
+                    <li><a href="#categorias" class="enlace-menu">Categorías</a></li>
+                    <li class="menu-con-desplegable">
+                        <!-- FIX: aria-expanded se actualiza vía JS -->
                         <button class="enlace-menu-desplegable"
-                                id="categorias-btn"
-                                aria-expanded="false"
                                 aria-haspopup="true"
-                                aria-controls="categorias-submenu">
-                            Categorías
+                                aria-expanded="false">
+                            Productos
                             <i class="fas fa-chevron-down flecha-desplegable" aria-hidden="true"></i>
                         </button>
-                        <ul class="submenu" id="categorias-submenu" role="menu">
-                            <li role="none"><a href="#anime-popular" role="menuitem">Anime Popular</a></li>
-                            <li role="none"><a href="#seccion-jujutsu" role="menuitem">Jujutsu Kaisen</a></li>
-                            <li role="none"><a href="#seccion-naruto" role="menuitem">Naruto</a></li>
-                            <li role="none"><a href="#seccion-dragonball" role="menuitem">Dragon Ball</a></li>
-                            <li role="none"><a href="#seccion-demonslayer" role="menuitem">Demon Slayer</a></li>
+                        <ul class="submenu" role="menu">
+                            <li role="none"><a href="categoria1.html" role="menuitem">Anime Popular</a></li>
+                            <li role="none"><a href="categorias.html" role="menuitem">Autos y Motos</a></li>
+                            <li role="none"><a href="deportes.html" role="menuitem">Deportes</a></li>
+                            <li role="none"><a href="abstracto.html" role="menuitem">Acerca de Nosotros</a></li>
                         </ul>
                     </li>
-
-                    <li><a href="categoria2.html" class="enlace-menu">Temáticas y Retratos</a></li>
-                    <li><a href="visualizacion.html" class="enlace-menu">Servicios y Productos</a></li>
-                    <li><a href="#proceso-fabricacion" class="enlace-menu">¿Qué es la Impresión Metálica?</a></li>
+                    <li><a href="#videos" class="enlace-menu">Videos</a></li>
+                    <li><a href="#contacto" class="enlace-menu">Contacto</a></li>
                 </ul>
 
                 <!-- Iconos usuario -->
                 <div class="iconos-usuario">
-                    <a href="#" class="icono-usuario" aria-label="Ver tienda">
+                    <a href="#" class="icono-usuario" aria-label="Lista de deseos">
+                        <i class="fas fa-heart" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="icono-usuario" aria-label="Carrito de compras">
                         <i class="fas fa-shopping-cart" aria-hidden="true"></i>
-                        <span class="texto-icono">Tienda</span>
                     </a>
                     <a href="#" class="icono-usuario" aria-label="Mi cuenta">
                         <i class="fas fa-user" aria-hidden="true"></i>
-                        <span class="texto-icono">Mi cuenta</span>
                     </a>
                 </div>
 
-                <!-- Hamburguesa -->
+                <!-- Botón hamburguesa -->
                 <button class="boton-menu-mobile"
-                        id="boton-menu-mobile"
+                        id="botonMenuMobile"
                         aria-label="Abrir menú"
                         aria-expanded="false"
-                        aria-controls="menu-principal">
+                        aria-controls="menuPrincipal">
                     <i class="fas fa-bars" aria-hidden="true"></i>
                 </button>
 
             </div>
-        </nav>
+        </div>
     </header>
 
-    <!-- Overlay menú móvil -->
-    <div class="menu-overlay" id="menu-overlay" aria-hidden="true"></div>
+    <!-- Overlay del menú -->
+    <div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
 
-    <main id="contenido-principal">
 
-        <!-- BANNER -->
-        <section class="banner-principal" aria-label="Banner promocional">
-            <div class="contenedor-banner">
-                <div class="contenido-banner">
-                    <h1 class="titulo-banner">Impresión Metálica HD Personalizada</h1>
-                    <p class="texto-banner">Transforma tus personajes favoritos en arte duradero sobre metal</p>
-                    <a href="#anime-popular" class="boton-banner">Ver Catálogo</a>
-                </div>
-                <div class="imagen-banner" aria-hidden="true"></div>
+    <!-- =============================================
+         BANNER PRINCIPAL
+         ============================================= -->
+    <section class="banner-principal" id="inicio">
+        <div class="contenedor-banner">
+            <div class="contenido-banner">
+                <h1 class="titulo-banner">
+                    Cuadros en Aluminio <span style="color:#e94560">HD</span>
+                </h1>
+                <p class="texto-banner">
+                    Calidad de museo, colores vibrantes y durabilidad eterna.
+                    Transforma tus imágenes en obras de arte que durarán toda la vida.
+                </p>
+                <a href="#categorias" class="boton-banner">
+                    Explorar Colección <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                </a>
             </div>
-        </section>
-
-        <!-- PROCESO DE FABRICACIÓN -->
-        <section class="seccion-proceso-fabricacion" id="proceso-fabricacion">
-            <div class="contenedor-seccion">
-                <div class="encabezado-seccion">
-                    <h2 class="titulo-seccion">Así fabricamos tu cuadro</h2>
-                    <p class="subtitulo-seccion">Calidad y dedicación en cada paso</p>
-                </div>
-                <div class="proceso-grid">
-                    <div class="proceso-paso">
-                        <div class="paso-icono" aria-hidden="true">
-                            <i class="fas fa-file-image"></i>
-                            <span class="paso-numero">1</span>
-                        </div>
-                        <h3>Recibimos tu diseño</h3>
-                        <p>Ya sea de nuestro catálogo o tu imagen personalizada, la preparamos en alta resolución.</p>
-                        <div class="paso-detalle">
-                            <span class="detalle-badge"><i class="fas fa-check" aria-hidden="true"></i> Corrección de color</span>
-                            <span class="detalle-badge"><i class="fas fa-check" aria-hidden="true"></i> Ajuste de tamaño</span>
-                        </div>
-                    </div>
-                    <div class="proceso-paso">
-                        <div class="paso-icono" aria-hidden="true">
-                            <i class="fas fa-print"></i>
-                            <span class="paso-numero">2</span>
-                        </div>
-                        <h3>Impresión sublimada</h3>
-                        <p>Imprimimos tu diseño con tintas especiales que se fusionan con el metal.</p>
-                        <div class="paso-detalle">
-                            <span class="detalle-badge"><i class="fas fa-check" aria-hidden="true"></i> 1440 DPI</span>
-                            <span class="detalle-badge"><i class="fas fa-check" aria-hidden="true"></i> Colores vibrantes</span>
-                        </div>
-                    </div>
-                    <div class="proceso-paso">
-                        <div class="paso-icono" aria-hidden="true">
-                            <i class="fas fa-cut"></i>
-                            <span class="paso-numero">3</span>
-                        </div>
-                        <h3>Corte y acabado</h3>
-                        <p>Corte láser de precisión y doblez de bordes para un acabado perfecto.</p>
-                        <div class="paso-detalle">
-                            <span class="detalle-badge"><i class="fas fa-check" aria-hidden="true"></i> Bordes pulidos</span>
-                            <span class="detalle-badge"><i class="fas fa-check" aria-hidden="true"></i> Sistema de montaje</span>
-                        </div>
-                    </div>
-                    <div class="proceso-paso">
-                        <div class="paso-icono" aria-hidden="true">
-                            <i class="fas fa-box"></i>
-                            <span class="paso-numero">4</span>
-                        </div>
-                        <h3>Empaque y envío</h3>
-                        <p>Empacamos tu cuadro con protección especial y lo enviamos a tu domicilio.</p>
-                        <div class="paso-detalle">
-                            <span class="detalle-badge"><i class="fas fa-check" aria-hidden="true"></i> Embalaje seguro</span>
-                            <span class="detalle-badge"><i class="fas fa-check" aria-hidden="true"></i> Tracking</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="imagen-banner">
+                <!-- FIX: loading="lazy" en imágenes fuera del viewport inicial.
+                     El banner está above-the-fold → NO lazy (correcto dejarlo eager) -->
+                <img src="https://i.pinimg.com/736x/86/9b/c6/869bc6927e07c2910f0017eb31973b69.jpg"
+                     alt="Cuadro en aluminio HD de SublimArts"
+                     width="600"
+                     height="500">
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- ANIME POPULAR -->
-        <section class="seccion-popular" id="anime-popular">
-            <div class="contenedor-seccion">
-                <div class="encabezado-seccion">
-                    <h2 class="titulo-seccion">Anime Popular</h2>
+
+    <!-- =============================================
+         SECCIÓN INFO
+         ============================================= -->
+    <section class="seccion-info">
+        <div class="contenedor-seccion">
+            <div class="info-grid">
+                <div class="info-contenido">
+                    <h3>✨ ¿Qué son los cuadros de aluminio?</h3>
+                    <p>Los cuadros de aluminio son una técnica de impresión de última generación donde la tinta se sublima directamente sobre una plancha de aluminio de alta calidad. El resultado es una obra de arte con colores vibrantes, nitidez Full HD y una durabilidad que supera cualquier otro material.</p>
+                    <ul class="info-lista">
+                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Colores más brillantes que el papel o lienzo</li>
+                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Resistente a rayos UV, humedad y arañazos</li>
+                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> No se deforma ni decolora con el tiempo</li>
+                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Fácil limpieza: solo un paño húmedo</li>
+                    </ul>
                 </div>
-                <div class="grid-popular" id="grid-popular">
-
-                    <article class="item-popular" data-id="goku-ssj4" data-nombre="Goku Super Saiyan Fase 4" data-precio="12990" data-imagen="https://i.pinimg.com/736x/12/d0/b6/12d0b615e94075a779f0a73074ba9dac.jpg" data-miniatura1="https://i.pinimg.com/736x/15/2f/0f/152f0ffe777a326d4355418b09f612e8.jpg" data-miniatura2="https://i.pinimg.com/736x/15/2f/0f/152f0ffe777a326d4355418b09f612e8.jpg" data-miniatura3="https://i.pinimg.com/736x/15/2f/0f/152f0ffe777a326d4355418b09f612e8.jpg" data-miniatura4="https://i.pinimg.com/736x/15/2f/0f/152f0ffe777a326d4355418b09f612e8.jpg">
-                        <figure class="contenedor-imagen-popular"><img src="https://i.pinimg.com/736x/15/2f/0f/152f0ffe777a326d4355418b09f612e8.jpg" alt="Goku en Super Saiyan Fase 4 - cuadro metálico Dragon Ball" loading="lazy" class="imagen-producto" data-titulo="Goku Super Saiyan Fase 4" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure>
-                        <div class="info-producto"><h3 class="titulo-producto">Goku Super Saiyan Fase 4</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div>
-                    </article>
-
-                    <article class="item-popular" data-id="sung-jinwoo" data-nombre="Sung Jinwoo - Solo Leveling" data-precio="12990" data-imagen="https://i.pinimg.com/736x/21/0e/4e/210e4e1af522e2e7886bbc44780f31ef.jpg" data-miniatura1="https://i.pinimg.com/736x/21/0e/4e/210e4e1af522e2e7886bbc44780f31ef.jpg" data-miniatura2="https://i.pinimg.com/736x/21/0e/4e/210e4e1af522e2e7886bbc44780f31ef.jpg" data-miniatura3="https://i.pinimg.com/736x/21/0e/4e/210e4e1af522e2e7886bbc44780f31ef.jpg" data-miniatura4="https://i.pinimg.com/736x/21/0e/4e/210e4e1af522e2e7886bbc44780f31ef.jpg">
-                        <figure class="contenedor-imagen-popular"><img src="https://i.pinimg.com/736x/21/0e/4e/210e4e1af522e2e7886bbc44780f31ef.jpg" alt="Sung Jinwoo de Solo Leveling con armadura oscura" loading="lazy" class="imagen-producto" data-titulo="Sung Jinwoo - Solo Leveling" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure>
-                        <div class="info-producto"><h3 class="titulo-producto">Sung Jinwoo - Solo Leveling</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div>
-                    </article>
-
-                    <article class="item-popular" data-id="sasuke" data-nombre="Sasuke Uchiha - Sharingan" data-precio="12990" data-imagen="https://i.pinimg.com/736x/bc/ff/e5/bcffe58b5b4458df3e06064fb28e44e9.jpg" data-miniatura1="https://i.pinimg.com/736x/bc/ff/e5/bcffe58b5b4458df3e06064fb28e44e9.jpg" data-miniatura2="https://i.pinimg.com/736x/bc/ff/e5/bcffe58b5b4458df3e06064fb28e44e9.jpg" data-miniatura3="https://i.pinimg.com/736x/bc/ff/e5/bcffe58b5b4458df3e06064fb28e44e9.jpg" data-miniatura4="https://i.pinimg.com/736x/bc/ff/e5/bcffe58b5b4458df3e06064fb28e44e9.jpg">
-                        <figure class="contenedor-imagen-popular"><img src="https://i.pinimg.com/736x/bc/ff/e5/bcffe58b5b4458df3e06064fb28e44e9.jpg" alt="Sasuke Uchiha activando su Sharingan - cuadro de Naruto" loading="lazy" class="imagen-producto" data-titulo="Sasuke Uchiha - Sharingan" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure>
-                        <div class="info-producto"><h3 class="titulo-producto">Sasuke Uchiha - Sharingan</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div>
-                    </article>
-
-                    <article class="item-popular" data-id="luffy" data-nombre="Monkey D. Luffy - One Piece" data-precio="12990" data-imagen="https://i.pinimg.com/736x/0b/8b/35/0b8b356f622e7ffb018680a4475ddef7.jpg" data-miniatura1="https://i.pinimg.com/736x/0b/8b/35/0b8b356f622e7ffb018680a4475ddef7.jpg" data-miniatura2="https://i.pinimg.com/736x/0b/8b/35/0b8b356f622e7ffb018680a4475ddef7.jpg" data-miniatura3="https://i.pinimg.com/736x/0b/8b/35/0b8b356f622e7ffb018680a4475ddef7.jpg" data-miniatura4="https://i.pinimg.com/736x/0b/8b/35/0b8b356f622e7ffb018680a4475ddef7.jpg">
-                        <figure class="contenedor-imagen-popular"><img src="https://i.pinimg.com/736x/0b/8b/35/0b8b356f622e7ffb018680a4475ddef7.jpg" alt="Monkey D. Luffy de One Piece - Gear 5" loading="lazy" class="imagen-producto" data-titulo="Monkey D. Luffy - One Piece" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure>
-                        <div class="info-producto"><h3 class="titulo-producto">Monkey D. Luffy - One Piece</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div>
-                    </article>
-
-                    <article class="item-popular" data-id="naruto-sasuke" data-nombre="Naruto y Sasuke - Akatsuki" data-precio="12990" data-imagen="https://i.pinimg.com/736x/5c/fb/71/5cfb717ceba771f405934fa70e329657.jpg" data-miniatura1="https://i.pinimg.com/736x/5c/fb/71/5cfb717ceba771f405934fa70e329657.jpg" data-miniatura2="https://i.pinimg.com/736x/5c/fb/71/5cfb717ceba771f405934fa70e329657.jpg" data-miniatura3="https://i.pinimg.com/736x/5c/fb/71/5cfb717ceba771f405934fa70e329657.jpg" data-miniatura4="https://i.pinimg.com/736x/5c/fb/71/5cfb717ceba771f405934fa70e329657.jpg">
-                        <figure class="contenedor-imagen-popular"><img src="https://i.pinimg.com/736x/5c/fb/71/5cfb717ceba771f405934fa70e329657.jpg" alt="Naruto y Sasuke - fondo Akatsuki" loading="lazy" class="imagen-producto" data-titulo="Naruto y Sasuke - Akatsuki" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure>
-                        <div class="info-producto"><h3 class="titulo-producto">Naruto y Sasuke - Akatsuki</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div>
-                    </article>
-
-                    <article class="item-popular" data-id="luffy2" data-nombre="Luffy - One Piece" data-precio="12990" data-imagen="https://i.pinimg.com/736x/04/54/9a/04549a3d1198590034d896b23a764903.jpg" data-miniatura1="https://i.pinimg.com/736x/04/54/9a/04549a3d1198590034d896b23a764903.jpg" data-miniatura2="https://i.pinimg.com/736x/04/54/9a/04549a3d1198590034d896b23a764903.jpg" data-miniatura3="https://i.pinimg.com/736x/04/54/9a/04549a3d1198590034d896b23a764903.jpg" data-miniatura4="https://i.pinimg.com/736x/04/54/9a/04549a3d1198590034d896b23a764903.jpg">
-                        <figure class="contenedor-imagen-popular"><img src="https://i.pinimg.com/736x/04/54/9a/04549a3d1198590034d896b23a764903.jpg" alt="Luffy de One Piece mirando al horizonte" loading="lazy" class="imagen-producto" data-titulo="Luffy - One Piece" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure>
-                        <div class="info-producto"><h3 class="titulo-producto">Luffy - One Piece</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div>
-                    </article>
-
-                    <article class="item-popular" data-id="jinwoo-sombras" data-nombre="Sung Jinwoo - Monarca de las Sombras" data-precio="12990" data-imagen="https://i.pinimg.com/736x/37/79/e0/3779e0aac10e44a4157037d2c8505ef4.jpg" data-miniatura1="https://i.pinimg.com/736x/37/79/e0/3779e0aac10e44a4157037d2c8505ef4.jpg" data-miniatura2="https://i.pinimg.com/736x/37/79/e0/3779e0aac10e44a4157037d2c8505ef4.jpg" data-miniatura3="https://i.pinimg.com/736x/37/79/e0/3779e0aac10e44a4157037d2c8505ef4.jpg" data-miniatura4="https://i.pinimg.com/736x/37/79/e0/3779e0aac10e44a4157037d2c8505ef4.jpg">
-                        <figure class="contenedor-imagen-popular"><img src="https://i.pinimg.com/736x/37/79/e0/3779e0aac10e44a4157037d2c8505ef4.jpg" alt="Sung Jinwoo Monarca de las Sombras - Solo Leveling" loading="lazy" class="imagen-producto" data-titulo="Sung Jinwoo - Monarca de las Sombras" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure>
-                        <div class="info-producto"><h3 class="titulo-producto">Sung Jinwoo - Monarca de las Sombras</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div>
-                    </article>
-
-                    <article class="item-popular" data-id="doma" data-nombre="Doma - Luna Superior 2" data-precio="12990" data-imagen="https://i.pinimg.com/736x/4d/2f/d4/4d2fd400e8ba5feef8aaeee793b610a0.jpg" data-miniatura1="https://i.pinimg.com/736x/4d/2f/d4/4d2fd400e8ba5feef8aaeee793b610a0.jpg" data-miniatura2="https://i.pinimg.com/736x/4d/2f/d4/4d2fd400e8ba5feef8aaeee793b610a0.jpg" data-miniatura3="https://i.pinimg.com/736x/4d/2f/d4/4d2fd400e8ba5feef8aaeee793b610a0.jpg" data-miniatura4="https://i.pinimg.com/736x/4d/2f/d4/4d2fd400e8ba5feef8aaeee793b610a0.jpg">
-                        <figure class="contenedor-imagen-popular"><img src="https://i.pinimg.com/736x/4d/2f/d4/4d2fd400e8ba5feef8aaeee793b610a0.jpg" alt="Doma Luna Superior 2 - Demon Slayer" loading="lazy" class="imagen-producto" data-titulo="Doma - Luna Superior 2" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure>
-                        <div class="info-producto"><h3 class="titulo-producto">Doma - Luna Superior 2</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div>
-                    </article>
-
-                    <article class="item-popular" data-id="inosuke1" data-nombre="Inosuke Hashibira" data-precio="12990" data-imagen="https://i.pinimg.com/736x/99/b0/c9/99b0c9fe131e3df4fd66af3c2397c61b.jpg" data-miniatura1="https://i.pinimg.com/736x/99/b0/c9/99b0c9fe131e3df4fd66af3c2397c61b.jpg" data-miniatura2="https://i.pinimg.com/736x/99/b0/c9/99b0c9fe131e3df4fd66af3c2397c61b.jpg" data-miniatura3="https://i.pinimg.com/736x/99/b0/c9/99b0c9fe131e3df4fd66af3c2397c61b.jpg" data-miniatura4="https://i.pinimg.com/736x/99/b0/c9/99b0c9fe131e3df4fd66af3c2397c61b.jpg">
-                        <figure class="contenedor-imagen-popular"><img src="https://i.pinimg.com/736x/99/b0/c9/99b0c9fe131e3df4fd66af3c2397c61b.jpg" alt="Inosuke Hashibira con máscara de jabalí - Demon Slayer" loading="lazy" class="imagen-producto" data-titulo="Inosuke Hashibira" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure>
-                        <div class="info-producto"><h3 class="titulo-producto">Inosuke Hashibira</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div>
-                    </article>
-
-                    <article class="item-popular" data-id="inosuke2" data-nombre="Inosuke Hashibira" data-precio="12990" data-imagen="https://i.pinimg.com/736x/cb/66/75/cb66757095973a7a3f75dedac55b80f1.jpg" data-miniatura1="https://i.pinimg.com/736x/cb/66/75/cb66757095973a7a3f75dedac55b80f1.jpg" data-miniatura2="https://i.pinimg.com/736x/cb/66/75/cb66757095973a7a3f75dedac55b80f1.jpg" data-miniatura3="https://i.pinimg.com/736x/cb/66/75/cb66757095973a7a3f75dedac55b80f1.jpg" data-miniatura4="https://i.pinimg.com/736x/cb/66/75/cb66757095973a7a3f75dedac55b80f1.jpg">
-                        <figure class="contenedor-imagen-popular"><img src="https://i.pinimg.com/736x/cb/66/75/cb66757095973a7a3f75dedac55b80f1.jpg" alt="Inosuke Hashibira versión 2 - Demon Slayer" loading="lazy" class="imagen-producto" data-titulo="Inosuke Hashibira" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure>
-                        <div class="info-producto"><h3 class="titulo-producto">Inosuke Hashibira</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div>
-                    </article>
-
-                    <article class="item-popular" data-id="inosuke3" data-nombre="Inosuke Hashibira" data-precio="12990" data-imagen="https://i.pinimg.com/736x/c6/f8/a7/c6f8a7bdc1dd5fefd837391256f86d7a.jpg" data-miniatura1="https://i.pinimg.com/736x/c6/f8/a7/c6f8a7bdc1dd5fefd837391256f86d7a.jpg" data-miniatura2="https://i.pinimg.com/736x/c6/f8/a7/c6f8a7bdc1dd5fefd837391256f86d7a.jpg" data-miniatura3="https://i.pinimg.com/736x/c6/f8/a7/c6f8a7bdc1dd5fefd837391256f86d7a.jpg" data-miniatura4="https://i.pinimg.com/736x/c6/f8/a7/c6f8a7bdc1dd5fefd837391256f86d7a.jpg">
-                        <figure class="contenedor-imagen-popular"><img src="https://i.pinimg.com/736x/c6/f8/a7/c6f8a7bdc1dd5fefd837391256f86d7a.jpg" alt="Inosuke Hashibira versión 3 - Demon Slayer" loading="lazy" class="imagen-producto" data-titulo="Inosuke Hashibira" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure>
-                        <div class="info-producto"><h3 class="titulo-producto">Inosuke Hashibira</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div>
-                    </article>
-
-                    <article class="item-popular" data-id="inosuke4" data-nombre="Inosuke Hashibira" data-precio="12990" data-imagen="https://i.pinimg.com/736x/4d/da/3d/4dda3d51e904d106b8a719bee42076cd.jpg" data-miniatura1="https://i.pinimg.com/736x/4d/da/3d/4dda3d51e904d106b8a719bee42076cd.jpg" data-miniatura2="https://i.pinimg.com/736x/4d/da/3d/4dda3d51e904d106b8a719bee42076cd.jpg" data-miniatura3="https://i.pinimg.com/736x/4d/da/3d/4dda3d51e904d106b8a719bee42076cd.jpg" data-miniatura4="https://i.pinimg.com/736x/4d/da/3d/4dda3d51e904d106b8a719bee42076cd.jpg">
-                        <figure class="contenedor-imagen-popular"><img src="https://i.pinimg.com/736x/4d/da/3d/4dda3d51e904d106b8a719bee42076cd.jpg" alt="Inosuke Hashibira versión 4 - Demon Slayer" loading="lazy" class="imagen-producto" data-titulo="Inosuke Hashibira" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure>
-                        <div class="info-producto"><h3 class="titulo-producto">Inosuke Hashibira</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div>
-                    </article>
-
-                </div>
-                <div class="contenedor-boton-ver-mas">
-                    <button class="boton-ver-mas" id="boton-expandir-popular" data-target="grid-popular" data-expanded="false">Ver más</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- JUJUTSU KAISEN -->
-        <section class="seccion-productos" id="seccion-jujutsu">
-            <div class="contenedor-seccion">
-                <div class="encabezado-seccion"><h2 class="titulo-seccion">Jujutsu Kaisen</h2></div>
-                <div class="galeria-productos" id="galeria-jujutsu">
-                    <article class="producto-item" data-id="gojo" data-nombre="Gojo Satoru - Vacío Infinito" data-precio="12990" data-imagen="https://i.pinimg.com/1200x/78/cc/89/78cc89c42e456551c842787c7423cb3a.jpg" data-miniatura1="https://i.pinimg.com/1200x/78/cc/89/78cc89c42e456551c842787c7423cb3a.jpg" data-miniatura2="https://i.pinimg.com/1200x/78/cc/89/78cc89c42e456551c842787c7423cb3a.jpg" data-miniatura3="https://i.pinimg.com/1200x/78/cc/89/78cc89c42e456551c842787c7423cb3a.jpg" data-miniatura4="https://i.pinimg.com/1200x/78/cc/89/78cc89c42e456551c842787c7423cb3a.jpg"><figure class="contenedor-imagen-producto"><img src="https://i.pinimg.com/1200x/78/cc/89/78cc89c42e456551c842787c7423cb3a.jpg" alt="Gojo Satoru - Vacío Infinito" loading="lazy" class="imagen-producto" data-titulo="Gojo Satoru - Vacío Infinito" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure><div class="info-producto"><h3 class="titulo-producto">Gojo Satoru - Vacío Infinito</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div></article>
-                    <article class="producto-item" data-id="megumi" data-nombre="Fushiguro Megumi - Diez Sombras" data-precio="12990" data-imagen="https://i.pinimg.com/1200x/b1/19/25/b11925c47eeaca5884262805fe3bf5a6.jpg" data-miniatura1="https://i.pinimg.com/1200x/b1/19/25/b11925c47eeaca5884262805fe3bf5a6.jpg" data-miniatura2="https://i.pinimg.com/1200x/b1/19/25/b11925c47eeaca5884262805fe3bf5a6.jpg" data-miniatura3="https://i.pinimg.com/1200x/b1/19/25/b11925c47eeaca5884262805fe3bf5a6.jpg" data-miniatura4="https://i.pinimg.com/1200x/b1/19/25/b11925c47eeaca5884262805fe3bf5a6.jpg"><figure class="contenedor-imagen-producto"><img src="https://i.pinimg.com/1200x/b1/19/25/b11925c47eeaca5884262805fe3bf5a6.jpg" alt="Fushiguro Megumi - Diez Sombras" loading="lazy" class="imagen-producto" data-titulo="Fushiguro Megumi - Diez Sombras" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure><div class="info-producto"><h3 class="titulo-producto">Fushiguro Megumi - Diez Sombras</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div></article>
-                    <article class="producto-item" data-id="itadori" data-nombre="Itadori y Sukuna" data-precio="12990" data-imagen="https://i.pinimg.com/736x/af/dc/64/afdc6478f0fbcb7f2ffbaba110fb7b15.jpg" data-miniatura1="https://i.pinimg.com/736x/af/dc/64/afdc6478f0fbcb7f2ffbaba110fb7b15.jpg" data-miniatura2="https://i.pinimg.com/736x/af/dc/64/afdc6478f0fbcb7f2ffbaba110fb7b15.jpg" data-miniatura3="https://i.pinimg.com/736x/af/dc/64/afdc6478f0fbcb7f2ffbaba110fb7b15.jpg" data-miniatura4="https://i.pinimg.com/736x/af/dc/64/afdc6478f0fbcb7f2ffbaba110fb7b15.jpg"><figure class="contenedor-imagen-producto"><img src="https://i.pinimg.com/736x/af/dc/64/afdc6478f0fbcb7f2ffbaba110fb7b15.jpg" alt="Itadori y Sukuna" loading="lazy" class="imagen-producto" data-titulo="Itadori y Sukuna" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure><div class="info-producto"><h3 class="titulo-producto">Itadori y Sukuna</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div></article>
-                    <article class="producto-item" data-id="sukuna" data-nombre="Sukuna - Rey de las Maldiciones" data-precio="12990" data-imagen="https://i.pinimg.com/736x/42/a5/99/42a59994cf3b5e2988ded5bcbaab40b7.jpg" data-miniatura1="https://i.pinimg.com/736x/42/a5/99/42a59994cf3b5e2988ded5bcbaab40b7.jpg" data-miniatura2="https://i.pinimg.com/736x/42/a5/99/42a59994cf3b5e2988ded5bcbaab40b7.jpg" data-miniatura3="https://i.pinimg.com/736x/42/a5/99/42a59994cf3b5e2988ded5bcbaab40b7.jpg" data-miniatura4="https://i.pinimg.com/736x/42/a5/99/42a59994cf3b5e2988ded5bcbaab40b7.jpg"><figure class="contenedor-imagen-producto"><img src="https://i.pinimg.com/736x/42/a5/99/42a59994cf3b5e2988ded5bcbaab40b7.jpg" alt="Sukuna - Rey de las Maldiciones" loading="lazy" class="imagen-producto" data-titulo="Sukuna - Rey de las Maldiciones" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure><div class="info-producto"><h3 class="titulo-producto">Sukuna - Rey de las Maldiciones</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div></article>
-                    <article class="producto-item" data-id="gojo2" data-nombre="Gojo Satoru" data-precio="12990" data-imagen="https://i.pinimg.com/736x/8c/18/2c/8c182cc0aade3785ec9e605c6e01f77d.jpg" data-miniatura1="https://i.pinimg.com/736x/8c/18/2c/8c182cc0aade3785ec9e605c6e01f77d.jpg" data-miniatura2="https://i.pinimg.com/736x/8c/18/2c/8c182cc0aade3785ec9e605c6e01f77d.jpg" data-miniatura3="https://i.pinimg.com/736x/8c/18/2c/8c182cc0aade3785ec9e605c6e01f77d.jpg" data-miniatura4="https://i.pinimg.com/736x/8c/18/2c/8c182cc0aade3785ec9e605c6e01f77d.jpg"><figure class="contenedor-imagen-producto"><img src="https://i.pinimg.com/736x/8c/18/2c/8c182cc0aade3785ec9e605c6e01f77d.jpg" alt="Gojo Satoru" loading="lazy" class="imagen-producto" data-titulo="Gojo Satoru" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure><div class="info-producto"><h3 class="titulo-producto">Gojo Satoru</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div></article>
-                    <article class="producto-item" data-id="sukuna2" data-nombre="Sukuna - Expansión de Dominio" data-precio="12990" data-imagen="https://i.pinimg.com/736x/5e/0d/d5/5e0dd5c94ebce6e916bdabb3b84204ed.jpg" data-miniatura1="https://i.pinimg.com/736x/5e/0d/d5/5e0dd5c94ebce6e916bdabb3b84204ed.jpg" data-miniatura2="https://i.pinimg.com/736x/5e/0d/d5/5e0dd5c94ebce6e916bdabb3b84204ed.jpg" data-miniatura3="https://i.pinimg.com/736x/5e/0d/d5/5e0dd5c94ebce6e916bdabb3b84204ed.jpg" data-miniatura4="https://i.pinimg.com/736x/5e/0d/d5/5e0dd5c94ebce6e916bdabb3b84204ed.jpg"><figure class="contenedor-imagen-producto"><img src="https://i.pinimg.com/736x/5e/0d/d5/5e0dd5c94ebce6e916bdabb3b84204ed.jpg" alt="Sukuna - Expansión de Dominio" loading="lazy" class="imagen-producto" data-titulo="Sukuna - Expansión de Dominio" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure><div class="info-producto"><h3 class="titulo-producto">Sukuna - Expansión de Dominio</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div></article>
-                    <article class="producto-item" data-id="gojo-vs-sukuna" data-nombre="Gojo vs Sukuna" data-precio="12990" data-imagen="https://i.pinimg.com/736x/64/e1/74/64e1742998e41bc447387014cf8d72ba.jpg" data-miniatura1="https://i.pinimg.com/736x/64/e1/74/64e1742998e41bc447387014cf8d72ba.jpg" data-miniatura2="https://i.pinimg.com/736x/64/e1/74/64e1742998e41bc447387014cf8d72ba.jpg" data-miniatura3="https://i.pinimg.com/736x/64/e1/74/64e1742998e41bc447387014cf8d72ba.jpg" data-miniatura4="https://i.pinimg.com/736x/64/e1/74/64e1742998e41bc447387014cf8d72ba.jpg"><figure class="contenedor-imagen-producto"><img src="https://i.pinimg.com/736x/64/e1/74/64e1742998e41bc447387014cf8d72ba.jpg" alt="Gojo vs Sukuna" loading="lazy" class="imagen-producto" data-titulo="Gojo vs Sukuna" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure><div class="info-producto"><h3 class="titulo-producto">Gojo vs Sukuna</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div></article>
-                </div>
-                <div class="contenedor-boton-ver-mas"><button class="boton-ver-mas" data-target="galeria-jujutsu" data-expanded="false">Ver más</button></div>
-            </div>
-        </section>
-
-        <!-- GRID 3 IMÁGENES -->
-        <section class="animetals-grid-section">
-            <div class="grid-images-container">
-                <div class="three-images-grid">
-                    <div class="image-block left-block"><div class="image-inner"><img src="https://i.pinimg.com/1200x/be/25/13/be25132c4c1095f1169f00518aea8d5f.jpg" alt="Colección cuadros metálicos Dragon Ball Z" class="grid-image" width="500" height="500" loading="lazy"></div></div>
-                    <div class="image-block middle-block"><div class="image-inner"><img src="https://i.pinimg.com/736x/b6/28/5e/b6285eeee193cfc811f52504c35e164c.jpg" alt="Cuadros Naruto y Sasuke en metal" class="grid-image" width="500" height="500" loading="lazy"></div></div>
-                    <div class="image-block right-block"><div class="image-inner"><img src="https://i.pinimg.com/736x/8e/f0/db/8ef0db9d3be14504ae9945ff832def8a.jpg" alt="Detalle impresión HD cuadro metálico Demon Slayer" class="grid-image" width="500" height="500" loading="lazy"></div></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- NARUTO -->
-        <section class="seccion-productos" id="seccion-naruto">
-            <div class="contenedor-seccion">
-                <div class="encabezado-seccion"><h2 class="titulo-seccion">Naruto</h2></div>
-                <div class="galeria-productos" id="galeria-naruto">
-                    <article class="producto-item" data-id="kakashi" data-nombre="Kakashi Hatake" data-precio="12990" data-imagen="https://i.pinimg.com/736x/d8/4e/7c/d84e7c4035da4a67c13a947ee6e8a9b3.jpg" data-miniatura1="https://i.pinimg.com/736x/d8/4e/7c/d84e7c4035da4a67c13a947ee6e8a9b3.jpg" data-miniatura2="https://i.pinimg.com/736x/d8/4e/7c/d84e7c4035da4a67c13a947ee6e8a9b3.jpg" data-miniatura3="https://i.pinimg.com/736x/d8/4e/7c/d84e7c4035da4a67c13a947ee6e8a9b3.jpg" data-miniatura4="https://i.pinimg.com/736x/d8/4e/7c/d84e7c4035da4a67c13a947ee6e8a9b3.jpg"><figure class="contenedor-imagen-producto"><img src="https://i.pinimg.com/736x/d8/4e/7c/d84e7c4035da4a67c13a947ee6e8a9b3.jpg" alt="Kakashi Hatake" loading="lazy" class="imagen-producto" data-titulo="Kakashi Hatake" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure><div class="info-producto"><h3 class="titulo-producto">Kakashi Hatake</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div></article>
-                    <article class="producto-item" data-id="itachi" data-nombre="Itachi Uchiha" data-precio="12990" data-imagen="https://i.pinimg.com/736x/05/8d/75/058d752862d326e3253cc58f07d776bf.jpg" data-miniatura1="https://i.pinimg.com/736x/05/8d/75/058d752862d326e3253cc58f07d776bf.jpg" data-miniatura2="https://i.pinimg.com/736x/05/8d/75/058d752862d326e3253cc58f07d776bf.jpg" data-miniatura3="https://i.pinimg.com/736x/05/8d/75/058d752862d326e3253cc58f07d776bf.jpg" data-miniatura4="https://i.pinimg.com/736x/05/8d/75/058d752862d326e3253cc58f07d776bf.jpg"><figure class="contenedor-imagen-producto"><img src="https://i.pinimg.com/736x/05/8d/75/058d752862d326e3253cc58f07d776bf.jpg" alt="Itachi Uchiha" loading="lazy" class="imagen-producto" data-titulo="Itachi Uchiha" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure><div class="info-producto"><h3 class="titulo-producto">Itachi Uchiha</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div></article>
-                    <article class="producto-item" data-id="gaara" data-nombre="Gaara del Desierto" data-precio="12990" data-imagen="https://i.pinimg.com/736x/5e/28/e1/5e28e12f8a86436e4475f4ba7740ad15.jpg" data-miniatura1="https://i.pinimg.com/736x/5e/28/e1/5e28e12f8a86436e4475f4ba7740ad15.jpg" data-miniatura2="https://i.pinimg.com/736x/5e/28/e1/5e28e12f8a86436e4475f4ba7740ad15.jpg" data-miniatura3="https://i.pinimg.com/736x/5e/28/e1/5e28e12f8a86436e4475f4ba7740ad15.jpg" data-miniatura4="https://i.pinimg.com/736x/5e/28/e1/5e28e12f8a86436e4475f4ba7740ad15.jpg"><figure class="contenedor-imagen-producto"><img src="https://i.pinimg.com/736x/5e/28/e1/5e28e12f8a86436e4475f4ba7740ad15.jpg" alt="Gaara del Desierto" loading="lazy" class="imagen-producto" data-titulo="Gaara del Desierto" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure><div class="info-producto"><h3 class="titulo-producto">Gaara del Desierto</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div></article>
-                    <article class="producto-item" data-id="pain" data-nombre="Pain (Nagato)" data-precio="12990" data-imagen="https://i.pinimg.com/736x/cb/0d/cd/cb0dcd7dcd663ae3b44b8feaa1a310af.jpg" data-miniatura1="https://i.pinimg.com/736x/cb/0d/cd/cb0dcd7dcd663ae3b44b8feaa1a310af.jpg" data-miniatura2="https://i.pinimg.com/736x/cb/0d/cd/cb0dcd7dcd663ae3b44b8feaa1a310af.jpg" data-miniatura3="https://i.pinimg.com/736x/cb/0d/cd/cb0dcd7dcd663ae3b44b8feaa1a310af.jpg" data-miniatura4="https://i.pinimg.com/736x/cb/0d/cd/cb0dcd7dcd663ae3b44b8feaa1a310af.jpg"><figure class="contenedor-imagen-producto"><img src="https://i.pinimg.com/736x/cb/0d/cd/cb0dcd7dcd663ae3b44b8feaa1a310af.jpg" alt="Pain (Nagato)" loading="lazy" class="imagen-producto" data-titulo="Pain (Nagato)" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure><div class="info-producto"><h3 class="titulo-producto">Pain (Nagato)</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div></article>
-                    <article class="producto-item" data-id="naruto-sabio" data-nombre="Naruto - Modo Sabio" data-precio="12990" data-imagen="https://i.pinimg.com/736x/ca/94/1f/ca941f5ac131c06a6323d2b422870e49.jpg" data-miniatura1="https://i.pinimg.com/736x/ca/94/1f/ca941f5ac131c06a6323d2b422870e49.jpg" data-miniatura2="https://i.pinimg.com/736x/ca/94/1f/ca941f5ac131c06a6323d2b422870e49.jpg" data-miniatura3="https://i.pinimg.com/736x/ca/94/1f/ca941f5ac131c06a6323d2b422870e49.jpg" data-miniatura4="https://i.pinimg.com/736x/ca/94/1f/ca941f5ac131c06a6323d2b422870e49.jpg"><figure class="contenedor-imagen-producto"><img src="https://i.pinimg.com/736x/ca/94/1f/ca941f5ac131c06a6323d2b422870e49.jpg" alt="Naruto - Modo Sabio" loading="lazy" class="imagen-producto" data-titulo="Naruto - Modo Sabio" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure><div class="info-producto"><h3 class="titulo-producto">Naruto - Modo Sabio</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div></article>
-                    <article class="producto-item" data-id="equipo7" data-nombre="Equipo 7" data-precio="12990" data-imagen="https://i.pinimg.com/736x/fe/a9/91/fea9915a4b466ff3507135c8f5a2002b.jpg" data-miniatura1="https://i.pinimg.com/736x/fe/a9/91/fea9915a4b466ff3507135c8f5a2002b.jpg" data-miniatura2="https://i.pinimg.com/736x/fe/a9/91/fea9915a4b466ff3507135c8f5a2002b.jpg" data-miniatura3="https://i.pinimg.com/736x/fe/a9/91/fea9915a4b466ff3507135c8f5a2002b.jpg" data-miniatura4="https://i.pinimg.com/736x/fe/a9/91/fea9915a4b466ff3507135c8f5a2002b.jpg"><figure class="contenedor-imagen-producto"><img src="https://i.pinimg.com/736x/fe/a9/91/fea9915a4b466ff3507135c8f5a2002b.jpg" alt="Equipo 7" loading="lazy" class="imagen-producto" data-titulo="Equipo 7" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure><div class="info-producto"><h3 class="titulo-producto">Equipo 7</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div></article>
-                    <article class="producto-item" data-id="minato" data-nombre="Minato Namikaze" data-precio="12990" data-imagen="https://i.pinimg.com/736x/ab/6e/35/ab6e3521fb956c195a1a84122c59e243.jpg" data-miniatura1="https://i.pinimg.com/736x/ab/6e/35/ab6e3521fb956c195a1a84122c59e243.jpg" data-miniatura2="https://i.pinimg.com/736x/ab/6e/35/ab6e3521fb956c195a1a84122c59e243.jpg" data-miniatura3="https://i.pinimg.com/736x/ab/6e/35/ab6e3521fb956c195a1a84122c59e243.jpg" data-miniatura4="https://i.pinimg.com/736x/ab/6e/35/ab6e3521fb956c195a1a84122c59e243.jpg"><figure class="contenedor-imagen-producto"><img src="https://i.pinimg.com/736x/ab/6e/35/ab6e3521fb956c195a1a84122c59e243.jpg" alt="Minato Namikaze" loading="lazy" class="imagen-producto" data-titulo="Minato Namikaze" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure><div class="info-producto"><h3 class="titulo-producto">Minato Namikaze</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div></article>
-                    <article class="producto-item" data-id="obito" data-nombre="Obito Uchiha" data-precio="12990" data-imagen="https://i.pinimg.com/1200x/d9/da/31/d9da317661d342f95226fad1d5f37d2e.jpg" data-miniatura1="https://i.pinimg.com/1200x/d9/da/31/d9da317661d342f95226fad1d5f37d2e.jpg" data-miniatura2="https://i.pinimg.com/1200x/d9/da/31/d9da317661d342f95226fad1d5f37d2e.jpg" data-miniatura3="https://i.pinimg.com/1200x/d9/da/31/d9da317661d342f95226fad1d5f37d2e.jpg" data-miniatura4="https://i.pinimg.com/1200x/d9/da/31/d9da317661d342f95226fad1d5f37d2e.jpg"><figure class="contenedor-imagen-producto"><img src="https://i.pinimg.com/1200x/d9/da/31/d9da317661d342f95226fad1d5f37d2e.jpg" alt="Obito Uchiha" loading="lazy" class="imagen-producto" data-titulo="Obito Uchiha" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure><div class="info-producto"><h3 class="titulo-producto">Obito Uchiha</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div></article>
-                </div>
-                <div class="contenedor-boton-ver-mas"><button class="boton-ver-mas" data-target="galeria-naruto" data-expanded="false">Ver más</button></div>
-            </div>
-        </section>
-
-        <!-- DRAGON BALL -->
-        <section class="seccion-productos" id="seccion-dragonball">
-            <div class="contenedor-seccion">
-                <div class="encabezado-seccion"><h2 class="titulo-seccion">Dragon Ball</h2></div>
-                <div class="galeria-productos" id="galeria-dragonball">
-                    <article class="producto-item" data-id="goku-ui" data-nombre="Goku Ultra Instinct" data-precio="12990" data-imagen="https://i.pinimg.com/736x/c9/b8/46/c9b8463009a7d867bfe30411b33a719b.jpg" data-miniatura1="https://i.pinimg.com/736x/c9/b8/46/c9b8463009a7d867bfe30411b33a719b.jpg" data-miniatura2="https://i.pinimg.com/736x/c9/b8/46/c9b8463009a7d867bfe30411b33a719b.jpg" data-miniatura3="https://i.pinimg.com/736x/c9/b8/46/c9b8463009a7d867bfe30411b33a719b.jpg" data-miniatura4="https://i.pinimg.com/736x/c9/b8/46/c9b8463009a7d867bfe30411b33a719b.jpg"><figure class="contenedor-imagen-producto"><img src="https://i.pinimg.com/736x/c9/b8/46/c9b8463009a7d867bfe30411b33a719b.jpg" alt="Goku Ultra Instinct" loading="lazy" class="imagen-producto" data-titulo="Goku Ultra Instinct" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure><div class="info-producto"><h3 class="titulo-producto">Goku Ultra Instinct</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div></article>
-                    <article class="producto-item" data-id="vegeta" data-nombre="Vegeta Super Saiyan Blue" data-precio="12990" data-imagen="https://i.pinimg.com/736x/72/53/f1/7253f13e20a4a467fd2567addd9309eb.jpg" data-miniatura1="https://i.pinimg.com/736x/72/53/f1/7253f13e20a4a467fd2567addd9309eb.jpg" data-miniatura2="https://i.pinimg.com/736x/72/53/f1/7253f13e20a4a467fd2567addd9309eb.jpg" data-miniatura3="https://i.pinimg.com/736x/72/53/f1/7253f13e20a4a467fd2567addd9309eb.jpg" data-miniatura4="https://i.pinimg.com/736x/72/53/f1/7253f13e20a4a467fd2567addd9309eb.jpg"><figure class="contenedor-imagen-producto"><img src="https://i.pinimg.com/736x/72/53/f1/7253f13e20a4a467fd2567addd9309eb.jpg" alt="Vegeta Super Saiyan Blue" loading="lazy" class="imagen-producto" data-titulo="Vegeta Super Saiyan Blue" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure><div class="info-producto"><h3 class="titulo-producto">Vegeta Super Saiyan Blue</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div></article>
-                    <article class="producto-item" data-id="broly" data-nombre="Broly Legendario" data-precio="12990" data-imagen="https://i.pinimg.com/736x/41/b8/09/41b80935a11868d8302caacc0903774c.jpg" data-miniatura1="https://i.pinimg.com/736x/41/b8/09/41b80935a11868d8302caacc0903774c.jpg" data-miniatura2="https://i.pinimg.com/736x/41/b8/09/41b80935a11868d8302caacc0903774c.jpg" data-miniatura3="https://i.pinimg.com/736x/41/b8/09/41b80935a11868d8302caacc0903774c.jpg" data-miniatura4="https://i.pinimg.com/736x/41/b8/09/41b80935a11868d8302caacc0903774c.jpg"><figure class="contenedor-imagen-producto"><img src="https://i.pinimg.com/736x/41/b8/09/41b80935a11868d8302caacc0903774c.jpg" alt="Broly Legendario" loading="lazy" class="imagen-producto" data-titulo="Broly Legendario" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure><div class="info-producto"><h3 class="titulo-producto">Broly Legendario</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div></article>
-                    <article class="producto-item" data-id="gohan" data-nombre="Gohan Beast" data-precio="12990" data-imagen="https://i.pinimg.com/736x/04/5e/37/045e379d99a00d3d13524bee9c02ce22.jpg" data-miniatura1="https://i.pinimg.com/736x/04/5e/37/045e379d99a00d3d13524bee9c02ce22.jpg" data-miniatura2="https://i.pinimg.com/736x/04/5e/37/045e379d99a00d3d13524bee9c02ce22.jpg" data-miniatura3="https://i.pinimg.com/736x/04/5e/37/045e379d99a00d3d13524bee9c02ce22.jpg" data-miniatura4="https://i.pinimg.com/736x/04/5e/37/045e379d99a00d3d13524bee9c02ce22.jpg"><figure class="contenedor-imagen-producto"><img src="https://i.pinimg.com/736x/04/5e/37/045e379d99a00d3d13524bee9c02ce22.jpg" alt="Gohan Beast" loading="lazy" class="imagen-producto" data-titulo="Gohan Beast" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure><div class="info-producto"><h3 class="titulo-producto">Gohan Beast</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div></article>
-                    <article class="producto-item" data-id="freezer" data-nombre="Freezer Dorado" data-precio="12990" data-imagen="https://i.pinimg.com/736x/c5/17/ad/c517ade4c4054045bf79001280c3187f.jpg" data-miniatura1="https://i.pinimg.com/736x/c5/17/ad/c517ade4c4054045bf79001280c3187f.jpg" data-miniatura2="https://i.pinimg.com/736x/c5/17/ad/c517ade4c4054045bf79001280c3187f.jpg" data-miniatura3="https://i.pinimg.com/736x/c5/17/ad/c517ade4c4054045bf79001280c3187f.jpg" data-miniatura4="https://i.pinimg.com/736x/c5/17/ad/c517ade4c4054045bf79001280c3187f.jpg"><figure class="contenedor-imagen-producto"><img src="https://i.pinimg.com/736x/c5/17/ad/c517ade4c4054045bf79001280c3187f.jpg" alt="Freezer Dorado" loading="lazy" class="imagen-producto" data-titulo="Freezer Dorado" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure><div class="info-producto"><h3 class="titulo-producto">Freezer Dorado</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div></article>
-                    <article class="producto-item" data-id="trunks" data-nombre="Trunks del Futuro" data-precio="12990" data-imagen="https://i.pinimg.com/1200x/d9/0f/2e/d90f2e9898ae904b4e280083a9f94b25.jpg" data-miniatura1="https://i.pinimg.com/1200x/d9/0f/2e/d90f2e9898ae904b4e280083a9f94b25.jpg" data-miniatura2="https://i.pinimg.com/1200x/d9/0f/2e/d90f2e9898ae904b4e280083a9f94b25.jpg" data-miniatura3="https://i.pinimg.com/1200x/d9/0f/2e/d90f2e9898ae904b4e280083a9f94b25.jpg" data-miniatura4="https://i.pinimg.com/1200x/d9/0f/2e/d90f2e9898ae904b4e280083a9f94b25.jpg"><figure class="contenedor-imagen-producto"><img src="https://i.pinimg.com/1200x/d9/0f/2e/d90f2e9898ae904b4e280083a9f94b25.jpg" alt="Trunks del Futuro" loading="lazy" class="imagen-producto" data-titulo="Trunks del Futuro" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure><div class="info-producto"><h3 class="titulo-producto">Trunks del Futuro</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div></article>
-                    <article class="producto-item" data-id="cell" data-nombre="Cell Perfecto" data-precio="12990" data-imagen="https://i.pinimg.com/736x/77/95/3b/77953b2d7443e87305b680cf9b8684f0.jpg" data-miniatura1="https://i.pinimg.com/736x/77/95/3b/77953b2d7443e87305b680cf9b8684f0.jpg" data-miniatura2="https://i.pinimg.com/736x/77/95/3b/77953b2d7443e87305b680cf9b8684f0.jpg" data-miniatura3="https://i.pinimg.com/736x/77/95/3b/77953b2d7443e87305b680cf9b8684f0.jpg" data-miniatura4="https://i.pinimg.com/736x/77/95/3b/77953b2d7443e87305b680cf9b8684f0.jpg"><figure class="contenedor-imagen-producto"><img src="https://i.pinimg.com/736x/77/95/3b/77953b2d7443e87305b680cf9b8684f0.jpg" alt="Cell Perfecto" loading="lazy" class="imagen-producto" data-titulo="Cell Perfecto" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure><div class="info-producto"><h3 class="titulo-producto">Cell Perfecto</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div></article>
-                    <article class="producto-item" data-id="gotenks" data-nombre="Gotenks" data-precio="12990" data-imagen="https://i.pinimg.com/736x/29/f4/0f/29f40f346822b9f7a40ec2137acb98fb.jpg" data-miniatura1="https://i.pinimg.com/736x/29/f4/0f/29f40f346822b9f7a40ec2137acb98fb.jpg" data-miniatura2="https://i.pinimg.com/736x/29/f4/0f/29f40f346822b9f7a40ec2137acb98fb.jpg" data-miniatura3="https://i.pinimg.com/736x/29/f4/0f/29f40f346822b9f7a40ec2137acb98fb.jpg" data-miniatura4="https://i.pinimg.com/736x/29/f4/0f/29f40f346822b9f7a40ec2137acb98fb.jpg"><figure class="contenedor-imagen-producto"><img src="https://i.pinimg.com/736x/29/f4/0f/29f40f346822b9f7a40ec2137acb98fb.jpg" alt="Gotenks" loading="lazy" class="imagen-producto" data-titulo="Gotenks" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure><div class="info-producto"><h3 class="titulo-producto">Gotenks</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div></article>
-                </div>
-                <div class="contenedor-boton-ver-mas"><button class="boton-ver-mas" data-target="galeria-dragonball" data-expanded="false">Ver más</button></div>
-            </div>
-        </section>
-
-        <!-- DEMON SLAYER -->
-        <section class="seccion-productos" id="seccion-demonslayer">
-            <div class="contenedor-seccion">
-                <div class="encabezado-seccion"><h2 class="titulo-seccion">Demon Slayer</h2></div>
-                <div class="galeria-productos" id="galeria-demonslayer">
-                    <article class="producto-item" data-id="tanjiro" data-nombre="Tanjiro Kamado" data-precio="12990" data-imagen="https://i.pinimg.com/736x/8b/21/73/8b21736cff54039ea90ce242cb1b8b19.jpg" data-miniatura1="https://i.pinimg.com/736x/8b/21/73/8b21736cff54039ea90ce242cb1b8b19.jpg" data-miniatura2="https://i.pinimg.com/736x/8b/21/73/8b21736cff54039ea90ce242cb1b8b19.jpg" data-miniatura3="https://i.pinimg.com/736x/8b/21/73/8b21736cff54039ea90ce242cb1b8b19.jpg" data-miniatura4="https://i.pinimg.com/736x/8b/21/73/8b21736cff54039ea90ce242cb1b8b19.jpg"><figure class="contenedor-imagen-producto"><img src="https://i.pinimg.com/736x/8b/21/73/8b21736cff54039ea90ce242cb1b8b19.jpg" alt="Tanjiro Kamado" loading="lazy" class="imagen-producto" data-titulo="Tanjiro Kamado" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure><div class="info-producto"><h3 class="titulo-producto">Tanjiro Kamado</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div></article>
-                    <article class="producto-item" data-id="nezuko" data-nombre="Nezuko Kamado" data-precio="12990" data-imagen="https://i.pinimg.com/736x/d6/41/68/d6416851ec176b29aa89bb2151e7b9b7.jpg" data-miniatura1="https://i.pinimg.com/736x/d6/41/68/d6416851ec176b29aa89bb2151e7b9b7.jpg" data-miniatura2="https://i.pinimg.com/736x/d6/41/68/d6416851ec176b29aa89bb2151e7b9b7.jpg" data-miniatura3="https://i.pinimg.com/736x/d6/41/68/d6416851ec176b29aa89bb2151e7b9b7.jpg" data-miniatura4="https://i.pinimg.com/736x/d6/41/68/d6416851ec176b29aa89bb2151e7b9b7.jpg"><figure class="contenedor-imagen-producto"><img src="https://i.pinimg.com/736x/d6/41/68/d6416851ec176b29aa89bb2151e7b9b7.jpg" alt="Nezuko Kamado" loading="lazy" class="imagen-producto" data-titulo="Nezuko Kamado" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure><div class="info-producto"><h3 class="titulo-producto">Nezuko Kamado</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div></article>
-                    <article class="producto-item" data-id="zenitsu" data-nombre="Zenitsu Agatsuma" data-precio="12990" data-imagen="https://i.pinimg.com/736x/c8/80/79/c880791ccae3cae66ea13f1889f588a6.jpg" data-miniatura1="https://i.pinimg.com/736x/c8/80/79/c880791ccae3cae66ea13f1889f588a6.jpg" data-miniatura2="https://i.pinimg.com/736x/c8/80/79/c880791ccae3cae66ea13f1889f588a6.jpg" data-miniatura3="https://i.pinimg.com/736x/c8/80/79/c880791ccae3cae66ea13f1889f588a6.jpg" data-miniatura4="https://i.pinimg.com/736x/c8/80/79/c880791ccae3cae66ea13f1889f588a6.jpg"><figure class="contenedor-imagen-producto"><img src="https://i.pinimg.com/736x/c8/80/79/c880791ccae3cae66ea13f1889f588a6.jpg" alt="Zenitsu Agatsuma" loading="lazy" class="imagen-producto" data-titulo="Zenitsu Agatsuma" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure><div class="info-producto"><h3 class="titulo-producto">Zenitsu Agatsuma</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div></article>
-                    <article class="producto-item" data-id="inosuke" data-nombre="Inosuke Hashibira" data-precio="12990" data-imagen="https://i.pinimg.com/736x/99/b0/c9/99b0c9fe131e3df4fd66af3c2397c61b.jpg" data-miniatura1="https://i.pinimg.com/736x/99/b0/c9/99b0c9fe131e3df4fd66af3c2397c61b.jpg" data-miniatura2="https://i.pinimg.com/736x/99/b0/c9/99b0c9fe131e3df4fd66af3c2397c61b.jpg" data-miniatura3="https://i.pinimg.com/736x/99/b0/c9/99b0c9fe131e3df4fd66af3c2397c61b.jpg" data-miniatura4="https://i.pinimg.com/736x/99/b0/c9/99b0c9fe131e3df4fd66af3c2397c61b.jpg"><figure class="contenedor-imagen-producto"><img src="https://i.pinimg.com/736x/99/b0/c9/99b0c9fe131e3df4fd66af3c2397c61b.jpg" alt="Inosuke Hashibira" loading="lazy" class="imagen-producto" data-titulo="Inosuke Hashibira" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure><div class="info-producto"><h3 class="titulo-producto">Inosuke Hashibira</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div></article>
-                    <article class="producto-item" data-id="rengoku" data-nombre="Rengoku Kyojuro" data-precio="12990" data-imagen="https://i.pinimg.com/736x/0d/63/46/0d6346a83cb2d5c2bc02c6d621e09e14.jpg" data-miniatura1="https://i.pinimg.com/736x/0d/63/46/0d6346a83cb2d5c2bc02c6d621e09e14.jpg" data-miniatura2="https://i.pinimg.com/736x/0d/63/46/0d6346a83cb2d5c2bc02c6d621e09e14.jpg" data-miniatura3="https://i.pinimg.com/736x/0d/63/46/0d6346a83cb2d5c2bc02c6d621e09e14.jpg" data-miniatura4="https://i.pinimg.com/736x/0d/63/46/0d6346a83cb2d5c2bc02c6d621e09e14.jpg"><figure class="contenedor-imagen-producto"><img src="https://i.pinimg.com/736x/0d/63/46/0d6346a83cb2d5c2bc02c6d621e09e14.jpg" alt="Rengoku Kyojuro" loading="lazy" class="imagen-producto" data-titulo="Rengoku Kyojuro" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure><div class="info-producto"><h3 class="titulo-producto">Rengoku Kyojuro</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div></article>
-                    <article class="producto-item" data-id="shinobu" data-nombre="Shinobu Kocho" data-precio="12990" data-imagen="https://i.pinimg.com/736x/c2/09/b6/c209b6aab00e1c7007dd119ffbdbe1ac.jpg" data-miniatura1="https://i.pinimg.com/736x/c2/09/b6/c209b6aab00e1c7007dd119ffbdbe1ac.jpg" data-miniatura2="https://i.pinimg.com/736x/c2/09/b6/c209b6aab00e1c7007dd119ffbdbe1ac.jpg" data-miniatura3="https://i.pinimg.com/736x/c2/09/b6/c209b6aab00e1c7007dd119ffbdbe1ac.jpg" data-miniatura4="https://i.pinimg.com/736x/c2/09/b6/c209b6aab00e1c7007dd119ffbdbe1ac.jpg"><figure class="contenedor-imagen-producto"><img src="https://i.pinimg.com/736x/c2/09/b6/c209b6aab00e1c7007dd119ffbdbe1ac.jpg" alt="Shinobu Kocho" loading="lazy" class="imagen-producto" data-titulo="Shinobu Kocho" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure><div class="info-producto"><h3 class="titulo-producto">Shinobu Kocho</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div></article>
-                    <article class="producto-item" data-id="giyu" data-nombre="Giyu Tomioka" data-precio="12990" data-imagen="https://i.pinimg.com/736x/2b/b0/1d/2bb01db4ac506c76a9f2a27dde7ea129.jpg" data-miniatura1="https://i.pinimg.com/736x/2b/b0/1d/2bb01db4ac506c76a9f2a27dde7ea129.jpg" data-miniatura2="https://i.pinimg.com/736x/2b/b0/1d/2bb01db4ac506c76a9f2a27dde7ea129.jpg" data-miniatura3="https://i.pinimg.com/736x/2b/b0/1d/2bb01db4ac506c76a9f2a27dde7ea129.jpg" data-miniatura4="https://i.pinimg.com/736x/2b/b0/1d/2bb01db4ac506c76a9f2a27dde7ea129.jpg"><figure class="contenedor-imagen-producto"><img src="https://i.pinimg.com/736x/2b/b0/1d/2bb01db4ac506c76a9f2a27dde7ea129.jpg" alt="Giyu Tomioka" loading="lazy" class="imagen-producto" data-titulo="Giyu Tomioka" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure><div class="info-producto"><h3 class="titulo-producto">Giyu Tomioka</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div></article>
-                    <article class="producto-item" data-id="muzan" data-nombre="Muzan Kibutsuji" data-precio="12990" data-imagen="https://i.pinimg.com/736x/27/f0/f9/27f0f994aa0ad73a80827aafc1640a09.jpg" data-miniatura1="https://i.pinimg.com/736x/27/f0/f9/27f0f994aa0ad73a80827aafc1640a09.jpg" data-miniatura2="https://i.pinimg.com/736x/27/f0/f9/27f0f994aa0ad73a80827aafc1640a09.jpg" data-miniatura3="https://i.pinimg.com/736x/27/f0/f9/27f0f994aa0ad73a80827aafc1640a09.jpg" data-miniatura4="https://i.pinimg.com/736x/27/f0/f9/27f0f994aa0ad73a80827aafc1640a09.jpg"><figure class="contenedor-imagen-producto"><img src="https://i.pinimg.com/736x/27/f0/f9/27f0f994aa0ad73a80827aafc1640a09.jpg" alt="Muzan Kibutsuji" loading="lazy" class="imagen-producto" data-titulo="Muzan Kibutsuji" data-medida="20x22 cm" data-precio="12990" width="300" height="200"></figure><div class="info-producto"><h3 class="titulo-producto">Muzan Kibutsuji</h3><p class="dimension-producto">Medida: 20x22 cm</p><p class="precio-producto">$12.990 CLP</p></div></article>
-                </div>
-                <div class="contenedor-boton-ver-mas"><button class="boton-ver-mas" data-target="galeria-demonslayer" data-expanded="false">Ver más</button></div>
-            </div>
-        </section>
-
-        <!-- COMPARADOR DE MATERIALES -->
-        <section class="seccion-materiales">
-            <div class="contenedor-seccion">
-                <div class="encabezado-seccion">
-                    <h2 class="titulo-seccion">¿Por qué metal?</h2>
-                    <p class="subtitulo-seccion">Compara la calidad del metal vs. otros materiales</p>
-                </div>
-                <div class="comparador-materiales">
-                    <div class="material-card" data-material="metal">
-                        <div class="material-icono-grande" aria-hidden="true"><i class="fas fa-crown"></i></div>
-                        <h3>Metal (Tu elección)</h3>
-                        <ul class="material-lista">
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Impermeable</li>
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> No se decolora</li>
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Brillo HD</li>
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Ligero y duradero</li>
-                        </ul>
-                    </div>
-                    <div class="material-card">
-                        <div class="material-icono-grande" aria-hidden="true"><i class="fas fa-paint-brush"></i></div>
-                        <h3>Lienzo</h3>
-                        <ul class="material-lista">
-                            <li><i class="fas fa-times-circle" aria-hidden="true"></i> Absorbe humedad</li>
-                            <li><i class="fas fa-times-circle" aria-hidden="true"></i> Se decolora</li>
-                            <li><i class="fas fa-times-circle" aria-hidden="true"></i> Textura rugosa</li>
-                            <li><i class="fas fa-times-circle" aria-hidden="true"></i> Se ensucia fácil</li>
-                        </ul>
-                    </div>
-                    <div class="material-card">
-                        <div class="material-icono-grande" aria-hidden="true"><i class="fas fa-file-alt"></i></div>
-                        <h3>Papel</h3>
-                        <ul class="material-lista">
-                            <li><i class="fas fa-times-circle" aria-hidden="true"></i> Se arruga</li>
-                            <li><i class="fas fa-times-circle" aria-hidden="true"></i> Muy frágil</li>
-                            <li><i class="fas fa-times-circle" aria-hidden="true"></i> Sin brillo</li>
-                            <li><i class="fas fa-times-circle" aria-hidden="true"></i> Se mancha</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- MODAL -->
-    <div class="modal-imagen" id="modal-imagen" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-titulo">
-        <div class="modal-contenido">
-            <button class="cerrar-modal" id="cerrar-modal" aria-label="Cerrar modal">×</button>
-            <div class="modal-imagen-contenedor">
-                <img id="imagen-ampliada" src="" alt="">
-            </div>
-            <div class="modal-info">
-                <h3 id="modal-titulo">Título del Producto</h3>
-                <p id="modal-medida">Medida: 20x22 cm</p>
-                <p id="modal-precio">Precio: $12.990 CLP</p>
-                <div class="modal-botones">
-                    <a href="#" class="boton-ver" id="ver-detalles-link">Ver Detalles</a>
-                    <a href="#" class="boton-whatsapp-modal" id="whatsapp-link" target="_blank" rel="noopener noreferrer">Encargar por WhatsApp</a>
+                <div class="info-imagen">
+                    <!-- NOTA: ruta con espacios → considera URL-encoding o renombrar archivo -->
+                    <img src="img/autos%20y%20motos/ChatGPT%20Image%208%20abr%202026%2C%2010_47_30%20p.m..png"
+                         alt="Detalle de calidad de cuadro en aluminio"
+                         loading="lazy"
+                         width="600"
+                         height="450">
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- FOOTER — FIX: nombre corregido a SublimArts -->
-    <footer class="footer-principal">
+
+    <!-- =============================================
+         SECCIÓN BENEFICIOS
+         ============================================= -->
+    <section class="seccion-beneficios">
+        <div class="contenedor-seccion">
+            <h2 class="titulo-seccion">Beneficios exclusivos</h2>
+            <p class="subtitulo-seccion">¿Por qué elegir SublimArts?</p>
+            <div class="beneficios-grid">
+                <div class="beneficio-item">
+                    <div class="beneficio-icono" aria-hidden="true"><i class="fas fa-gem"></i></div>
+                    <div class="beneficio-texto">
+                        <h4>Calidad de museo</h4>
+                        <p>Impresión directa sobre aluminio con tintas de alta gama.</p>
+                    </div>
+                </div>
+                <div class="beneficio-item">
+                    <div class="beneficio-icono" aria-hidden="true"><i class="fas fa-sync-alt"></i></div>
+                    <div class="beneficio-texto">
+                        <h4>No se deforma</h4>
+                        <p>A diferencia del lienzo, el aluminio mantiene su forma perfecta.</p>
+                    </div>
+                </div>
+                <div class="beneficio-item">
+                    <div class="beneficio-icono" aria-hidden="true"><i class="fas fa-water"></i></div>
+                    <div class="beneficio-texto">
+                        <h4>Resistente a la humedad</h4>
+                        <p>Ideal para baños, cocinas o exteriores cubiertos.</p>
+                    </div>
+                </div>
+                <div class="beneficio-item">
+                    <div class="beneficio-icono" aria-hidden="true"><i class="fas fa-feather-alt"></i></div>
+                    <div class="beneficio-texto">
+                        <h4>Ultraligero</h4>
+                        <p>Fácil de colgar, no necesita marco pesado.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- FIX UX: indicador visual de scroll horizontal en mobile -->
+            <p class="scroll-hint" aria-hidden="true">
+                <i class="fas fa-hand-point-right"></i> Desliza para ver más
+            </p>
+        </div>
+    </section>
+
+
+    <!-- =============================================
+         SECCIÓN CATEGORÍAS
+         ============================================= -->
+    <section class="seccion-categorias" id="categorias">
+        <div class="contenedor-seccion">
+            <h2 class="titulo-seccion">Explora por categorías</h2>
+            <p class="subtitulo-seccion">Haz clic en cualquier imagen para ver todos los cuadros de esa categoría</p>
+            <div class="categorias-grid">
+
+                <a href="categoria1.html#anime-popular" class="categoria-card" data-url="tematicas.html">
+                    <div class="categoria-imagen">
+                        <img src="https://i.pinimg.com/736x/8f/3c/77/8f3c77f32b4a948e7fe6f04c96a6cf3f.jpg"
+                             alt="Cuadros temáticos"
+                             loading="lazy"
+                             width="800"
+                             height="600">
+                    </div>
+                    <h3>Anime </h3>
+                </a>
+
+                <a href="categorias.html#nc-popular" class="categoria-card" data-url="retratos.html">
+                    <div class="categoria-imagen">
+                        <img src="https://i.pinimg.com/736x/b8/6b/fc/b86bfc8cbfa40c7afd9827fd2abfea9e.jpg"
+                             alt="Retratos personalizados"
+                             loading="lazy"
+                             width="800"
+                             height="600">
+                    </div>
+                    <h3>Autos y Motos</h3>
+                </a>
+
+                <a href="categorias.html#nc-dc" class="categoria-card" data-url="paisajes.html">
+                    <div class="categoria-imagen">
+                        <img src="https://i.pinimg.com/736x/b8/a0/aa/b8a0aaa387d28ca0d0b6edd9dda6ca9b.jpg"
+                             alt="Cuadros de paisajes"
+                             loading="lazy"
+                             width="800"
+                             height="600">
+                    </div>
+                    <h3>Paisajes</h3>
+                </a>
+
+                <a href="deportes.html#deporte-popular" class="categoria-card" data-url="abstracto.html">
+                    <div class="categoria-imagen">
+                        <img src="https://i.pinimg.com/736x/04/6a/a5/046aa53da9ce9f35835c65fee520f68b.jpg"
+                             alt="Arte abstracto"
+                             loading="lazy"
+                             width="800"
+                             height="600">
+                    </div>
+                    <h3>Deportes</h3>
+                </a>
+
+                <a href="animales.html" class="categoria-card" data-url="animales.html">
+                    <div class="categoria-imagen">
+                        <img src="https://i.pinimg.com/1200x/d8/df/11/d8df1112437e89c83165c2d675b9d8c5.jpg"
+                             alt="Cuadros de animales"
+                             loading="lazy"
+                             width="800"
+                             height="600">
+                    </div>
+                    <h3>Animales</h3>
+                </a>
+
+                <a href="categorias.html#nc-marvel" class="categoria-card" data-url="ciudades.html">
+                    <div class="categoria-imagen">
+                        <img src="https://i.pinimg.com/1200x/28/82/8c/28828cba6f634d91322d9986e2f198dd.jpg"
+                             alt="Cuadros de ciudades"
+                             loading="lazy"
+                             width="800"
+                             height="600">
+                    </div>
+                    <h3>Peliculas y Series</h3>
+                </a>
+                
+                <a href="index.html#anime-popular" class="categoria-card" data-url="tematicas.html">
+                    <div class="categoria-imagen">
+                        <img src="https://i.pinimg.com/1200x/3f/24/26/3f242682439a8d1e23f316d84d76efff.jpg"
+                             alt="Cuadros temáticos"
+                             loading="lazy"
+                             width="800"
+                             height="600">
+                    </div>
+                    <h3>Gamer</h3>
+                </a>
+
+                <a href="categorias.html#nc-starwars" class="categoria-card" data-url="retratos.html">
+                    <div class="categoria-imagen">
+                        <img src="https://i.pinimg.com/736x/b8/6b/fc/b86bfc8cbfa40c7afd9827fd2abfea9e.jpg"
+                             alt="Retratos personalizados"
+                             loading="lazy"
+                             width="800"
+                             height="600">
+                    </div>
+                    <h3>Retratos Personalizados</h3>
+                </a>
+
+                <a href="categorias.html#nc-popular" class="categoria-card" data-url="paisajes.html">
+                    <div class="categoria-imagen">
+                        <img src="https://i.pinimg.com/1200x/40/1f/ed/401fedd3c70d5da786e7ca358b6a7092.jpg"
+                             alt="Cuadros de paisajes"
+                             loading="lazy"
+                             width="800"
+                             height="600">
+                    </div>
+                    <h3>Motos</h3>
+                </a>
+
+                <a href="abstracto.html" class="categoria-card" data-url="abstracto.html">
+                    <div class="categoria-imagen">
+                        <img src="https://i.pinimg.com/736x/79/76/3f/79763f84c8476a5ac0aae0946a660f3d.jpg"
+                             alt="Arte abstracto"
+                             loading="lazy"
+                             width="800"
+                             height="600">
+                    </div>
+                    <h3>Ciudades</h3>
+                </a>
+
+                <a href="categorias.html#nc-dc" class="categoria-card" data-url="animales.html">
+                    <div class="categoria-imagen">
+                        <img src="https://i.pinimg.com/1200x/e4/f6/2c/e4f62ce0dcd5652d870cd8007b2b6e43.jpg"
+                             alt="Cuadros de animales"
+                             loading="lazy"
+                             width="800"
+                             height="600">
+                    </div>
+                    <h3>Religion</h3>
+                </a>
+
+                <a href="ciudades.html" class="categoria-card" data-url="ciudades.html">
+                    <div class="categoria-imagen">
+                        <img src="https://i.pinimg.com/736x/1c/c7/e7/1cc7e720d21d6f40227dee7503959522.jpg"
+                             alt="Cuadros de ciudades"
+                             loading="lazy"
+                             width="800"
+                             height="600">
+                    </div>
+                    <h3>Ciudades</h3>
+                </a>
+                 
+            </div>
+        </div>
+    </section>
+    
+    
+    <!-- =============================================
+         SECCIÓN VIDEOS
+         FIX: todos los videos usan el mismo contenedor 16:9.
+         Para YouTube normal o Shorts se usa SOLO el ID en data-video-id.
+         ============================================= -->
+    <section class="seccion-videos" id="videos">
+        <div class="contenedor-seccion">
+            <h2 class="titulo-seccion">📹 Mira cómo se hacen</h2>
+            <p class="subtitulo-seccion">Descubre el proceso de sublimación y la calidad de nuestros cuadros</p>
+            <div class="videos-grid">
+
+                <div class="video-card">
+                    <div class="video-container video-facade"
+                         data-video-id="za5xoOvhcgs"
+                         role="button"
+                         tabindex="0"
+                         aria-label="Reproducir: Proceso de sublimación paso a paso">
+                        <img src="https://img.youtube.com/vi/za5xoOvhcgs/hqdefault.jpg"
+                             alt="Proceso de sublimación paso a paso"
+                             loading="lazy"
+                             width="480"
+                             height="270">
+                        <button class="video-play-btn" aria-label="Reproducir video" tabindex="-1">
+                            <i class="fas fa-play" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="video-info">
+                        <h3>✨ Proceso de sublimación paso a paso</h3>
+                        <p>Conoce cómo transformamos tus imágenes en obras de arte sobre aluminio.</p>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <!-- URL original: https://www.youtube.com/shorts/c67wuFWtKGc?feature=share -->
+                    <div class="video-container video-facade"
+                         data-video-id="c67wuFWtKGc"
+                         role="button"
+                         tabindex="0"
+                         aria-label="Reproducir: Calidad Full HD y colores vibrantes">
+                        <img src="https://img.youtube.com/vi/c67wuFWtKGc/hqdefault.jpg"
+                             alt="Calidad Full HD y colores vibrantes"
+                             loading="lazy"
+                             width="480"
+                             height="270">
+                        <button class="video-play-btn" aria-label="Reproducir video" tabindex="-1">
+                            <i class="fas fa-play" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="video-info">
+                        <h3>🎨 Calidad Full HD y colores vibrantes</h3>
+                        <p>Comparativa entre impresión tradicional y sublimación en aluminio.</p>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <!-- URL original: https://www.youtube.com/shorts/MknCdM0E1Pw?feature=share -->
+                    <div class="video-container video-facade"
+                         data-video-id="MknCdM0E1Pw"
+                         role="button"
+                         tabindex="0"
+                         aria-label="Reproducir: Cómo colgar tu cuadro de aluminio">
+                        <img src="https://img.youtube.com/vi/MknCdM0E1Pw/hqdefault.jpg"
+                             alt="Cómo colgar tu cuadro de aluminio"
+                             loading="lazy"
+                             width="480"
+                             height="270">
+                        <button class="video-play-btn" aria-label="Reproducir video" tabindex="-1">
+                            <i class="fas fa-play" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="video-info">
+                        <h3>🖼️ Cómo colgar tu cuadro de aluminio</h3>
+                        <p>Consejos de instalación y cuidado de tu obra.</p>
+                    </div>
+                </div>
+
+            </div>
+            <p class="scroll-hint" aria-hidden="true">
+                <i class="fas fa-hand-point-right"></i> Desliza para ver más
+            </p>
+        </div>
+    </section>
+
+
+    <!-- =============================================
+         SECCIÓN CUADRO EN TU MURO
+         ============================================= -->
+    <section class="seccion-muro">
+        <div class="contenedor-seccion">
+            <h2 class="titulo-seccion">Un cuadro de aluminio en tu hogar</h2>
+            <p class="subtitulo-seccion">✨ Acabado mate premium · Marco flotante incluido · Brillo y nitidez incomparables</p>
+            <div class="muro-grid">
+
+                <div class="muro-item">
+                    <img src="img/WhatsApp Image 2026-06-15 at 00.08.42 (1).jpeg"
+                         alt="Cuadro de aluminio en sala de estar"
+                         loading="lazy"
+                         width="1000"
+                         height="667">
+                    <div class="muro-overlay">
+                        <p><i class="fas fa-home" aria-hidden="true"></i> Sala de Estar</p>
+                    </div>
+                </div>
+
+                <div class="muro-item">
+                    <img src="img/WhatsApp Image 2026-06-15 at 00.08.41.jpeg"
+                         alt="Cuadro de aluminio en oficina"
+                         loading="lazy"
+                         width="1000"
+                         height="667">
+                    <div class="muro-overlay">
+                        <p><i class="fas fa-briefcase" aria-hidden="true"></i> Oficina</p>
+                    </div>
+                </div>
+
+                <div class="muro-item">
+                    <img src="img/WhatsApp Image 2026-06-15 at 00.08.41 (3).jpeg"
+                         alt="Cuadro de aluminio en dormitorio"
+                         loading="lazy"
+                         width="1000"
+                         height="667">
+                    <div class="muro-overlay">
+                        <p><i class="fas fa-bed" aria-hidden="true"></i> Dormitorio</p>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Scroll hint mobile -->
+            <p class="scroll-hint" aria-hidden="true">
+                <i class="fas fa-hand-point-right"></i> Desliza para ver más
+            </p>
+        </div>
+    </section>
+
+
+    <!-- =============================================
+         FOOTER
+         ============================================= -->
+    <footer class="footer-principal" id="contacto">
         <div class="contenedor-footer">
+
             <div class="columna-footer">
-                <h3 class="titulo-footer">SublimArts</h3>
-                <p class="texto-footer">Transformamos tus personajes favoritos en arte duradero sobre metal con impresión HD de alta calidad.</p>
+                <div class="titulo-footer">SublimArts</div>
+                <p class="texto-footer">
+                    Cuadros en aluminio de alta calidad, con tecnología de sublimación
+                    que garantiza colores vibrantes y durabilidad eterna.
+                </p>
                 <div class="redes-sociales">
-                    <a href="#" class="enlace-red-social" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
-                    <a href="#" class="enlace-red-social" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-                    <a href="#" class="enlace-red-social" aria-label="Twitter/X"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                    <a href="#" class="enlace-red-social" aria-label="Instagram">
+                        <i class="fab fa-instagram" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="enlace-red-social" aria-label="Facebook">
+                        <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="enlace-red-social" aria-label="TikTok">
+                        <i class="fab fa-tiktok" aria-hidden="true"></i>
+                    </a>
                 </div>
             </div>
+
             <div class="columna-footer">
-                <h4 class="titulo-columna">Categorías</h4>
+                <h3 class="titulo-columna">Enlaces rápidos</h3>
                 <ul class="lista-enlaces">
-                    <li><a href="#anime-popular">Anime Popular</a></li>
-                    <li><a href="#seccion-jujutsu">Jujutsu Kaisen</a></li>
-                    <li><a href="#seccion-naruto">Naruto</a></li>
-                    <li><a href="#seccion-dragonball">Dragon Ball</a></li>
-                    <li><a href="#seccion-demonslayer">Demon Slayer</a></li>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#categorias">Categorías</a></li>
+                    <li><a href="#videos">Videos</a></li>
+                    <li><a href="#">Política de privacidad</a></li>
                 </ul>
             </div>
+
             <div class="columna-footer">
-                <h4 class="titulo-columna">Enlaces útiles</h4>
+                <h3 class="titulo-columna">Categorías</h3>
                 <ul class="lista-enlaces">
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="#proceso-fabricacion">Nuestro Proceso</a></li>
-                    <li><a href="#">Cómo Comprar</a></li>
-                    <li><a href="#">Preguntas frecuentes</a></li>
-                    <li><a href="#">Contacto</a></li>
+                    <li><a href="tematicas.html">Temáticos</a></li>
+                    <li><a href="retratos.html">Retratos</a></li>
+                    <li><a href="paisajes.html">Paisajes</a></li>
+                    <li><a href="abstracto.html">Abstracto</a></li>
                 </ul>
             </div>
+
             <div class="columna-footer">
-                <h4 class="titulo-columna">Contacto</h4>
+                <h3 class="titulo-columna">Contacto</h3>
                 <div class="info-contacto">
-                    <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Av. Principal #123, Santiago, Chile</p>
-                    <p><i class="fas fa-phone" aria-hidden="true"></i> <a href="tel:+56982045756">+56 9 8204 5756</a></p>
-                    <p><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:contacto@sublimarts.cl">contacto@sublimarts.cl</a></p>
-                    <p><i class="fab fa-whatsapp" aria-hidden="true"></i> <a href="https://wa.me/56982045756" rel="noopener noreferrer">WhatsApp</a></p>
+                    <p><i class="fas fa-envelope" aria-hidden="true"></i> contacto@sublimarts.com</p>
+                    <p><i class="fas fa-phone" aria-hidden="true"></i> +56 9 1234 5678</p>
+                    <p>
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                        <a href="https://wa.me/56912345678" rel="noopener noreferrer">+56 9 1234 5678</a>
+                    </p>
                 </div>
             </div>
+
         </div>
         <div class="pie-footer">
-            <p>&copy; 2025 SublimArts - Todos los derechos reservados. Santiago, Chile.</p>
+            <p>&copy; 2025 SublimArts - Cuadros en Aluminio HD | Calidad que perdura</p>
         </div>
     </footer>
 
-    <!-- JS externo -->
-    <script src="js/manu.js"></script>
 
-    <!--
-        SCRIPT: MODAL → LINK A VISUALIZACION.HTML
-        FIX: Se reemplaza MutationObserver (memory leak, race condition)
-        por event delegation directo en el click de las imágenes.
-        Los datos del producto se leen en el mismo tick del click,
-        cuando el src ya está disponible sin condiciones de carrera.
-    -->
+    <!-- =============================================
+         JAVASCRIPT
+         ============================================= -->
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        /* ================================================
+           MENÚ MOBILE
+           ================================================ */
+        const botonMenu    = document.getElementById('botonMenuMobile');
+        const menuPrincipal = document.getElementById('menuPrincipal');
+        const menuOverlay  = document.getElementById('menuOverlay');
 
-            const modal           = document.getElementById('modal-imagen');
-            const verDetallesLink = document.getElementById('ver-detalles-link');
-            const whatsappLink    = document.getElementById('whatsapp-link');
+        /**
+         * Abre/cierra el menú lateral mobile.
+         * Actualiza aria-expanded en el botón hamburguesa.
+         */
+        function toggleMenu(forzarCerrar = false) {
+            const estaAbierto = menuPrincipal.classList.contains('activo');
+            const nuevaEstado = forzarCerrar ? false : !estaAbierto;
 
-            /**
-             * Construye la URL de visualizacion.html con URLSearchParams.
-             * Más seguro y legible que concatenar strings manualmente.
-             */
-            function construirURLVisualizacion(datos) {
-                const params = new URLSearchParams({
-                    nombre: datos.nombre,
-                    precio: datos.precio,
-                    imagen: datos.imagen
-                });
-                ['miniatura1', 'miniatura2', 'miniatura3', 'miniatura4'].forEach(k => {
-                    if (datos[k]) params.set(k, datos[k]);
-                });
-                return `visualizacion.html?${params.toString()}`;
+            menuPrincipal.classList.toggle('activo', nuevaEstado);
+            menuOverlay.classList.toggle('activo', nuevaEstado);
+            document.body.classList.toggle('menu-abierto', nuevaEstado);
+
+            // Actualizar aria-expanded en el botón hamburguesa
+            botonMenu.setAttribute('aria-expanded', nuevaEstado.toString());
+            menuOverlay.setAttribute('aria-hidden', (!nuevaEstado).toString());
+
+            // Cambiar ícono hamburguesa ↔ X
+            const icono = botonMenu.querySelector('i');
+            if (icono) {
+                icono.className = nuevaEstado ? 'fas fa-times' : 'fas fa-bars';
             }
+        }
 
-            /**
-             * Event delegation: un solo listener en <main> capta
-             * todos los clicks en imágenes de producto.
-             * Evita registrar N listeners individuales.
-             */
-            const mainContent = document.getElementById('contenido-principal');
-            if (mainContent) {
-                mainContent.addEventListener('click', function (e) {
-                    const imgProducto = e.target.closest('.imagen-producto');
-                    if (!imgProducto) return;
+        botonMenu.addEventListener('click', () => toggleMenu());
+        menuOverlay.addEventListener('click', () => toggleMenu(true));
 
-                    const articulo = imgProducto.closest('[data-nombre]');
-                    if (!articulo) return;
-
-                    const datos = {
-                        nombre:     articulo.dataset.nombre     || imgProducto.dataset.titulo || 'Producto',
-                        precio:     articulo.dataset.precio     || '12990',
-                        imagen:     articulo.dataset.imagen     || imgProducto.src,
-                        miniatura1: articulo.dataset.miniatura1 || null,
-                        miniatura2: articulo.dataset.miniatura2 || null,
-                        miniatura3: articulo.dataset.miniatura3 || null,
-                        miniatura4: articulo.dataset.miniatura4 || null
-                    };
-
-                    if (verDetallesLink) {
-                        verDetallesLink.href = construirURLVisualizacion(datos);
-                    }
-
-                    if (whatsappLink) {
-                        const msg = `Hola SublimArts, me interesa el cuadro "${datos.nombre}" por $${Number(datos.precio).toLocaleString('es-CL')} CLP. ¿Está disponible?`;
-                        whatsappLink.href = `https://wa.me/56982045756?text=${encodeURIComponent(msg)}`;
-                    }
-                });
+        // FIX UX: cerrar menú con tecla ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && menuPrincipal.classList.contains('activo')) {
+                toggleMenu(true);
+                botonMenu.focus(); // Devolver foco al botón hamburguesa
             }
-
         });
+
+
+        /* ================================================
+           SUBMENÚS DESPLEGABLES (MOBILE)
+           FIX: cierra otros submenús al abrir uno nuevo.
+           FIX: actualiza aria-expanded en el botón.
+           ================================================ */
+        document.querySelectorAll('.menu-con-desplegable .enlace-menu-desplegable')
+            .forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        e.stopPropagation();
+
+                        const itemPadre = btn.closest('.menu-con-desplegable');
+                        const estaAbierto = itemPadre.classList.contains('activo');
+
+                        // FIX: cierra todos los demás submenús abiertos
+                        document.querySelectorAll('.menu-con-desplegable.activo').forEach(item => {
+                            if (item !== itemPadre) {
+                                item.classList.remove('activo');
+                                const otroBtnSubmenu = item.querySelector('.enlace-menu-desplegable');
+                                if (otroBtnSubmenu) {
+                                    otroBtnSubmenu.setAttribute('aria-expanded', 'false');
+                                }
+                            }
+                        });
+
+                        // Toggle del submenú actual
+                        itemPadre.classList.toggle('activo', !estaAbierto);
+                        btn.setAttribute('aria-expanded', (!estaAbierto).toString());
+                    }
+                });
+            });
+
+
+        /* ================================================
+           CATEGORÍAS: navegación JS (compatibilidad)
+           Las cards ahora son <a href> pero se mantiene
+           el listener original para no romper funcionalidad.
+           ================================================ */
+        document.querySelectorAll('.categoria-card').forEach(card => {
+            card.addEventListener('click', function (e) {
+                // Solo activar JS nav si el tag no es <a> (retrocompatibilidad)
+                if (this.tagName !== 'A') {
+                    const url = this.getAttribute('data-url');
+                    if (url) window.location.href = url;
+                }
+            });
+        });
+
+
+        /* ================================================
+           CIERRE DE MENÚ AL NAVEGAR (mobile)
+           ================================================ */
+        document.querySelectorAll('.enlace-menu, .submenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    toggleMenu(true);
+                }
+            });
+        });
+
+
+        /* ================================================
+           VIDEO FACADE PATTERN
+           Al hacer click en el thumbnail se inyecta el iframe
+           de YouTube con autoplay=1.
+           Evita cargar 3 iframes pesados al iniciar la página.
+           ================================================ */
+        document.querySelectorAll('.video-facade').forEach(facade => {
+
+            // Activar por click
+            facade.addEventListener('click', function () {
+                cargarVideo(this);
+            });
+
+            // Activar por teclado (Enter / Space) — accesibilidad
+            facade.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    cargarVideo(this);
+                }
+            });
+        });
+
+        /**
+         * Reemplaza el facade (thumbnail + botón play) con
+         * un iframe real de YouTube con autoplay.
+         * @param {HTMLElement} facadeEl - El contenedor .video-facade
+         */
+        function cargarVideo(facadeEl) {
+            const videoId = facadeEl.dataset.videoId;
+            if (!videoId) return;
+
+            const iframe = document.createElement('iframe');
+            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&playsinline=1`;
+            iframe.title = facadeEl.getAttribute('aria-label') || 'Video de YouTube';
+            iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+            iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+            iframe.allowFullscreen = true;
+
+            // Limpiar contenido del facade e insertar iframe
+            facadeEl.innerHTML = '';
+            facadeEl.appendChild(iframe);
+
+            // Quitar atributos interactivos ya que el iframe toma el control
+            facadeEl.removeAttribute('role');
+            facadeEl.removeAttribute('tabindex');
+            facadeEl.style.cursor = 'default';
+            facadeEl.classList.remove('video-facade');
+        }
     </script>
 
 </body>
