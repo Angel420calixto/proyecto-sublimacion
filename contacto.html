@@ -1,0 +1,2667 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover"
+    >
+
+    <meta
+        name="description"
+        content="Contacta a SublimArts para cotizar cuadros personalizados en aluminio, consultar medidas, diseños, precios y entregas."
+    >
+
+    <title>Contacto | SublimArts - Cuadros en Aluminio HD</title>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    >
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+        /* =============================================
+           VARIABLES GENERALES
+        ============================================= */
+
+        :root {
+            --color-primario: #1a1a2e;
+            --color-secundario: #16213e;
+            --color-terciario: #0f3460;
+            --color-destacado: #e94560;
+            --color-destacado-claro: #ff7b9c;
+            --color-whatsapp: #25D366;
+            --color-texto: #ffffff;
+            --color-texto-secundario: #b8b8d1;
+            --color-fondo: #0d0d1a;
+            --color-borde: #2a2a4a;
+            --color-submenu: #0f0f1f;
+
+            --sombra-suave:
+                0 4px 12px rgba(0, 0, 0, 0.3);
+
+            --sombra-destacada:
+                0 8px 24px rgba(233, 69, 96, 0.3);
+
+            --sombra-whatsapp:
+                0 4px 20px rgba(37, 211, 102, 0.4);
+
+            --transicion-rapida:
+                all 0.3s ease;
+
+            --transicion-media:
+                all 0.5s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            width: 100%;
+            min-height: 100vh;
+            overflow-x: hidden;
+            font-family: "Montserrat", sans-serif;
+            color: var(--color-texto);
+            background-color: var(--color-fondo);
+            line-height: 1.5;
+        }
+
+        body.menu-abierto {
+            overflow: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font-family: inherit;
+        }
+
+        button {
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        section[id],
+        footer[id] {
+            scroll-margin-top: 92px;
+        }
+
+        /* =============================================
+           CONTENEDOR GENERAL
+        ============================================= */
+
+        .contenedor-seccion {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .titulo-seccion {
+            width: 100%;
+            margin-bottom: 1rem;
+            position: relative;
+            color: var(--color-texto);
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .titulo-seccion::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            width: 60px;
+            height: 3px;
+            border-radius: 3px;
+            background-color: var(--color-destacado);
+            transform: translateX(-50%);
+        }
+
+        .subtitulo-seccion {
+            width: 100%;
+            margin-bottom: 3rem;
+            color: var(--color-texto-secundario);
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        /* =============================================
+           BOTÓN WHATSAPP FLOTANTE
+        ============================================= */
+
+        .whatsapp-button {
+            position: fixed;
+            right: 30px;
+            bottom: 30px;
+            z-index: 1000;
+
+            width: 60px;
+            height: 60px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+            background-color: var(--color-whatsapp);
+            color: #ffffff;
+            font-size: 28px;
+
+            box-shadow: var(--sombra-whatsapp);
+            transition: var(--transicion-rapida);
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+            animation-play-state: paused;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* =============================================
+           HEADER Y NAVEGACIÓN
+        ============================================= */
+
+        .header-principal {
+            position: sticky;
+            top: 0;
+            z-index: 10001;
+            background-color: var(--color-primario);
+            box-shadow: var(--sombra-suave);
+        }
+
+        .navegacion {
+            padding: 1rem 0;
+        }
+
+        .contenedor-navegacion {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-contenedor {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            flex-shrink: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--color-destacado),
+                    var(--color-destacado-claro)
+                );
+
+            font-size: 28px;
+        }
+
+        .titulo-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--color-destacado),
+                    var(--color-destacado-claro)
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .menu-principal {
+            z-index: 10000;
+
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .enlace-menu {
+            position: relative;
+            padding: 0.5rem 0;
+            color: var(--color-texto);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--transicion-rapida);
+        }
+
+        .enlace-menu:hover,
+        .enlace-menu.activo {
+            color: var(--color-destacado);
+        }
+
+        .enlace-menu::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+
+            width: 0;
+            height: 2px;
+
+            background-color: var(--color-destacado);
+            transition: var(--transicion-rapida);
+        }
+
+        .enlace-menu:hover::after,
+        .enlace-menu.activo::after {
+            width: 100%;
+        }
+
+        .menu-con-desplegable {
+            position: relative;
+        }
+
+        .enlace-menu-desplegable {
+            padding: 0.5rem 0;
+
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            border: none;
+            background: none;
+            color: var(--color-texto);
+
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .flecha-desplegable {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-con-desplegable:hover .flecha-desplegable {
+            transform: rotate(180deg);
+        }
+
+        .menu-con-desplegable:hover .submenu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .submenu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+
+            min-width: 220px;
+
+            border-left: 3px solid var(--color-destacado);
+            border-radius: 8px;
+            background-color: var(--color-submenu);
+
+            box-shadow: var(--sombra-suave);
+
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+
+            transition: var(--transicion-rapida);
+            z-index: 100;
+        }
+
+        .submenu a {
+            display: block;
+            padding: 0.7rem 1.5rem;
+
+            color: var(--color-texto);
+            font-size: 0.9rem;
+            white-space: nowrap;
+
+            transition: var(--transicion-rapida);
+        }
+
+        .submenu a:hover {
+            padding-left: 2rem;
+            color: var(--color-destacado);
+            background-color: rgba(233, 69, 96, 0.1);
+        }
+
+        .iconos-usuario {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .icono-usuario {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            color: var(--color-texto);
+            font-size: 0.9rem;
+            font-weight: 500;
+
+            transition: var(--transicion-rapida);
+        }
+
+        .icono-usuario:hover {
+            color: var(--color-destacado);
+        }
+
+        .boton-menu-mobile {
+            display: none;
+
+            width: 44px;
+            height: 44px;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 8px;
+            background: rgba(233, 69, 96, 0.1);
+            color: var(--color-texto);
+            font-size: 1.5rem;
+        }
+
+        .menu-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+
+            display: none;
+            opacity: 0;
+
+            background-color: rgba(0, 0, 0, 0.7);
+            transition: opacity 0.3s ease;
+        }
+
+        .menu-overlay.activo {
+            display: block;
+            opacity: 1;
+        }
+
+        /* =============================================
+           BANNER DE CONTACTO
+        ============================================= */
+
+        .banner-contacto {
+            position: relative;
+            padding: 90px 0 80px;
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 85% 30%,
+                    rgba(233, 69, 96, 0.18),
+                    transparent 32%
+                ),
+                linear-gradient(
+                    135deg,
+                    #0a0a0a 0%,
+                    #1a1a2e 100%
+                );
+        }
+
+        .banner-contacto::after {
+            content: "";
+            position: absolute;
+            left: -140px;
+            bottom: -180px;
+
+            width: 400px;
+            height: 400px;
+
+            border-radius: 50%;
+            background-color: rgba(15, 52, 96, 0.2);
+            filter: blur(10px);
+        }
+
+        .contenido-banner-contacto {
+            position: relative;
+            z-index: 2;
+
+            max-width: 820px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .icono-banner-contacto {
+            width: 78px;
+            height: 78px;
+            margin: 0 auto 24px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--color-destacado),
+                    var(--color-destacado-claro)
+                );
+
+            color: #ffffff;
+            font-size: 2rem;
+
+            box-shadow: var(--sombra-destacada);
+        }
+
+        .titulo-banner-contacto {
+            margin-bottom: 18px;
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.15;
+        }
+
+        .titulo-banner-contacto span {
+            color: var(--color-destacado);
+        }
+
+        .texto-banner-contacto {
+            max-width: 720px;
+            margin: 0 auto 32px;
+
+            color: var(--color-texto-secundario);
+            font-size: 1.08rem;
+            line-height: 1.75;
+        }
+
+        .botones-banner-contacto {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .boton-contacto-principal,
+        .boton-contacto-secundario {
+            min-height: 52px;
+            padding: 0.8rem 2rem;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            border-radius: 30px;
+            font-weight: 600;
+
+            transition: var(--transicion-rapida);
+        }
+
+        .boton-contacto-principal {
+            color: #ffffff;
+            background-color: var(--color-destacado);
+        }
+
+        .boton-contacto-principal:hover {
+            background-color: #ff5773;
+            transform: translateY(-3px);
+            box-shadow: var(--sombra-destacada);
+        }
+
+        .boton-contacto-secundario {
+            border: 1px solid var(--color-borde);
+            background-color: var(--color-secundario);
+            color: var(--color-texto);
+        }
+
+        .boton-contacto-secundario:hover {
+            border-color: var(--color-destacado);
+            color: var(--color-destacado);
+            transform: translateY(-3px);
+        }
+
+        /* =============================================
+           SECCIÓN PRINCIPAL DE CONTACTO
+        ============================================= */
+
+        .seccion-contacto {
+            padding: 80px 0;
+            background:
+                linear-gradient(
+                    135deg,
+                    #0d0d1a 0%,
+                    #1a1a2e 100%
+                );
+        }
+
+        .contacto-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 35px;
+            align-items: stretch;
+        }
+
+        .panel-contacto {
+            padding: 34px;
+
+            border: 1px solid rgba(233, 69, 96, 0.22);
+            border-radius: 20px;
+
+            background: rgba(20, 15, 45, 0.48);
+
+            box-shadow: var(--sombra-suave);
+            transition: var(--transicion-rapida);
+        }
+
+        .panel-contacto:hover {
+            border-color: rgba(233, 69, 96, 0.55);
+            box-shadow: var(--sombra-destacada);
+        }
+
+        .panel-contacto h2 {
+            margin-bottom: 12px;
+            color: var(--color-destacado);
+            font-size: 1.65rem;
+        }
+
+        .descripcion-panel {
+            margin-bottom: 28px;
+            color: var(--color-texto-secundario);
+            line-height: 1.7;
+        }
+
+        /* =============================================
+           DATOS DE CONTACTO
+        ============================================= */
+
+        .lista-datos-contacto {
+            display: grid;
+            gap: 16px;
+        }
+
+        .dato-contacto {
+            padding: 18px;
+
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+
+            background: rgba(255, 255, 255, 0.035);
+
+            transition: var(--transicion-rapida);
+        }
+
+        .dato-contacto:hover {
+            border-color: var(--color-destacado);
+            background: rgba(233, 69, 96, 0.06);
+            transform: translateX(5px);
+        }
+
+        .dato-icono {
+            width: 48px;
+            height: 48px;
+            flex-shrink: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--color-destacado),
+                    var(--color-destacado-claro)
+                );
+
+            color: #ffffff;
+            font-size: 1.2rem;
+        }
+
+        .dato-texto h3 {
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+
+        .dato-texto p,
+        .dato-texto a {
+            color: var(--color-texto-secundario);
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+
+        .dato-texto a:hover {
+            color: var(--color-destacado);
+        }
+
+        .bloque-redes-contacto {
+            margin-top: 28px;
+            padding-top: 24px;
+            border-top: 1px solid var(--color-borde);
+        }
+
+        .bloque-redes-contacto h3 {
+            margin-bottom: 16px;
+            color: var(--color-texto);
+            font-size: 1rem;
+        }
+
+        .redes-contacto {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .enlace-red-contacto {
+            width: 44px;
+            height: 44px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background-color: var(--color-secundario);
+            color: var(--color-texto);
+
+            transition: var(--transicion-rapida);
+        }
+
+        .enlace-red-contacto:hover {
+            background-color: var(--color-destacado);
+            transform: translateY(-3px);
+        }
+
+        /* =============================================
+           FORMULARIO
+        ============================================= */
+
+        .formulario-contacto {
+            display: grid;
+            gap: 18px;
+        }
+
+        .fila-formulario {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .grupo-formulario {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .grupo-formulario label {
+            color: var(--color-texto);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .grupo-formulario input,
+        .grupo-formulario select,
+        .grupo-formulario textarea {
+            width: 100%;
+
+            border: 1px solid var(--color-borde);
+            border-radius: 12px;
+            outline: none;
+
+            background-color: rgba(13, 13, 26, 0.8);
+            color: var(--color-texto);
+
+            font-size: 0.92rem;
+
+            transition: var(--transicion-rapida);
+        }
+
+        .grupo-formulario input,
+        .grupo-formulario select {
+            min-height: 50px;
+            padding: 0 15px;
+        }
+
+        .grupo-formulario textarea {
+            min-height: 150px;
+            padding: 15px;
+            resize: vertical;
+        }
+
+        .grupo-formulario input::placeholder,
+        .grupo-formulario textarea::placeholder {
+            color: #77778f;
+        }
+
+        .grupo-formulario input:focus,
+        .grupo-formulario select:focus,
+        .grupo-formulario textarea:focus {
+            border-color: var(--color-destacado);
+            box-shadow:
+                0 0 0 3px rgba(233, 69, 96, 0.12);
+        }
+
+        .grupo-formulario select option {
+            color: var(--color-texto);
+            background-color: var(--color-primario);
+        }
+
+        .boton-enviar {
+            min-height: 54px;
+            padding: 0.8rem 2rem;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            border-radius: 30px;
+
+            background-color: var(--color-whatsapp);
+            color: #ffffff;
+
+            font-size: 0.98rem;
+            font-weight: 700;
+
+            box-shadow: var(--sombra-whatsapp);
+            transition: var(--transicion-rapida);
+        }
+
+        .boton-enviar:hover {
+            transform: translateY(-3px);
+            background-color: #21c45c;
+        }
+
+        .aviso-formulario {
+            padding: 13px 15px;
+
+            display: flex;
+            align-items: flex-start;
+            gap: 9px;
+
+            border-left: 3px solid var(--color-destacado);
+            border-radius: 6px;
+
+            background-color: rgba(233, 69, 96, 0.06);
+            color: var(--color-texto-secundario);
+
+            font-size: 0.8rem;
+            line-height: 1.55;
+        }
+
+        .aviso-formulario i {
+            margin-top: 3px;
+            color: var(--color-destacado);
+        }
+
+        /* =============================================
+           PASOS DEL PEDIDO
+        ============================================= */
+
+        .seccion-pasos {
+            padding: 80px 0;
+            background:
+                linear-gradient(
+                    135deg,
+                    #0a0a0a 0%,
+                    #1a1a2e 100%
+                );
+        }
+
+        .pasos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .paso-item {
+            position: relative;
+            padding: 30px;
+
+            overflow: hidden;
+
+            border: 1px solid rgba(233, 69, 96, 0.2);
+            border-radius: 20px;
+
+            background: rgba(20, 15, 45, 0.4);
+
+            transition: var(--transicion-rapida);
+        }
+
+        .paso-item:hover {
+            border-color: var(--color-destacado);
+            transform: translateY(-8px);
+            box-shadow: var(--sombra-destacada);
+        }
+
+        .paso-numero {
+            position: absolute;
+            top: 8px;
+            right: 17px;
+
+            color: rgba(255, 255, 255, 0.05);
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .paso-icono {
+            width: 58px;
+            height: 58px;
+            margin-bottom: 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--color-destacado),
+                    var(--color-destacado-claro)
+                );
+
+            color: #ffffff;
+            font-size: 1.35rem;
+        }
+
+        .paso-item h3 {
+            position: relative;
+            z-index: 2;
+            margin-bottom: 10px;
+            color: var(--color-destacado);
+            font-size: 1.25rem;
+        }
+
+        .paso-item p {
+            position: relative;
+            z-index: 2;
+            color: var(--color-texto-secundario);
+            line-height: 1.65;
+        }
+
+        /* =============================================
+           PREGUNTAS FRECUENTES
+        ============================================= */
+
+        .seccion-preguntas {
+            padding: 80px 0;
+            background-color: #000000;
+        }
+
+        .preguntas-contenedor {
+            max-width: 900px;
+            margin: 40px auto 0;
+
+            display: grid;
+            gap: 14px;
+        }
+
+        .pregunta-item {
+            overflow: hidden;
+
+            border: 1px solid var(--color-borde);
+            border-radius: 14px;
+
+            background-color: var(--color-primario);
+
+            transition: var(--transicion-rapida);
+        }
+
+        .pregunta-item.activa {
+            border-color: var(--color-destacado);
+        }
+
+        .pregunta-boton {
+            width: 100%;
+            padding: 20px 22px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+
+            background: transparent;
+            color: var(--color-texto);
+
+            font-size: 0.96rem;
+            font-weight: 600;
+            text-align: left;
+        }
+
+        .pregunta-boton i {
+            color: var(--color-destacado);
+            transition: transform 0.3s ease;
+        }
+
+        .pregunta-item.activa .pregunta-boton i {
+            transform: rotate(180deg);
+        }
+
+        .pregunta-respuesta {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease;
+        }
+
+        .pregunta-respuesta p {
+            padding: 0 22px 22px;
+            color: var(--color-texto-secundario);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        /* =============================================
+           FOOTER
+        ============================================= */
+
+        .footer-principal {
+            padding: 4rem 0 2rem;
+
+            border-top: 1px solid var(--color-borde);
+            background-color: var(--color-primario);
+        }
+
+        .contenedor-footer {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+        }
+
+        .titulo-footer {
+            margin-bottom: 1rem;
+
+            font-size: 1.5rem;
+            font-weight: 800;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--color-destacado),
+                    var(--color-destacado-claro)
+                );
+
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .texto-footer {
+            margin-bottom: 1.5rem;
+            color: var(--color-texto-secundario);
+            line-height: 1.6;
+        }
+
+        .redes-sociales {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .enlace-red-social {
+            width: 40px;
+            height: 40px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+            background-color: var(--color-secundario);
+
+            transition: var(--transicion-rapida);
+        }
+
+        .enlace-red-social:hover {
+            background-color: var(--color-destacado);
+            transform: translateY(-3px);
+        }
+
+        .titulo-columna {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .lista-enlaces li {
+            margin-bottom: 0.8rem;
+        }
+
+        .lista-enlaces a {
+            color: var(--color-texto-secundario);
+            transition: var(--transicion-rapida);
+        }
+
+        .lista-enlaces a:hover {
+            padding-left: 5px;
+            color: var(--color-destacado);
+        }
+
+        .info-contacto p {
+            margin-bottom: 1rem;
+
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            color: var(--color-texto-secundario);
+        }
+
+        .info-contacto a:hover {
+            color: var(--color-destacado);
+        }
+
+        .pie-footer {
+            max-width: 1400px;
+            margin: 3rem auto 0;
+            padding: 1.5rem 20px 0;
+
+            border-top: 1px solid var(--color-borde);
+
+            color: var(--color-texto-secundario);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        /* =============================================
+           FOCO VISIBLE
+        ============================================= */
+
+        .enlace-menu:focus-visible,
+        .enlace-menu-desplegable:focus-visible,
+        .boton-menu-mobile:focus-visible,
+        .boton-contacto-principal:focus-visible,
+        .boton-contacto-secundario:focus-visible,
+        .boton-enviar:focus-visible,
+        .pregunta-boton:focus-visible,
+        .whatsapp-button:focus-visible {
+            outline: 2px solid var(--color-destacado);
+            outline-offset: 4px;
+        }
+
+        /* =============================================
+           TABLET
+        ============================================= */
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .contacto-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pasos-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contenedor-footer {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+        }
+
+        /* =============================================
+           MOBILE
+        ============================================= */
+
+        @media (max-width: 768px) {
+            .contenedor-navegacion,
+            .contenedor-seccion,
+            .contenedor-footer {
+                padding-inline: 16px;
+            }
+
+            .titulo-logo {
+                font-size: 1.25rem;
+            }
+
+            .logo {
+                width: 44px;
+                height: 44px;
+                font-size: 24px;
+            }
+
+            .boton-menu-mobile {
+                display: flex;
+            }
+
+            .menu-principal {
+                position: fixed;
+                top: 0;
+                right: -100%;
+
+                width: 85%;
+                max-width: 350px;
+                height: 100vh;
+
+                padding: 80px 0 30px;
+
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: stretch;
+                gap: 0;
+
+                overflow-y: auto;
+
+                background-color: var(--color-primario);
+
+                box-shadow:
+                    -5px 0 25px rgba(0, 0, 0, 0.5);
+
+                transition: right 0.3s ease;
+            }
+
+            .menu-principal.activo {
+                right: 0;
+            }
+
+            .menu-principal > li {
+                width: 100%;
+                border-bottom:
+                    1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .enlace-menu {
+                display: block;
+                padding: 16px 20px;
+                font-size: 1rem;
+            }
+
+            .menu-con-desplegable {
+                width: 100%;
+            }
+
+            .enlace-menu-desplegable {
+                width: 100%;
+                padding: 16px 20px;
+                justify-content: space-between;
+            }
+
+            .menu-con-desplegable.activo
+            .flecha-desplegable {
+                transform: rotate(180deg);
+            }
+
+            .submenu {
+                position: relative;
+                top: auto;
+                left: auto;
+
+                width: 100%;
+                min-width: unset;
+                max-height: 0;
+                padding: 0;
+
+                overflow: hidden;
+
+                border-left:
+                    4px solid var(--color-destacado);
+                border-radius: 0;
+
+                box-shadow: none;
+
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+
+                transition: max-height 0.4s ease;
+            }
+
+            .menu-con-desplegable.activo .submenu {
+                max-height: 400px;
+                padding: 8px 0;
+            }
+
+            .submenu a {
+                padding: 12px 20px 12px 35px;
+                white-space: normal;
+            }
+
+            .iconos-usuario {
+                display: none;
+            }
+
+            .banner-contacto {
+                padding: 70px 0 60px;
+            }
+
+            .botones-banner-contacto {
+                flex-direction: column;
+            }
+
+            .boton-contacto-principal,
+            .boton-contacto-secundario {
+                width: 100%;
+            }
+
+            .contacto-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .panel-contacto {
+                padding: 25px 20px;
+            }
+
+            .fila-formulario {
+                grid-template-columns: 1fr;
+            }
+
+            .pasos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contenedor-footer {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* =============================================
+           MOBILE PEQUEÑO
+        ============================================= */
+
+        @media (max-width: 480px) {
+            .titulo-seccion {
+                font-size: 1.4rem;
+            }
+
+            .titulo-banner-contacto {
+                font-size: 2rem;
+            }
+
+            .texto-banner-contacto {
+                font-size: 0.95rem;
+            }
+
+            .whatsapp-button {
+                right: 18px;
+                bottom: 18px;
+
+                width: 56px;
+                height: 56px;
+            }
+
+            .dato-contacto {
+                padding: 15px;
+            }
+
+            .dato-icono {
+                width: 43px;
+                height: 43px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =============================================
+         BOTÓN WHATSAPP FLOTANTE
+         Cambia 56912345678 por tu número real.
+    ============================================= -->
+
+    <a
+        href="https://wa.me/56912345678?text=Hola%20SublimArts,%20quiero%20más%20información"
+        class="whatsapp-button"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Contactar por WhatsApp"
+    >
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- =============================================
+         HEADER
+    ============================================= -->
+
+    <header class="header-principal">
+
+        <div class="navegacion">
+
+            <div class="contenedor-navegacion">
+
+                <a
+                    href="index.html"
+                    class="logo-contenedor"
+                    aria-label="Ir al inicio de SublimArts"
+                >
+                    <div class="logo" aria-hidden="true">
+                        🎨
+                    </div>
+
+                    <div class="titulo-logo">
+                        SublimArts
+                    </div>
+                </a>
+
+                <ul
+                    class="menu-principal"
+                    id="menuPrincipal"
+                    aria-label="Menú principal"
+                >
+                    <li>
+                        <a
+                            href="index.html"
+                            class="enlace-menu"
+                        >
+                            Inicio
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="index.html#categorias"
+                            class="enlace-menu"
+                        >
+                            Categorías
+                        </a>
+                    </li>
+
+                    <li class="menu-con-desplegable">
+
+                        <button
+                            class="enlace-menu-desplegable"
+                            type="button"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                        >
+                            Productos
+
+                            <i
+                                class="fas fa-chevron-down flecha-desplegable"
+                                aria-hidden="true"
+                            ></i>
+                        </button>
+
+                        <ul class="submenu">
+                            <li>
+                                <a href="categoria1.html">
+                                    Anime Popular
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="categorias.html">
+                                    Autos y Motos
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="deportes.html">
+                                    Deportes
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="animales.html">
+                                    Animales
+                                </a>
+                            </li>
+                        </ul>
+
+                    </li>
+
+                    <li>
+                        <a
+                            href="index.html#videos"
+                            class="enlace-menu"
+                        >
+                            Videos
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="contacto.html"
+                            class="enlace-menu activo"
+                        >
+                            Contacto
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="iconos-usuario">
+
+                    <a
+                        href="https://wa.me/56912345678"
+                        class="icono-usuario"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Contactar por WhatsApp"
+                    >
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+
+                    <a
+                        href="mailto:metalarts093@gmail.com"
+                        class="icono-usuario"
+                        aria-label="Enviar correo"
+                    >
+                        <i class="fas fa-envelope"></i>
+                    </a>
+
+                    <a
+                        href="contacto.html"
+                        class="icono-usuario"
+                        aria-label="Página de contacto"
+                    >
+                        <i class="fas fa-user"></i>
+                    </a>
+
+                </div>
+
+                <button
+                    class="boton-menu-mobile"
+                    id="botonMenuMobile"
+                    type="button"
+                    aria-label="Abrir menú"
+                    aria-expanded="false"
+                    aria-controls="menuPrincipal"
+                >
+                    <i
+                        class="fas fa-bars"
+                        aria-hidden="true"
+                    ></i>
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <div
+        class="menu-overlay"
+        id="menuOverlay"
+        aria-hidden="true"
+    ></div>
+
+    <main>
+
+        <!-- =============================================
+             BANNER
+        ============================================= -->
+
+        <section
+            class="banner-contacto"
+            id="inicio"
+        >
+
+            <div class="contenedor-seccion">
+
+                <div class="contenido-banner-contacto">
+
+                    <div class="icono-banner-contacto">
+                        <i class="fas fa-comments"></i>
+                    </div>
+
+                    <h1 class="titulo-banner-contacto">
+                        Contacta con
+                        <span>SublimArts</span>
+                    </h1>
+
+                    <p class="texto-banner-contacto">
+                        Cuéntanos qué diseño necesitas, cuál es la medida
+                        que prefieres y para qué ocasión será. Te ayudaremos
+                        a convertir tus fotografías e ideas en un cuadro
+                        personalizado único.
+                    </p>
+
+                    <div class="botones-banner-contacto">
+
+                        <a
+                            href="https://wa.me/56982045756?text=Hola%20SublimArts,%20quiero%20cotizar%20un%20cuadro%20personalizado"
+                            class="boton-contacto-principal"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <i class="fab fa-whatsapp"></i>
+                            Hablar por WhatsApp
+                        </a>
+
+                        <a
+                            href="#formulario-contacto"
+                            class="boton-contacto-secundario"
+                        >
+                            <i class="fas fa-file-signature"></i>
+                            Completar formulario
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- =============================================
+             CONTACTO Y FORMULARIO
+        ============================================= -->
+
+        <section
+            class="seccion-contacto"
+            id="formulario-contacto"
+        >
+
+            <div class="contenedor-seccion">
+
+                <h2 class="titulo-seccion">
+                    Estamos para ayudarte
+                </h2>
+
+                <p class="subtitulo-seccion">
+                    Escríbenos directamente o completa el formulario
+                    para preparar tu consulta por WhatsApp.
+                </p>
+
+                <div class="contacto-grid">
+
+                    <!-- INFORMACIÓN -->
+
+                    <article class="panel-contacto">
+
+                        <h2>
+                            Información de contacto
+                        </h2>
+
+                        <p class="descripcion-panel">
+                            Atendemos consultas sobre cuadros personalizados,
+                            diseños, medidas, materiales, precios, encargos
+                            especiales y formas de entrega.
+                        </p>
+
+                        <div class="lista-datos-contacto">
+
+                            <div class="dato-contacto">
+
+                                <div class="dato-icono">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+
+                                <div class="dato-texto">
+                                    <h3>WhatsApp</h3>
+
+                                    <a
+                                        href="https://wa.me/56982045756"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        +56 9 1234 5678
+                                    </a>
+                                </div>
+
+                            </div>
+
+                            <div class="dato-contacto">
+
+                                <div class="dato-icono">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+
+                                <div class="dato-texto">
+                                    <h3>Correo electrónico</h3>
+
+                                    <a href="mailto:metalarts093@gmail.com">
+                                        metalarts093@gmail.com
+                                    </a>
+                                </div>
+
+                            </div>
+
+                            <div class="dato-contacto">
+
+                                <div class="dato-icono">
+                                    <i class="fas fa-location-dot"></i>
+                                </div>
+
+                                <div class="dato-texto">
+                                    <h3>Zona de atención</h3>
+
+                                    <p>
+                                        San Clemente, Talca y sectores cercanos
+                                        de la Región del Maule.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            <div class="dato-contacto">
+
+                                <div class="dato-icono">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+
+                                <div class="dato-texto">
+                                    <h3>Horario de atención</h3>
+
+                                    <p>
+                                        Lunes a sábado<br>
+                                        09:00 a 20:00 horas
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="bloque-redes-contacto">
+
+                            <h3>
+                                Síguenos en nuestras redes
+                            </h3>
+
+                            <div class="redes-contacto">
+
+                                <a
+                                    href="#"
+                                    class="enlace-red-contacto"
+                                    aria-label="Instagram"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+
+                                <a
+                                    href="#"
+                                    class="enlace-red-contacto"
+                                    aria-label="Facebook"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+
+                                <a
+                                    href="#"
+                                    class="enlace-red-contacto"
+                                    aria-label="TikTok"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                    <!-- FORMULARIO -->
+
+                    <article class="panel-contacto">
+
+                        <h2>
+                            Cotiza tu cuadro
+                        </h2>
+
+                        <p class="descripcion-panel">
+                            Completa los datos y se abrirá WhatsApp con
+                            toda la información de tu solicitud.
+                        </p>
+
+                        <form
+                            class="formulario-contacto"
+                            id="formularioWhatsApp"
+                        >
+
+                            <div class="fila-formulario">
+
+                                <div class="grupo-formulario">
+
+                                    <label for="nombre">
+                                        Nombre completo
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="nombre"
+                                        name="nombre"
+                                        placeholder="Escribe tu nombre"
+                                        autocomplete="name"
+                                        required
+                                    >
+
+                                </div>
+
+                                <div class="grupo-formulario">
+
+                                    <label for="telefono">
+                                        Teléfono
+                                    </label>
+
+                                    <input
+                                        type="tel"
+                                        id="telefono"
+                                        name="telefono"
+                                        placeholder="+56 9..."
+                                        autocomplete="tel"
+                                    >
+
+                                </div>
+
+                            </div>
+
+                            <div class="fila-formulario">
+
+                                <div class="grupo-formulario">
+
+                                    <label for="producto">
+                                        Tipo de producto
+                                    </label>
+
+                                    <select
+                                        id="producto"
+                                        name="producto"
+                                        required
+                                    >
+                                        <option value="">
+                                            Selecciona una opción
+                                        </option>
+
+                                        <option value="Cuadro de anime">
+                                            Cuadro de anime
+                                        </option>
+
+                                        <option value="Cuadro deportivo">
+                                            Cuadro deportivo
+                                        </option>
+
+                                        <option value="Cuadro de autos o motos">
+                                            Cuadro de autos o motos
+                                        </option>
+
+                                        <option value="Cuadro personalizado con fotografía">
+                                            Cuadro personalizado con fotografía
+                                        </option>
+
+                                        <option value="Cuadro de licenciatura">
+                                            Cuadro de licenciatura
+                                        </option>
+
+                                        <option value="Cartel para negocio">
+                                            Cartel para negocio
+                                        </option>
+
+                                        <option value="Otro producto">
+                                            Otro producto
+                                        </option>
+                                    </select>
+
+                                </div>
+
+                                <div class="grupo-formulario">
+
+                                    <label for="medida">
+                                        Medida aproximada
+                                    </label>
+
+                                    <select
+                                        id="medida"
+                                        name="medida"
+                                    >
+                                        <option value="Aún no lo sé">
+                                            Aún no lo sé
+                                        </option>
+
+                                        <option value="20 x 30 cm">
+                                            20 × 30 cm
+                                        </option>
+
+                                        <option value="30 x 40 cm">
+                                            30 × 40 cm
+                                        </option>
+
+                                        <option value="40 x 60 cm">
+                                            40 × 60 cm
+                                        </option>
+
+                                        <option value="Otra medida">
+                                            Otra medida
+                                        </option>
+                                    </select>
+
+                                </div>
+
+                            </div>
+
+                            <div class="grupo-formulario">
+
+                                <label for="mensaje">
+                                    Cuéntanos tu idea
+                                </label>
+
+                                <textarea
+                                    id="mensaje"
+                                    name="mensaje"
+                                    placeholder="Ejemplo: quiero un cuadro de 30 × 40 cm con una fotografía familiar, fondo azul, nombres y una fecha especial."
+                                    required
+                                ></textarea>
+
+                            </div>
+
+                            <button
+                                type="submit"
+                                class="boton-enviar"
+                            >
+                                <i class="fab fa-whatsapp"></i>
+                                Enviar consulta por WhatsApp
+                            </button>
+
+                            <div class="aviso-formulario">
+
+                                <i class="fas fa-circle-info"></i>
+
+                                <p>
+                                    Este formulario no almacena información.
+                                    Al enviarlo, se abrirá WhatsApp con el mensaje
+                                    preparado para que tú decidas si deseas enviarlo.
+                                </p>
+
+                            </div>
+
+                        </form>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- =============================================
+             PASOS
+        ============================================= -->
+
+        <section class="seccion-pasos">
+
+            <div class="contenedor-seccion">
+
+                <h2 class="titulo-seccion">
+                    ¿Cómo realizar tu pedido?
+                </h2>
+
+                <p class="subtitulo-seccion">
+                    Coordinamos contigo todos los detalles antes
+                    de comenzar la fabricación.
+                </p>
+
+                <div class="pasos-grid">
+
+                    <article class="paso-item">
+
+                        <span class="paso-numero">
+                            01
+                        </span>
+
+                        <div class="paso-icono">
+                            <i class="fas fa-message"></i>
+                        </div>
+
+                        <h3>
+                            Envíanos tu idea
+                        </h3>
+
+                        <p>
+                            Indícanos el diseño, temática, fotografía,
+                            texto y medida que necesitas.
+                        </p>
+
+                    </article>
+
+                    <article class="paso-item">
+
+                        <span class="paso-numero">
+                            02
+                        </span>
+
+                        <div class="paso-icono">
+                            <i class="fas fa-pen-ruler"></i>
+                        </div>
+
+                        <h3>
+                            Preparamos el diseño
+                        </h3>
+
+                        <p>
+                            Revisamos tus archivos y coordinamos contigo
+                            la presentación antes de fabricar el cuadro.
+                        </p>
+
+                    </article>
+
+                    <article class="paso-item">
+
+                        <span class="paso-numero">
+                            03
+                        </span>
+
+                        <div class="paso-icono">
+                            <i class="fas fa-box-open"></i>
+                        </div>
+
+                        <h3>
+                            Fabricación y entrega
+                        </h3>
+
+                        <p>
+                            Una vez confirmado el diseño, realizamos el
+                            trabajo y coordinamos la entrega o retiro.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- =============================================
+             PREGUNTAS FRECUENTES
+        ============================================= -->
+
+        <section class="seccion-preguntas">
+
+            <div class="contenedor-seccion">
+
+                <h2 class="titulo-seccion">
+                    Preguntas frecuentes
+                </h2>
+
+                <p class="subtitulo-seccion">
+                    Resolvemos algunas de las dudas más comunes
+                    antes de realizar un pedido.
+                </p>
+
+                <div class="preguntas-contenedor">
+
+                    <article class="pregunta-item">
+
+                        <button
+                            type="button"
+                            class="pregunta-boton"
+                        >
+                            ¿Puedo enviar mi propia fotografía?
+
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+
+                        <div class="pregunta-respuesta">
+
+                            <p>
+                                Sí. Puedes enviarnos tus fotografías por
+                                WhatsApp. Para obtener un mejor resultado,
+                                recomendamos imágenes claras, nítidas y
+                                con buena resolución.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                    <article class="pregunta-item">
+
+                        <button
+                            type="button"
+                            class="pregunta-boton"
+                        >
+                            ¿Qué medidas de cuadros trabajan?
+
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+
+                        <div class="pregunta-respuesta">
+
+                            <p>
+                                Las medidas más utilizadas son 20 × 30,
+                                30 × 40 y 40 × 60 cm. También puedes
+                                consultar por otras medidas disponibles.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                    <article class="pregunta-item">
+
+                        <button
+                            type="button"
+                            class="pregunta-boton"
+                        >
+                            ¿Realizan diseños personalizados?
+
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+
+                        <div class="pregunta-respuesta">
+
+                            <p>
+                                Sí. Podemos trabajar con fotografías,
+                                nombres, fechas, textos, colores y temáticas
+                                especiales según la ocasión.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                    <article class="pregunta-item">
+
+                        <button
+                            type="button"
+                            class="pregunta-boton"
+                        >
+                            ¿Cómo se coordinan el pago y la entrega?
+
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+
+                        <div class="pregunta-respuesta">
+
+                            <p>
+                                El precio, forma de pago, tiempo de fabricación
+                                y entrega se coordinan directamente por
+                                WhatsApp antes de confirmar el pedido.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- =============================================
+         FOOTER
+    ============================================= -->
+
+    <footer
+        class="footer-principal"
+        id="contacto"
+    >
+
+        <div class="contenedor-footer">
+
+            <div class="columna-footer">
+
+                <div class="titulo-footer">
+                    SublimArts
+                </div>
+
+                <p class="texto-footer">
+                    Cuadros en aluminio de alta calidad, con
+                    tecnología de sublimación que garantiza
+                    colores vibrantes y gran durabilidad.
+                </p>
+
+                <div class="redes-sociales">
+
+                    <a
+                        href="#"
+                        class="enlace-red-social"
+                        aria-label="Instagram"
+                    >
+                        <i class="fab fa-instagram"></i>
+                    </a>
+
+                    <a
+                        href="#"
+                        class="enlace-red-social"
+                        aria-label="Facebook"
+                    >
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+
+                    <a
+                        href="#"
+                        class="enlace-red-social"
+                        aria-label="TikTok"
+                    >
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="columna-footer">
+
+                <h3 class="titulo-columna">
+                    Enlaces rápidos
+                </h3>
+
+                <ul class="lista-enlaces">
+                    <li>
+                        <a href="index.html">
+                            Inicio
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="index.html#categorias">
+                            Categorías
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="index.html#videos">
+                            Videos
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="contacto.html">
+                            Contacto
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="columna-footer">
+
+                <h3 class="titulo-columna">
+                    Categorías
+                </h3>
+
+                <ul class="lista-enlaces">
+                    <li>
+                        <a href="categoria1.html">
+                            Anime
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="categorias.html">
+                            Autos y Motos
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="deportes.html">
+                            Deportes
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="animales.html">
+                            Animales
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="columna-footer">
+
+                <h3 class="titulo-columna">
+                    Contacto
+                </h3>
+
+                <div class="info-contacto">
+
+                    <p>
+                        <i class="fas fa-envelope"></i>
+
+                        <a href="mailto:metalarts093@gmail.com">
+                            metalarts093@gmail.com
+                        </a>
+                    </p>
+
+                    <p>
+                        <i class="fas fa-location-dot"></i>
+                        San Clemente, Región del Maule
+                    </p>
+
+                    <p>
+                        <i class="fab fa-whatsapp"></i>
+
+                        <a
+                            href="https://wa.me/56912345678"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            +56 9 1234 5678
+                        </a>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="pie-footer">
+
+            <p>
+                &copy;
+                <span id="anioActual"></span>
+                SublimArts - Cuadros en Aluminio HD |
+                Calidad que perdura
+            </p>
+
+        </div>
+
+    </footer>
+
+    <!-- =============================================
+         JAVASCRIPT
+    ============================================= -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            /* =========================================
+               CONFIGURACIÓN WHATSAPP
+               Cambia este número por tu número real.
+               Sin signo +, espacios ni guiones.
+            ========================================= */
+
+            const numeroWhatsApp = "56982045756";
+
+            /* =========================================
+               MENÚ MOBILE
+            ========================================= */
+
+            const botonMenu =
+                document.getElementById("botonMenuMobile");
+
+            const menuPrincipal =
+                document.getElementById("menuPrincipal");
+
+            const menuOverlay =
+                document.getElementById("menuOverlay");
+
+            function toggleMenu(forzarCerrar = false) {
+
+                const estaAbierto =
+                    menuPrincipal.classList.contains("activo");
+
+                const nuevoEstado =
+                    forzarCerrar ? false : !estaAbierto;
+
+                menuPrincipal.classList.toggle(
+                    "activo",
+                    nuevoEstado
+                );
+
+                menuOverlay.classList.toggle(
+                    "activo",
+                    nuevoEstado
+                );
+
+                document.body.classList.toggle(
+                    "menu-abierto",
+                    nuevoEstado
+                );
+
+                botonMenu.setAttribute(
+                    "aria-expanded",
+                    nuevoEstado.toString()
+                );
+
+                menuOverlay.setAttribute(
+                    "aria-hidden",
+                    (!nuevoEstado).toString()
+                );
+
+                const icono =
+                    botonMenu.querySelector("i");
+
+                if (icono) {
+                    icono.className =
+                        nuevoEstado
+                            ? "fas fa-times"
+                            : "fas fa-bars";
+                }
+            }
+
+            botonMenu.addEventListener(
+                "click",
+                function () {
+                    toggleMenu();
+                }
+            );
+
+            menuOverlay.addEventListener(
+                "click",
+                function () {
+                    toggleMenu(true);
+                }
+            );
+
+            document.addEventListener(
+                "keydown",
+                function (evento) {
+
+                    if (
+                        evento.key === "Escape" &&
+                        menuPrincipal.classList.contains("activo")
+                    ) {
+                        toggleMenu(true);
+                        botonMenu.focus();
+                    }
+                }
+            );
+
+            /* =========================================
+               SUBMENÚ MOBILE
+            ========================================= */
+
+            document
+                .querySelectorAll(
+                    ".menu-con-desplegable " +
+                    ".enlace-menu-desplegable"
+                )
+                .forEach(function (botonSubmenu) {
+
+                    botonSubmenu.addEventListener(
+                        "click",
+                        function (evento) {
+
+                            if (window.innerWidth <= 768) {
+
+                                evento.preventDefault();
+                                evento.stopPropagation();
+
+                                const itemPadre =
+                                    botonSubmenu.closest(
+                                        ".menu-con-desplegable"
+                                    );
+
+                                const estaAbierto =
+                                    itemPadre.classList.contains(
+                                        "activo"
+                                    );
+
+                                document
+                                    .querySelectorAll(
+                                        ".menu-con-desplegable.activo"
+                                    )
+                                    .forEach(function (otroItem) {
+
+                                        if (otroItem !== itemPadre) {
+
+                                            otroItem.classList.remove(
+                                                "activo"
+                                            );
+
+                                            const otroBoton =
+                                                otroItem.querySelector(
+                                                    ".enlace-menu-desplegable"
+                                                );
+
+                                            if (otroBoton) {
+                                                otroBoton.setAttribute(
+                                                    "aria-expanded",
+                                                    "false"
+                                                );
+                                            }
+                                        }
+                                    });
+
+                                itemPadre.classList.toggle(
+                                    "activo",
+                                    !estaAbierto
+                                );
+
+                                botonSubmenu.setAttribute(
+                                    "aria-expanded",
+                                    (!estaAbierto).toString()
+                                );
+                            }
+                        }
+                    );
+                });
+
+            document
+                .querySelectorAll(
+                    ".enlace-menu, .submenu a"
+                )
+                .forEach(function (enlace) {
+
+                    enlace.addEventListener(
+                        "click",
+                        function () {
+
+                            if (window.innerWidth <= 768) {
+                                toggleMenu(true);
+                            }
+                        }
+                    );
+                });
+
+            /* =========================================
+               FORMULARIO HACIA WHATSAPP
+            ========================================= */
+
+            const formulario =
+                document.getElementById(
+                    "formularioWhatsApp"
+                );
+
+            formulario.addEventListener(
+                "submit",
+                function (evento) {
+
+                    evento.preventDefault();
+
+                    const nombre =
+                        document
+                            .getElementById("nombre")
+                            .value
+                            .trim();
+
+                    const telefono =
+                        document
+                            .getElementById("telefono")
+                            .value
+                            .trim();
+
+                    const producto =
+                        document
+                            .getElementById("producto")
+                            .value;
+
+                    const medida =
+                        document
+                            .getElementById("medida")
+                            .value;
+
+                    const mensaje =
+                        document
+                            .getElementById("mensaje")
+                            .value
+                            .trim();
+
+                    if (
+                        !nombre ||
+                        !producto ||
+                        !mensaje
+                    ) {
+                        alert(
+                            "Completa los campos obligatorios antes de enviar."
+                        );
+
+                        return;
+                    }
+
+                    const textoWhatsApp =
+`Hola SublimArts, quiero realizar una consulta.
+
+Nombre: ${nombre}
+Teléfono: ${telefono || "No indicado"}
+Producto: ${producto}
+Medida: ${medida}
+
+Descripción del pedido:
+${mensaje}`;
+
+                    const enlaceWhatsApp =
+                        "https://wa.me/" +
+                        numeroWhatsApp +
+                        "?text=" +
+                        encodeURIComponent(
+                            textoWhatsApp
+                        );
+
+                    window.open(
+                        enlaceWhatsApp,
+                        "_blank",
+                        "noopener,noreferrer"
+                    );
+                }
+            );
+
+            /* =========================================
+               PREGUNTAS FRECUENTES
+            ========================================= */
+
+            const preguntas =
+                document.querySelectorAll(
+                    ".pregunta-item"
+                );
+
+            preguntas.forEach(
+                function (pregunta) {
+
+                    const botonPregunta =
+                        pregunta.querySelector(
+                            ".pregunta-boton"
+                        );
+
+                    const respuesta =
+                        pregunta.querySelector(
+                            ".pregunta-respuesta"
+                        );
+
+                    botonPregunta.addEventListener(
+                        "click",
+                        function () {
+
+                            const estaActiva =
+                                pregunta.classList.contains(
+                                    "activa"
+                                );
+
+                            preguntas.forEach(
+                                function (otraPregunta) {
+
+                                    otraPregunta.classList.remove(
+                                        "activa"
+                                    );
+
+                                    const otraRespuesta =
+                                        otraPregunta.querySelector(
+                                            ".pregunta-respuesta"
+                                        );
+
+                                    otraRespuesta.style.maxHeight =
+                                        null;
+                                }
+                            );
+
+                            if (!estaActiva) {
+
+                                pregunta.classList.add(
+                                    "activa"
+                                );
+
+                                respuesta.style.maxHeight =
+                                    respuesta.scrollHeight +
+                                    "px";
+                            }
+                        }
+                    );
+                }
+            );
+
+            /* =========================================
+               AÑO AUTOMÁTICO
+            ========================================= */
+
+            document.getElementById(
+                "anioActual"
+            ).textContent =
+                new Date().getFullYear();
+
+        });
+    </script>
+
+</body>
+</html>
+```

@@ -558,109 +558,109 @@
         }
 
         /* =============================================
-           SECCIÓN VIDEOS
-           VIDEO FACADE PATTERN:
-           Muestra thumbnail en lugar del iframe.
-           El iframe se carga SOLO cuando el usuario
-           hace click → mejora LCP, FCP y TTI.
-           ============================================= */
-        .seccion-videos {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
-        }
-        .videos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-        }
-        .video-card {
-            background: rgba(20, 15, 45, 0.5);
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-        .video-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(233, 69, 96, 0.3);
-        }
+   SECCIÓN VIDEOS
+============================================= */
 
-        /* Contenedor de video con ratio 16:9 */
-        .video-container {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%;
-            background: #000;
-        }
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
+.seccion-videos{
+    padding:80px 0;
+    background:linear-gradient(135deg,#0a0a0a 0%,#1a1a2e 100%);
+}
 
-        /* FACADE: thumbnail que reemplaza al iframe */
-        .video-facade {
-            cursor: pointer;
-        }
-        .video-facade img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
+.videos-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
+    gap:30px;
+}
 
-        /* Botón play sobre el thumbnail */
-        .video-play-btn {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 64px;
-            height: 64px;
-            background: rgba(233, 69, 96, 0.9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 22px;
-            z-index: 2;
-            transition: all 0.3s ease;
-            /* Offset de 2px para centrar visualmente el ícono play */
-            padding-left: 4px;
-        }
-        .video-facade:hover .video-play-btn {
-            background: var(--color-destacado);
-            transform: translate(-50%, -50%) scale(1.12);
-            box-shadow: 0 0 25px rgba(233, 69, 96, 0.6);
-        }
+.video-card{
+    background:rgba(20,15,45,.5);
+    border-radius:20px;
+    overflow:hidden;
+    border:1px solid rgba(233,69,96,.2);
+    transition:.35s;
+}
 
-        /* Gradiente oscuro bajo el thumbnail para legibilidad del título */
-        .video-facade::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 40%;
-            background: linear-gradient(transparent, rgba(0,0,0,0.6));
-            pointer-events: none;
-        }
+.video-card:hover{
+    transform:translateY(-8px);
+    border-color:var(--color-destacado);
+    box-shadow:0 15px 35px rgba(233,69,96,.35);
+}
 
-        .video-info { padding: 20px; }
-        .video-info h3 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: #00f3ff;
-        }
-        .video-info p {
-            color: var(--color-texto-secundario);
-            font-size: 0.9rem;
-        }
+.video-container{
+    position:relative;
+    width:100%;
+    aspect-ratio:16/9;
+    background:#000;
+}
 
+.video-container iframe{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    border:0;
+}
+
+.video-info{
+    padding:22px;
+}
+
+.video-info h3{
+    color:#00f3ff;
+    margin-bottom:10px;
+    font-size:1.2rem;
+}
+
+.video-info p{
+    color:var(--color-texto-secundario);
+    line-height:1.6;
+}
+
+@media(max-width:768px){
+
+.videos-grid{
+
+display:flex;
+
+overflow-x:auto;
+
+gap:20px;
+
+padding-bottom:20px;
+
+scroll-snap-type:x mandatory;
+
+scrollbar-width:none;
+
+-webkit-overflow-scrolling:touch;
+
+}
+
+.videos-grid::-webkit-scrollbar{
+display:none;
+}
+
+.video-card{
+
+flex:0 0 85%;
+
+min-width:300px;
+
+scroll-snap-align:start;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.video-card{
+
+flex:0 0 92%;
+
+}
+
+}
         /* =============================================
            SECCIÓN CUADRO EN TU MURO
            ============================================= */
@@ -1316,7 +1316,7 @@
                         </ul>
                     </li>
                     <li><a href="#videos" class="enlace-menu">Videos</a></li>
-                    <li><a href="#contacto" class="enlace-menu">Contacto</a></li>
+                    <li><a href="contacto.html" class="enlace-menu">Contacto</a></li>
                 </ul>
 
                 <!-- Iconos usuario -->
@@ -1598,88 +1598,108 @@
     </section>
     
     
-    <!-- =============================================
-         SECCIÓN VIDEOS
-         FIX: todos los videos usan el mismo contenedor 16:9.
-         Para YouTube normal o Shorts se usa SOLO el ID en data-video-id.
-         ============================================= -->
-    <section class="seccion-videos" id="videos">
-        <div class="contenedor-seccion">
-            <h2 class="titulo-seccion">📹 Mira cómo se hacen</h2>
-            <p class="subtitulo-seccion">Descubre el proceso de sublimación y la calidad de nuestros cuadros</p>
-            <div class="videos-grid">
+   <!-- =============================================
+     SECCIÓN VIDEOS
+============================================= -->
 
-                <div class="video-card">
-                    <div class="video-container video-facade"
-                         data-video-id="za5xoOvhcgs"
-                         role="button"
-                         tabindex="0"
-                         aria-label="Reproducir: Proceso de sublimación paso a paso">
-                        <img src="https://img.youtube.com/vi/za5xoOvhcgs/hqdefault.jpg"
-                             alt="Proceso de sublimación paso a paso"
-                             loading="lazy"
-                             width="480"
-                             height="270">
-                        <button class="video-play-btn" aria-label="Reproducir video" tabindex="-1">
-                            <i class="fas fa-play" aria-hidden="true"></i>
-                        </button>
-                    </div>
-                    <div class="video-info">
-                        <h3>✨ Proceso de sublimación paso a paso</h3>
-                        <p>Conoce cómo transformamos tus imágenes en obras de arte sobre aluminio.</p>
-                    </div>
+<section class="seccion-videos" id="videos">
+
+    <div class="contenedor-seccion">
+
+        <h2 class="titulo-seccion">
+            📹 Mira cómo se hacen
+        </h2>
+
+        <p class="subtitulo-seccion">
+            Descubre el proceso de sublimación y la calidad de nuestros cuadros
+        </p>
+
+        <div class="videos-grid">
+
+            <!-- VIDEO 1 -->
+
+            <article class="video-card">
+
+                <div class="video-container">
+
+                    <iframe
+                        src="https://www.youtube.com/embed/za5xoOvhcgs"
+                        title="Proceso de sublimación paso a paso"
+                        loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+
                 </div>
 
-                <div class="video-card">
-                    <!-- URL original: https://www.youtube.com/shorts/c67wuFWtKGc?feature=share -->
-                    <div class="video-container video-facade"
-                         data-video-id="c67wuFWtKGc"
-                         role="button"
-                         tabindex="0"
-                         aria-label="Reproducir: Calidad Full HD y colores vibrantes">
-                        <img src="https://img.youtube.com/vi/c67wuFWtKGc/hqdefault.jpg"
-                             alt="Calidad Full HD y colores vibrantes"
-                             loading="lazy"
-                             width="480"
-                             height="270">
-                        <button class="video-play-btn" aria-label="Reproducir video" tabindex="-1">
-                            <i class="fas fa-play" aria-hidden="true"></i>
-                        </button>
-                    </div>
-                    <div class="video-info">
-                        <h3>🎨 Calidad Full HD y colores vibrantes</h3>
-                        <p>Comparativa entre impresión tradicional y sublimación en aluminio.</p>
-                    </div>
+                <div class="video-info">
+
+                    <h3>✨ Proceso de sublimación paso a paso</h3>
+
+                    <p>
+                        Conoce cómo transformamos tus imágenes en obras de arte sobre aluminio.
+                    </p>
+
                 </div>
 
-                <div class="video-card">
-                    <!-- URL original: https://www.youtube.com/shorts/MknCdM0E1Pw?feature=share -->
-                    <div class="video-container video-facade"
-                         data-video-id="MknCdM0E1Pw"
-                         role="button"
-                         tabindex="0"
-                         aria-label="Reproducir: Cómo colgar tu cuadro de aluminio">
-                        <img src="https://img.youtube.com/vi/MknCdM0E1Pw/hqdefault.jpg"
-                             alt="Cómo colgar tu cuadro de aluminio"
-                             loading="lazy"
-                             width="480"
-                             height="270">
-                        <button class="video-play-btn" aria-label="Reproducir video" tabindex="-1">
-                            <i class="fas fa-play" aria-hidden="true"></i>
-                        </button>
-                    </div>
-                    <div class="video-info">
-                        <h3>🖼️ Cómo colgar tu cuadro de aluminio</h3>
-                        <p>Consejos de instalación y cuidado de tu obra.</p>
-                    </div>
+            </article>
+
+            <!-- VIDEO 2 -->
+
+            <article class="video-card">
+
+                <div class="video-container">
+
+                    <iframe width="1014" height="570" src="Emprende Tu Negocio de Cuadros de Anime ¡Sin Máquinas!.mp4" title="BEAUTYSUB HD metal prints gloss silver and matte silver" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
 
-            </div>
-            <p class="scroll-hint" aria-hidden="true">
-                <i class="fas fa-hand-point-right"></i> Desliza para ver más
-            </p>
+                <div class="video-info">
+
+                    <h3>🎨 Calidad Full HD y colores vibrantes</h3>
+
+                    <p>
+                        Mira la diferencia entre una impresión tradicional y una impresión en aluminio HD.
+                    </p>
+
+                </div>
+
+            </article>
+
+            <!-- VIDEO 3 -->
+
+            <article class="video-card">
+
+                <div class="video-container">
+
+<iframe src="Stunning Metal Prints That POP! â_¨ð___ð___ï¸_ð__§.mp4" width="267" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                </div>
+
+                <div class="video-info">
+
+                    <h3>🖼️ Cómo instalar tu cuadro</h3>
+
+                    <p>
+                        Aprende lo fácil que es instalar un cuadro de aluminio en cualquier muro.
+                    </p>
+
+                </div>
+
+            </article>
+
         </div>
-    </section>
+
+        <p class="scroll-hint" aria-hidden="true">
+
+            <i class="fas fa-hand-point-right"></i>
+
+            Desliza para ver más
+
+        </p>
+
+    </div>
+
+</section>
 
 
     <!-- =============================================
@@ -1785,7 +1805,7 @@
                     <p><i class="fas fa-phone" aria-hidden="true"></i> +56 9 1234 5678</p>
                     <p>
                         <i class="fab fa-whatsapp" aria-hidden="true"></i>
-                        <a href="https://wa.me/56912345678" rel="noopener noreferrer">+56 9 1234 5678</a>
+                        <a href="https://wa.me/56982045756" rel="noopener noreferrer">+56 9 1234 5678</a>
                     </p>
                 </div>
             </div>
@@ -1904,55 +1924,6 @@
             });
         });
 
-
-        /* ================================================
-           VIDEO FACADE PATTERN
-           Al hacer click en el thumbnail se inyecta el iframe
-           de YouTube con autoplay=1.
-           Evita cargar 3 iframes pesados al iniciar la página.
-           ================================================ */
-        document.querySelectorAll('.video-facade').forEach(facade => {
-
-            // Activar por click
-            facade.addEventListener('click', function () {
-                cargarVideo(this);
-            });
-
-            // Activar por teclado (Enter / Space) — accesibilidad
-            facade.addEventListener('keydown', function (e) {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    cargarVideo(this);
-                }
-            });
-        });
-
-        /**
-         * Reemplaza el facade (thumbnail + botón play) con
-         * un iframe real de YouTube con autoplay.
-         * @param {HTMLElement} facadeEl - El contenedor .video-facade
-         */
-        function cargarVideo(facadeEl) {
-            const videoId = facadeEl.dataset.videoId;
-            if (!videoId) return;
-
-            const iframe = document.createElement('iframe');
-            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&playsinline=1`;
-            iframe.title = facadeEl.getAttribute('aria-label') || 'Video de YouTube';
-            iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-            iframe.referrerPolicy = 'strict-origin-when-cross-origin';
-            iframe.allowFullscreen = true;
-
-            // Limpiar contenido del facade e insertar iframe
-            facadeEl.innerHTML = '';
-            facadeEl.appendChild(iframe);
-
-            // Quitar atributos interactivos ya que el iframe toma el control
-            facadeEl.removeAttribute('role');
-            facadeEl.removeAttribute('tabindex');
-            facadeEl.style.cursor = 'default';
-            facadeEl.classList.remove('video-facade');
-        }
     </script>
 
 </body>

@@ -69,7 +69,8 @@
         "ignore": [
           "video[controlslist]",
           "video[playsinline]",
-          "meta[name=theme-color]"
+          "meta[name=theme-color]",
+          "iframe[loading]"
         ]
       }
     ],
