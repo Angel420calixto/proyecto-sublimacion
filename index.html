@@ -1270,6 +1270,452 @@ flex:0 0 92%;
             }
         }
 
+
+        /* =============================================
+           AJUSTES SOLICITADOS: VIDEOS MOBILE + CARRUSEL INFO
+           Se agregan al final para respetar el diseño existente.
+           ============================================= */
+        .info-carrusel {
+            position: relative;
+            padding: 0 !important;
+            min-height: 360px;
+            touch-action: pan-y;
+            user-select: none;
+        }
+
+        .info-carrusel-pista {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 360px;
+            overflow: hidden;
+            border-radius: inherit;
+        }
+
+        .info-slide {
+            position: absolute;
+            inset: 0;
+            margin: 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(18px);
+            transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at center, rgba(233,69,96,0.10), rgba(6,6,15,0.96));
+        }
+
+        .info-slide.activo {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+            z-index: 1;
+        }
+
+        .info-slide img {
+            width: 100% !important;
+            height: 100% !important;
+            min-height: 360px;
+            object-fit: contain !important;
+            object-position: center !important;
+            transform: none !important;
+            display: block;
+        }
+
+        .info-carrusel-flecha {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 3;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            background: rgba(13,13,26,0.82);
+            border: 1px solid rgba(255,255,255,0.25);
+            box-shadow: 0 5px 18px rgba(0,0,0,0.35);
+            transition: var(--transicion-rapida);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+        }
+
+        .info-carrusel-flecha:hover,
+        .info-carrusel-flecha:focus-visible {
+            background: var(--color-destacado);
+            transform: translateY(-50%) scale(1.08);
+        }
+
+        .info-carrusel-flecha.anterior { left: 14px; }
+        .info-carrusel-flecha.siguiente { right: 14px; }
+
+        .info-carrusel-indicadores {
+            position: absolute;
+            left: 50%;
+            bottom: 14px;
+            transform: translateX(-50%);
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 10px;
+            border-radius: 20px;
+            background: rgba(13,13,26,0.72);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+        }
+
+        .info-indicador {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.45);
+            transition: var(--transicion-rapida);
+        }
+
+        .info-indicador.activo {
+            width: 24px;
+            border-radius: 10px;
+            background: var(--color-destacado);
+        }
+
+        @media (max-width: 768px) {
+            /* Cada video usa todo el ancho útil del contenedor en móvil. */
+            .seccion-videos .videos-grid {
+                display: flex;
+                width: 100%;
+                gap: 16px;
+                margin-top: 32px;
+                padding: 0 0 18px;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                scroll-padding-inline: 0;
+            }
+
+            .seccion-videos .video-card {
+                flex: 0 0 100% !important;
+                width: 100% !important;
+                min-width: 100% !important;
+                max-width: 100% !important;
+                scroll-snap-align: start;
+                scroll-snap-stop: always;
+                border-radius: 18px;
+            }
+
+            .seccion-videos .video-container {
+                width: 100%;
+                aspect-ratio: 16 / 9;
+                min-height: 0;
+            }
+
+            .seccion-videos .video-container iframe,
+            .seccion-videos .video-container video {
+                width: 100% !important;
+                height: 100% !important;
+            }
+
+            .seccion-videos .video-info {
+                padding: 20px 18px 22px;
+            }
+
+            .info-carrusel,
+            .info-carrusel-pista,
+            .info-slide img {
+                min-height: 320px;
+            }
+
+            .info-carrusel {
+                width: 100%;
+                min-width: 100%;
+            }
+
+            .info-carrusel-flecha {
+                width: 48px;
+                height: 48px;
+                font-size: 1.1rem;
+            }
+
+            .info-carrusel-flecha.anterior { left: 10px; }
+            .info-carrusel-flecha.siguiente { right: 10px; }
+        }
+
+        @media (max-width: 480px) {
+            .seccion-videos .video-card {
+                flex-basis: 100% !important;
+            }
+
+            .seccion-videos .video-info h3 {
+                font-size: 1.15rem;
+            }
+
+            .seccion-videos .video-info p {
+                font-size: 0.98rem;
+            }
+
+            .info-carrusel,
+            .info-carrusel-pista,
+            .info-slide img {
+                min-height: 285px;
+            }
+        }
+
+
+
+        /* =============================================
+           CORRECCIÓN DEFINITIVA DE VIDEOS
+           Los MP4 usan <video> y cada formato conserva
+           su proporción real, sin recorte ni espacio vacío.
+           ============================================= */
+        .video-container .video-local {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            background: #000;
+            object-fit: contain;
+        }
+
+        .video-container:has(.video-horizontal) {
+            aspect-ratio: 16 / 9;
+        }
+
+        .video-container:has(.video-vertical) {
+            aspect-ratio: 267 / 476;
+            max-width: 320px;
+            margin-inline: auto;
+        }
+
+        @media (max-width: 768px) {
+            .seccion-videos .contenedor-seccion {
+                padding-inline: 0;
+            }
+
+            .seccion-videos .titulo-seccion,
+            .seccion-videos .subtitulo-seccion,
+            .seccion-videos .scroll-hint {
+                padding-inline: 16px;
+            }
+
+            .seccion-videos .videos-grid {
+                width: 100%;
+                gap: 0;
+                padding: 0 0 18px;
+                margin-top: 32px;
+                scroll-padding-inline: 0;
+            }
+
+            .seccion-videos .video-card {
+                flex: 0 0 100vw !important;
+                width: 100vw !important;
+                min-width: 100vw !important;
+                max-width: 100vw !important;
+                border-left: 0;
+                border-right: 0;
+                border-radius: 0;
+            }
+
+            .seccion-videos .video-container {
+                width: 100%;
+                max-width: none;
+                margin: 0;
+                border-radius: 0;
+            }
+
+            .seccion-videos .video-container iframe,
+            .seccion-videos .video-container .video-local {
+                display: block;
+                width: 100% !important;
+                height: 100% !important;
+                margin: 0;
+            }
+
+            .seccion-videos .video-container:has(.video-vertical) {
+                width: 100%;
+                max-width: none;
+                aspect-ratio: 267 / 476;
+            }
+
+            .seccion-videos .video-info {
+                padding: 22px 18px 26px;
+            }
+        }
+
+        /* =============================================
+           VIDEO 2 VERTICAL SIN FRANJAS LATERALES
+           El archivo está guardado en un lienzo horizontal,
+           pero su contenido útil es vertical. Esta ventana 9:16
+           recorta únicamente los laterales oscuros sin deformar.
+           ============================================= */
+        .video-container:has(.video-vertical-recortado) {
+            width: min(100%, 360px);
+            max-width: 360px;
+            aspect-ratio: 9 / 16;
+            margin-inline: auto;
+            background: transparent;
+        }
+
+        .video-container .video-vertical-recortado {
+            position: absolute;
+            inset: 0;
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            object-position: center center;
+            background: transparent;
+        }
+
+        .video-card:has(.video-vertical-recortado) {
+            width: min(100%, 390px);
+            max-width: 390px;
+            justify-self: center;
+        }
+
+        @media (max-width: 768px) {
+            .seccion-videos .video-card:has(.video-vertical-recortado) {
+                flex: 0 0 min(82vw, 390px) !important;
+                width: min(82vw, 390px) !important;
+                min-width: min(82vw, 390px) !important;
+                max-width: min(82vw, 390px) !important;
+                margin-inline: calc((100vw - min(82vw, 390px)) / 2);
+                border-radius: 18px;
+                border-left: 1px solid rgba(233,69,96,.2);
+                border-right: 1px solid rgba(233,69,96,.2);
+            }
+
+            .seccion-videos .video-card:has(.video-vertical-recortado) .video-container {
+                width: 100%;
+                max-width: none;
+                aspect-ratio: 9 / 16;
+                margin: 0;
+                border-radius: 18px 18px 0 0;
+            }
+        }
+
+    
+
+        /* =============================================
+           VIDEOS ESTILO TIKTOK — CORRECCIÓN FINAL
+           El contenedor mantiene siempre formato 9:16.
+           Cada video se adapta con recorte centrado,
+           sin deformar la tarjeta ni dejar franjas vacías.
+           ============================================= */
+        .seccion-videos .videos-grid {
+            display: grid !important;
+            grid-template-columns: repeat(3, minmax(0, 330px)) !important;
+            justify-content: center !important;
+            align-items: start !important;
+            gap: 28px !important;
+        }
+
+        .seccion-videos .video-card,
+        .seccion-videos .video-card:has(.video-vertical-recortado) {
+            width: 100% !important;
+            min-width: 0 !important;
+            max-width: 330px !important;
+            margin: 0 !important;
+            border-radius: 20px !important;
+            overflow: hidden !important;
+        }
+
+        .seccion-videos .video-container,
+        .seccion-videos .video-container:has(.video-horizontal),
+        .seccion-videos .video-container:has(.video-vertical),
+        .seccion-videos .video-container:has(.video-vertical-recortado) {
+            position: relative !important;
+            width: 100% !important;
+            max-width: none !important;
+            aspect-ratio: 9 / 16 !important;
+            margin: 0 !important;
+            overflow: hidden !important;
+            background: #000 !important;
+            border-radius: 20px 20px 0 0 !important;
+        }
+
+        /* MP4 locales: llenan el marco vertical como TikTok. */
+        .seccion-videos .video-container .video-local,
+        .seccion-videos .video-container .video-vertical,
+        .seccion-videos .video-container .video-vertical-recortado {
+            position: absolute !important;
+            inset: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            object-position: center center !important;
+            background: #000 !important;
+            transform: none !important;
+        }
+
+        /* YouTube horizontal dentro del marco vertical:
+           se amplía proporcionalmente y se recortan los costados. */
+        .seccion-videos .video-container iframe {
+            position: absolute !important;
+            top: 0 !important;
+            left: 50% !important;
+            width: 316.1% !important;
+            height: 100% !important;
+            max-width: none !important;
+            transform: translateX(-50%) !important;
+            border: 0 !important;
+        }
+
+        @media (max-width: 768px) {
+            .seccion-videos .contenedor-seccion {
+                padding-inline: 16px !important;
+            }
+
+            .seccion-videos .videos-grid {
+                display: flex !important;
+                justify-content: flex-start !important;
+                width: 100% !important;
+                gap: 16px !important;
+                margin-top: 32px !important;
+                padding: 0 6vw 20px !important;
+                overflow-x: auto !important;
+                scroll-snap-type: x mandatory !important;
+                scroll-padding-inline: 6vw !important;
+                scrollbar-width: none !important;
+                -webkit-overflow-scrolling: touch !important;
+            }
+
+            .seccion-videos .videos-grid::-webkit-scrollbar {
+                display: none !important;
+            }
+
+            .seccion-videos .video-card,
+            .seccion-videos .video-card:has(.video-vertical-recortado) {
+                flex: 0 0 min(82vw, 360px) !important;
+                width: min(82vw, 360px) !important;
+                min-width: min(82vw, 360px) !important;
+                max-width: min(82vw, 360px) !important;
+                margin: 0 !important;
+                scroll-snap-align: center !important;
+                scroll-snap-stop: always !important;
+                border-left: 1px solid rgba(233,69,96,.2) !important;
+                border-right: 1px solid rgba(233,69,96,.2) !important;
+                border-radius: 20px !important;
+            }
+
+            .seccion-videos .video-container,
+            .seccion-videos .video-card:has(.video-vertical-recortado) .video-container {
+                width: 100% !important;
+                aspect-ratio: 9 / 16 !important;
+                border-radius: 20px 20px 0 0 !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .seccion-videos .video-card,
+            .seccion-videos .video-card:has(.video-vertical-recortado) {
+                flex-basis: 86vw !important;
+                width: 86vw !important;
+                min-width: 86vw !important;
+                max-width: 86vw !important;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -1394,13 +1840,51 @@ flex:0 0 92%;
                         <li><i class="fas fa-check-circle" aria-hidden="true"></i> Fácil limpieza: solo un paño húmedo</li>
                     </ul>
                 </div>
-                <div class="info-imagen">
-                    <!-- NOTA: ruta con espacios → considera URL-encoding o renombrar archivo -->
-                    <img src="img/autos%20y%20motos/ChatGPT%20Image%208%20abr%202026%2C%2010_47_30%20p.m..png"
-                         alt="Detalle de calidad de cuadro en aluminio"
-                         loading="lazy"
-                         width="600"
-                         height="450">
+                <div class="info-imagen info-carrusel" id="infoCarrusel" aria-label="Galería de cuadros en aluminio">
+                    <div class="info-carrusel-pista">
+                        <figure class="info-slide activo">
+                            <img src="img/autos%20y%20motos/ChatGPT%20Image%208%20abr%202026%2C%2010_47_30%20p.m..png"
+                                 alt="Detalle de calidad de cuadro en aluminio"
+                                 loading="lazy"
+                                 width="600"
+                                 height="450">
+                        </figure>
+                        <figure class="info-slide">
+                            <img src="img/jujutsukaisen/satoru extension.jpeg"
+                                 alt="Cuadro de aluminio instalado en una sala de estar"
+                                 loading="lazy"
+                                 width="600"
+                                 height="450">
+                        </figure>
+                        <figure class="info-slide">
+                            <img src="img/naruto/kakashi.jpeg"
+                                 alt="Cuadro de aluminio instalado en una oficina"
+                                 loading="lazy"
+                                 width="600"
+                                 height="450">
+                        </figure>
+                        <figure class="info-slide">
+                            <img src="img/shelby.jpeg"
+                                 alt="Cuadro de aluminio instalado en un dormitorio"
+                                 loading="lazy"
+                                 width="600"
+                                 height="450">
+                        </figure>
+                    </div>
+
+                    <button class="info-carrusel-flecha anterior" type="button" aria-label="Ver imagen anterior">
+                        <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                    </button>
+                    <button class="info-carrusel-flecha siguiente" type="button" aria-label="Ver imagen siguiente">
+                        <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                    </button>
+
+                    <div class="info-carrusel-indicadores" aria-label="Seleccionar imagen">
+                        <button class="info-indicador activo" type="button" aria-label="Ver imagen 1" aria-current="true"></button>
+                        <button class="info-indicador" type="button" aria-label="Ver imagen 2"></button>
+                        <button class="info-indicador" type="button" aria-label="Ver imagen 3"></button>
+                        <button class="info-indicador" type="button" aria-label="Ver imagen 4"></button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1651,7 +2135,14 @@ flex:0 0 92%;
 
                 <div class="video-container">
 
-                    <iframe width="1014" height="570" src="Emprende Tu Negocio de Cuadros de Anime ¡Sin Máquinas!.mp4" title="BEAUTYSUB HD metal prints gloss silver and matte silver" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <video class="video-local video-vertical-recortado"
+                           controls
+                           playsinline
+                           preload="metadata"
+                           aria-label="Calidad Full HD y colores vibrantes">
+                        <source src="Emprende Tu Negocio de Cuadros de Anime ¡Sin Máquinas!.mp4" type="video/mp4">
+                        Tu navegador no puede reproducir este video.
+                    </video>
                 </div>
 
                 <div class="video-info">
@@ -1672,7 +2163,14 @@ flex:0 0 92%;
 
                 <div class="video-container">
 
-<iframe src="Stunning Metal Prints That POP! â_¨ð___ð___ï¸_ð__§.mp4" width="267" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    <video class="video-local video-vertical"
+                           controls
+                           playsinline
+                           preload="metadata"
+                           aria-label="Cómo instalar tu cuadro">
+                        <source src="Stunning Metal Prints That POP! â_¨ð___ð___ï¸_ð__§.mp4" type="video/mp4">
+                        Tu navegador no puede reproducir este video.
+                    </video>
                 </div>
 
                 <div class="video-info">
@@ -1923,6 +2421,71 @@ flex:0 0 92%;
                 }
             });
         });
+
+
+        /* ================================================
+           CARRUSEL DE LA SECCIÓN INFO
+           Flechas, indicadores, teclado y gesto táctil.
+           ================================================ */
+        const infoCarrusel = document.getElementById('infoCarrusel');
+
+        if (infoCarrusel) {
+            const slides = Array.from(infoCarrusel.querySelectorAll('.info-slide'));
+            const indicadores = Array.from(infoCarrusel.querySelectorAll('.info-indicador'));
+            const btnAnterior = infoCarrusel.querySelector('.info-carrusel-flecha.anterior');
+            const btnSiguiente = infoCarrusel.querySelector('.info-carrusel-flecha.siguiente');
+            let indiceActual = 0;
+            let inicioX = 0;
+            let desplazamientoX = 0;
+
+            function mostrarSlide(nuevoIndice) {
+                indiceActual = (nuevoIndice + slides.length) % slides.length;
+
+                slides.forEach((slide, indice) => {
+                    const activo = indice === indiceActual;
+                    slide.classList.toggle('activo', activo);
+                    slide.setAttribute('aria-hidden', (!activo).toString());
+                });
+
+                indicadores.forEach((indicador, indice) => {
+                    const activo = indice === indiceActual;
+                    indicador.classList.toggle('activo', activo);
+                    indicador.setAttribute('aria-current', activo ? 'true' : 'false');
+                });
+            }
+
+            btnAnterior.addEventListener('click', () => mostrarSlide(indiceActual - 1));
+            btnSiguiente.addEventListener('click', () => mostrarSlide(indiceActual + 1));
+
+            indicadores.forEach((indicador, indice) => {
+                indicador.addEventListener('click', () => mostrarSlide(indice));
+            });
+
+            infoCarrusel.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') mostrarSlide(indiceActual - 1);
+                if (e.key === 'ArrowRight') mostrarSlide(indiceActual + 1);
+            });
+
+            infoCarrusel.addEventListener('touchstart', (e) => {
+                inicioX = e.touches[0].clientX;
+                desplazamientoX = 0;
+            }, { passive: true });
+
+            infoCarrusel.addEventListener('touchmove', (e) => {
+                desplazamientoX = e.touches[0].clientX - inicioX;
+            }, { passive: true });
+
+            infoCarrusel.addEventListener('touchend', () => {
+                const umbral = 45;
+                if (desplazamientoX <= -umbral) mostrarSlide(indiceActual + 1);
+                if (desplazamientoX >= umbral) mostrarSlide(indiceActual - 1);
+                inicioX = 0;
+                desplazamientoX = 0;
+            });
+
+            infoCarrusel.setAttribute('tabindex', '0');
+            mostrarSlide(0);
+        }
 
     </script>
 
