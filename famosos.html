@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+
+    <title>SublimArts - Cuadros de Cantantes y Bandas sobre Aluminio HD</title>
+    <meta name="description" content="Cuadros de cantantes, bandas y leyendas musicales impresos sobre aluminio HD. Rock, metal, pop, rap, reggaetón, música latina y K-Pop.">
+    <meta name="keywords" content="cuadros de cantantes, cuadros de bandas, cuadros metal, rock, metal, pop, rap, reggaetón, kpop, aluminio sublimado">
+    <meta name="author" content="SublimArts">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="SublimArts - Cuadros de Cantantes y Bandas">
+    <meta property="og:description" content="Tus artistas favoritos impresos sobre aluminio HD premium.">
+    <meta property="og:image" content="img/logo.jpg">
+
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="manu.css">
+
+    <style>
+        .banner-principal {
+            background-image: linear-gradient(135deg, rgba(10,10,20,.92), rgba(40,10,45,.62)), url('img/cantantes/banner-cantantes.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .banner-principal .contenido-banner { background: rgba(0,0,0,.5); padding: 20px; border-radius: 15px; -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); }
+        .banner-principal .imagen-banner { display:none; }
+        .btn-ver-detalle-modal { display:inline-block; background:var(--color-destacado); color:white; padding:6px 14px; border-radius:6px; text-decoration:none; font-size:.85rem; font-weight:600; transition:.3s; }
+        .btn-ver-detalle-modal:hover { background:#ff5773; transform:translateY(-2px); box-shadow:0 4px 12px rgba(233,69,96,.4); }
+        @media(max-width:768px){.banner-principal{padding:2rem 0;}}
+    </style>
+</head>
+<body>
+
+    <a href="https://wa.me/56982045756" class="whatsapp-button" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+
+    <header class="header-principal">
+        <nav class="navegacion" aria-label="Menú principal">
+            <div class="contenedor-navegacion">
+                <div class="logo-contenedor">
+                    <img src="ChatGPT%20Image%2011%20mar%202026%2C%2002_12_48%20a.m..png" alt="SublimArts - Logo" class="logo" width="50" height="50" loading="eager" onerror="this.style.display='none'">
+                    <span class="titulo-logo">SublimArts</span>
+                </div>
+
+                <ul class="menu-principal" id="menu-principal">
+                    <li><a href="index.html" class="enlace-menu">Inicio</a></li>
+                    <li class="menu-con-desplegable" id="categorias-dropdown">
+                        <button class="enlace-menu-desplegable" id="categorias-btn" aria-expanded="false" aria-haspopup="true" aria-controls="categorias-submenu">Categorías <i class="fas fa-chevron-down flecha-desplegable" aria-hidden="true"></i></button>
+                        <ul class="submenu" id="categorias-submenu" role="menu">
+                            <li role="none"><a href="#cantantes-populares" role="menuitem">Cantantes Populares</a></li>
+                            <li role="none"><a href="#rock-clasico" role="menuitem">Rock Clásico</a></li>
+                            <li role="none"><a href="#metal-hard-rock" role="menuitem">Metal y Hard Rock</a></li>
+                            <li role="none"><a href="#pop-internacional" role="menuitem">Pop Internacional</a></li>
+                            <li role="none"><a href="#rap-hiphop" role="menuitem">Rap y Hip-Hop</a></li>
+                            <li role="none"><a href="#reggaeton-urbano" role="menuitem">Reggaetón y Urbano</a></li>
+                            <li role="none"><a href="#musica-latina" role="menuitem">Música Latina</a></li>
+                            <li role="none"><a href="#kpop" role="menuitem">K-Pop</a></li>
+                            <li role="none"><a href="#leyendas-musica" role="menuitem">Leyendas de la Música</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="categoria1.html" class="enlace-menu">Anime</a></li>
+                    <li><a href="categorias.html" class="enlace-menu">Autos y Motos</a></li>
+                    <li><a href="deportes.html" class="enlace-menu">Deportes</a></li>
+                    <li><a href="#proceso-fabricacion" class="enlace-menu">¿Qué es la Impresión Metálica?</a></li>
+                </ul>
+
+                <div class="iconos-usuario">
+                    <a href="https://wa.me/56982045756" class="icono-usuario" aria-label="Comprar por WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i><span class="texto-icono">Comprar</span></a>
+                </div>
+
+                <button class="boton-menu-mobile" id="boton-menu-mobile" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-principal"><i class="fas fa-bars" aria-hidden="true"></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="menu-overlay" id="menu-overlay" aria-hidden="true"></div>
+
+    <main id="contenido-principal">
+        <section class="banner-principal" aria-label="Banner de cantantes y bandas">
+            <div class="contenedor-banner">
+                <div class="contenido-banner">
+                    <h1 class="titulo-banner">Cuadros de Cantantes y Bandas</h1>
+                    <p class="texto-banner">Transforma a tus artistas favoritos en arte duradero sobre aluminio HD.</p>
+                    <a href="#cantantes-populares" class="boton-banner">Ver Catálogo</a>
+                </div>
+                <div class="imagen-banner" aria-hidden="true"></div>
+            </div>
+        </section>
+
+        <section class="seccion-proceso-fabricacion" id="proceso-fabricacion">
+            <div class="contenedor-seccion">
+                <div class="encabezado-seccion"><h2 class="titulo-seccion">Así fabricamos tu cuadro</h2><p class="subtitulo-seccion">Calidad y dedicación en cada paso</p></div>
+                <div class="proceso-grid">
+                    <div class="proceso-paso"><div class="paso-icono"><i class="fas fa-file-image"></i><span class="paso-numero">1</span></div><h3>Recibimos tu diseño</h3><p>Elige una imagen del catálogo o envíanos la fotografía de tu artista favorito.</p><div class="paso-detalle"><span class="detalle-badge"><i class="fas fa-check"></i> Corrección de color</span><span class="detalle-badge"><i class="fas fa-check"></i> Ajuste de tamaño</span></div></div>
+                    <div class="proceso-paso"><div class="paso-icono"><i class="fas fa-print"></i><span class="paso-numero">2</span></div><h3>Impresión sublimada</h3><p>Transferimos la imagen al aluminio con colores vivos y gran definición.</p><div class="paso-detalle"><span class="detalle-badge"><i class="fas fa-check"></i> Alta definición</span><span class="detalle-badge"><i class="fas fa-check"></i> Colores vibrantes</span></div></div>
+                    <div class="proceso-paso"><div class="paso-icono"><i class="fas fa-gem"></i><span class="paso-numero">3</span></div><h3>Acabado premium</h3><p>Revisamos brillo, bordes y terminación para asegurar un resultado profesional.</p><div class="paso-detalle"><span class="detalle-badge"><i class="fas fa-check"></i> Aluminio 1 mm</span><span class="detalle-badge"><i class="fas fa-check"></i> Sin marco</span></div></div>
+                    <div class="proceso-paso"><div class="paso-icono"><i class="fas fa-box"></i><span class="paso-numero">4</span></div><h3>Empaque y entrega</h3><p>Protegemos tu cuadro para retiro o envío seguro.</p><div class="paso-detalle"><span class="detalle-badge"><i class="fas fa-check"></i> Embalaje seguro</span><span class="detalle-badge"><i class="fas fa-check"></i> Soporte incluido</span></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="seccion-popular" id="cantantes-populares">
+            <div class="contenedor-seccion">
+                <div class="encabezado-seccion"><h2 class="titulo-seccion">Cantantes Populares</h2><p class="subtitulo-seccion">Los artistas y bandas más buscados.</p></div>
+                <div class="grid-popular" id="grid-popular">
+                    <article class="item-popular" data-id="michael-jackson" data-nombre="Michael Jackson" data-precio="12990" data-imagen="img/cantantes/michael-jackson.jpg" data-miniatura1="img/cantantes/michael-jackson.jpg" data-miniatura2="img/cantantes/michael-jackson.jpg" data-miniatura3="img/cantantes/michael-jackson.jpg" data-miniatura4="img/cantantes/michael-jackson.jpg">
+                        <figure class="contenedor-imagen-popular"><img src="img/cantantes/michael-jackson.jpg" alt="Cuadro de Michael Jackson" loading="lazy" class="imagen-producto" data-titulo="Michael Jackson" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=michael-jackson'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Michael Jackson</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="item-popular" data-id="freddie-mercury" data-nombre="Freddie Mercury" data-precio="12990" data-imagen="img/cantantes/freddie-mercury.jpg" data-miniatura1="img/cantantes/freddie-mercury.jpg" data-miniatura2="img/cantantes/freddie-mercury.jpg" data-miniatura3="img/cantantes/freddie-mercury.jpg" data-miniatura4="img/cantantes/freddie-mercury.jpg">
+                        <figure class="contenedor-imagen-popular"><img src="img/cantantes/freddie-mercury.jpg" alt="Cuadro de Freddie Mercury" loading="lazy" class="imagen-producto" data-titulo="Freddie Mercury" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=freddie-mercury'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Freddie Mercury</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="item-popular" data-id="elvis-presley" data-nombre="Elvis Presley" data-precio="12990" data-imagen="img/cantantes/elvis-presley.jpg" data-miniatura1="img/cantantes/elvis-presley.jpg" data-miniatura2="img/cantantes/elvis-presley.jpg" data-miniatura3="img/cantantes/elvis-presley.jpg" data-miniatura4="img/cantantes/elvis-presley.jpg">
+                        <figure class="contenedor-imagen-popular"><img src="img/cantantes/elvis-presley.jpg" alt="Cuadro de Elvis Presley" loading="lazy" class="imagen-producto" data-titulo="Elvis Presley" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=elvis-presley'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Elvis Presley</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="item-popular" data-id="taylor-swift" data-nombre="Taylor Swift" data-precio="12990" data-imagen="img/cantantes/taylor-swift.jpg" data-miniatura1="img/cantantes/taylor-swift.jpg" data-miniatura2="img/cantantes/taylor-swift.jpg" data-miniatura3="img/cantantes/taylor-swift.jpg" data-miniatura4="img/cantantes/taylor-swift.jpg">
+                        <figure class="contenedor-imagen-popular"><img src="img/cantantes/taylor-swift.jpg" alt="Cuadro de Taylor Swift" loading="lazy" class="imagen-producto" data-titulo="Taylor Swift" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=taylor-swift'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Taylor Swift</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="item-popular" data-id="bad-bunny" data-nombre="Bad Bunny" data-precio="12990" data-imagen="img/cantantes/bad-bunny.jpg" data-miniatura1="img/cantantes/bad-bunny.jpg" data-miniatura2="img/cantantes/bad-bunny.jpg" data-miniatura3="img/cantantes/bad-bunny.jpg" data-miniatura4="img/cantantes/bad-bunny.jpg">
+                        <figure class="contenedor-imagen-popular"><img src="img/cantantes/bad-bunny.jpg" alt="Cuadro de Bad Bunny" loading="lazy" class="imagen-producto" data-titulo="Bad Bunny" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=bad-bunny'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Bad Bunny</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="item-popular" data-id="eminem" data-nombre="Eminem" data-precio="12990" data-imagen="img/cantantes/eminem.jpg" data-miniatura1="img/cantantes/eminem.jpg" data-miniatura2="img/cantantes/eminem.jpg" data-miniatura3="img/cantantes/eminem.jpg" data-miniatura4="img/cantantes/eminem.jpg">
+                        <figure class="contenedor-imagen-popular"><img src="img/cantantes/eminem.jpg" alt="Cuadro de Eminem" loading="lazy" class="imagen-producto" data-titulo="Eminem" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=eminem'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Eminem</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="item-popular" data-id="bts" data-nombre="BTS" data-precio="12990" data-imagen="img/cantantes/bts.jpg" data-miniatura1="img/cantantes/bts.jpg" data-miniatura2="img/cantantes/bts.jpg" data-miniatura3="img/cantantes/bts.jpg" data-miniatura4="img/cantantes/bts.jpg">
+                        <figure class="contenedor-imagen-popular"><img src="img/cantantes/bts.jpg" alt="Cuadro de BTS" loading="lazy" class="imagen-producto" data-titulo="BTS" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=bts'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">BTS</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="item-popular" data-id="metallica" data-nombre="Metallica" data-precio="12990" data-imagen="img/cantantes/metallica.jpg" data-miniatura1="img/cantantes/metallica.jpg" data-miniatura2="img/cantantes/metallica.jpg" data-miniatura3="img/cantantes/metallica.jpg" data-miniatura4="img/cantantes/metallica.jpg">
+                        <figure class="contenedor-imagen-popular"><img src="img/cantantes/metallica.jpg" alt="Cuadro de Metallica" loading="lazy" class="imagen-producto" data-titulo="Metallica" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=metallica'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Metallica</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="item-popular" data-id="the-beatles" data-nombre="The Beatles" data-precio="12990" data-imagen="img/cantantes/the-beatles.jpg" data-miniatura1="img/cantantes/the-beatles.jpg" data-miniatura2="img/cantantes/the-beatles.jpg" data-miniatura3="img/cantantes/the-beatles.jpg" data-miniatura4="img/cantantes/the-beatles.jpg">
+                        <figure class="contenedor-imagen-popular"><img src="img/cantantes/the-beatles.jpg" alt="Cuadro de The Beatles" loading="lazy" class="imagen-producto" data-titulo="The Beatles" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=the-beatles'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">The Beatles</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="item-popular" data-id="bruno-mars" data-nombre="Bruno Mars" data-precio="12990" data-imagen="img/cantantes/bruno-mars.jpg" data-miniatura1="img/cantantes/bruno-mars.jpg" data-miniatura2="img/cantantes/bruno-mars.jpg" data-miniatura3="img/cantantes/bruno-mars.jpg" data-miniatura4="img/cantantes/bruno-mars.jpg">
+                        <figure class="contenedor-imagen-popular"><img src="img/cantantes/bruno-mars.jpg" alt="Cuadro de Bruno Mars" loading="lazy" class="imagen-producto" data-titulo="Bruno Mars" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=bruno-mars'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Bruno Mars</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="item-popular" data-id="shakira" data-nombre="Shakira" data-precio="12990" data-imagen="img/cantantes/shakira.jpg" data-miniatura1="img/cantantes/shakira.jpg" data-miniatura2="img/cantantes/shakira.jpg" data-miniatura3="img/cantantes/shakira.jpg" data-miniatura4="img/cantantes/shakira.jpg">
+                        <figure class="contenedor-imagen-popular"><img src="img/cantantes/shakira.jpg" alt="Cuadro de Shakira" loading="lazy" class="imagen-producto" data-titulo="Shakira" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=shakira'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Shakira</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="item-popular" data-id="bob-marley" data-nombre="Bob Marley" data-precio="12990" data-imagen="img/cantantes/bob-marley.jpg" data-miniatura1="img/cantantes/bob-marley.jpg" data-miniatura2="img/cantantes/bob-marley.jpg" data-miniatura3="img/cantantes/bob-marley.jpg" data-miniatura4="img/cantantes/bob-marley.jpg">
+                        <figure class="contenedor-imagen-popular"><img src="img/cantantes/bob-marley.jpg" alt="Cuadro de Bob Marley" loading="lazy" class="imagen-producto" data-titulo="Bob Marley" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=bob-marley'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Bob Marley</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                </div>
+                <div class="contenedor-boton-ver-mas"><button class="boton-ver-mas" id="boton-expandir-popular" data-target="grid-popular" data-expanded="false">Ver más</button></div>
+            </div>
+        </section>
+
+        <section class="seccion-productos" id="rock-clasico">
+            <div class="contenedor-seccion">
+                <div class="encabezado-seccion"><h2 class="titulo-seccion">Rock Clásico</h2><p class="subtitulo-seccion">Cuadros en aluminio HD de artistas y bandas de esta categoría.</p></div>
+                <div class="galeria-productos" id="galeria-rock-clasico">
+                    <article class="producto-item" data-id="queen" data-nombre="Queen" data-precio="12990" data-imagen="img/cantantes/queen.jpg" data-miniatura1="img/cantantes/queen.jpg" data-miniatura2="img/cantantes/queen.jpg" data-miniatura3="img/cantantes/queen.jpg" data-miniatura4="img/cantantes/queen.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/queen.jpg" alt="Cuadro de Queen" loading="lazy" class="imagen-producto" data-titulo="Queen" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=queen'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Queen</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="acdc" data-nombre="ACDC" data-precio="12990" data-imagen="img/cantantes/acdc.jpg" data-miniatura1="img/cantantes/acdc.jpg" data-miniatura2="img/cantantes/acdc.jpg" data-miniatura3="img/cantantes/acdc.jpg" data-miniatura4="img/cantantes/acdc.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/acdc.jpg" alt="Cuadro de ACDC" loading="lazy" class="imagen-producto" data-titulo="ACDC" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=acdc'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">ACDC</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="guns-n-roses" data-nombre="Guns N Roses" data-precio="12990" data-imagen="img/cantantes/guns-n-roses.jpg" data-miniatura1="img/cantantes/guns-n-roses.jpg" data-miniatura2="img/cantantes/guns-n-roses.jpg" data-miniatura3="img/cantantes/guns-n-roses.jpg" data-miniatura4="img/cantantes/guns-n-roses.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/guns-n-roses.jpg" alt="Cuadro de Guns N Roses" loading="lazy" class="imagen-producto" data-titulo="Guns N Roses" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=guns-n-roses'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Guns N Roses</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="nirvana" data-nombre="Nirvana" data-precio="12990" data-imagen="img/cantantes/nirvana.jpg" data-miniatura1="img/cantantes/nirvana.jpg" data-miniatura2="img/cantantes/nirvana.jpg" data-miniatura3="img/cantantes/nirvana.jpg" data-miniatura4="img/cantantes/nirvana.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/nirvana.jpg" alt="Cuadro de Nirvana" loading="lazy" class="imagen-producto" data-titulo="Nirvana" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=nirvana'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Nirvana</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="pink-floyd" data-nombre="Pink Floyd" data-precio="12990" data-imagen="img/cantantes/pink-floyd.jpg" data-miniatura1="img/cantantes/pink-floyd.jpg" data-miniatura2="img/cantantes/pink-floyd.jpg" data-miniatura3="img/cantantes/pink-floyd.jpg" data-miniatura4="img/cantantes/pink-floyd.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/pink-floyd.jpg" alt="Cuadro de Pink Floyd" loading="lazy" class="imagen-producto" data-titulo="Pink Floyd" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=pink-floyd'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Pink Floyd</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="led-zeppelin" data-nombre="Led Zeppelin" data-precio="12990" data-imagen="img/cantantes/led-zeppelin.jpg" data-miniatura1="img/cantantes/led-zeppelin.jpg" data-miniatura2="img/cantantes/led-zeppelin.jpg" data-miniatura3="img/cantantes/led-zeppelin.jpg" data-miniatura4="img/cantantes/led-zeppelin.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/led-zeppelin.jpg" alt="Cuadro de Led Zeppelin" loading="lazy" class="imagen-producto" data-titulo="Led Zeppelin" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=led-zeppelin'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Led Zeppelin</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="the-rolling-stones" data-nombre="The Rolling Stones" data-precio="12990" data-imagen="img/cantantes/the-rolling-stones.jpg" data-miniatura1="img/cantantes/the-rolling-stones.jpg" data-miniatura2="img/cantantes/the-rolling-stones.jpg" data-miniatura3="img/cantantes/the-rolling-stones.jpg" data-miniatura4="img/cantantes/the-rolling-stones.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/the-rolling-stones.jpg" alt="Cuadro de The Rolling Stones" loading="lazy" class="imagen-producto" data-titulo="The Rolling Stones" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=the-rolling-stones'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">The Rolling Stones</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="bon-jovi" data-nombre="Bon Jovi" data-precio="12990" data-imagen="img/cantantes/bon-jovi.jpg" data-miniatura1="img/cantantes/bon-jovi.jpg" data-miniatura2="img/cantantes/bon-jovi.jpg" data-miniatura3="img/cantantes/bon-jovi.jpg" data-miniatura4="img/cantantes/bon-jovi.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/bon-jovi.jpg" alt="Cuadro de Bon Jovi" loading="lazy" class="imagen-producto" data-titulo="Bon Jovi" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=bon-jovi'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Bon Jovi</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="kiss" data-nombre="Kiss" data-precio="12990" data-imagen="img/cantantes/kiss.jpg" data-miniatura1="img/cantantes/kiss.jpg" data-miniatura2="img/cantantes/kiss.jpg" data-miniatura3="img/cantantes/kiss.jpg" data-miniatura4="img/cantantes/kiss.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/kiss.jpg" alt="Cuadro de Kiss" loading="lazy" class="imagen-producto" data-titulo="Kiss" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=kiss'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Kiss</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="aerosmith" data-nombre="Aerosmith" data-precio="12990" data-imagen="img/cantantes/aerosmith.jpg" data-miniatura1="img/cantantes/aerosmith.jpg" data-miniatura2="img/cantantes/aerosmith.jpg" data-miniatura3="img/cantantes/aerosmith.jpg" data-miniatura4="img/cantantes/aerosmith.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/aerosmith.jpg" alt="Cuadro de Aerosmith" loading="lazy" class="imagen-producto" data-titulo="Aerosmith" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=aerosmith'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Aerosmith</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                </div>
+                <div class="contenedor-boton-ver-mas"><button class="boton-ver-mas" data-target="galeria-rock-clasico" data-expanded="false">Ver más</button></div>
+            </div>
+        </section>
+        <section class="seccion-productos" id="metal-hard-rock">
+            <div class="contenedor-seccion">
+                <div class="encabezado-seccion"><h2 class="titulo-seccion">Metal y Hard Rock</h2><p class="subtitulo-seccion">Cuadros en aluminio HD de artistas y bandas de esta categoría.</p></div>
+                <div class="galeria-productos" id="galeria-metal-hard-rock">
+                    <article class="producto-item" data-id="metallica" data-nombre="Metallica" data-precio="12990" data-imagen="img/cantantes/metallica.jpg" data-miniatura1="img/cantantes/metallica.jpg" data-miniatura2="img/cantantes/metallica.jpg" data-miniatura3="img/cantantes/metallica.jpg" data-miniatura4="img/cantantes/metallica.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/metallica.jpg" alt="Cuadro de Metallica" loading="lazy" class="imagen-producto" data-titulo="Metallica" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=metallica'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Metallica</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="iron-maiden" data-nombre="Iron Maiden" data-precio="12990" data-imagen="img/cantantes/iron-maiden.jpg" data-miniatura1="img/cantantes/iron-maiden.jpg" data-miniatura2="img/cantantes/iron-maiden.jpg" data-miniatura3="img/cantantes/iron-maiden.jpg" data-miniatura4="img/cantantes/iron-maiden.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/iron-maiden.jpg" alt="Cuadro de Iron Maiden" loading="lazy" class="imagen-producto" data-titulo="Iron Maiden" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=iron-maiden'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Iron Maiden</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="slipknot" data-nombre="Slipknot" data-precio="12990" data-imagen="img/cantantes/slipknot.jpg" data-miniatura1="img/cantantes/slipknot.jpg" data-miniatura2="img/cantantes/slipknot.jpg" data-miniatura3="img/cantantes/slipknot.jpg" data-miniatura4="img/cantantes/slipknot.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/slipknot.jpg" alt="Cuadro de Slipknot" loading="lazy" class="imagen-producto" data-titulo="Slipknot" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=slipknot'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Slipknot</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="black-sabbath" data-nombre="Black Sabbath" data-precio="12990" data-imagen="img/cantantes/black-sabbath.jpg" data-miniatura1="img/cantantes/black-sabbath.jpg" data-miniatura2="img/cantantes/black-sabbath.jpg" data-miniatura3="img/cantantes/black-sabbath.jpg" data-miniatura4="img/cantantes/black-sabbath.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/black-sabbath.jpg" alt="Cuadro de Black Sabbath" loading="lazy" class="imagen-producto" data-titulo="Black Sabbath" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=black-sabbath'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Black Sabbath</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="megadeth" data-nombre="Megadeth" data-precio="12990" data-imagen="img/cantantes/megadeth.jpg" data-miniatura1="img/cantantes/megadeth.jpg" data-miniatura2="img/cantantes/megadeth.jpg" data-miniatura3="img/cantantes/megadeth.jpg" data-miniatura4="img/cantantes/megadeth.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/megadeth.jpg" alt="Cuadro de Megadeth" loading="lazy" class="imagen-producto" data-titulo="Megadeth" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=megadeth'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Megadeth</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="system-of-a-down" data-nombre="System of a Down" data-precio="12990" data-imagen="img/cantantes/system-of-a-down.jpg" data-miniatura1="img/cantantes/system-of-a-down.jpg" data-miniatura2="img/cantantes/system-of-a-down.jpg" data-miniatura3="img/cantantes/system-of-a-down.jpg" data-miniatura4="img/cantantes/system-of-a-down.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/system-of-a-down.jpg" alt="Cuadro de System of a Down" loading="lazy" class="imagen-producto" data-titulo="System of a Down" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=system-of-a-down'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">System of a Down</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="rammstein" data-nombre="Rammstein" data-precio="12990" data-imagen="img/cantantes/rammstein.jpg" data-miniatura1="img/cantantes/rammstein.jpg" data-miniatura2="img/cantantes/rammstein.jpg" data-miniatura3="img/cantantes/rammstein.jpg" data-miniatura4="img/cantantes/rammstein.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/rammstein.jpg" alt="Cuadro de Rammstein" loading="lazy" class="imagen-producto" data-titulo="Rammstein" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=rammstein'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Rammstein</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="pantera" data-nombre="Pantera" data-precio="12990" data-imagen="img/cantantes/pantera.jpg" data-miniatura1="img/cantantes/pantera.jpg" data-miniatura2="img/cantantes/pantera.jpg" data-miniatura3="img/cantantes/pantera.jpg" data-miniatura4="img/cantantes/pantera.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/pantera.jpg" alt="Cuadro de Pantera" loading="lazy" class="imagen-producto" data-titulo="Pantera" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=pantera'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Pantera</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="korn" data-nombre="Korn" data-precio="12990" data-imagen="img/cantantes/korn.jpg" data-miniatura1="img/cantantes/korn.jpg" data-miniatura2="img/cantantes/korn.jpg" data-miniatura3="img/cantantes/korn.jpg" data-miniatura4="img/cantantes/korn.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/korn.jpg" alt="Cuadro de Korn" loading="lazy" class="imagen-producto" data-titulo="Korn" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=korn'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Korn</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="avenged-sevenfold" data-nombre="Avenged Sevenfold" data-precio="12990" data-imagen="img/cantantes/avenged-sevenfold.jpg" data-miniatura1="img/cantantes/avenged-sevenfold.jpg" data-miniatura2="img/cantantes/avenged-sevenfold.jpg" data-miniatura3="img/cantantes/avenged-sevenfold.jpg" data-miniatura4="img/cantantes/avenged-sevenfold.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/avenged-sevenfold.jpg" alt="Cuadro de Avenged Sevenfold" loading="lazy" class="imagen-producto" data-titulo="Avenged Sevenfold" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=avenged-sevenfold'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Avenged Sevenfold</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                </div>
+                <div class="contenedor-boton-ver-mas"><button class="boton-ver-mas" data-target="galeria-metal-hard-rock" data-expanded="false">Ver más</button></div>
+            </div>
+        </section>
+        <section class="seccion-productos" id="pop-internacional">
+            <div class="contenedor-seccion">
+                <div class="encabezado-seccion"><h2 class="titulo-seccion">Pop Internacional</h2><p class="subtitulo-seccion">Cuadros en aluminio HD de artistas y bandas de esta categoría.</p></div>
+                <div class="galeria-productos" id="galeria-pop-internacional">
+                    <article class="producto-item" data-id="taylor-swift" data-nombre="Taylor Swift" data-precio="12990" data-imagen="img/cantantes/taylor-swift.jpg" data-miniatura1="img/cantantes/taylor-swift.jpg" data-miniatura2="img/cantantes/taylor-swift.jpg" data-miniatura3="img/cantantes/taylor-swift.jpg" data-miniatura4="img/cantantes/taylor-swift.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/taylor-swift.jpg" alt="Cuadro de Taylor Swift" loading="lazy" class="imagen-producto" data-titulo="Taylor Swift" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=taylor-swift'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Taylor Swift</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="lady-gaga" data-nombre="Lady Gaga" data-precio="12990" data-imagen="img/cantantes/lady-gaga.jpg" data-miniatura1="img/cantantes/lady-gaga.jpg" data-miniatura2="img/cantantes/lady-gaga.jpg" data-miniatura3="img/cantantes/lady-gaga.jpg" data-miniatura4="img/cantantes/lady-gaga.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/lady-gaga.jpg" alt="Cuadro de Lady Gaga" loading="lazy" class="imagen-producto" data-titulo="Lady Gaga" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=lady-gaga'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Lady Gaga</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="billie-eilish" data-nombre="Billie Eilish" data-precio="12990" data-imagen="img/cantantes/billie-eilish.jpg" data-miniatura1="img/cantantes/billie-eilish.jpg" data-miniatura2="img/cantantes/billie-eilish.jpg" data-miniatura3="img/cantantes/billie-eilish.jpg" data-miniatura4="img/cantantes/billie-eilish.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/billie-eilish.jpg" alt="Cuadro de Billie Eilish" loading="lazy" class="imagen-producto" data-titulo="Billie Eilish" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=billie-eilish'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Billie Eilish</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="ariana-grande" data-nombre="Ariana Grande" data-precio="12990" data-imagen="img/cantantes/ariana-grande.jpg" data-miniatura1="img/cantantes/ariana-grande.jpg" data-miniatura2="img/cantantes/ariana-grande.jpg" data-miniatura3="img/cantantes/ariana-grande.jpg" data-miniatura4="img/cantantes/ariana-grande.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/ariana-grande.jpg" alt="Cuadro de Ariana Grande" loading="lazy" class="imagen-producto" data-titulo="Ariana Grande" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=ariana-grande'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Ariana Grande</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="dua-lipa" data-nombre="Dua Lipa" data-precio="12990" data-imagen="img/cantantes/dua-lipa.jpg" data-miniatura1="img/cantantes/dua-lipa.jpg" data-miniatura2="img/cantantes/dua-lipa.jpg" data-miniatura3="img/cantantes/dua-lipa.jpg" data-miniatura4="img/cantantes/dua-lipa.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/dua-lipa.jpg" alt="Cuadro de Dua Lipa" loading="lazy" class="imagen-producto" data-titulo="Dua Lipa" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=dua-lipa'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Dua Lipa</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="rihanna" data-nombre="Rihanna" data-precio="12990" data-imagen="img/cantantes/rihanna.jpg" data-miniatura1="img/cantantes/rihanna.jpg" data-miniatura2="img/cantantes/rihanna.jpg" data-miniatura3="img/cantantes/rihanna.jpg" data-miniatura4="img/cantantes/rihanna.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/rihanna.jpg" alt="Cuadro de Rihanna" loading="lazy" class="imagen-producto" data-titulo="Rihanna" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=rihanna'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Rihanna</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="adele" data-nombre="Adele" data-precio="12990" data-imagen="img/cantantes/adele.jpg" data-miniatura1="img/cantantes/adele.jpg" data-miniatura2="img/cantantes/adele.jpg" data-miniatura3="img/cantantes/adele.jpg" data-miniatura4="img/cantantes/adele.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/adele.jpg" alt="Cuadro de Adele" loading="lazy" class="imagen-producto" data-titulo="Adele" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=adele'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Adele</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="bruno-mars" data-nombre="Bruno Mars" data-precio="12990" data-imagen="img/cantantes/bruno-mars.jpg" data-miniatura1="img/cantantes/bruno-mars.jpg" data-miniatura2="img/cantantes/bruno-mars.jpg" data-miniatura3="img/cantantes/bruno-mars.jpg" data-miniatura4="img/cantantes/bruno-mars.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/bruno-mars.jpg" alt="Cuadro de Bruno Mars" loading="lazy" class="imagen-producto" data-titulo="Bruno Mars" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=bruno-mars'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Bruno Mars</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="ed-sheeran" data-nombre="Ed Sheeran" data-precio="12990" data-imagen="img/cantantes/ed-sheeran.jpg" data-miniatura1="img/cantantes/ed-sheeran.jpg" data-miniatura2="img/cantantes/ed-sheeran.jpg" data-miniatura3="img/cantantes/ed-sheeran.jpg" data-miniatura4="img/cantantes/ed-sheeran.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/ed-sheeran.jpg" alt="Cuadro de Ed Sheeran" loading="lazy" class="imagen-producto" data-titulo="Ed Sheeran" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=ed-sheeran'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Ed Sheeran</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="the-weeknd" data-nombre="The Weeknd" data-precio="12990" data-imagen="img/cantantes/the-weeknd.jpg" data-miniatura1="img/cantantes/the-weeknd.jpg" data-miniatura2="img/cantantes/the-weeknd.jpg" data-miniatura3="img/cantantes/the-weeknd.jpg" data-miniatura4="img/cantantes/the-weeknd.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/the-weeknd.jpg" alt="Cuadro de The Weeknd" loading="lazy" class="imagen-producto" data-titulo="The Weeknd" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=the-weeknd'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">The Weeknd</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                </div>
+                <div class="contenedor-boton-ver-mas"><button class="boton-ver-mas" data-target="galeria-pop-internacional" data-expanded="false">Ver más</button></div>
+            </div>
+        </section>
+        <section class="seccion-productos" id="rap-hiphop">
+            <div class="contenedor-seccion">
+                <div class="encabezado-seccion"><h2 class="titulo-seccion">Rap y Hip-Hop</h2><p class="subtitulo-seccion">Cuadros en aluminio HD de artistas y bandas de esta categoría.</p></div>
+                <div class="galeria-productos" id="galeria-rap-hiphop">
+                    <article class="producto-item" data-id="eminem" data-nombre="Eminem" data-precio="12990" data-imagen="img/cantantes/eminem.jpg" data-miniatura1="img/cantantes/eminem.jpg" data-miniatura2="img/cantantes/eminem.jpg" data-miniatura3="img/cantantes/eminem.jpg" data-miniatura4="img/cantantes/eminem.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/eminem.jpg" alt="Cuadro de Eminem" loading="lazy" class="imagen-producto" data-titulo="Eminem" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=eminem'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Eminem</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="2pac" data-nombre="2Pac" data-precio="12990" data-imagen="img/cantantes/2pac.jpg" data-miniatura1="img/cantantes/2pac.jpg" data-miniatura2="img/cantantes/2pac.jpg" data-miniatura3="img/cantantes/2pac.jpg" data-miniatura4="img/cantantes/2pac.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/2pac.jpg" alt="Cuadro de 2Pac" loading="lazy" class="imagen-producto" data-titulo="2Pac" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=2pac'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">2Pac</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="notorious-big" data-nombre="Notorious BIG" data-precio="12990" data-imagen="img/cantantes/notorious-big.jpg" data-miniatura1="img/cantantes/notorious-big.jpg" data-miniatura2="img/cantantes/notorious-big.jpg" data-miniatura3="img/cantantes/notorious-big.jpg" data-miniatura4="img/cantantes/notorious-big.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/notorious-big.jpg" alt="Cuadro de Notorious BIG" loading="lazy" class="imagen-producto" data-titulo="Notorious BIG" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=notorious-big'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Notorious BIG</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="snoop-dogg" data-nombre="Snoop Dogg" data-precio="12990" data-imagen="img/cantantes/snoop-dogg.jpg" data-miniatura1="img/cantantes/snoop-dogg.jpg" data-miniatura2="img/cantantes/snoop-dogg.jpg" data-miniatura3="img/cantantes/snoop-dogg.jpg" data-miniatura4="img/cantantes/snoop-dogg.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/snoop-dogg.jpg" alt="Cuadro de Snoop Dogg" loading="lazy" class="imagen-producto" data-titulo="Snoop Dogg" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=snoop-dogg'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Snoop Dogg</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="dr-dre" data-nombre="Dr Dre" data-precio="12990" data-imagen="img/cantantes/dr-dre.jpg" data-miniatura1="img/cantantes/dr-dre.jpg" data-miniatura2="img/cantantes/dr-dre.jpg" data-miniatura3="img/cantantes/dr-dre.jpg" data-miniatura4="img/cantantes/dr-dre.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/dr-dre.jpg" alt="Cuadro de Dr Dre" loading="lazy" class="imagen-producto" data-titulo="Dr Dre" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=dr-dre'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Dr Dre</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="kendrick-lamar" data-nombre="Kendrick Lamar" data-precio="12990" data-imagen="img/cantantes/kendrick-lamar.jpg" data-miniatura1="img/cantantes/kendrick-lamar.jpg" data-miniatura2="img/cantantes/kendrick-lamar.jpg" data-miniatura3="img/cantantes/kendrick-lamar.jpg" data-miniatura4="img/cantantes/kendrick-lamar.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/kendrick-lamar.jpg" alt="Cuadro de Kendrick Lamar" loading="lazy" class="imagen-producto" data-titulo="Kendrick Lamar" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=kendrick-lamar'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Kendrick Lamar</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="travis-scott" data-nombre="Travis Scott" data-precio="12990" data-imagen="img/cantantes/travis-scott.jpg" data-miniatura1="img/cantantes/travis-scott.jpg" data-miniatura2="img/cantantes/travis-scott.jpg" data-miniatura3="img/cantantes/travis-scott.jpg" data-miniatura4="img/cantantes/travis-scott.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/travis-scott.jpg" alt="Cuadro de Travis Scott" loading="lazy" class="imagen-producto" data-titulo="Travis Scott" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=travis-scott'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Travis Scott</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="50-cent" data-nombre="50 Cent" data-precio="12990" data-imagen="img/cantantes/50-cent.jpg" data-miniatura1="img/cantantes/50-cent.jpg" data-miniatura2="img/cantantes/50-cent.jpg" data-miniatura3="img/cantantes/50-cent.jpg" data-miniatura4="img/cantantes/50-cent.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/50-cent.jpg" alt="Cuadro de 50 Cent" loading="lazy" class="imagen-producto" data-titulo="50 Cent" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=50-cent'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">50 Cent</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="ice-cube" data-nombre="Ice Cube" data-precio="12990" data-imagen="img/cantantes/ice-cube.jpg" data-miniatura1="img/cantantes/ice-cube.jpg" data-miniatura2="img/cantantes/ice-cube.jpg" data-miniatura3="img/cantantes/ice-cube.jpg" data-miniatura4="img/cantantes/ice-cube.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/ice-cube.jpg" alt="Cuadro de Ice Cube" loading="lazy" class="imagen-producto" data-titulo="Ice Cube" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=ice-cube'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Ice Cube</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="kanye-west" data-nombre="Kanye West" data-precio="12990" data-imagen="img/cantantes/kanye-west.jpg" data-miniatura1="img/cantantes/kanye-west.jpg" data-miniatura2="img/cantantes/kanye-west.jpg" data-miniatura3="img/cantantes/kanye-west.jpg" data-miniatura4="img/cantantes/kanye-west.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/kanye-west.jpg" alt="Cuadro de Kanye West" loading="lazy" class="imagen-producto" data-titulo="Kanye West" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=kanye-west'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Kanye West</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                </div>
+                <div class="contenedor-boton-ver-mas"><button class="boton-ver-mas" data-target="galeria-rap-hiphop" data-expanded="false">Ver más</button></div>
+            </div>
+        </section>
+        <section class="seccion-productos" id="reggaeton-urbano">
+            <div class="contenedor-seccion">
+                <div class="encabezado-seccion"><h2 class="titulo-seccion">Reggaetón y Urbano</h2><p class="subtitulo-seccion">Cuadros en aluminio HD de artistas y bandas de esta categoría.</p></div>
+                <div class="galeria-productos" id="galeria-reggaeton-urbano">
+                    <article class="producto-item" data-id="bad-bunny" data-nombre="Bad Bunny" data-precio="12990" data-imagen="img/cantantes/bad-bunny.jpg" data-miniatura1="img/cantantes/bad-bunny.jpg" data-miniatura2="img/cantantes/bad-bunny.jpg" data-miniatura3="img/cantantes/bad-bunny.jpg" data-miniatura4="img/cantantes/bad-bunny.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/bad-bunny.jpg" alt="Cuadro de Bad Bunny" loading="lazy" class="imagen-producto" data-titulo="Bad Bunny" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=bad-bunny'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Bad Bunny</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="karol-g" data-nombre="Karol G" data-precio="12990" data-imagen="img/cantantes/karol-g.jpg" data-miniatura1="img/cantantes/karol-g.jpg" data-miniatura2="img/cantantes/karol-g.jpg" data-miniatura3="img/cantantes/karol-g.jpg" data-miniatura4="img/cantantes/karol-g.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/karol-g.jpg" alt="Cuadro de Karol G" loading="lazy" class="imagen-producto" data-titulo="Karol G" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=karol-g'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Karol G</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="daddy-yankee" data-nombre="Daddy Yankee" data-precio="12990" data-imagen="img/cantantes/daddy-yankee.jpg" data-miniatura1="img/cantantes/daddy-yankee.jpg" data-miniatura2="img/cantantes/daddy-yankee.jpg" data-miniatura3="img/cantantes/daddy-yankee.jpg" data-miniatura4="img/cantantes/daddy-yankee.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/daddy-yankee.jpg" alt="Cuadro de Daddy Yankee" loading="lazy" class="imagen-producto" data-titulo="Daddy Yankee" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=daddy-yankee'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Daddy Yankee</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="feid" data-nombre="Feid" data-precio="12990" data-imagen="img/cantantes/feid.jpg" data-miniatura1="img/cantantes/feid.jpg" data-miniatura2="img/cantantes/feid.jpg" data-miniatura3="img/cantantes/feid.jpg" data-miniatura4="img/cantantes/feid.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/feid.jpg" alt="Cuadro de Feid" loading="lazy" class="imagen-producto" data-titulo="Feid" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=feid'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Feid</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="rauw-alejandro" data-nombre="Rauw Alejandro" data-precio="12990" data-imagen="img/cantantes/rauw-alejandro.jpg" data-miniatura1="img/cantantes/rauw-alejandro.jpg" data-miniatura2="img/cantantes/rauw-alejandro.jpg" data-miniatura3="img/cantantes/rauw-alejandro.jpg" data-miniatura4="img/cantantes/rauw-alejandro.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/rauw-alejandro.jpg" alt="Cuadro de Rauw Alejandro" loading="lazy" class="imagen-producto" data-titulo="Rauw Alejandro" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=rauw-alejandro'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Rauw Alejandro</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="j-balvin" data-nombre="J Balvin" data-precio="12990" data-imagen="img/cantantes/j-balvin.jpg" data-miniatura1="img/cantantes/j-balvin.jpg" data-miniatura2="img/cantantes/j-balvin.jpg" data-miniatura3="img/cantantes/j-balvin.jpg" data-miniatura4="img/cantantes/j-balvin.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/j-balvin.jpg" alt="Cuadro de J Balvin" loading="lazy" class="imagen-producto" data-titulo="J Balvin" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=j-balvin'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">J Balvin</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="don-omar" data-nombre="Don Omar" data-precio="12990" data-imagen="img/cantantes/don-omar.jpg" data-miniatura1="img/cantantes/don-omar.jpg" data-miniatura2="img/cantantes/don-omar.jpg" data-miniatura3="img/cantantes/don-omar.jpg" data-miniatura4="img/cantantes/don-omar.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/don-omar.jpg" alt="Cuadro de Don Omar" loading="lazy" class="imagen-producto" data-titulo="Don Omar" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=don-omar'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Don Omar</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="ozuna" data-nombre="Ozuna" data-precio="12990" data-imagen="img/cantantes/ozuna.jpg" data-miniatura1="img/cantantes/ozuna.jpg" data-miniatura2="img/cantantes/ozuna.jpg" data-miniatura3="img/cantantes/ozuna.jpg" data-miniatura4="img/cantantes/ozuna.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/ozuna.jpg" alt="Cuadro de Ozuna" loading="lazy" class="imagen-producto" data-titulo="Ozuna" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=ozuna'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Ozuna</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="anuel-aa" data-nombre="Anuel AA" data-precio="12990" data-imagen="img/cantantes/anuel-aa.jpg" data-miniatura1="img/cantantes/anuel-aa.jpg" data-miniatura2="img/cantantes/anuel-aa.jpg" data-miniatura3="img/cantantes/anuel-aa.jpg" data-miniatura4="img/cantantes/anuel-aa.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/anuel-aa.jpg" alt="Cuadro de Anuel AA" loading="lazy" class="imagen-producto" data-titulo="Anuel AA" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=anuel-aa'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Anuel AA</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="maluma" data-nombre="Maluma" data-precio="12990" data-imagen="img/cantantes/maluma.jpg" data-miniatura1="img/cantantes/maluma.jpg" data-miniatura2="img/cantantes/maluma.jpg" data-miniatura3="img/cantantes/maluma.jpg" data-miniatura4="img/cantantes/maluma.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/maluma.jpg" alt="Cuadro de Maluma" loading="lazy" class="imagen-producto" data-titulo="Maluma" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=maluma'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Maluma</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                </div>
+                <div class="contenedor-boton-ver-mas"><button class="boton-ver-mas" data-target="galeria-reggaeton-urbano" data-expanded="false">Ver más</button></div>
+            </div>
+        </section>
+        <section class="seccion-productos" id="musica-latina">
+            <div class="contenedor-seccion">
+                <div class="encabezado-seccion"><h2 class="titulo-seccion">Música Latina</h2><p class="subtitulo-seccion">Cuadros en aluminio HD de artistas y bandas de esta categoría.</p></div>
+                <div class="galeria-productos" id="galeria-musica-latina">
+                    <article class="producto-item" data-id="luis-miguel" data-nombre="Luis Miguel" data-precio="12990" data-imagen="img/cantantes/luis-miguel.jpg" data-miniatura1="img/cantantes/luis-miguel.jpg" data-miniatura2="img/cantantes/luis-miguel.jpg" data-miniatura3="img/cantantes/luis-miguel.jpg" data-miniatura4="img/cantantes/luis-miguel.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/luis-miguel.jpg" alt="Cuadro de Luis Miguel" loading="lazy" class="imagen-producto" data-titulo="Luis Miguel" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=luis-miguel'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Luis Miguel</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="juan-gabriel" data-nombre="Juan Gabriel" data-precio="12990" data-imagen="img/cantantes/juan-gabriel.jpg" data-miniatura1="img/cantantes/juan-gabriel.jpg" data-miniatura2="img/cantantes/juan-gabriel.jpg" data-miniatura3="img/cantantes/juan-gabriel.jpg" data-miniatura4="img/cantantes/juan-gabriel.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/juan-gabriel.jpg" alt="Cuadro de Juan Gabriel" loading="lazy" class="imagen-producto" data-titulo="Juan Gabriel" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=juan-gabriel'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Juan Gabriel</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="vicente-fernandez" data-nombre="Vicente Fernández" data-precio="12990" data-imagen="img/cantantes/vicente-fernandez.jpg" data-miniatura1="img/cantantes/vicente-fernandez.jpg" data-miniatura2="img/cantantes/vicente-fernandez.jpg" data-miniatura3="img/cantantes/vicente-fernandez.jpg" data-miniatura4="img/cantantes/vicente-fernandez.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/vicente-fernandez.jpg" alt="Cuadro de Vicente Fernández" loading="lazy" class="imagen-producto" data-titulo="Vicente Fernández" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=vicente-fernandez'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Vicente Fernández</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="marco-antonio-solis" data-nombre="Marco Antonio Solís" data-precio="12990" data-imagen="img/cantantes/marco-antonio-solis.jpg" data-miniatura1="img/cantantes/marco-antonio-solis.jpg" data-miniatura2="img/cantantes/marco-antonio-solis.jpg" data-miniatura3="img/cantantes/marco-antonio-solis.jpg" data-miniatura4="img/cantantes/marco-antonio-solis.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/marco-antonio-solis.jpg" alt="Cuadro de Marco Antonio Solís" loading="lazy" class="imagen-producto" data-titulo="Marco Antonio Solís" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=marco-antonio-solis'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Marco Antonio Solís</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="marc-anthony" data-nombre="Marc Anthony" data-precio="12990" data-imagen="img/cantantes/marc-anthony.jpg" data-miniatura1="img/cantantes/marc-anthony.jpg" data-miniatura2="img/cantantes/marc-anthony.jpg" data-miniatura3="img/cantantes/marc-anthony.jpg" data-miniatura4="img/cantantes/marc-anthony.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/marc-anthony.jpg" alt="Cuadro de Marc Anthony" loading="lazy" class="imagen-producto" data-titulo="Marc Anthony" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=marc-anthony'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Marc Anthony</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="romeo-santos" data-nombre="Romeo Santos" data-precio="12990" data-imagen="img/cantantes/romeo-santos.jpg" data-miniatura1="img/cantantes/romeo-santos.jpg" data-miniatura2="img/cantantes/romeo-santos.jpg" data-miniatura3="img/cantantes/romeo-santos.jpg" data-miniatura4="img/cantantes/romeo-santos.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/romeo-santos.jpg" alt="Cuadro de Romeo Santos" loading="lazy" class="imagen-producto" data-titulo="Romeo Santos" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=romeo-santos'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Romeo Santos</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="mon-laferte" data-nombre="Mon Laferte" data-precio="12990" data-imagen="img/cantantes/mon-laferte.jpg" data-miniatura1="img/cantantes/mon-laferte.jpg" data-miniatura2="img/cantantes/mon-laferte.jpg" data-miniatura3="img/cantantes/mon-laferte.jpg" data-miniatura4="img/cantantes/mon-laferte.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/mon-laferte.jpg" alt="Cuadro de Mon Laferte" loading="lazy" class="imagen-producto" data-titulo="Mon Laferte" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=mon-laferte'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Mon Laferte</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="los-bunkers" data-nombre="Los Bunkers" data-precio="12990" data-imagen="img/cantantes/los-bunkers.jpg" data-miniatura1="img/cantantes/los-bunkers.jpg" data-miniatura2="img/cantantes/los-bunkers.jpg" data-miniatura3="img/cantantes/los-bunkers.jpg" data-miniatura4="img/cantantes/los-bunkers.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/los-bunkers.jpg" alt="Cuadro de Los Bunkers" loading="lazy" class="imagen-producto" data-titulo="Los Bunkers" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=los-bunkers'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Los Bunkers</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="ricardo-arjona" data-nombre="Ricardo Arjona" data-precio="12990" data-imagen="img/cantantes/ricardo-arjona.jpg" data-miniatura1="img/cantantes/ricardo-arjona.jpg" data-miniatura2="img/cantantes/ricardo-arjona.jpg" data-miniatura3="img/cantantes/ricardo-arjona.jpg" data-miniatura4="img/cantantes/ricardo-arjona.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/ricardo-arjona.jpg" alt="Cuadro de Ricardo Arjona" loading="lazy" class="imagen-producto" data-titulo="Ricardo Arjona" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=ricardo-arjona'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Ricardo Arjona</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="shakira" data-nombre="Shakira" data-precio="12990" data-imagen="img/cantantes/shakira.jpg" data-miniatura1="img/cantantes/shakira.jpg" data-miniatura2="img/cantantes/shakira.jpg" data-miniatura3="img/cantantes/shakira.jpg" data-miniatura4="img/cantantes/shakira.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/shakira.jpg" alt="Cuadro de Shakira" loading="lazy" class="imagen-producto" data-titulo="Shakira" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=shakira'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Shakira</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                </div>
+                <div class="contenedor-boton-ver-mas"><button class="boton-ver-mas" data-target="galeria-musica-latina" data-expanded="false">Ver más</button></div>
+            </div>
+        </section>
+        <section class="seccion-productos" id="kpop">
+            <div class="contenedor-seccion">
+                <div class="encabezado-seccion"><h2 class="titulo-seccion">K-Pop</h2><p class="subtitulo-seccion">Cuadros en aluminio HD de artistas y bandas de esta categoría.</p></div>
+                <div class="galeria-productos" id="galeria-kpop">
+                    <article class="producto-item" data-id="bts" data-nombre="BTS" data-precio="12990" data-imagen="img/cantantes/bts.jpg" data-miniatura1="img/cantantes/bts.jpg" data-miniatura2="img/cantantes/bts.jpg" data-miniatura3="img/cantantes/bts.jpg" data-miniatura4="img/cantantes/bts.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/bts.jpg" alt="Cuadro de BTS" loading="lazy" class="imagen-producto" data-titulo="BTS" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=bts'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">BTS</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="blackpink" data-nombre="BLACKPINK" data-precio="12990" data-imagen="img/cantantes/blackpink.jpg" data-miniatura1="img/cantantes/blackpink.jpg" data-miniatura2="img/cantantes/blackpink.jpg" data-miniatura3="img/cantantes/blackpink.jpg" data-miniatura4="img/cantantes/blackpink.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/blackpink.jpg" alt="Cuadro de BLACKPINK" loading="lazy" class="imagen-producto" data-titulo="BLACKPINK" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=blackpink'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">BLACKPINK</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="stray-kids" data-nombre="Stray Kids" data-precio="12990" data-imagen="img/cantantes/stray-kids.jpg" data-miniatura1="img/cantantes/stray-kids.jpg" data-miniatura2="img/cantantes/stray-kids.jpg" data-miniatura3="img/cantantes/stray-kids.jpg" data-miniatura4="img/cantantes/stray-kids.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/stray-kids.jpg" alt="Cuadro de Stray Kids" loading="lazy" class="imagen-producto" data-titulo="Stray Kids" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=stray-kids'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Stray Kids</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="twice" data-nombre="TWICE" data-precio="12990" data-imagen="img/cantantes/twice.jpg" data-miniatura1="img/cantantes/twice.jpg" data-miniatura2="img/cantantes/twice.jpg" data-miniatura3="img/cantantes/twice.jpg" data-miniatura4="img/cantantes/twice.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/twice.jpg" alt="Cuadro de TWICE" loading="lazy" class="imagen-producto" data-titulo="TWICE" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=twice'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">TWICE</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="exo" data-nombre="EXO" data-precio="12990" data-imagen="img/cantantes/exo.jpg" data-miniatura1="img/cantantes/exo.jpg" data-miniatura2="img/cantantes/exo.jpg" data-miniatura3="img/cantantes/exo.jpg" data-miniatura4="img/cantantes/exo.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/exo.jpg" alt="Cuadro de EXO" loading="lazy" class="imagen-producto" data-titulo="EXO" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=exo'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">EXO</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="seventeen" data-nombre="SEVENTEEN" data-precio="12990" data-imagen="img/cantantes/seventeen.jpg" data-miniatura1="img/cantantes/seventeen.jpg" data-miniatura2="img/cantantes/seventeen.jpg" data-miniatura3="img/cantantes/seventeen.jpg" data-miniatura4="img/cantantes/seventeen.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/seventeen.jpg" alt="Cuadro de SEVENTEEN" loading="lazy" class="imagen-producto" data-titulo="SEVENTEEN" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=seventeen'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">SEVENTEEN</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="ateez" data-nombre="ATEEZ" data-precio="12990" data-imagen="img/cantantes/ateez.jpg" data-miniatura1="img/cantantes/ateez.jpg" data-miniatura2="img/cantantes/ateez.jpg" data-miniatura3="img/cantantes/ateez.jpg" data-miniatura4="img/cantantes/ateez.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/ateez.jpg" alt="Cuadro de ATEEZ" loading="lazy" class="imagen-producto" data-titulo="ATEEZ" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=ateez'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">ATEEZ</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="enhypen" data-nombre="ENHYPEN" data-precio="12990" data-imagen="img/cantantes/enhypen.jpg" data-miniatura1="img/cantantes/enhypen.jpg" data-miniatura2="img/cantantes/enhypen.jpg" data-miniatura3="img/cantantes/enhypen.jpg" data-miniatura4="img/cantantes/enhypen.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/enhypen.jpg" alt="Cuadro de ENHYPEN" loading="lazy" class="imagen-producto" data-titulo="ENHYPEN" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=enhypen'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">ENHYPEN</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="newjeans" data-nombre="NewJeans" data-precio="12990" data-imagen="img/cantantes/newjeans.jpg" data-miniatura1="img/cantantes/newjeans.jpg" data-miniatura2="img/cantantes/newjeans.jpg" data-miniatura3="img/cantantes/newjeans.jpg" data-miniatura4="img/cantantes/newjeans.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/newjeans.jpg" alt="Cuadro de NewJeans" loading="lazy" class="imagen-producto" data-titulo="NewJeans" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=newjeans'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">NewJeans</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="le-sserafim" data-nombre="LE SSERAFIM" data-precio="12990" data-imagen="img/cantantes/le-sserafim.jpg" data-miniatura1="img/cantantes/le-sserafim.jpg" data-miniatura2="img/cantantes/le-sserafim.jpg" data-miniatura3="img/cantantes/le-sserafim.jpg" data-miniatura4="img/cantantes/le-sserafim.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/le-sserafim.jpg" alt="Cuadro de LE SSERAFIM" loading="lazy" class="imagen-producto" data-titulo="LE SSERAFIM" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=le-sserafim'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">LE SSERAFIM</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                </div>
+                <div class="contenedor-boton-ver-mas"><button class="boton-ver-mas" data-target="galeria-kpop" data-expanded="false">Ver más</button></div>
+            </div>
+        </section>
+        <section class="seccion-productos" id="leyendas-musica">
+            <div class="contenedor-seccion">
+                <div class="encabezado-seccion"><h2 class="titulo-seccion">Leyendas de la Música</h2><p class="subtitulo-seccion">Cuadros en aluminio HD de artistas y bandas de esta categoría.</p></div>
+                <div class="galeria-productos" id="galeria-leyendas-musica">
+                    <article class="producto-item" data-id="david-bowie" data-nombre="David Bowie" data-precio="12990" data-imagen="img/cantantes/david-bowie.jpg" data-miniatura1="img/cantantes/david-bowie.jpg" data-miniatura2="img/cantantes/david-bowie.jpg" data-miniatura3="img/cantantes/david-bowie.jpg" data-miniatura4="img/cantantes/david-bowie.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/david-bowie.jpg" alt="Cuadro de David Bowie" loading="lazy" class="imagen-producto" data-titulo="David Bowie" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=david-bowie'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">David Bowie</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="prince" data-nombre="Prince" data-precio="12990" data-imagen="img/cantantes/prince.jpg" data-miniatura1="img/cantantes/prince.jpg" data-miniatura2="img/cantantes/prince.jpg" data-miniatura3="img/cantantes/prince.jpg" data-miniatura4="img/cantantes/prince.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/prince.jpg" alt="Cuadro de Prince" loading="lazy" class="imagen-producto" data-titulo="Prince" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=prince'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Prince</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="whitney-houston" data-nombre="Whitney Houston" data-precio="12990" data-imagen="img/cantantes/whitney-houston.jpg" data-miniatura1="img/cantantes/whitney-houston.jpg" data-miniatura2="img/cantantes/whitney-houston.jpg" data-miniatura3="img/cantantes/whitney-houston.jpg" data-miniatura4="img/cantantes/whitney-houston.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/whitney-houston.jpg" alt="Cuadro de Whitney Houston" loading="lazy" class="imagen-producto" data-titulo="Whitney Houston" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=whitney-houston'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Whitney Houston</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="amy-winehouse" data-nombre="Amy Winehouse" data-precio="12990" data-imagen="img/cantantes/amy-winehouse.jpg" data-miniatura1="img/cantantes/amy-winehouse.jpg" data-miniatura2="img/cantantes/amy-winehouse.jpg" data-miniatura3="img/cantantes/amy-winehouse.jpg" data-miniatura4="img/cantantes/amy-winehouse.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/amy-winehouse.jpg" alt="Cuadro de Amy Winehouse" loading="lazy" class="imagen-producto" data-titulo="Amy Winehouse" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=amy-winehouse'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Amy Winehouse</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="tina-turner" data-nombre="Tina Turner" data-precio="12990" data-imagen="img/cantantes/tina-turner.jpg" data-miniatura1="img/cantantes/tina-turner.jpg" data-miniatura2="img/cantantes/tina-turner.jpg" data-miniatura3="img/cantantes/tina-turner.jpg" data-miniatura4="img/cantantes/tina-turner.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/tina-turner.jpg" alt="Cuadro de Tina Turner" loading="lazy" class="imagen-producto" data-titulo="Tina Turner" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=tina-turner'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Tina Turner</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="frank-sinatra" data-nombre="Frank Sinatra" data-precio="12990" data-imagen="img/cantantes/frank-sinatra.jpg" data-miniatura1="img/cantantes/frank-sinatra.jpg" data-miniatura2="img/cantantes/frank-sinatra.jpg" data-miniatura3="img/cantantes/frank-sinatra.jpg" data-miniatura4="img/cantantes/frank-sinatra.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/frank-sinatra.jpg" alt="Cuadro de Frank Sinatra" loading="lazy" class="imagen-producto" data-titulo="Frank Sinatra" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=frank-sinatra'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Frank Sinatra</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="aretha-franklin" data-nombre="Aretha Franklin" data-precio="12990" data-imagen="img/cantantes/aretha-franklin.jpg" data-miniatura1="img/cantantes/aretha-franklin.jpg" data-miniatura2="img/cantantes/aretha-franklin.jpg" data-miniatura3="img/cantantes/aretha-franklin.jpg" data-miniatura4="img/cantantes/aretha-franklin.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/aretha-franklin.jpg" alt="Cuadro de Aretha Franklin" loading="lazy" class="imagen-producto" data-titulo="Aretha Franklin" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=aretha-franklin'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Aretha Franklin</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="bob-marley" data-nombre="Bob Marley" data-precio="12990" data-imagen="img/cantantes/bob-marley.jpg" data-miniatura1="img/cantantes/bob-marley.jpg" data-miniatura2="img/cantantes/bob-marley.jpg" data-miniatura3="img/cantantes/bob-marley.jpg" data-miniatura4="img/cantantes/bob-marley.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/bob-marley.jpg" alt="Cuadro de Bob Marley" loading="lazy" class="imagen-producto" data-titulo="Bob Marley" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=bob-marley'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Bob Marley</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="elvis-presley" data-nombre="Elvis Presley" data-precio="12990" data-imagen="img/cantantes/elvis-presley.jpg" data-miniatura1="img/cantantes/elvis-presley.jpg" data-miniatura2="img/cantantes/elvis-presley.jpg" data-miniatura3="img/cantantes/elvis-presley.jpg" data-miniatura4="img/cantantes/elvis-presley.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/elvis-presley.jpg" alt="Cuadro de Elvis Presley" loading="lazy" class="imagen-producto" data-titulo="Elvis Presley" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=elvis-presley'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Elvis Presley</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                    <article class="producto-item" data-id="michael-jackson" data-nombre="Michael Jackson" data-precio="12990" data-imagen="img/cantantes/michael-jackson.jpg" data-miniatura1="img/cantantes/michael-jackson.jpg" data-miniatura2="img/cantantes/michael-jackson.jpg" data-miniatura3="img/cantantes/michael-jackson.jpg" data-miniatura4="img/cantantes/michael-jackson.jpg">
+                        <figure class="contenedor-imagen-producto"><img src="img/cantantes/michael-jackson.jpg" alt="Cuadro de Michael Jackson" loading="lazy" class="imagen-producto" data-titulo="Michael Jackson" data-medida="30x40 cm" data-precio="12990" width="300" height="400" onerror="this.src='https://placehold.co/600x800/161625/e94560?text=michael-jackson'"></figure>
+                        <div class="info-producto"><h3 class="titulo-producto">Michael Jackson</h3><p class="dimension-producto">Medida: 30x40 cm</p><p class="precio-producto">$12.990 CLP</p></div>
+                    </article>
+                </div>
+                <div class="contenedor-boton-ver-mas"><button class="boton-ver-mas" data-target="galeria-leyendas-musica" data-expanded="false">Ver más</button></div>
+            </div>
+        </section>
+
+        <section class="seccion-materiales">
+            <div class="contenedor-seccion">
+                <div class="encabezado-seccion"><h2 class="titulo-seccion">¿Por qué elegir aluminio?</h2><p class="subtitulo-seccion">Una presentación moderna para tus artistas favoritos.</p></div>
+                <div class="comparador-materiales">
+                    <div class="material-card" data-material="metal"><div class="material-icono-grande"><i class="fas fa-crown"></i></div><h3>Aluminio sublimado</h3><ul class="material-lista"><li><i class="fas fa-check"></i> Colores intensos</li><li><i class="fas fa-check"></i> Superficie brillante</li><li><i class="fas fa-check"></i> Resistente y durable</li><li><i class="fas fa-check"></i> Diseño sin marco</li></ul></div>
+                    <div class="material-card" data-material="lienzo"><div class="material-icono-grande"><i class="fas fa-scroll"></i></div><h3>Lienzo</h3><ul class="material-lista"><li><i class="fas fa-times"></i> Menor brillo</li><li><i class="fas fa-times"></i> Textura visible</li><li><i class="fas fa-times"></i> Puede deformarse</li><li><i class="fas fa-times"></i> Requiere bastidor</li></ul></div>
+                    <div class="material-card" data-material="papel"><div class="material-icono-grande"><i class="fas fa-file"></i></div><h3>Póster de papel</h3><ul class="material-lista"><li><i class="fas fa-times"></i> Menor resistencia</li><li><i class="fas fa-times"></i> Necesita marco</li><li><i class="fas fa-times"></i> Sensible a humedad</li><li><i class="fas fa-times"></i> Se dobla fácilmente</li></ul></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal-imagen" id="modal-imagen" aria-hidden="true">
+        <div class="modal-contenido">
+            <button class="cerrar-modal" id="cerrar-modal" aria-label="Cerrar ventana">&times;</button>
+            <img id="imagen-modal" src="" alt="Vista ampliada del cuadro">
+            <div class="info-modal">
+                <h3 id="titulo-modal">Cuadro musical</h3>
+                <p id="medida-modal">Medida: 30x40 cm</p>
+                <p id="precio-modal">$12.990 CLP</p>
+                <div class="acciones-modal"><a href="visualizacion.html" id="ver-detalles-link" class="btn-ver-detalle-modal">Ver detalles</a><a href="https://wa.me/56982045756" id="whatsapp-link" class="boton-whatsapp-modal" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Consultar</a></div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer-principal">
+        <div class="contenedor-footer">
+            <div class="columna-footer"><div class="logo-footer"><span class="titulo-logo">SublimArts</span></div><p>Cuadros personalizados en aluminio HD con colores intensos y terminación premium.</p></div>
+            <div class="columna-footer"><h4 class="titulo-columna">Categorías</h4><ul class="lista-enlaces"><li><a href="#rock-clasico">Rock clásico</a></li><li><a href="#metal-hard-rock">Metal</a></li><li><a href="#pop-internacional">Pop</a></li><li><a href="#rap-hiphop">Rap y Hip-Hop</a></li><li><a href="#reggaeton-urbano">Reggaetón</a></li><li><a href="#kpop">K-Pop</a></li></ul></div>
+            <div class="columna-footer"><h4 class="titulo-columna">Enlaces útiles</h4><ul class="lista-enlaces"><li><a href="index.html">Inicio</a></li><li><a href="#proceso-fabricacion">Nuestro proceso</a></li><li><a href="#cantantes-populares">Catálogo</a></li><li><a href="https://wa.me/56982045756">Cómo comprar</a></li></ul></div>
+            <div class="columna-footer"><h4 class="titulo-columna">Contacto</h4><div class="info-contacto"><p><i class="fas fa-map-marker-alt"></i> San Clemente, Región del Maule, Chile</p><p><i class="fas fa-phone"></i> <a href="tel:+56982045756">+56 9 8204 5756</a></p><p><i class="fas fa-envelope"></i> <a href="mailto:metalarts093@gmail.com">metalarts093@gmail.com</a></p><p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/56982045756">WhatsApp</a></p></div></div>
+        </div>
+        <div class="pie-footer"><p>&copy; 2026 SublimArts. Todos los derechos reservados.</p></div>
+    </footer>
+
+    <script src="js/manu.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const modal = document.getElementById('modal-imagen');
+            const imagenModal = document.getElementById('imagen-modal');
+            const tituloModal = document.getElementById('titulo-modal');
+            const medidaModal = document.getElementById('medida-modal');
+            const precioModal = document.getElementById('precio-modal');
+            const cerrarModal = document.getElementById('cerrar-modal');
+            const verDetallesLink = document.getElementById('ver-detalles-link');
+            const whatsappLink = document.getElementById('whatsapp-link');
+
+            function construirURLVisualizacion(datos) {
+                const params = new URLSearchParams();
+                params.set('nombre', datos.nombre);
+                params.set('precio', datos.precio);
+                params.set('imagen', datos.imagen);
+                ['miniatura1','miniatura2','miniatura3','miniatura4'].forEach(k => { if (datos[k]) params.set(k, datos[k]); });
+                return `visualizacion.html?${params.toString()}`;
+            }
+
+            document.getElementById('contenido-principal').addEventListener('click', function (e) {
+                const img = e.target.closest('.imagen-producto');
+                if (!img) return;
+                const articulo = img.closest('[data-nombre]');
+                if (!articulo) return;
+                const datos = { nombre: articulo.dataset.nombre || img.dataset.titulo || 'Producto', precio: articulo.dataset.precio || '12990', imagen: articulo.dataset.imagen || img.src, miniatura1: articulo.dataset.miniatura1, miniatura2: articulo.dataset.miniatura2, miniatura3: articulo.dataset.miniatura3, miniatura4: articulo.dataset.miniatura4 };
+                imagenModal.src = datos.imagen;
+                tituloModal.textContent = datos.nombre;
+                medidaModal.textContent = 'Medida: 30x40 cm';
+                precioModal.textContent = '$' + Number(datos.precio).toLocaleString('es-CL') + ' CLP';
+                verDetallesLink.href = construirURLVisualizacion(datos);
+                whatsappLink.href = 'https://wa.me/56982045756?text=' + encodeURIComponent(`Hola SublimArts, me interesa el cuadro "${datos.nombre}" de 30x40 cm por $${Number(datos.precio).toLocaleString('es-CL')} CLP. ¿Está disponible?`);
+                modal.classList.add('activo'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
+            });
+
+            function cerrar() { modal.classList.remove('activo'); modal.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+            cerrarModal.addEventListener('click', cerrar);
+            modal.addEventListener('click', e => { if (e.target === modal) cerrar(); });
+            document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrar(); });
+
+            document.querySelectorAll('.boton-ver-mas').forEach(boton => {
+                boton.addEventListener('click', function () {
+                    const target = document.getElementById(boton.dataset.target);
+                    const expanded = boton.dataset.expanded === 'true';
+                    target.classList.toggle('expandido', !expanded);
+                    boton.dataset.expanded = String(!expanded);
+                    boton.textContent = expanded ? 'Ver más' : 'Ver menos';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
